@@ -1,0 +1,40 @@
+$topbar-height: 3rem
+$bottombar-height: 4.5rem
+
+.ui.grid
+	margin: 0
+
+	.row
+		padding: 0
+
+		.column
+			padding: 0.5rem 0
+
+			&.three
+				background-color: #5D3863
+				color: white
+
+				.header
+					color: white
+
+			&.thirteen
+				padding: 1rem
+
+		&.fixed
+			left: 0
+			right: 0
+
+		&.content-row
+			position: fixed
+			left: 0
+			right: 0
+			top: 0
+			bottom: 0
+
+			.column
+				height: 100%
+				padding-top: $topbar-height
+				padding-bottom: $bottombar-height
+
+				&.three
+					background-color: #824F8A

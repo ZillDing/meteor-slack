@@ -1,0 +1,28 @@
+<template name="layout">
+	<div class="ui stackable grid">
+		<div class="row ui fixed top sticky">
+			<div class="three wide column tablet computer only">
+				{{> sites}}
+			</div>
+			<div class="thirteen wide column">
+				{{> title}}
+			</div>
+		</div>
+		<div class="row content-row">
+			<div class="three wide column tablet computer only">
+				{{> menu}}
+			</div>
+			<div class="thirteen wide column">
+				{{> messages}}
+			</div>
+		</div>
+		<div class="row ui fixed bottom sticky">
+			<div class="three wide column tablet computer only">
+				{{> status}}
+			</div>
+			<div class="thirteen wide column">
+				{{> input}}
+			</div>
+		</div>
+	</div>
+</template>
