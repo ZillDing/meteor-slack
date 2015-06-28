@@ -1,13 +1,15 @@
 <template name="layout">
 	<div class="ui stackable grid">
-		<div class="row ui fixed top sticky">
+		<!-- top row -->
+		<div class="row ui fixed top sticky top-row">
 			<div class="three wide column tablet computer only">
-				{{> sites}}
+				{{> site}}
 			</div>
 			<div class="thirteen wide column">
 				{{> title}}
 			</div>
 		</div>
+		<!-- content row -->
 		<div class="row content-row">
 			<div class="three wide column tablet computer only">
 				{{> menu}}
@@ -16,7 +18,8 @@
 				{{> messages}}
 			</div>
 		</div>
-		<div class="row ui fixed bottom sticky">
+		<!-- bottom row -->
+		<div class="row ui fixed bottom sticky bottom-row">
 			<div class="three wide column tablet computer only">
 				{{> status}}
 			</div>
