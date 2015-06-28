@@ -3,15 +3,18 @@
 		<div class="item">
 			CHANNELS
 			<div class="menu">
-				<a class="active item"><span>#</span> Search</a>
-				<a class="item"><span>#</span> Add</a>
-				<a class="item"><span>#</span> Remove</a>
+				{{#each channels}}
+				<a href="{{name}}" class="item"><span>#</span> {{name}}</a>
+				{{/each}}
+				<a class="item">
+					<em style="border-bottom: 1px dotted">Create new channel...</em>
+				</a>
 			</div>
 		</div>
 		<div class="item">
 			DIRECT MESSAGES
 			<div class="menu">
-				<a class="active item">Search</a>
+				<a class="item">Search</a>
 				<a class="item">Add</a>
 				<a class="item">Remove</a>
 			</div>
@@ -19,9 +22,12 @@
 		<div class="item">
 			PRIVATE GROUPS
 			<div class="menu">
-				<a class="active item">Search</a>
+				<a class="item">Search</a>
 				<a class="item">Add</a>
 				<a class="item">Remove</a>
+				<a class="item">
+					<em style="border-bottom: 1px dotted">Create new private group...</em>
+				</a>
 			</div>
 		</div>
 	</div>
