@@ -1,1 +1,20 @@
-<template name="messages"></template>
+<template name="messages">
+	<div class="ui comments" style="max-width: none">
+		{{#if Template.subscriptionsReady}}
+		{{#each messages}}
+		<div class="comment">
+			<a class="avatar">
+				<img src="/avatar/{{avatar}}.jpg" alt="avatar">
+			</a>
+			<div class="content">
+				<a class="author">{{username}}</a>
+				<div class="metadata">
+					<div class="date">{{createdAt}}</div>
+				</div>
+				<div class="text">{{text}}</div>
+			</div>
+		</div>
+		{{/each}}
+		{{/if}}
+	</div>
+</template>

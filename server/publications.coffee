@@ -4,7 +4,7 @@ Meteor.publish 'channels', ->
 Meteor.publish 'messages', ->
 	Messages.find()
 
-Meteor.publish 'messagesInChannel', (channelId) ->
-	check channelId, String
+Meteor.publish 'messagesInChannel', (channel) ->
+	check channel, String
 	Messages.find
-		channelId: channelId
+		channel: channel

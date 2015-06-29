@@ -4,11 +4,16 @@
 			CHANNELS
 			<div class="menu">
 				{{#each channels}}
-				<a href="{{name}}" class="item"><span>#</span> {{name}}</a>
+				{{> menu_channelItem}}
 				{{/each}}
-				<a class="item">
-					<em style="border-bottom: 1px dotted">Create new channel...</em>
-				</a>
+				{{#if currentUser}}
+				{{#if isAddingANewChannel}}
+				{{> menu_addNewChannelItem}}
+				{{/if}}
+				{{#unless isAddingANewChannel}}
+				{{> menu_createNewChannelItem}}
+				{{/unless}}
+				{{/if}}
 			</div>
 		</div>
 		<div class="item">
@@ -25,10 +30,27 @@
 				<a class="item">Search</a>
 				<a class="item">Add</a>
 				<a class="item">Remove</a>
-				<a class="item">
-					<em style="border-bottom: 1px dotted">Create new private group...</em>
-				</a>
 			</div>
 		</div>
 	</div>
+</template>
+
+<template name="menu_addNewChannelItem">
+	<div class="item ui transparent action input inverted">
+		<span>#</span>
+		<input type="text" name="channel name" placeholder="New channel...">
+		<i class="cancel icon" style="cursor: pointer"></i>
+	</div>
+</template>
+
+<template name="menu_channelItem">
+	<a href="{{name}}" class="item {{#if isCurrentChannel}}active{{/if}}">
+		<span>#</span> {{name}}
+	</a>
+</template>
+
+<template name="menu_createNewChannelItem">
+	<a class="item">
+		<em style="border-bottom: 1px dotted">Create new channel...</em>
+	</a>
 </template>

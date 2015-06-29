@@ -15,7 +15,7 @@
 				{{> menu}}
 			</div>
 			<div class="thirteen wide column">
-				{{> messages}}
+				{{> yield}}
 			</div>
 		</div>
 		<!-- bottom row -->
@@ -23,9 +23,11 @@
 			<div class="three wide column tablet computer only">
 				{{> status}}
 			</div>
+			{{#if currentUser}}
 			<div class="thirteen wide column">
 				{{> input}}
 			</div>
+			{{/if}}
 		</div>
 	</div>
 </template>

@@ -1,3 +1,3 @@
-Messages = new Mongo.Collection 'messages'
+@Messages = new Mongo.Collection 'messages'
 
-Channels = new Mongo.Collection 'channels'
+@Channels = new Mongo.Collection 'channels'
