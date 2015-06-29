@@ -2,9 +2,8 @@ Router.configure
 	layoutTemplate: 'layout'
 
 Router.route '/', ->
-	@render 'messages',
-		data: ->
-			channel: 'general'
+	Session.set 'currentChannel', 'general'
+	@next()
 
 # Router.route '/signin', ->
 # 	@render 'SignIn'
@@ -14,6 +13,5 @@ Router.route '/', ->
 # 	@redirect '/'
 
 Router.route '/:_channel', ->
-	@render 'messages',
-		data: ->
-			channel: @params._channel
+	Session.set 'currentChannel', @params._channel
+	@next()

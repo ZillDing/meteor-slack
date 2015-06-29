@@ -1,0 +1,9 @@
+<template name="error">
+	{{#if hasError}}
+	<div class="ui negative message">
+		<i class="close icon"></i>
+		<div class="header">{{error.error}}</div>
+		<p>{{error.message}}</p>
+	</div>
+	{{/if}}
+</template>

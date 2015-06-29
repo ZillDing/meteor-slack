@@ -1,7 +1,7 @@
 <template name="layout">
 	<div class="ui stackable grid">
 		<!-- top row -->
-		<div class="row ui fixed top sticky top-row">
+		<div class="row ui fixed top sticky">
 			<div class="three wide column tablet computer only">
 				{{> site}}
 			</div>
@@ -15,19 +15,18 @@
 				{{> menu}}
 			</div>
 			<div class="thirteen wide column">
-				{{> yield}}
+				{{> messages}}
 			</div>
 		</div>
 		<!-- bottom row -->
-		<div class="row ui fixed bottom sticky bottom-row">
+		<div class="row ui fixed bottom sticky">
 			<div class="three wide column tablet computer only">
 				{{> status}}
 			</div>
-			{{#if currentUser}}
 			<div class="thirteen wide column">
+				{{> error}}
 				{{> input}}
 			</div>
-			{{/if}}
 		</div>
 	</div>
 </template>

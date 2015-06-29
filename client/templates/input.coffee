@@ -6,7 +6,7 @@ Template.input.events
 				channel = Session.get 'currentChannel'
 				Meteor.call 'addMessage', channel, text, (error, result) ->
 					if error
-						console.error error
+						Session.set 'error', error
 					else
 						# clear the form
 						event.currentTarget.value = ''
