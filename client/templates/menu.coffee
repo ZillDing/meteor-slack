@@ -16,8 +16,11 @@ Template.menu_addNewChannelItem.events
 		if event.which is 13
 			channel = event.currentTarget.value.trim().toLowerCase()
 			if channel
-				Meteor.call 'addChannel', channel
-				Session.set 'isAddingANewChannel', false
+				Meteor.call 'addChannel', channel, (error, result) ->
+					if error
+						Session.set 'error', error
+					else
+						Session.set 'isAddingANewChannel', false
 
 Template.menu_addNewChannelItem.onRendered ->
 	@$('input').focus()

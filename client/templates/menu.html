@@ -6,14 +6,12 @@
 				{{#each channels}}
 				{{> menu_channelItem}}
 				{{/each}}
-				{{#if currentUser}}
 				{{#if isAddingANewChannel}}
 				{{> menu_addNewChannelItem}}
 				{{/if}}
 				{{#unless isAddingANewChannel}}
 				{{> menu_createNewChannelItem}}
 				{{/unless}}
-				{{/if}}
 			</div>
 		</div>
 		<div class="item">

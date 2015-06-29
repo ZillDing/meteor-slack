@@ -1,13 +1,11 @@
-Template.error.events
-	'click i': ->
+_dismissError = (dom) ->
+	$(dom).fadeOut ->
 		Session.set 'error', null
 
-Template.error.helpers
-	hasError: ->
-		if Session.get 'error'
-			true
-		else
-			false
+Template.error.events
+	'click i': (event) ->
+		_dismissError $(event.currentTarget).closest '.ui.message'
 
+Template.error.helpers
 	error: ->
 		Session.get 'error'
