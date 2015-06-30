@@ -1,13 +1,15 @@
-Template.status.events
-	'click .a.right': ->
-		# TODO: hide popup and logout
+################################################################################
+# _signedIn
+################################################################################
+Template.status_signedIn.events
+	'click a.right': (event) ->
+		# hide popup and logout
+		$(event.currentTarget).popup 'hide'
+		Router.go '/signout'
 
-	'mouseenter .a.right': ->
-		# TODO: show popup
-
-	'mouseleave .a.right': ->
-		# TODO: hide popup
-
-Template.status.helpers
+Template.status_signedIn.helpers
 	avatar: ->
 		Meteor.user()?.profile?.avatar ? 'default'
+
+Template.status_signedIn.onRendered ->
+	@$('a.right').popup()
