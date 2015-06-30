@@ -10,9 +10,9 @@ Router.route '/signin', ->
 	@render 'signin'
 	Session.set 'currentChannel', null
 
-# Router.route '/signout', ->
-# 	Meteor.logout()
-# 	@redirect '/'
+Router.route '/signout', ->
+	Meteor.logout()
+	@redirect '/'
 
 Router.route '/channel/:_channel', ->
 	channel = @params._channel

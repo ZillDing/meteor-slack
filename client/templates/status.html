@@ -3,22 +3,31 @@
 	<div class="ui big inverted list">
 		<div class="item">
 			<img class="ui avatar image" src="/avatar/{{avatar}}.jpg" alt="avatar">
+
 			<div class="content" style="padding-left: 1em">
 				<a class="header">{{currentUser.username}}</a>
 				<div class="description" style="font-size: 1rem">
 					online
 				</div>
 			</div>
+
+			<a href="/signout" class="ui right floated" data-content="Sign out" data-variation="inverted">
+				<i class="inverted large sign out icon"></i>
+			</a>
 		</div>
 	</div>
 	{{/if}}
 
 	{{#unless currentUser}}
-	<a href="/signin" class="ui inverted small header">
-		<i class="settings icon"></i>
-		<div class="content" style="text-decoration: underline">
-			Sign In
+	<div class="ui inverted list">
+		<div class="item">
+			<i class="inverted large sign in icon"></i>
+			<div class="content">
+				<h4 style="text-decoration: underline">
+					<a href="/signin">Sign In</a>
+				</h4>
+			</div>
 		</div>
-	</a>
+	</div>
 	{{/unless}}
 </template>
