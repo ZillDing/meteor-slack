@@ -1,0 +1,18 @@
+<template name="dimmer">
+	{{#unless status.connected}}
+	<div class="ui active page dimmer">
+		<div class="ui text loader">
+			<div class="ui inverted header">
+				Ooops, something is wrong with the connection. Please wait or come back later.
+				<div class="sub header" style="margin-top: 1em">
+					<p>Status: {{status.status}}</p>
+					<p>Retry count: {{status.retryCount}}</p>
+					{{#if status.reason}}
+					<p>Reason: {{status.reason}}</p>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/unless}}
+</template>
