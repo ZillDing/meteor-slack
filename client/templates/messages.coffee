@@ -4,4 +4,7 @@ Template.messages.helpers
 
 Template.messages.onCreated ->
 	@autorun =>
-		@subscribe 'messagesInChannel', Session.get 'currentChannel'
+		data = Template.currentData()
+		if data?.channel and _.isString data.channel
+			@subscribe 'messagesInChannel', data.channel
+			Session.set 'currentChannel', data.channel

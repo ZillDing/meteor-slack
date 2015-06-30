@@ -6,12 +6,15 @@
 				{{#each channels}}
 				{{> menu_channelItem}}
 				{{/each}}
+
+				{{#if currentUser}}
 				{{#if isAddingANewChannel}}
 				{{> menu_addNewChannelItem}}
 				{{/if}}
 				{{#unless isAddingANewChannel}}
 				{{> menu_createNewChannelItem}}
 				{{/unless}}
+				{{/if}}
 			</div>
 		</div>
 		<div class="item">
@@ -42,7 +45,7 @@
 </template>
 
 <template name="menu_channelItem">
-	<a href="{{name}}" class="item {{#if isCurrentChannel}}active{{/if}}">
+	<a href="/channel/{{name}}" class="item {{#if isCurrentChannel}}active{{/if}}">
 		<span>#</span> {{name}}
 	</a>
 </template>

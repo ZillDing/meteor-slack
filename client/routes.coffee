@@ -2,16 +2,20 @@ Router.configure
 	layoutTemplate: 'layout'
 
 Router.route '/', ->
-	Session.set 'currentChannel', 'general'
-	@next()
+	@render 'messages',
+		data:
+			channel: 'general'
 
-# Router.route '/signin', ->
-# 	@render 'SignIn'
+Router.route '/signin', ->
+	@render 'signin'
+	Session.set 'currentChannel', null
 
 # Router.route '/signout', ->
 # 	Meteor.logout()
 # 	@redirect '/'
 
-Router.route '/:_channel', ->
-	Session.set 'currentChannel', @params._channel
-	@next()
+Router.route '/channel/:_channel', ->
+	channel = @params._channel
+	@render 'messages',
+		data:
+			channel: channel

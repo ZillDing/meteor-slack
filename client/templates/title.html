@@ -1,4 +1,5 @@
 <template name="title">
+	{{#if currentChannel}}
 	<div class="ui dropdown">
 		<div class="text ui header" style="margin-bottom: 0.5rem">
 			<span style="opacity: 0.5">#</span>{{currentChannel}}
@@ -7,8 +8,9 @@
 		<div class="menu">
 			<div class="header">All channels</div>
 			{{#each channels}}
-			<a href="{{name}}" class="item"><span>#</span> {{name}}</a>
+			<a href="/channel/{{name}}" class="item"><span>#</span> {{name}}</a>
 			{{/each}}
 		</div>
 	</div>
+	{{/if}}
 </template>

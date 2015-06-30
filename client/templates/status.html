@@ -1,13 +1,24 @@
 <template name="status">
+	{{#if currentUser}}
 	<div class="ui big inverted list">
 		<div class="item">
-			<img class="ui avatar image" src="/avatar/steve.jpg" alt="avatar">
+			<img class="ui avatar image" src="{{avatar}}" alt="avatar">
 			<div class="content" style="padding-left: 1em">
-				<a class="header">zill</a>
+				<a class="header">{{currentUser.username}}</a>
 				<div class="description" style="font-size: 1rem">
-					Online
+					online
 				</div>
 			</div>
 		</div>
 	</div>
+	{{/if}}
+
+	{{#unless currentUser}}
+	<a href="/signin" class="ui inverted small header">
+		<i class="settings icon"></i>
+		<div class="content" style="text-decoration: underline">
+			Sign In
+		</div>
+	</a>
+	{{/unless}}
 </template>

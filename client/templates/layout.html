@@ -15,7 +15,7 @@
 				{{> menu}}
 			</div>
 			<div class="thirteen wide column">
-				{{> messages}}
+				{{> yield}}
 			</div>
 		</div>
 		<!-- bottom row -->
@@ -25,7 +25,10 @@
 			</div>
 			<div class="thirteen wide column">
 				{{> error}}
+
+				{{#if currentUser}}
 				{{> input}}
+				{{/if}}
 			</div>
 		</div>
 	</div>

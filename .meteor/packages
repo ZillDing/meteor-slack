@@ -10,3 +10,5 @@ semantic:ui-css
 fourseven:scss
 msavin:mongol
 iron:router
+useraccounts:semantic-ui
+accounts-password
