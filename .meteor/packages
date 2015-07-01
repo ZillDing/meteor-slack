@@ -6,10 +6,10 @@
 
 meteor-platform
 coffeescript
-semantic:ui-css
 fourseven:scss
 msavin:mongol
 iron:router
 useraccounts:semantic-ui
 accounts-password
 reactive-var
+semantic:ui-css

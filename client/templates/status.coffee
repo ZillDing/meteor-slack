@@ -5,7 +5,8 @@ Template.status_signedIn.events
 	'click i.sign.out': (event) ->
 		# hide popup and logout
 		$(event.currentTarget).popup 'hide'
-		Router.go '/signout'
+		Meteor.logout ->
+			Router.go '/signin'
 
 Template.status_signedIn.helpers
 	avatar: ->

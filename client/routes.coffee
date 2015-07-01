@@ -21,7 +21,3 @@ Router.route '/profile', ->
 Router.route '/signin', ->
 	@render 'signin'
 	Session.set 'isChatting', false
-
-Router.route '/signout', ->
-	Meteor.logout()
-	@redirect '/'
