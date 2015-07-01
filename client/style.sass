@@ -1,59 +1,54 @@
-$site-height: 4rem
+$site-height: 3.5rem
 $status-height: 4.5rem
 
-.ui.grid
+.ui.grid .row
 
-	.row
-		padding: 0
+	&.fixed
 
-		&.fixed
-			left: 0
-			right: 0
+		>.black
+			background-color: #5D3863!important
 
-			>.three
-				background-color: #5D3863
+		&.top
+			-webkit-align-items: flex-start
+			align-items: flex-start
 
-			>.column
-				padding-top: 1rem
-				padding-bottom: 1rem
+		&.bottom
+			-webkit-align-items: flex-end
+			align-items: flex-end
 
-			&.bottom>.column
-				vertical-align: bottom
+	&.content-row
+		position: fixed
+		left: 0
+		right: 0
+		top: 0
+		bottom: 0
 
-		&.content-row
-			position: fixed
-			left: 0
-			right: 0
-			top: 0
-			bottom: 0
+		.column
+			overflow-y: auto
 
-			.column
-				height: 100%
-				overflow-y: auto
+			&.grey
+				background-color: #824F8A!important
+				padding-top: $site-height
+				padding-bottom: $status-height
 
-				&.three
-					background-color: #824F8A
-					padding-top: $site-height
-					padding-bottom: $status-height
+				.ui.inverted.vertical.menu>.item
+					padding: 1em 0 0.5em
+					margin-bottom: 0
 
-					.ui.inverted.vertical.menu>.item
-						padding: 1em 0 0.5em
-						margin-bottom: 0
+					.header
+						color: rgba(255, 255, 255, 0.5)
 
-						.header
-							color: rgba(255, 255, 255, 0.5)
+					.menu>.item
+						margin-right: 1em
+						font-size: 1em
+						border-radius: 0 0.5em 0.5em 0
 
-						.menu>.item
-							margin-right: 1em
-							font-size: 1em
-							border-radius: 0 0.5em 0.5em 0
+						>span
+							opacity: 0.4
 
-							>span
-								opacity: 0.4
+						&:hover
+							background-color: rgba(255, 255, 255, 0.08)
 
-							&:hover
-								background-color: rgba(255, 255, 255, 0.08)
-
-							&.active
-								background-color: lightseagreen
-								opacity: 1
+						&.active
+							background-color: lightseagreen
+							opacity: 1
