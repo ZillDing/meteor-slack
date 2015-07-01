@@ -1,7 +1,7 @@
 <template name="menu">
-	<div class="ui fluid secondary inverted vertical menu">
+	<div class="ui fluid inverted vertical menu" style="background-color: transparent">
 		<div class="item">
-			CHANNELS
+		<div class="header">CHANNELS</div>
 			<div class="menu">
 				{{#each channels}}
 				{{> menu_channelItem}}
@@ -18,15 +18,7 @@
 			</div>
 		</div>
 		<div class="item">
-			DIRECT MESSAGES
-			<div class="menu">
-				<a class="item">Search</a>
-				<a class="item">Add</a>
-				<a class="item">Remove</a>
-			</div>
-		</div>
-		<div class="item">
-			PRIVATE GROUPS
+			<div class="header">DIRECT MESSAGES</div>
 			<div class="menu">
 				<a class="item">Search</a>
 				<a class="item">Add</a>

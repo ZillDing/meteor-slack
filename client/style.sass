@@ -36,20 +36,22 @@ $status-height: 4.5rem
 					background-color: #824F8A
 					padding-top: $site-height
 					padding-bottom: $status-height
-					padding-left: 0
-					padding-right: 0
 
-					.ui.menu .item
-							font-size: 1rem
-							padding-top: 0
+					.ui.inverted.vertical.menu>.item
+							padding: 1em 0 0.5em
 							margin-bottom: 0
 							color: rgba(255, 255, 255, 0.5)
 
 							.menu>.item
-								padding: 0.4rem 1rem
+								margin-right: 1em
+								font-size: 1em
+								border-radius: 0 0.5em 0.5em 0
 
 								>span
 									opacity: 0.4
+
+								&:hover
+									background-color: rgba(255, 255, 255, 0.08)
 
 								&.active
 									background-color: lightseagreen
