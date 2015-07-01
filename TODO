@@ -2,3 +2,6 @@
  ☐ private messages
  ☐ profile modification (avatar and status)
  ☐ allow see other people's public profile
+ ☐ mobile device support (responsive design) @critical
+ ☐ use semantic 'transition' for animation instead of jquery @today
+ ☐ re-layout (using semantic 'ui bound' rather than 'ui fixed') @today
