@@ -45,7 +45,7 @@
 </template>
 <!-- ####################################################################### -->
 <template name="menu_channelItem">
-	<a href="/channel/{{name}}" class="item {{#if isCurrentChannel}}active{{/if}}">
+	<a href="/channel/{{name}}" class="{{channelClass name}}">
 		<span>#</span> {{name}}
 	</a>
 </template>

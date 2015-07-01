@@ -1,16 +1,18 @@
+isAddingANewChannel = new ReactiveVar false
+
 Template.menu.helpers
 	channels: ->
 		Channels.find {}
 
 	isAddingANewChannel: ->
-		Session.get 'isAddingANewChannel'
+		isAddingANewChannel.get()
 
 ################################################################################
 # _addNewChannelItem
 ################################################################################
 Template.menu_addNewChannelItem.events
 	'click i': ->
-		Session.set 'isAddingANewChannel', false
+		isAddingANewChannel.set false
 
 	'keypress input': (event) ->
 		if event.which is 13
@@ -20,7 +22,7 @@ Template.menu_addNewChannelItem.events
 					if error
 						Session.set 'error', error
 					else
-						Session.set 'isAddingANewChannel', false
+						isAddingANewChannel.set false
 
 Template.menu_addNewChannelItem.onRendered ->
 	@$('input').focus()
@@ -29,12 +31,17 @@ Template.menu_addNewChannelItem.onRendered ->
 # _channelItem
 ################################################################################
 Template.menu_channelItem.helpers
-	isCurrentChannel: ->
-		Template.currentData()?.name is Session.get 'currentChannel'
+	channelClass: (name) ->
+		return 'item' if not Session.get 'isChatting'
+
+		if Session.equals 'currentChannel', name
+			'item active'
+		else
+			'item'
 
 ################################################################################
 # _createNewChannelItem
 ################################################################################
 Template.menu_createNewChannelItem.events
 	'click': ->
-		Session.set 'isAddingANewChannel', true
+		isAddingANewChannel.set true

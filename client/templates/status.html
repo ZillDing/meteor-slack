@@ -11,10 +11,10 @@
 <template name="status_signedIn">
 	<div class="ui big inverted list">
 		<div class="item">
-			<img class="ui avatar image" src="/avatar/small/{{avatar}}.jpg" alt="avatar">
+			<img class="ui avatar image" src="{{SMALL_AVATAR_DIR}}/{{avatar}}.jpg" alt="avatar">
 
 			<div class="content" style="padding-left: 1em">
-				<a class="header">{{currentUser.username}}</a>
+				<a href="/profile" class="header">{{currentUser.username}}</a>
 				<div class="description" style="font-size: 1rem">
 					online
 				</div>

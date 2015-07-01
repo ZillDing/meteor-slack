@@ -12,8 +12,9 @@ Meteor.methods
 			throw new Meteor.Error error, "Channel: #{channel} already exists."
 
 		Channels.insert
-			name: channel
 			createdAt: new Date()
+			name: channel
+			owner: Meteor.userId()
 
 	'addMessage': (channel, text) ->
 		error = 'add-message-failed'
