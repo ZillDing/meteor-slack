@@ -6,6 +6,12 @@ Router.route '/', ->
 		data:
 			channel: 'general'
 
+Router.route '/channel/:_channel', ->
+	channel = @params._channel
+	@render 'messages',
+		data:
+			channel: channel
+
 Router.route '/signin', ->
 	@render 'signin'
 	Session.set 'currentChannel', null
@@ -13,9 +19,3 @@ Router.route '/signin', ->
 Router.route '/signout', ->
 	Meteor.logout()
 	@redirect '/'
-
-Router.route '/channel/:_channel', ->
-	channel = @params._channel
-	@render 'messages',
-		data:
-			channel: channel
