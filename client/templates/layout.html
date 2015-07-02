@@ -6,13 +6,11 @@
 	</div>
 
 	<div class="ui padded grid pusher">
-		<div class="three wide column"
-			style="display: flex; flex-direction: column">
+		<div class="sidebar-container" style="display: flex; flex-direction: column">
 			{{> layout_sidebar}}
 		</div>
 
-		<div class="thirteen wide column"
-			style="display: flex; flex-direction: column">
+		<div class="main-container" style="display: flex; flex-direction: column">
 			{{#if isChatting}}
 			{{> title}}
 			{{/if}}
