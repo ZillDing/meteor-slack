@@ -1,15 +1,19 @@
 <template name="title">
-	<div class="ui dropdown">
-		<div class="text ui header" style="margin-bottom: 0.5rem">
-			<span style="opacity: 0.5">#</span>{{currentChannel}}
-		</div>
-		<i class="dropdown icon"></i>
-		<div class="menu">
-			<div class="header">All channels</div>
-			<div class="divider"></div>
-			{{#each channels}}
-			<a href="/channel/{{name}}" class="item"><span>#</span> {{name}}</a>
-			{{/each}}
+	<div class="ui grid">
+		<div class="column">
+			<div class="ui dropdown">
+				<div class="text ui header">
+					<span style="opacity: 0.5">#</span>{{currentChannel}}
+				</div>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class="header">All channels</div>
+					<div class="divider"></div>
+					{{#each channels}}
+					<a href="/channel/{{name}}" class="item"><span>#</span> {{name}}</a>
+					{{/each}}
+				</div>
+			</div>
 		</div>
 	</div>
 </template>

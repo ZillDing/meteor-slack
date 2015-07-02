@@ -1,8 +1,19 @@
- ☐ file support
- ☐ private messages
+ ☐ file support, simple uploading
+ ☐ comment on uploaded file @low
+ ☐ third party services integration (dropbox) @low
+ ☐ direct messages
  ☐ profile modification (avatar and status)
+ ☐ background update avatar for old messages @low
  ☐ allow see other people's public profile
  ✔ responsive design @critical @done (15-07-02 15:13)
  ✔ mobile device side bar @critical @done (15-07-02 21:44)
  ✔ use semantic 'transition' for animation instead of jquery @today @done (15-07-02 13:33)
  ✔ re-layout (using semantic 'ui bound' rather than 'ui fixed') @today @done (15-07-02 13:26)
+ ☐ use labels in menu to show incoming messages
+ ☐ support for searching messages
+ ☐ mention certain person in channels
+ ☐ replace input with textarea to allow multi-line message
+ ☐ adjust chat message UI (scroll properly) @critical
+ ☐ lazy load old messges
+ ✔ fix title dropdown @critical @done (15-07-02 22:47)
+ ☐ add control in title
