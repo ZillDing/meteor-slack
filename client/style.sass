@@ -5,7 +5,6 @@
 	overflow-y: auto
 
 .ui.secondary.inverted.menu
-
 	>.item
 		span
 			margin-right: 0.1em
@@ -23,3 +22,11 @@
 
 		&.active
 			background-color: lightseagreen!important
+
+@media only screen and (min-width: 768px)
+	.ui.top.menu
+		display: none
+
+@media only screen and (max-width: 767px)
+	.ui.pusher>.thirteen.wide.computer.column
+		padding-top: 4rem

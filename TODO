@@ -3,6 +3,6 @@
  ☐ profile modification (avatar and status)
  ☐ allow see other people's public profile
  ✔ responsive design @critical @done (15-07-02 15:13)
- ☐ mobile device side bar @critical
+ ✔ mobile device side bar @critical @done (15-07-02 21:44)
  ✔ use semantic 'transition' for animation instead of jquery @today @done (15-07-02 13:33)
  ✔ re-layout (using semantic 'ui bound' rather than 'ui fixed') @today @done (15-07-02 13:26)

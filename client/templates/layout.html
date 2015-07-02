@@ -6,8 +6,15 @@
 	</div>
 
 	<div class="ui padded grid pusher">
+		<!-- only shown on non-mobile devices -->
 		<div class="sidebar-container" style="display: flex; flex-direction: column">
 			{{> layout_sidebar}}
+		</div>
+		<!-- only shown on mobile devices -->
+		<div class="ui inverted top fixed menu" style="padding: 0; background-color: #5D3863">
+			<a href="" class="item sidebar-trigger">
+				<i class="sidebar icon"></i> Menu
+			</a>
 		</div>
 
 		<div class="main-container" style="display: flex; flex-direction: column">
