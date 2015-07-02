@@ -1,13 +1,13 @@
 <template name="input">
 	{{#if currentUser}}
-	<div class="ui fluid left action right labeled input">
-		<button class="ui icon button">
-			<i class="add square icon"></i>
-		</button>
-		<input type="text">
-		<div class="ui tag label">
-			Press enter to send
+	<form class="ui form">
+		<div class="ui left action right labeled input">
+			<button type="button" class="ui icon button">
+				<i class="add square icon"></i>
+			</button>
+			<input type="text" name="text" style="border-radius: 0">
+			<div class="ui tag label">Press enter to send</div>
 		</div>
-	</div>
+	</form>
 	{{/if}}
 </template>
