@@ -1,49 +1,27 @@
-.ui.grid .row
+.flex-stretch-item
+	flex-grow: 1
+	flex-basis: 0
+	overflow-x: hidden
+	overflow-y: auto
 
-	&.fixed
+.ui.inverted.vertical.menu>.item
+	padding: 1em 0 0.5em
+	margin-bottom: 0
 
-		>.black
-			background-color: #5D3863!important
+	.header
+		color: rgba(255, 255, 255, 0.5)
 
-		&.top
-			-webkit-align-items: flex-start
-			align-items: flex-start
+	.menu>a.item
+		margin-right: 1em
+		font-size: 1em
+		border-radius: 0 0.5em 0.5em 0
 
-		&.bottom
-			-webkit-align-items: flex-end
-			align-items: flex-end
+		>span
+			opacity: 0.4
 
-	&.content-row
-		position: fixed
-		top: 0
-		bottom: 0
+		&:hover
+			background-color: rgba(255, 255, 255, 0.08)
 
-		.column
-			overflow-y: auto
-
-			&.grey
-				background-color: #824F8A!important
-				padding-top: 3.5rem
-				padding-bottom: 4.5rem
-
-				.ui.inverted.vertical.menu>.item
-					padding: 1em 0 0.5em
-					margin-bottom: 0
-
-					.header
-						color: rgba(255, 255, 255, 0.5)
-
-					.menu>.item
-						margin-right: 1em
-						font-size: 1em
-						border-radius: 0 0.5em 0.5em 0
-
-						>span
-							opacity: 0.4
-
-						&:hover
-							background-color: rgba(255, 255, 255, 0.08)
-
-						&.active
-							background-color: lightseagreen
-							opacity: 1
+		&.active
+			background-color: lightseagreen
+			opacity: 1

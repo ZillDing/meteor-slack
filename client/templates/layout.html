@@ -1,35 +1,47 @@
 <template name="layout">
-	<div class="ui stackable padded grid">
-		<!-- top row -->
-		<div class="row ui fixed top sticky">
-			<div class="black three wide column tablet computer only">
-				{{> site}}
+	<div class="ui sidebar">
+		this is the side bar
+	</div>
+
+	<div class="ui padded grid pusher">
+		<div class="three wide column"
+			style="display: flex; flex-direction: column">
+			<div class="ui grid" style="background-color: #5D3863">
+				<div class="column">
+					{{> site}}
+				</div>
 			</div>
-			<div class="thirteen wide column">
-				{{> title}}
-			</div>
-		</div>
-		<!-- content row -->
-		<div class="row content-row">
-			<div class="grey three wide column tablet computer only">
+
+			<div class="ui grid flex-stretch-item" style="background-color: #824F8A">
 				{{> menu}}
 			</div>
-			<div class="thirteen wide column" style="{{mainStyle}}">
-				{{> yield}}
+
+			<div class="ui grid" style="background-color: #5D3863">
+				<div class="column">
+					{{> status}}
+				</div>
 			</div>
 		</div>
-		<!-- bottom row -->
-		<div class="row ui fixed bottom sticky">
-			<div class="black three wide column tablet computer only">
-				{{> status}}
-			</div>
-			<div class="thirteen wide column">
-				{{> error}}
 
-				{{> input}}
+		<div class="thirteen wide column"
+			style="display: flex; flex-direction: column">
+			<div class="ui grid">
+				<div class="column">
+					{{> title}}
+				</div>
+			</div>
+
+			<div class="ui grid flex-stretch-item">
+				{{> yield}}
+			</div>
+
+			<div class="ui grid">
+				<div class="column">
+					{{> error}}
+
+					{{> input}}
+				</div>
 			</div>
 		</div>
 	</div>
-
-	{{> dimmer}}
 </template>
