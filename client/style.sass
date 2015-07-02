@@ -4,24 +4,22 @@
 	overflow-x: hidden
 	overflow-y: auto
 
-.ui.inverted.vertical.menu>.item
-	padding: 1em 0 0.5em
-	margin-bottom: 0
+.ui.secondary.inverted.menu
 
-	.header
-		color: rgba(255, 255, 255, 0.5)
-
-	.menu>a.item
-		margin-right: 1em
-		font-size: 1em
-		border-radius: 0 0.5em 0.5em 0
-
-		>span
+	>.item
+		span
+			margin-right: 0.1em
 			opacity: 0.4
 
+		&.header
+			color: rgba(255, 255,255, 0.3)
+
+	>a.item
+		margin: 0.2em 0 0.3em -1rem
+		padding: 0.3em 0 0.3em 1rem
+
 		&:hover
-			background-color: rgba(255, 255, 255, 0.08)
+			background-color: rgba(255, 255, 255, 0.08)!important
 
 		&.active
-			background-color: lightseagreen
-			opacity: 1
+			background-color: lightseagreen!important

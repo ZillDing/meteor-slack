@@ -1,44 +1,47 @@
 <template name="menu">
-	<div class="ui fluid inverted vertical menu" style="background-color: transparent">
-		<div class="item">
-		<div class="header">CHANNELS</div>
-			<div class="menu">
-				{{#each channels}}
-				{{> menu_channelItem}}
-				{{/each}}
+	<div class="ui fluid inverted secondary vertical text menu">
+		<div class="item header">CHANNELS</div>
+		{{#each channels}}
+		{{> menu_channelItem}}
+		{{/each}}
 
-				{{#if currentUser}}
-				{{#if isAddingANewChannel}}
-				{{> menu_addNewChannelItem}}
-				{{/if}}
-				{{#unless isAddingANewChannel}}
-				{{> menu_createNewChannelItem}}
-				{{/unless}}
-				{{/if}}
-			</div>
-		</div>
-		<div class="item">
-			<div class="header">DIRECT MESSAGES</div>
-			<div class="menu">
-				<a class="item">Search</a>
-				<a class="item">Add</a>
-				<a class="item">Remove</a>
-			</div>
-		</div>
+		{{#if currentUser}}
+		{{#if isAddingANewChannel}}
+		{{> menu_addNewChannelItem}}
+		{{/if}}
+		{{#unless isAddingANewChannel}}
+		{{> menu_createNewChannelItem}}
+		{{/unless}}
+		{{/if}}
+
+		<div class="ui inverted divider"></div>
+
+		<div class="item header">DIRECT MESSAGES</div>
+		<a class="item">
+			<span>@</span>tom
+		</a>
+		<a class="item">
+			<span>@</span>jim
+		</a>
+		<a class="item">
+			<span>@</span>susan
+		</a>
 	</div>
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewChannelItem">
-	<div class="item ui transparent action input inverted">
-		<span>#</span>
-		<input type="text" name="channel name" placeholder="New channel...">
-		<i class="cancel icon" style="cursor: pointer"></i>
+	<div class="item">
+		<div class="ui transparent inverted fluid action input">
+			<span style="margin-top: 0.4em">#</span>
+			<input type="text" name="channel name" placeholder="New channel...">
+			<i class="circular cancel link icon"></i>
+		</div>
 	</div>
 </template>
 <!-- ####################################################################### -->
 <template name="menu_channelItem">
 	<a href="/channel/{{name}}" class="{{channelClass name}}">
-		<span>#</span> {{name}}
+		<span>#</span>{{name}}
 	</a>
 </template>
 <!-- ####################################################################### -->
