@@ -1,10 +1,10 @@
-_dismissError = (dom) ->
-	$(dom).fadeOut ->
-		Session.set 'error', null
-
 Template.error.events
 	'click i': (event) ->
-		_dismissError $(event.currentTarget).closest '.ui.message'
+		# dismiss the error message
+		$ event.currentTarget
+		.closest '.ui.message'
+		.transition 'fade up', ->
+			Session.set 'error', null
 
 Template.error.helpers
 	error: ->

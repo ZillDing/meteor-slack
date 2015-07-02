@@ -6,4 +6,4 @@ Template.layout.helpers
 			'padding: 1rem'
 
 Template.layout.onRendered ->
-	@$('.sidebar').sidebar()
+	@$('.ui.sidebar').sidebar()
