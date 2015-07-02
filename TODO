@@ -1,19 +1,26 @@
- ☐ file support, simple uploading
- ☐ comment on uploaded file @low
- ☐ third party services integration (dropbox) @low
- ☐ direct messages
+ ☐ adjust chat message UI (scroll properly) @critical
+ ☐ figure out a way to differentiate various types of messages (channel vs direct) @high
+ ☐ direct messages @high
+
+ ☐ allow edit/delete channel
  ☐ profile modification (avatar and status)
- ☐ background update avatar for old messages @low
  ☐ allow see other people's public profile
+ ☐ use labels in menu to show incoming messages
+ ☐ mention certain person in channels
+ ☐ replace input with textarea to allow multi-line message
+ ☐ lazy load old messges
+ ☐ add control in title
+ ☐ file support, simple uploading
+ ☐ consider use channel id rather than the name
+ ☐ user whether online status
+
+ ☐ comment on uploaded file @low
+ ☐ support for searching messages @low
+ ☐ background update avatar for old messages @low
+ ☐ third party services integration (dropbox) @low
+
+ ✔ fix title dropdown @critical @done (15-07-02 22:47)
  ✔ responsive design @critical @done (15-07-02 15:13)
  ✔ mobile device side bar @critical @done (15-07-02 21:44)
  ✔ use semantic 'transition' for animation instead of jquery @today @done (15-07-02 13:33)
  ✔ re-layout (using semantic 'ui bound' rather than 'ui fixed') @today @done (15-07-02 13:26)
- ☐ use labels in menu to show incoming messages
- ☐ support for searching messages
- ☐ mention certain person in channels
- ☐ replace input with textarea to allow multi-line message
- ☐ adjust chat message UI (scroll properly) @critical
- ☐ lazy load old messges
- ✔ fix title dropdown @critical @done (15-07-02 22:47)
- ☐ add control in title
