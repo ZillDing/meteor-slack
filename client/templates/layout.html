@@ -1,47 +1,49 @@
 <template name="layout">
-	<div class="ui sidebar">
-		this is the side bar
+	<div class="ui grid sidebar">
+		<div class="column" style="display: flex; flex-direction: column">
+			{{> layout_sidebar}}
+		</div>
 	</div>
 
 	<div class="ui padded grid pusher">
 		<div class="three wide column"
 			style="display: flex; flex-direction: column">
-			<div class="ui grid" style="background-color: #5D3863">
-				<div class="column">
-					{{> site}}
-				</div>
-			</div>
-
-			<div class="ui grid flex-stretch-item" style="background-color: #824F8A">
-				{{> menu}}
-			</div>
-
-			<div class="ui grid" style="background-color: #5D3863">
-				<div class="column">
-					{{> status}}
-				</div>
-			</div>
+			{{> layout_sidebar}}
 		</div>
 
 		<div class="thirteen wide column"
 			style="display: flex; flex-direction: column">
-			<div class="ui grid">
-				<div class="column">
-					{{> title}}
-				</div>
-			</div>
+			{{#if isChatting}}
+			{{> title}}
+			{{/if}}
 
-			<div class="ui grid flex-stretch-item">
+			<div class="flex-stretch-item">
 				{{> yield}}
 			</div>
 
-			<div class="ui grid">
-				<div class="column">
-					{{> error}}
+			{{> error}}
 
-					{{> input}}
-				</div>
-			</div>
+			{{#if isChatting}}
+			{{> input}}
+			{{/if}}
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="layout_sidebar">
+	<div class="ui grid" style="background-color: #5D3863">
+		<div class="column">
+			{{> site}}
+		</div>
+	</div>
+
+	<div class="ui grid flex-stretch-item" style="background-color: #824F8A">
+		{{> menu}}
+	</div>
+
+	<div class="ui grid" style="background-color: #5D3863">
+		<div class="column">
+			{{> status}}
 		</div>
 	</div>
 </template>
