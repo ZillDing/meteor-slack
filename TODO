@@ -1,18 +1,20 @@
  ☐ adjust chat message UI (scroll properly) @critical
+ ☐ allow see other people's public profile @today
+ ☐ add a global template helper to get avatar @today
  ☐ figure out a way to differentiate various types of messages (channel vs direct) @high
  ☐ direct messages @high
-
- ☐ allow edit/delete channel
+ ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
+ ☐ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today
  ☐ profile modification (avatar and status)
- ☐ allow see other people's public profile
+
+ ☐ user whether online status
+ ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
  ☐ use labels in menu to show incoming messages
  ☐ mention certain person in channels
  ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
  ☐ add control in title
  ☐ file support, simple uploading
- ☐ consider use channel id rather than the name
- ☐ user whether online status
 
  ☐ comment on uploaded file @low
  ☐ support for searching messages @low
