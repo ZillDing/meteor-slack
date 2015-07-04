@@ -1,7 +1,28 @@
 <template name="profile">
+	{{#if currentUser}}
+	{{#with currentUser}}
+	{{> profile_currentUser}}
+	{{/with}}
+	{{/if}}
+
+	<h4 class="ui horizontal divider header">
+		<i class="users icon"></i>
+		Buddies
+	</h4>
+
+	{{> profile_buddies}}
+</template>
+<!-- ####################################################################### -->
+<template name="profile_currentUser">
 	<div class="ui centered card" style="margin-top: 1rem">
-		{{#with currentUser}}
-		<div class="image">
+		<div class="blurring dimmable image">
+		<div class="ui dimmer">
+			<div class="content">
+				<div class="center">
+					<div class="ui inverted button edit-btn">Edit</div>
+				</div>
+			</div>
+		</div>
 			<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg" alt="profile image">
 		</div>
 		<div class="content">
@@ -11,28 +32,49 @@
 			</div>
 			<div class="description">{{profile.status}}</div>
 		</div>
-		{{/with}}
+		{{#unless isDesktop}}
+		<div class="ui bottom attached button edit-btn">
+			<i class="edit icon"></i>
+			Edit
+		</div>
+		{{/unless}}
 	</div>
-
-	<h4 class="ui horizontal divider header">
-		<i class="users icon"></i>
-		Buddies
-	</h4>
-
+</template>
+<!-- ####################################################################### -->
+<template name="profile_buddies">
+	{{#if Template.subscriptionsReady}}
 	<div class="ui five doubling cards" style="margin: 0">
 		{{#each users}}
-		<div class="card">
-			<div class="image">
-				<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg" alt="profile image">
-			</div>
-			<div class="content">
-				<div class="header">{{username}}</div>
-				<div class="meta">
-					<span class="date">Joined in {{_getJoinTime createdAt}}</span>
+		{{> profile_buddy}}
+		{{/each}}
+	</div>
+	{{/if}}
+</template>
+<!-- ####################################################################### -->
+<template name="profile_buddy">
+	<div class="card">
+		<div class="blurring dimmable image">
+			<div class="ui dimmer">
+				<div class="content">
+					<div class="center">
+						<div class="ui inverted button chat-btn">Chat</div>
+					</div>
 				</div>
 			</div>
-			<div class="description">{{profile.status}}</div>
+			<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg" alt="profile image">
 		</div>
-		{{/each}}
+		<div class="content">
+			<div class="header">{{username}}</div>
+			<div class="meta">
+				<span class="date">Joined in {{_getJoinTime createdAt}}</span>
+			</div>
+		</div>
+		<div class="description">{{profile.status}}</div>
+		{{#unless isDesktop}}
+		<div class="ui bottom attached button chat-btn">
+			<i class="comments icon"></i>
+			Chat
+		</div>
+		{{/unless}}
 	</div>
 </template>
