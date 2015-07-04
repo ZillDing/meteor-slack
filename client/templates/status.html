@@ -9,18 +9,22 @@
 <template name="status_signedIn">
 	<div class="ui big inverted list">
 		<div class="item">
-			<img class="ui avatar image" src="{{SMALL_AVATAR_DIR}}/{{_getUserProfileAvatar currentUser.profile}}.jpg" alt="avatar">
-
-			<div class="content" style="padding-left: 1em">
-				<a href="/profile" class="header">{{currentUser.username}}</a>
-				<div class="description" style="font-size: 1rem">
-					{{_getUserProfileStatus currentUser.profile}}
-				</div>
+			<div class="right floated content">
+				<i class="large inverted sign out link icon"
+					data-content="Sign out" data-variation="inverted"
+					style="margin-right: 0; margin-top: 0.5rem"></i>
 			</div>
 
-			<i class="right floated large inverted sign out link icon"
-				data-content="Sign out" data-variation="inverted"
-				style="padding: 0; margin-top: 0.5rem"></i>
+			<div class="ui avatar image">
+				<img src="{{SMALL_AVATAR_DIR}}/{{_getUserProfileAvatar currentUser.profile}}.jpg" alt="avatar">
+			</div>
+
+			<div class="content">
+				<a href="/profile" class="header">{{currentUser.username}}</a>
+				<div class="description">
+					<small>{{_getUserProfileStatus currentUser.profile}}</small>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
