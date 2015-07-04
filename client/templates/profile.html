@@ -32,10 +32,11 @@
 <!-- ####################################################################### -->
 <template name="profile_currentUser_edit">
 	<form class="ui form">
+		<h4 class="ui header">Your AWESOME Profile!</h4>
 		<div class="field">
 			<label>Edit avatar</label>
 			<div class="ui fluid selection dropdown">
-				<input type="hidden" value="{{profile.avatar}}">
+				<input type="hidden" name="avatar" value="{{_getUserProfileAvatar profile}}">
 				<i class="dropdown icon"></i>
 				<div class="default text">Select Avatar</div>
 				<div class="menu">
@@ -52,7 +53,7 @@
 		<div class="field">
 			<label>Edit status</label>
 			<div class="ui fluid input">
-				<input type="text" placeholder="Enter your status" value="{{profile.status}}">
+				<input type="text" name="status" placeholder="Enter your status" value="{{_getUserProfileStatus profile}}">
 			</div>
 		</div>
 

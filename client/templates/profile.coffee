@@ -1,14 +1,8 @@
 isEdittingProfile = new ReactiveVar false
-currentUserProfile = new ReactiveVar Meteor.user()?.profile
 
 ################################################################################
 # _currentUser
 ################################################################################
-Template.profile_currentUser.events
-	'click .edit-btn': ->
-		# TODO: edit current user profile
-		alert Template.currentData().username
-
 Template.profile_currentUser.helpers
 	isEdittingProfile: ->
 		isEdittingProfile.get()
@@ -29,12 +23,17 @@ Template.profile_currentUser_edit.events
 		isEdittingProfile.set false
 
 	'submit form.form': ->
-		alert 'save profile'
+		profile = Template.instance().$('form.form').form 'get values'
+		Meteor.call 'updateUserProfile', profile, (error, result) ->
+			if error
+				Session.set 'error', error
+			else
+				isEdittingProfile.set false
 		false
 
 Template.profile_currentUser_edit.helpers
 	AVAILABLE_AVATARS: ->
-		['christian', 'elliot', 'helen', 'jenny', 'joe', 'justen', 'laura', 'matt', 'steve', 'stevie']
+		['default', 'christian', 'elliot', 'helen', 'jenny', 'joe', 'justen', 'laura', 'matt', 'steve', 'stevie']
 
 Template.profile_currentUser_edit.onRendered ->
 	@$('.ui.dropdown').dropdown()

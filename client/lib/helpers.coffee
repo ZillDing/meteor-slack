@@ -30,3 +30,6 @@ Template.registerHelper '_getJoinTime', (date) ->
 
 Template.registerHelper '_getUserProfileAvatar', (profile) ->
 	profile?.avatar ? 'default'
+
+Template.registerHelper '_getUserProfileStatus', (profile) ->
+	profile?.status ? 'online'

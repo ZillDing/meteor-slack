@@ -32,3 +32,14 @@ Meteor.methods
 			owner: Meteor.userId()
 			text: text
 			username: Meteor.user().username
+
+	'updateUserProfile': (profile) ->
+		error = 'update-user-profile-failed'
+
+		_checkLoggedIn error
+		check profile, Object
+
+		newProfile = _.extend Meteor.user().profile, profile
+		Meteor.users.update Meteor.userId(),
+			$set:
+				profile: newProfile
