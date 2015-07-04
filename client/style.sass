@@ -1,8 +1,16 @@
-.flex-stretch-item
-	flex-grow: 1
-	flex-basis: 0
-	overflow-x: hidden
-	overflow-y: auto
+.ui.grid>.column.flex-column-container
+	display: flex
+	display: -webkit-flex
+	flex-direction: column
+	-webkit-flex-direction: column
+
+	.flex-stretch-item
+		flex-grow: 1
+		-webkit-flex-grow: 1
+		flex-basis: 0
+		-webkit-flex-basis: 0
+		overflow-x: hidden
+		overflow-y: auto
 
 .ui.secondary.inverted.menu
 	>.item
@@ -22,6 +30,9 @@
 
 		&.active
 			background-color: lightseagreen!important
+
+.ui.transparent.inverted.input input
+	color: inherit!important
 
 @media only screen and (min-width: 768px)
 	.ui.top.menu

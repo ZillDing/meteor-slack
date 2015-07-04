@@ -1,13 +1,13 @@
 <template name="layout">
 	<div class="ui grid sidebar">
-		<div class="column" style="display: flex; flex-direction: column">
+		<div class="column flex-column-container">
 			{{> layout_sidebar}}
 		</div>
 	</div>
 
 	<div class="ui padded grid pusher">
 		<!-- only shown on non-mobile devices -->
-		<div class="sidebar-container" style="display: flex; flex-direction: column">
+		<div class="sidebar-container">
 			{{> layout_sidebar}}
 		</div>
 		<!-- only shown on mobile devices -->
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 
-		<div class="main-container" style="display: flex; flex-direction: column">
+		<div class="main-container">
 			{{#if isChatting}}
 			{{> title}}
 			{{/if}}
