@@ -34,10 +34,20 @@
 		<form class="ui form">
 			<div class="ui transparent inverted icon input">
 				<span class="flex-center-align">#</span>
-				<input type="text" name="channel" placeholder="New channel...">
+				<input type="text" placeholder="New channel...">
 				<i class="cancel link icon"></i>
 			</div>
+			<small style="opacity: 0.8">* duplicate channel name is not allowed</small>
 		</form>
+	</div>
+	<div class="ui popup" style="margin-right: 1rem">
+		<div class="ui header">Are you sure?</div>
+		<p><strong>*</strong> channel name cannot be edited or deleted after creation.</p>
+		<div class="ui buttons">
+			<button class="ui button cancel-btn">Cancel</button>
+			<div class="or"></div>
+			<button class="ui positive button confirm-btn">Confirm</button>
+		</div>
 	</div>
 </template>
 <!-- ####################################################################### -->

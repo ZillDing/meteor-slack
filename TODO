@@ -4,7 +4,7 @@
  ☐ figure out a way to differentiate various types of messages (channel vs direct) @high
  ☐ direct messages @high
  ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
- ☐ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today
+ ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
  ☐ profile modification (avatar and status)
  ✔ use form for adding channel @today @done (15-07-04 08:50)
  ☐ format join in date to a human readable form @high

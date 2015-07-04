@@ -1,13 +1,13 @@
 Template.input.events
 	'submit form.form': (event) ->
-		text = event.target.text.value
+		text = Template.instance().$('input').val()
 		if text and channel = Session.get 'currentChannel'
 			Meteor.call 'addMessage', channel, text, (error, result) ->
 				if error
 					Session.set 'error', error
 				else
 					# clear the form
-					event.target.text.value = ''
+					Template.instance().$('input').val ''
 		# prevent default form submit
 		false
 
