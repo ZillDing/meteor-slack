@@ -23,12 +23,15 @@ Template.profile_currentUser_edit.events
 		isEdittingProfile.set false
 
 	'submit form.form': ->
-		profile = Template.instance().$('form.form').form 'get values'
-		Meteor.call 'updateUserProfile', profile, (error, result) ->
-			if error
-				Session.set 'error', error
-			else
-				isEdittingProfile.set false
+		$form = Template.instance().$ 'form.form'
+		$form.form 'validate form'
+		if $form.form 'is valid'
+			profile = Template.instance().$('form.form').form 'get values'
+			Meteor.call 'updateUserProfile', profile, (error, result) ->
+				if error
+					Session.set 'error', error
+				else
+					isEdittingProfile.set false
 		false
 
 Template.profile_currentUser_edit.helpers
@@ -37,6 +40,18 @@ Template.profile_currentUser_edit.helpers
 
 Template.profile_currentUser_edit.onRendered ->
 	@$('.ui.dropdown').dropdown()
+	# add form validation
+	@$('form.form').form
+		fields:
+			status:
+				identifier: 'status'
+				rules: [
+					type: 'empty'
+					prompt: 'Please enter your status'
+				,
+					type: 'maxLength[10]'
+					prompt: 'Status cannot be longer than 10 characters (including spaces)'
+				]
 
 ################################################################################
 # _buddies

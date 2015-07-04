@@ -6,6 +6,7 @@
  ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
  ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
  ✔ profile modification (avatar and status) @done (15-07-04 23:42)
+ ✔ add form validation for status @done (15-07-05 00:41)
  ✔ use form for adding channel @today @done (15-07-04 08:50)
  ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
  ✘ consider use device specific template @cancelled (15-07-04 14:47)

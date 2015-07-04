@@ -33,7 +33,7 @@
 <template name="profile_currentUser_edit">
 	<form class="ui form">
 		<h4 class="ui header">Your AWESOME Profile!</h4>
-		<div class="field">
+		<div class="required field">
 			<label>Edit avatar</label>
 			<div class="ui fluid selection dropdown">
 				<input type="hidden" name="avatar" value="{{_getUserProfileAvatar profile}}">
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<div class="field">
+		<div class="required field">
 			<label>Edit status</label>
 			<div class="ui fluid input">
 				<input type="text" name="status" placeholder="Enter your status" value="{{_getUserProfileStatus profile}}">
@@ -62,6 +62,8 @@
 			<div class="or"></div>
 			<button class="ui positive button save-btn">Save</button>
 		</div>
+
+		<div class="ui error message"></div>
 	</form>
 </template>
 <!-- ####################################################################### -->
