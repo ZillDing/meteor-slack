@@ -13,3 +13,4 @@ useraccounts:semantic-ui
 accounts-password
 reactive-var
 semantic:ui-css
+momentjs:moment

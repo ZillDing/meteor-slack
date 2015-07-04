@@ -7,7 +7,7 @@
  ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
  ☐ profile modification (avatar and status)
  ✔ use form for adding channel @today @done (15-07-04 08:50)
- ☐ format join in date to a human readable form @high
+ ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
 
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ user whether online status

@@ -2,12 +2,12 @@
 	<div class="ui centered card" style="margin-top: 1rem">
 		{{#with currentUser}}
 		<div class="image">
-			<img src="{{LARGE_AVATAR_DIR}}/{{getUserProfileAvatar profile}}.jpg" alt="profile image">
+			<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg" alt="profile image">
 		</div>
 		<div class="content">
 			<div class="header">{{username}}</div>
 			<div class="meta">
-				<span class="date">Joined in {{createdAt}}</span>
+				<span class="date">Joined in {{_getJoinTime createdAt}}</span>
 			</div>
 			<div class="description">{{profile.status}}</div>
 		</div>
@@ -23,11 +23,13 @@
 		{{#each users}}
 		<div class="card">
 			<div class="image">
-				<img src="{{LARGE_AVATAR_DIR}}/{{getUserProfileAvatar profile}}.jpg" alt="profile image">
+				<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg" alt="profile image">
 			</div>
 			<div class="content">
 				<div class="header">{{username}}</div>
-				<div class="meta">Joined in {{createdAt}}</div>
+				<div class="meta">
+					<span class="date">Joined in {{_getJoinTime createdAt}}</span>
+				</div>
 			</div>
 			<div class="description">{{profile.status}}</div>
 		</div>
