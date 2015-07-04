@@ -29,7 +29,11 @@ Template.registerHelper '_getJoinTime', (date) ->
 	moment(date).format 'YYYY, MMM'
 
 Template.registerHelper '_getUserProfileAvatar', (profile) ->
-	profile?.avatar ? 'default'
+	return 'default' if _.isEmpty profile?.avatar
+	return 'default' if not _.isString profile?.avatar
+	profile.avatar
 
 Template.registerHelper '_getUserProfileStatus', (profile) ->
-	profile?.status ? 'online'
+	return 'online' if _.isEmpty profile?.status
+	return 'online' if not _.isString profile?.status
+	profile.status
