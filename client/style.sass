@@ -1,14 +1,20 @@
-.ui.grid>.column.flex-column-container
-	display: flex
+.flex-center-align
 	display: -webkit-flex
-	flex-direction: column
+	-webkit-align-items: center
+	display: flex
+	align-items: center
+
+.ui.grid>.column.flex-column-container
+	display: -webkit-flex
 	-webkit-flex-direction: column
+	display: flex
+	flex-direction: column
 
 	.flex-stretch-item
-		flex-grow: 1
 		-webkit-flex-grow: 1
-		flex-basis: 0
 		-webkit-flex-basis: 0
+		flex-grow: 1
+		flex-basis: 0
 		overflow-x: hidden
 		overflow-y: auto
 
