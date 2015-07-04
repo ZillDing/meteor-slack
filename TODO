@@ -8,8 +8,10 @@
  ☐ profile modification (avatar and status)
  ✔ use form for adding channel @today @done (15-07-04 08:50)
  ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
+ ✘ consider use device specific template @cancelled (15-07-04 14:47)
 
  ☐ add admin page to allow special operation (edit/delete channel)
+ ☐ add some form validation
  ☐ user whether online status
  ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
  ☐ use labels in menu to show incoming messages
@@ -18,11 +20,13 @@
  ☐ lazy load old messges
  ☐ add control in title
  ☐ file support, simple uploading
+ ☐ get more avatars
 
  ☐ comment on uploaded file @low
  ☐ support for searching messages @low
  ☐ background update avatar for old messages @low
  ☐ third party services integration (dropbox) @low
+ ☐ add some animation (profile editing)
 
  ✔ fix title dropdown @critical @done (15-07-02 22:47)
  ✔ responsive design @critical @done (15-07-02 15:13)

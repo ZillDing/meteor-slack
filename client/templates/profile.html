@@ -1,4 +1,5 @@
 <template name="profile">
+	<div class="ui purple segment">
 	{{#if currentUser}}
 	{{#with currentUser}}
 	{{> profile_currentUser}}
@@ -11,53 +12,75 @@
 	</h4>
 
 	{{> profile_buddies}}
+	</div>
 </template>
 <!-- ####################################################################### -->
 <template name="profile_currentUser">
-	<div class="ui centered card" style="margin-top: 1rem">
-		<div class="blurring dimmable image">
-		<div class="ui dimmer">
-			<div class="content">
-				<div class="center">
-					<div class="ui inverted button edit-btn">Edit</div>
+	<div class="ui doubling three column centered padded grid">
+		<div class="column">
+			{{> profile_card}}
+		</div>
+		{{#if isEdittingProfile}}
+		<div class="column">
+			<div class="ui raised segment">
+			{{> profile_currentUser_edit}}
+			</div>
+		</div>
+		{{/if}}
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="profile_currentUser_edit">
+	<form class="ui form">
+		<div class="field">
+			<label>Edit avatar</label>
+			<div class="ui fluid selection dropdown">
+				<input type="hidden" value="{{profile.avatar}}">
+				<i class="dropdown icon"></i>
+				<div class="default text">Select Avatar</div>
+				<div class="menu">
+					{{#each AVAILABLE_AVATARS}}
+					<div class="item" data-value="{{this}}">
+						<img class="ui avatar image" src="{{SMALL_AVATAR_DIR}}/{{this}}.jpg" alt="avatar">
+						{{this.capitalize}}
+					</div>
+					{{/each}}
 				</div>
 			</div>
 		</div>
-			<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg" alt="profile image">
-		</div>
-		<div class="content">
-			<div class="header">{{username}}</div>
-			<div class="meta">
-				<span class="date">Joined in {{_getJoinTime createdAt}}</span>
+
+		<div class="field">
+			<label>Edit status</label>
+			<div class="ui fluid input">
+				<input type="text" placeholder="Enter your status" value="{{profile.status}}">
 			</div>
-			<div class="description">{{profile.status}}</div>
 		</div>
-		{{#unless isDesktop}}
-		<div class="ui bottom attached button edit-btn">
-			<i class="edit icon"></i>
-			Edit
+
+		<div class="ui buttons">
+			<button type="button" class="ui button cancel-btn">Cancel</button>
+			<div class="or"></div>
+			<button class="ui positive button save-btn">Save</button>
 		</div>
-		{{/unless}}
-	</div>
+	</form>
 </template>
 <!-- ####################################################################### -->
 <template name="profile_buddies">
 	{{#if Template.subscriptionsReady}}
-	<div class="ui five doubling cards" style="margin: 0">
+	<div class="ui five doubling cards">
 		{{#each users}}
-		{{> profile_buddy}}
+		{{> profile_card}}
 		{{/each}}
 	</div>
 	{{/if}}
 </template>
 <!-- ####################################################################### -->
-<template name="profile_buddy">
-	<div class="card">
+<template name="profile_card">
+	<div class="ui fluid card">
 		<div class="blurring dimmable image">
 			<div class="ui dimmer">
 				<div class="content">
 					<div class="center">
-						<div class="ui inverted button chat-btn">Chat</div>
+						<div class="ui inverted button action-btn">{{actionLabel}}</div>
 					</div>
 				</div>
 			</div>
@@ -68,12 +91,12 @@
 			<div class="meta">
 				<span class="date">Joined in {{_getJoinTime createdAt}}</span>
 			</div>
+			<div class="description">{{profile.status}}</div>
 		</div>
-		<div class="description">{{profile.status}}</div>
 		{{#unless isDesktop}}
-		<div class="ui bottom attached button chat-btn">
-			<i class="comments icon"></i>
-			Chat
+		<div class="ui bottom attached button action-btn">
+			<i class="{{actionIcon}} icon"></i>
+			{{actionLabel}}
 		</div>
 		{{/unless}}
 	</div>
