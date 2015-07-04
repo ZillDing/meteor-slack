@@ -14,15 +14,16 @@ Template.menu_addNewChannelItem.events
 	'click i': ->
 		isAddingANewChannel.set false
 
-	'keypress input': (event) ->
-		if event.which is 13
-			channel = event.currentTarget.value.trim().toLowerCase()
-			if channel
-				Meteor.call 'addChannel', channel, (error, result) ->
-					if error
-						Session.set 'error', error
-					else
-						isAddingANewChannel.set false
+	'submit form.form': (event) ->
+		channel = event.target.channel.value
+		if channel
+			Meteor.call 'addChannel', channel, (error, result) ->
+				if error
+					Session.set 'error', error
+				else
+					isAddingANewChannel.set false
+		# prevent default form submit
+		false
 
 Template.menu_addNewChannelItem.onRendered ->
 	@$('input').focus()
