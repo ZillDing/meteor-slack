@@ -11,3 +11,7 @@ Template.registerHelper 'SMALL_AVATAR_DIR', ->
 # variables
 Template.registerHelper 'isChatting', ->
 	Session.get 'isChatting'
+
+# functions
+Template.registerHelper 'getUserProfileAvatar', (profile) ->
+	profile?.avatar ? 'default'

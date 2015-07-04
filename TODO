@@ -1,12 +1,15 @@
  ☐ adjust chat message UI (scroll properly) @critical
- ☐ allow see other people's public profile @today
- ☐ add a global template helper to get avatar @today
+ ✔ allow see other people's public profile @today @done (15-07-04 09:37)
+ ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
  ☐ figure out a way to differentiate various types of messages (channel vs direct) @high
  ☐ direct messages @high
  ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
  ☐ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today
  ☐ profile modification (avatar and status)
+ ✔ use form for adding channel @today @done (15-07-04 08:50)
+ ☐ format join in date to a human readable form @high
 
+ ☐ add admin page to allow special operation (edit/delete channel)
  ☐ user whether online status
  ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
  ☐ use labels in menu to show incoming messages

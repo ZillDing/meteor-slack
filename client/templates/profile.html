@@ -1,17 +1,17 @@
 <template name="profile">
-	<div class="ui centered card">
+	<div class="ui centered card" style="margin-top: 1rem">
+		{{#with currentUser}}
 		<div class="image">
-			<img src="{{LARGE_AVATAR_DIR}}/{{avatar}}.jpg" alt="profile image">
+			<img src="{{LARGE_AVATAR_DIR}}/{{getUserProfileAvatar profile}}.jpg" alt="profile image">
 		</div>
 		<div class="content">
-			<div class="header">{{user.username}}</div>
+			<div class="header">{{username}}</div>
 			<div class="meta">
-				<span class="date">Joined in 2014</span>
+				<span class="date">Joined in {{createdAt}}</span>
 			</div>
-			<div class="description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quae sint eligendi vero reprehenderit eaque aperiam, suscipit at voluptatem explicabo excepturi, animi eveniet mollitia, quam ipsam aut neque perferendis iusto!
-			</div>
+			<div class="description">{{profile.status}}</div>
 		</div>
+		{{/with}}
 	</div>
 
 	<h4 class="ui horizontal divider header">
@@ -19,12 +19,17 @@
 		Buddies
 	</h4>
 
-	<div class="ui four doubling cards">
+	<div class="ui five doubling cards" style="margin: 0">
 		{{#each users}}
 		<div class="card">
 			<div class="image">
-				<img src="{{LARGE_AVATAR_DIR}}/steve.jpg" alt="profile image">
+				<img src="{{LARGE_AVATAR_DIR}}/{{getUserProfileAvatar profile}}.jpg" alt="profile image">
 			</div>
+			<div class="content">
+				<div class="header">{{username}}</div>
+				<div class="meta">Joined in {{createdAt}}</div>
+			</div>
+			<div class="description">{{profile.status}}</div>
 		</div>
 		{{/each}}
 	</div>

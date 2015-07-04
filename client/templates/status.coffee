@@ -8,9 +8,5 @@ Template.status_signedIn.events
 		Meteor.logout ->
 			Router.go '/signin'
 
-Template.status_signedIn.helpers
-	avatar: ->
-		Meteor.user()?.profile?.avatar ? 'default'
-
 Template.status_signedIn.onRendered ->
 	@$('i.sign.out').popup()
