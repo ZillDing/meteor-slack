@@ -8,10 +8,9 @@
 		{{#if currentUser}}
 		{{#if isAddingANewChannel}}
 		{{> menu_addNewChannelItem}}
-		{{/if}}
-		{{#unless isAddingANewChannel}}
+		{{else}}
 		{{> menu_createNewChannelItem}}
-		{{/unless}}
+		{{/if}}
 		{{/if}}
 
 		<div class="ui inverted divider"></div>

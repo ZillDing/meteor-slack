@@ -1,11 +1,9 @@
 <template name="status">
 	{{#if currentUser}}
 	{{> status_signedIn}}
-	{{/if}}
-
-	{{#unless currentUser}}
+	{{else}}
 	{{> status_notSignedIn}}
-	{{/unless}}
+	{{/if}}
 </template>
 <!-- ####################################################################### -->
 <template name="status_signedIn">
