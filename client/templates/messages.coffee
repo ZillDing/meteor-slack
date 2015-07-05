@@ -1,6 +1,25 @@
 Template.messages.helpers
 	messages: ->
-		Messages.find {}
+		switch Session.get 'chatType'
+			when 'channel'
+				targetId = Channels.findOne(name: Session.get 'chatTarget')._id
+				Messages.find
+					type: 'channel'
+					target: targetId
+			when 'direct'
+				targetId = Meteor.users.findOne(username: Session.get 'chatTarget')._id
+				Messages.find
+					$and: [
+						type: 'direct'
+					,
+						$or: [
+							owner: Meteor.userId()
+							target: targetId
+						,
+							owner: targetId
+							target: Meteor.userId()
+						]
+					]
 
 Template.messages.onCreated ->
 	Session.set 'isChatting', true
