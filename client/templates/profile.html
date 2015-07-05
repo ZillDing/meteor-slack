@@ -8,10 +8,10 @@
 
 	<h4 class="ui horizontal divider header">
 		<i class="users icon"></i>
-		Buddies
+		All Users
 	</h4>
 
-	{{> profile_buddies}}
+	{{> profile_users}}
 	</div>
 </template>
 <!-- ####################################################################### -->
@@ -68,13 +68,23 @@
 	</form>
 </template>
 <!-- ####################################################################### -->
-<template name="profile_buddies">
+<template name="profile_users">
 	{{#if Template.subscriptionsReady}}
+	{{#if hasUsers}}
 	<div class="ui five doubling cards">
 		{{#each users}}
 		{{> profile_card}}
 		{{/each}}
 	</div>
+	{{else}}
+	<div class="ui purple icon message">
+		<i class="frown icon"></i>
+		<div class="content">
+			<div class="header">Oooooops! No users...</div>
+			<p>{{noUserMessage}}</p>
+		</div>
+	</div>
+	{{/if}}
 	{{/if}}
 </template>
 <!-- ####################################################################### -->

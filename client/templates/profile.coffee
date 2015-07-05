@@ -7,9 +7,6 @@ Template.profile_currentUser.helpers
 	isEdittingProfile: ->
 		isEdittingProfile.get()
 
-Template.profile_currentUser.onCreated ->
-	@subscribe 'userData'
-
 Template.profile_currentUser.onRendered ->
 	if Meteor.Device.isDesktop()
 		@$('.card .image').dimmer
@@ -54,16 +51,25 @@ Template.profile_currentUser_edit.onRendered ->
 				]
 
 ################################################################################
-# _buddies
+# _users
 ################################################################################
-Template.profile_buddies.helpers
+Template.profile_users.helpers
+	hasUsers: ->
+		Meteor.users.find
+			_id:
+				$ne: Meteor.userId()
+		.count() isnt 0
+
+	noUserMessage: ->
+		if Meteor.userId()
+			'Invite your friends!'
+		else
+			'Quickly join!'
+
 	users: ->
 		Meteor.users.find
 			_id:
 				$ne: Meteor.userId()
-
-Template.profile_buddies.onCreated ->
-	@subscribe 'allUsersData'
 
 ################################################################################
 # _card
