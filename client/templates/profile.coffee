@@ -26,7 +26,10 @@ Template.profile_currentUser_edit.events
 			profile = Template.instance().$('form.form').form 'get values'
 			Meteor.call 'updateUserProfile', profile, (error, result) ->
 				if error
-					Session.set 'error', error
+					_addNotification
+						type: 'error'
+						header: error.error
+						message: error.message
 				else
 					isEdittingProfile.set false
 		false

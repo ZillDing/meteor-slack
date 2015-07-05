@@ -54,7 +54,9 @@ Template.registerHelper '_getUserProfileStatus', (profile) ->
 
 	Notifications.insert notification
 
+@_removeAllNotifications = ->
+	Notifications.remove {}
+
 @_removeNotification = (_id) ->
+	check _id, String
 	Notifications.remove _id
-
-

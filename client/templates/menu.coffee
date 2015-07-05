@@ -20,7 +20,10 @@ Template.menu_addNewChannelItem.events
 		if channel
 			Meteor.call 'addChannel', channel, (error, result) ->
 				if error
-					Session.set 'error', error
+					_addNotification
+						type: 'error'
+						header: error.error
+						message: error.message
 				else
 					isAddingANewChannel.set false
 
