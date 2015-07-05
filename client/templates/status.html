@@ -22,7 +22,7 @@
 			<div class="content">
 				<a href="/profile" class="header">{{currentUser.username}}</a>
 				<div class="description">
-					<small>{{_getUserProfileStatus currentUser.profile}}</small>
+					<small data-content="{{_getUserProfileStatus currentUser.profile}}" data-variation="inverted">{{_getUserProfileStatus userProfile}}</small>
 				</div>
 			</div>
 		</div>

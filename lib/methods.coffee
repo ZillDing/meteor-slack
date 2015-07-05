@@ -37,9 +37,11 @@ Meteor.methods
 		error = 'update-user-profile-failed'
 
 		_checkLoggedIn error
-		check profile, Object
+		check profile,
+			avatar: String
+			status: String
 
-		newProfile = _.extend Meteor.user().profile, profile
 		Meteor.users.update Meteor.userId(),
 			$set:
-				profile: newProfile
+				'profile.avatar': profile.avatar
+				'profile.status': profile.status

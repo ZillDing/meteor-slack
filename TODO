@@ -12,7 +12,7 @@
  ✘ consider use device specific template @cancelled (15-07-04 14:47)
 
  ☐ add admin page to allow special operation (edit/delete channel)
- ☐ add some form validation
+ ✘ add some form validation @cancelled (15-07-05 08:50)
  ☐ user whether online status
  ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
  ☐ use labels in menu to show incoming messages

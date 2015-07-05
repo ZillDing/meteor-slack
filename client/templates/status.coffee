@@ -1,3 +1,7 @@
+# maximum number of chars allowed to display in the status
+# additional ones will be truncated and shown as '...'
+MAX_STATUS_CHAR = 10
+
 ################################################################################
 # _signedIn
 ################################################################################
@@ -8,5 +12,20 @@ Template.status_signedIn.events
 		Meteor.logout ->
 			Router.go '/signin'
 
+Template.status_signedIn.helpers
+	userProfile: ->
+		status = Meteor.user()?.profile?.status
+		if (_.isString status) and status.length > MAX_STATUS_CHAR
+			status: "#{status.substring 0, MAX_STATUS_CHAR-1}..."
+		else
+			status: status
+
 Template.status_signedIn.onRendered ->
 	@$('i.sign.out').popup()
+
+	@autorun =>
+		status = Meteor.user()?.profile?.status
+		if (_.isString status) and status.length > MAX_STATUS_CHAR
+			@$('div.description small').popup()
+		else
+			@$('div.description small').popup 'destroy'

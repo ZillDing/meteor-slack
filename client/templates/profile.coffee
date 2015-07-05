@@ -49,8 +49,8 @@ Template.profile_currentUser_edit.onRendered ->
 					type: 'empty'
 					prompt: 'Please enter your status'
 				,
-					type: 'maxLength[10]'
-					prompt: 'Status cannot be longer than 10 characters (including spaces)'
+					type: 'maxLength[100]'
+					prompt: 'Status cannot be longer than 100 characters (including spaces)'
 				]
 
 ################################################################################
