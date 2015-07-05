@@ -28,8 +28,8 @@
 			<div class="flex-stretch-item">
 				{{> yield}}
 
-				<div class="ui bound bottom sticky"
-					style="right: 1rem; bottom: {{#if __isChatting}}4.5{{else}}1{{/if}}rem">
+				<div class="ui bound bottom sticky notifications-container"
+					style="bottom: {{#if __isChatting}}4.5{{else}}1{{/if}}rem">
 					{{> notifications}}
 				</div>
 			</div>
