@@ -15,6 +15,7 @@ Template.menu_addNewChannelItem.events
 		Template.instance().$('div.item').popup 'hide'
 
 	'click .confirm-btn': ->
+		Template.instance().$('div.item').popup 'hide'
 		channel = Template.instance().$('input').val()
 		if channel
 			Meteor.call 'addChannel', channel, (error, result) ->

@@ -1,5 +1,6 @@
 # maximum number of chars allowed to display in the status
-# additional ones will be truncated and shown as '...'
+# if length is bigger than 10, will only display the first 9 char
+# + '...'
 MAX_STATUS_CHAR = 10
 
 ################################################################################
