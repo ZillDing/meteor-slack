@@ -4,3 +4,5 @@
 # subscription used by only one template should NOT be here
 ################################################################################
 Meteor.subscribe 'channels'
+
+Meteor.subscribe 'users'
