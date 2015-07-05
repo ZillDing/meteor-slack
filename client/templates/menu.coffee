@@ -1,4 +1,5 @@
 isAddingANewChannel = new ReactiveVar false
+isAddingANewDirectChat = new ReactiveVar true
 
 Template.menu.helpers
 	channels: ->
@@ -6,6 +7,29 @@ Template.menu.helpers
 
 	isAddingANewChannel: ->
 		isAddingANewChannel.get()
+
+	isAddingANewDirectChat: ->
+		isAddingANewDirectChat.get()
+
+################################################################################
+# _channelItem
+################################################################################
+Template.menu_channelItem.helpers
+	channelClass: (name) ->
+		return 'item' if not Session.get 'isChatting'
+		return 'item' if not Session.equals 'chatType', 'channel'
+
+		if Session.equals 'chatTarget', name
+			'item active'
+		else
+			'item'
+
+################################################################################
+# _createNewChannelItem
+################################################################################
+Template.menu_createNewChannelItem.events
+	'click': ->
+		isAddingANewChannel.set true
 
 ################################################################################
 # _addNewChannelItem
@@ -27,7 +51,7 @@ Template.menu_addNewChannelItem.events
 				else
 					isAddingANewChannel.set false
 
-	'click i': ->
+	'click i.cancel': ->
 		isAddingANewChannel.set false
 
 	'submit form.form': ->
@@ -44,22 +68,20 @@ Template.menu_addNewChannelItem.onRendered ->
 		position: 'bottom left'
 	@$('input').focus()
 
-################################################################################
-# _channelItem
-################################################################################
-Template.menu_channelItem.helpers
-	channelClass: (name) ->
-		return 'item' if not Session.get 'isChatting'
-		return 'item' if not Session.equals 'chatType', 'channel'
-
-		if Session.equals 'chatTarget', name
-			'item active'
-		else
-			'item'
 
 ################################################################################
-# _createNewChannelItem
+# _createNewDirectChatItem
 ################################################################################
-Template.menu_createNewChannelItem.events
+Template.menu_createNewDirectChatItem.events
 	'click': ->
-		isAddingANewChannel.set true
+		isAddingANewDirectChat.set true
+
+################################################################################
+# _addNewDirectChatItem
+################################################################################
+Template.menu_addNewDirectChatItem.events
+	'click i.cancel': ->
+		isAddingANewDirectChat.set false
+
+Template.menu_addNewDirectChatItem.onRendered ->
+	@$('input').focus()

@@ -13,18 +13,19 @@
  ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
  ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
  ☐ add data modification restrictions (user info) @high
+ ☐ adjust the menu item style (consider us css for items) @high
 
- ☐ add admin page to allow special operation (edit/delete channel)
+ ☐ use labels in menu to show incoming messages
  ✘ add some form validation @cancelled (15-07-05 08:50)
  ☐ user whether online status
+ ☐ get more avatars
  ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
- ☐ use labels in menu to show incoming messages
  ☐ mention certain person in channels
  ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
  ☐ add control in title
  ☐ file support, simple uploading
- ☐ get more avatars
+ ☐ add admin page to allow special operation (edit/delete channel)
 
  ☐ comment on uploaded file @low
  ☐ support for searching messages @low

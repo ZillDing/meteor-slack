@@ -25,7 +25,28 @@
 		<a class="item">
 			<span>@</span>susan
 		</a>
+
+		{{#if currentUser}}
+		{{#if isAddingANewDirectChat}}
+		{{> menu_addNewDirectChatItem}}
+		{{else}}
+		{{> menu_createNewDirectChatItem}}
+		{{/if}}
+		{{/if}}
 	</div>
+</template>
+
+<!-- ####################################################################### -->
+<template name="menu_channelItem">
+	<a href="/channel/{{name}}" class="{{channelClass name}}">
+		<span>#</span>{{name}}
+	</a>
+</template>
+<!-- ####################################################################### -->
+<template name="menu_createNewChannelItem">
+	<a class="item">
+		<em style="border-bottom: 1px dotted">Create new channel...</em>
+	</a>
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewChannelItem">
@@ -49,15 +70,38 @@
 		</div>
 	</div>
 </template>
+
 <!-- ####################################################################### -->
-<template name="menu_channelItem">
-	<a href="/channel/{{name}}" class="{{channelClass name}}">
-		<span>#</span>{{name}}
+<template name="menu_createNewDirectChatItem">
+	<a class="item">
+		<em style="border-bottom: 1px dotted">Create new chat...</em>
 	</a>
 </template>
 <!-- ####################################################################### -->
-<template name="menu_createNewChannelItem">
-	<a class="item">
-		<em style="border-bottom: 1px dotted">Create new channel...</em>
+<template name="menu_addNewDirectChatItem">
+	<div class="item">
+		<form class="ui form">
+			<div class="ui transparent inverted icon input">
+				<span class="flex-center-align">@</span>
+				<input type="text" placeholder="Choose a buddy...">
+				<i class="cancel link icon"></i>
+			</div>
+		</form>
+	</div>
+	<div class="ui tiny inverted middle aligned selection list" style="margin-top: 0">
+		{{> menu_addNewDirectChatItem_userItem}}
+		{{> menu_addNewDirectChatItem_userItem}}
+		{{> menu_addNewDirectChatItem_userItem}}
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="menu_addNewDirectChatItem_userItem">
+	<a class="item" style="margin-top: 0.3em; padding: 0 0 0 1rem">
+		<div class="ui avatar image">
+			<img src="{{SMALL_AVATAR_DIR}}/christian.jpg">
+		</div>
+		<div class="content">
+			<div class="header">Christian</div>
+		</div>
 	</a>
 </template>
