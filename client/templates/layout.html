@@ -25,11 +25,13 @@
 			{{> title}}
 			{{/if}}
 
-			<div class="flex-stretch-item">
+			<div class="flex-stretch-item" style="position: relative">
 				{{> yield}}
-			</div>
 
-			{{> error}}
+				<div class="ui bound bottom sticky" style="right: 0; bottom: 1rem">
+					{{> error}}
+				</div>
+			</div>
 
 			{{#if __isChatting}}
 			{{> input}}

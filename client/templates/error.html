@@ -1,9 +1,12 @@
 <template name="error">
 	{{#if error}}
-	<div class="ui floating negative message">
+	<div class="ui floating negative icon message">
 		<i class="close icon"></i>
-		<div class="header">{{error.error}}</div>
-		<p>{{error.message}}</p>
+		<i class="bug icon"></i>
+		<div class="content">
+			<div class="header">{{error.error}}</div>
+			<p>{{error.message}}</p>
+		</div>
 	</div>
 	{{/if}}
 </template>
