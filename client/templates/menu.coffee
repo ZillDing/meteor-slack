@@ -47,8 +47,9 @@ Template.menu_addNewChannelItem.onRendered ->
 Template.menu_channelItem.helpers
 	channelClass: (name) ->
 		return 'item' if not Session.get 'isChatting'
+		return 'item' if not Session.equals 'chatType', 'channel'
 
-		if Session.equals 'currentChannel', name
+		if Session.equals 'chatTarget', name
 			'item active'
 		else
 			'item'

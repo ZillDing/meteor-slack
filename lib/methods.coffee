@@ -17,22 +17,33 @@ Meteor.methods
 			name: channel
 			owner: Meteor.userId()
 
-	'addMessage': (channel, text) ->
+	'addMessage': (message) ->
 		error = 'add-message-failed'
 
 		_checkLoggedIn error
-		check channel, String
-		check text, String
-		if Channels.find(name: channel).count() is 0
-			throw new Meteor.Error error, "Cannot find channel: #{channel}."
+		check message, Match.ObjectIncluding
+			type: Match.OneOf 'channel', 'direct'
+			target: String
+			text: String
 
-		Messages.insert
+		doc = null
+		switch message.type
+			when 'channel'
+				if not doc = Channels.findOne(name: message.target)
+					throw new Meteor.Error error, "Cannot find channel: #{message.target}."
+			when 'direct'
+				if not doc = Meteor.users.findOne(username: message.target)
+					throw new Meteor.Error error, "Cannot find user: #{message.target}."
+		# note: need to change the target to id instead of using name
+		# to store in db
+		message.target = doc._id
+
+		Messages.insert _.extend
 			avatar: Meteor.user().profile?.avatar ? 'default'
-			channel: channel
 			createdAt: new Date()
 			owner: Meteor.userId()
-			text: text
 			username: Meteor.user().username
+		, message
 
 	'updateUserProfile': (profile) ->
 		error = 'update-user-profile-failed'

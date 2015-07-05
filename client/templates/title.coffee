@@ -2,8 +2,8 @@ Template.title.helpers
 	channels: ->
 		Channels.find {}
 
-	currentChannel: ->
-		Session.get 'currentChannel'
+	currentTarget: ->
+		Session.get 'chatTarget'
 
 Template.title.onRendered ->
 	@$('.ui.dropdown').dropdown

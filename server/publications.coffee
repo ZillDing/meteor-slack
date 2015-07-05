@@ -8,13 +8,31 @@ Meteor.publish 'allUsersData', ->
 Meteor.publish 'channels', ->
 	Channels.find()
 
-Meteor.publish 'messages', ->
-	Messages.find()
+Meteor.publish 'targetedMessages', (data) ->
+	check data,
+		type: Match.OneOf 'channel', 'direct'
+		target: String
 
-Meteor.publish 'messagesInChannel', (channel) ->
-	check channel, String
-	Messages.find
-		channel: channel
+	result = switch data.type
+		when 'channel'
+			channelId = Channels.findOne(name: data.target)._id
+			Messages.find
+				type: 'channel'
+				target: channelId
+		when 'direct'
+			userId = Meteor.users.find(username: data.target)._id
+			Messages.find
+				$or: [
+					type: 'direct'
+					owner: @userId
+					target: userId
+				,
+					type: 'direct'
+					owner: userId
+					target: @userId
+				]
+		else undefined
+	result
 
 Meteor.publish 'userData', ->
 	if @userId

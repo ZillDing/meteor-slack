@@ -1,18 +1,26 @@
 Template.input.events
 	'submit form.form': (event) ->
-		text = Template.instance().$('input').val()
-		if text and channel = Session.get 'currentChannel'
-			Meteor.call 'addMessage', channel, text, (error, result) ->
+		$input = Template.instance().$ 'input'
+
+		text = $input.val()
+		type = Session.get 'chatType'
+		target = Session.get 'chatTarget'
+		if text and type and target
+			message =
+				type: type
+				target: target
+				text: text
+			Meteor.call 'addMessage', message, (error, result) ->
 				if error
 					Session.set 'error', error
 				else
 					# clear the form
-					Template.instance().$('input').val ''
+					$input.val ''
 		# prevent default form submit
 		false
 
 Template.input.onRendered ->
 	@autorun =>
-		# focus on the input whenever channel changes
-		Session.get 'currentChannel'
+		# focus on the input whenever target changes
+		Session.get 'chatTarget'
 		@$('input').focus()

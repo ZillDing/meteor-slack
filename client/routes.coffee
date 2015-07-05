@@ -11,13 +11,18 @@ Router.route '/channel/:_channel', ->
 	channel = @params._channel
 	@render 'messages',
 		data:
-			channel: channel
-	Session.set 'isChatting', true
+			type: 'channel'
+			target: channel
+
+Router.route '/direct/:_username', ->
+	username = @params._username
+	@render 'messages',
+		data:
+			type: 'direct'
+			target: username
 
 Router.route '/profile', ->
 	@render 'profile'
-	Session.set 'isChatting', false
 
 Router.route '/signin', ->
 	@render 'signin'
-	Session.set 'isChatting', false
