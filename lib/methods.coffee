@@ -10,7 +10,7 @@ Meteor.methods
 		check channel, String
 		channel = channel.toLowerCase()
 		if Channels.find(name: channel).count() > 0
-			throw new Meteor.Error error, "Channel: #{channel} already exists."
+			throw new Meteor.Error error, "Duplicate channel name: #{channel}"
 
 		Channels.insert
 			createdAt: new Date()

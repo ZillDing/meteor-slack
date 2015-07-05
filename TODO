@@ -1,7 +1,7 @@
  ☐ adjust chat message UI (scroll properly) @critical
  ✔ allow see other people's public profile @today @done (15-07-04 09:37)
  ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
- ☐ figure out a way to differentiate various types of messages (channel vs direct) @high
+ ✔ figure out a way to differentiate various types of messages (channel vs direct) @high @done (15-07-05 20:20)
  ☐ direct messages @high
  ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
  ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
@@ -10,6 +10,9 @@
  ✔ use form for adding channel @today @done (15-07-04 08:50)
  ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
  ✘ consider use device specific template @cancelled (15-07-04 14:47)
+ ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
+ ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
+ ☐ add data modification restrictions (user info) @high
 
  ☐ add admin page to allow special operation (edit/delete channel)
  ✘ add some form validation @cancelled (15-07-05 08:50)

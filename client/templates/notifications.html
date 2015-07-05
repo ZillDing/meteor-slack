@@ -1,12 +1,16 @@
 <template name="notifications">
-	{{#if notification}}
-	<div class="ui floating negative icon message">
+	{{#each notifications}}
+		{{> notifications_item}}
+	{{/each}}
+</template>
+<!-- ####################################################################### -->
+<template name="notifications_item">
+	<div class="ui floating {{messageClass}} message">
 		<i class="close icon"></i>
-		<i class="bug icon"></i>
+		<i class="{{iconClass}} icon" style="margin-right: 0.4em"></i>
 		<div class="content">
-			<div class="header">{{notification.error}}</div>
-			<p>{{notification.message}}</p>
+			<div class="header">{{header}}</div>
+			<p>{{message}}</p>
 		</div>
 	</div>
-	{{/if}}
 </template>

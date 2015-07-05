@@ -37,3 +37,24 @@ Template.registerHelper '_getUserProfileStatus', (profile) ->
 	return 'online' if _.isEmpty profile?.status
 	return 'online' if not _.isString profile?.status
 	profile.status
+
+
+################################################################################
+# notifications
+################################################################################
+@Notifications = new Mongo.Collection null
+
+@_addNotification = (notification) ->
+	check notification,
+		type: Match.OneOf 'default', 'success', 'error', 'info', 'warning', 'customized'
+		header: String
+		message: String
+		html: Match.Optional String
+		dismissAfter: Match.Optional Match.Integer
+
+	Notifications.insert notification
+
+@_removeNotification = (_id) ->
+	Notifications.remove _id
+
+
