@@ -1,4 +1,4 @@
-Template.error.events
+Template.notifications.events
 	'click i': (event) ->
 		# dismiss the error message
 		$ event.currentTarget
@@ -6,6 +6,6 @@ Template.error.events
 		.transition 'fade up', ->
 			Session.set 'error', null
 
-Template.error.helpers
-	error: ->
+Template.notifications.helpers
+	notification: ->
 		Session.get 'error'
