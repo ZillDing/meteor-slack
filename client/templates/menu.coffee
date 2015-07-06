@@ -16,13 +16,13 @@ Template.menu.helpers
 ################################################################################
 Template.menu_channelItem.helpers
 	channelClass: (name) ->
-		return 'item' if not Session.get 'isChatting'
-		return 'item' if not Session.equals 'chatType', 'channel'
+		return '' if not Session.get 'isChatting'
+		return '' if not Session.equals 'chatType', 'channel'
 
 		if Session.equals 'chatTarget', name
-			'item active'
+			'active'
 		else
-			'item'
+			''
 
 ################################################################################
 # _createNewChannelItem

@@ -1,6 +1,7 @@
 <template name="menu">
-	<div class="ui fluid inverted secondary vertical text menu">
-		<div class="item header">CHANNELS</div>
+	<div class="ui fluid container sidebar-menu">
+		<div class="ui inverted sub header">CHANNELS</div>
+		<div class="ui inverted middle aligned list">
 		{{#each channels}}
 		{{> menu_channelItem}}
 		{{/each}}
@@ -12,19 +13,23 @@
 		{{> menu_createNewChannelItem}}
 		{{/if}}
 		{{/if}}
+		</div>
 
 		<div class="ui inverted divider"></div>
 
-		<div class="item header">DIRECT MESSAGES</div>
-		<a class="item">
-			<span>@</span>tom
-		</a>
-		<a class="item">
-			<span>@</span>jim
-		</a>
-		<a class="item">
-			<span>@</span>susan
-		</a>
+		<div class="ui inverted sub header">DIRECT MESSAGES</div>
+
+		<div class="ui inverted middle aligned list">
+			<a class="item sidebar-menu-item hoverable">
+				<span>@</span>tom
+			</a>
+			<a class="item sidebar-menu-item hoverable">
+				<span>@</span>jim
+			</a>
+			<a class="item sidebar-menu-item hoverable">
+				<span>@</span>susan
+			</a>
+		</div>
 
 		{{#if currentUser}}
 		{{#if isAddingANewDirectChat}}
@@ -38,19 +43,19 @@
 
 <!-- ####################################################################### -->
 <template name="menu_channelItem">
-	<a href="/channel/{{name}}" class="{{channelClass name}}">
+	<a href="/channel/{{name}}" class="item sidebar-menu-item hoverable {{channelClass name}}">
 		<span>#</span>{{name}}
 	</a>
 </template>
 <!-- ####################################################################### -->
 <template name="menu_createNewChannelItem">
-	<a class="item">
-		<em style="border-bottom: 1px dotted">Create new channel...</em>
+	<a class="item sidebar-menu-item hoverable">
+		<em>Create new channel...</em>
 	</a>
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewChannelItem">
-	<div class="item">
+	<div class="item sidebar-menu-item">
 		<form class="ui form">
 			<div class="ui transparent inverted icon input">
 				<span class="flex-center-align">#</span>
@@ -73,22 +78,26 @@
 
 <!-- ####################################################################### -->
 <template name="menu_createNewDirectChatItem">
-	<a class="item">
-		<em style="border-bottom: 1px dotted">Create new chat...</em>
-	</a>
+	<div class="ui inverted middle aligned list">
+		<a class="item sidebar-menu-item hoverable">
+			<em>Create new chat...</em>
+		</a>
+	</div>
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewDirectChatItem">
-	<div class="item">
-		<form class="ui form">
-			<div class="ui transparent inverted icon input">
-				<span class="flex-center-align">@</span>
-				<input type="text" placeholder="Choose a buddy...">
-				<i class="cancel link icon"></i>
-			</div>
-		</form>
+	<div class="ui inverted middle aligned list">
+		<div class="item sidebar-menu-item">
+			<form class="ui form">
+				<div class="ui transparent inverted icon input">
+					<span>@</span>
+					<input type="text" placeholder="Choose a buddy...">
+					<i class="cancel link icon"></i>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="ui tiny inverted middle aligned selection list" style="margin-top: 0">
+	<div class="ui tiny inverted middle aligned list" style="margin-left: 1em">
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{> menu_addNewDirectChatItem_userItem}}
@@ -96,7 +105,7 @@
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewDirectChatItem_userItem">
-	<a class="item" style="margin-top: 0.3em; padding: 0 0 0 1rem">
+	<a class="item sidebar-menu-item hoverable">
 		<div class="ui avatar image">
 			<img src="{{SMALL_AVATAR_DIR}}/christian.jpg">
 		</div>

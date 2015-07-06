@@ -18,24 +18,38 @@
 		overflow-x: hidden
 		overflow-y: auto
 
-.ui.secondary.inverted.menu
-	>.item
-		span
-			margin-right: 0.1em
-			opacity: 0.4
+.ui.sidebar-menu
+	>.ui.sub.header
+		margin-top: 14px
+		margin-bottom: 5px
+		opacity: 0.3
 
-		&.header
-			color: rgba(255, 255,255, 0.3)
+	>.ui.inverted.list
+		margin: 0
 
-	a.item
-		margin: 0.2em 0 0.3em -1rem
-		padding: 0.3em 0 0.3em 1rem
+		.item.sidebar-menu-item
+			margin: 2px 0 2px -1rem
+			padding: 2px 0 2px 1rem
+			border-radius: 0 7px 7px 0
+			color: rgba(255, 255,255, 0.5)
+			font-size: 1.1em
 
-		&:hover
-			background-color: rgba(255, 255, 255, 0.08)!important
+			&.hoverable
+				&:hover
+					background-color: rgba(255, 255, 255, 0.08)
+					color: white
 
-		&.active
-			background-color: lightseagreen!important
+				&.active
+					background-color: lightseagreen
+					color: white
+
+				em
+					border-bottom: 1px dotted
+					font-size: 1rem
+
+			span
+				margin-right: 2px
+				opacity: 0.4
 
 .ui.transparent.inverted.input input
 	color: inherit!important

@@ -14,6 +14,7 @@
  ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
  ☐ add data modification restrictions (user info) @high
  ☐ adjust the menu item style (consider us css for items) @high
+ ☐ sign in system configure: disable name case differentiation @critical
 
  ☐ use labels in menu to show incoming messages
  ✘ add some form validation @cancelled (15-07-05 08:50)
