@@ -15,7 +15,7 @@
  ☐ add data modification restrictions (user info) @high
  ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
  ☐ sign in system configure: disable name case differentiation @critical
- ☐ adjust menu user list style (bug in safari)
+ ✔ adjust menu user list style (bug in safari) @done (15-07-07 05:40)
 
  ☐ use labels in menu to show incoming messages
  ✘ add some form validation @cancelled (15-07-05 08:50)

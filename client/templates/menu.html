@@ -15,7 +15,7 @@
 			{{/if}}
 		</div>
 
-		<div class="ui inverted divider"></div>
+		<div class="ui inverted divider" style="margiin-top: 0.5em"></div>
 
 		<div class="ui inverted sub header" style="margin-top: 0">DIRECT MESSAGES</div>
 		<div class="ui inverted middle aligned list">
@@ -97,7 +97,7 @@
 		</div>
 	</div>
 	<div class="ui tiny inverted middle aligned list flex-stretch-item"
-		style="padding-left: 1em; min-height: 10em">
+		style="min-height: 10em">
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{> menu_addNewDirectChatItem_userItem}}
@@ -132,11 +132,11 @@
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewDirectChatItem_userItem">
-	<a class="item sidebar-menu-item hoverable">
-		<div class="ui avatar image">
+	<a class="item sidebar-menu-item hoverable" style="margin-left: 0; border-radius: 0.5em">
+		<div class="ui avatar image" style="padding-right: 0">
 			<img src="{{SMALL_AVATAR_DIR}}/christian.jpg">
 		</div>
-		<div class="content">
+		<div class="content" style="padding-left: 1em">
 			<div class="header">Christian</div>
 		</div>
 	</a>
