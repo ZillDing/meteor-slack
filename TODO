@@ -13,8 +13,9 @@
  ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
  ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
  ☐ add data modification restrictions (user info) @high
- ☐ adjust the menu item style (consider us css for items) @high
+ ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
  ☐ sign in system configure: disable name case differentiation @critical
+ ☐ adjust menu user list style
 
  ☐ use labels in menu to show incoming messages
  ✘ add some form validation @cancelled (15-07-05 08:50)
