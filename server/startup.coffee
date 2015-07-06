@@ -1,3 +1,5 @@
 Meteor.startup ->
 	if Channels.find().count() is 0
-		Meteor.call 'addChannel', 'general'
+		Channels.insert
+			createdAt: new Date()
+			name: 'general'
