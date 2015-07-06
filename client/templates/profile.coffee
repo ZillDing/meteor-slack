@@ -98,7 +98,10 @@ Template.profile_card.helpers
 		then 'Edit'
 		else 'Chat'
 
+	isHoverable: ->
+		__deviceIsHoverable
+
 Template.profile_card.onRendered ->
-	if Meteor.Device.isDesktop()
+	if __deviceIsHoverable
 		@$('.card .image').dimmer
 			on: 'hover'

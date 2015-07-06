@@ -22,11 +22,12 @@ Template.status_signedIn.helpers
 			status: status
 
 Template.status_signedIn.onRendered ->
-	@$('i.sign.out').popup()
+	if __deviceIsHoverable
+		@$('i.sign.out').popup()
 
-	@autorun =>
-		status = Meteor.user()?.profile?.status
-		if (_.isString status) and status.length > MAX_STATUS_CHAR
-			@$('div.description small').popup()
-		else
-			@$('div.description small').popup 'destroy'
+		@autorun =>
+			status = Meteor.user()?.profile?.status
+			if (_.isString status) and status.length > MAX_STATUS_CHAR
+				@$('div.description small').popup()
+			else
+				@$('div.description small').popup 'destroy'

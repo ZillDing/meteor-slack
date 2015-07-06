@@ -5,8 +5,15 @@ String.prototype.capitalize = ->
 	@charAt(0).toUpperCase() + @substring 1
 
 ################################################################################
-# CONSTANTS
+# global variables
 ################################################################################
+@__deviceIsHoverable = Meteor.Device.isTV() or Meteor.Device.isDesktop()
+
+
+################################################################################
+# Helpers for all templates
+################################################################################
+# CONSTANTS
 Template.registerHelper 'BRAND_NAME', ->
 	'TAISS'
 
@@ -16,15 +23,11 @@ Template.registerHelper 'LARGE_AVATAR_DIR', ->
 Template.registerHelper 'SMALL_AVATAR_DIR', ->
 	'/images/avatar/small'
 
-################################################################################
 # variables
-################################################################################
 Template.registerHelper '__isChatting', ->
 	Session.get 'isChatting'
 
-################################################################################
 # functions
-################################################################################
 Template.registerHelper '_getJoinTime', (date) ->
 	moment(date).format 'YYYY, MMM'
 
