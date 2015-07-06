@@ -1,6 +1,6 @@
 <template name="menu">
 	<div class="column flex-column-container sidebar-menu" style="padding: 0 1rem">
-		<div class="ui inverted sub header" style="margin-top: 14px">CHANNELS</div>
+		<div class="ui inverted sub header" style="margin-top: 10px">CHANNELS</div>
 		<div class="ui inverted middle aligned list">
 			{{#each channels}}
 			{{> menu_channelItem}}
@@ -15,7 +15,7 @@
 			{{/if}}
 		</div>
 
-		<div class="ui inverted divider" style="margiin-top: 0.5em"></div>
+		<div class="ui inverted divider" style="margin-top: 0.5em"></div>
 
 		<div class="ui inverted sub header" style="margin-top: 0">DIRECT MESSAGES</div>
 		<div class="ui inverted middle aligned list">
@@ -97,7 +97,7 @@
 		</div>
 	</div>
 	<div class="ui tiny inverted middle aligned list flex-stretch-item"
-		style="min-height: 10em">
+		style="min-height: 10em; background-color: rgba(255, 255, 255, 0.2)">
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{> menu_addNewDirectChatItem_userItem}}
