@@ -15,7 +15,8 @@
  ☐ add data modification restrictions (user info) @high
  ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
  ☐ sign in system configure: disable name case differentiation @critical
- ☐ use dropdown list for sign out actions etc
+ ✔ use dropdown list for sign out actions etc @done (15-07-07 08:09)
+ ☐ adjust setting dropup menu style (use inverted color theme)
  ✔ adjust menu user list style (bug in safari) @done (15-07-07 05:40)
  ✔ close sidebar when window resize @done (15-07-07 07:02)
 

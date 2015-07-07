@@ -7,28 +7,36 @@
 </template>
 <!-- ####################################################################### -->
 <template name="status_signedIn">
-	<div class="ui big inverted list">
-		<div class="item">
-			<div class="right floated content">
-				<i class="large inverted sign out link icon"
-					data-content="Sign out" data-variation="inverted"
-					style="margin-right: 0; margin-top: 0.5rem"></i>
-			</div>
-
+	<div class="ui big inverted list flex-container flex-row-container">
+		<div class="item flex-stretch-item" style="padding: 0">
 			<div class="ui avatar image" style="padding: 0; vertical-align: middle">
 				<img src="{{SMALL_AVATAR_DIR}}/{{_getUserProfileAvatar currentUser.profile}}.jpg" alt="avatar">
 			</div>
 
 			<div class="content">
-				<a href="/profile" class="header">
+				<div class="header">
 					{{currentUser.username}}
-				</a>
+				</div>
 				<div class="description">
 					<span class="ui mini green empty circular label"></span>
 					<small data-content="{{_getUserProfileStatus currentUser.profile}}" data-variation="inverted">
 						{{_getUserProfileStatus userProfile}}
 					</small>
 				</div>
+			</div>
+		</div>
+
+		<div class="ui bottom right pointing dropdown" style="margin-right: -1rem">
+			<i class="inverted chevron up link icon" style="margin-right: 1rem"></i>
+			<div class="menu">
+				<a href="/profile" class="item">
+					<i class="setting icon"></i>
+					Profile
+				</a>
+				<a class="item sign-out">
+					<i class="sign out icon"></i>
+					Sign out
+				</a>
 			</div>
 		</div>
 	</div>

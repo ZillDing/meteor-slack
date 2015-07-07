@@ -7,9 +7,8 @@ MAX_STATUS_CHAR = 10
 # _signedIn
 ################################################################################
 Template.status_signedIn.events
-	'click i.sign.out': (event) ->
-		# hide popup and logout
-		$(event.currentTarget).popup 'hide'
+	'click .sign-out': (event) ->
+		# logout
 		Meteor.logout ->
 			Router.go '/signin'
 
@@ -22,6 +21,10 @@ Template.status_signedIn.helpers
 			status: status
 
 Template.status_signedIn.onRendered ->
+	@$('.ui.dropdown').dropdown
+		action: 'hide'
+		direction: 'upward'
+
 	if __deviceIsHoverable
 		@$('i.sign.out').popup()
 
