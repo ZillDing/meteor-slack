@@ -19,6 +19,7 @@
  ✔ close sidebar when window resize @done (15-07-07 07:02)
  ☐ direct messages @high
  ☐ filter user while typing
+ ☐ fix the menu user list UI bug
 
  ☐ use labels in menu to show incoming messages
  ✘ add some form validation @cancelled (15-07-05 08:50)
