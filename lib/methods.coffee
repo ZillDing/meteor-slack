@@ -39,7 +39,7 @@ Meteor.methods
 		message.target = doc._id
 
 		Messages.insert _.extend
-			avatar: Meteor.user().profile?.avatar ? 'default'
+			avatar: Meteor.user().profile?.avatar
 			createdAt: new Date()
 			owner: Meteor.userId()
 			username: Meteor.user().username

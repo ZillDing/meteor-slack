@@ -36,7 +36,13 @@ Template.profile_currentUser_edit.events
 
 Template.profile_currentUser_edit.helpers
 	AVAILABLE_AVATARS: ->
-		['default', 'christian', 'elliot', 'helen', 'jenny', 'joe', 'justen', 'laura', 'matt', 'steve', 'stevie']
+		['default.jpg', 'christian.jpg', 'elliot.jpg', 'helen.jpg', 'jenny.jpg', 'joe.jpg', 'justen.jpg', 'laura.jpg', 'matt.jpg', 'steve.jpg', 'stevie.jpg']
+
+	getAvatarDisplayName: (str) ->
+		regexps = [/.jpg$/i, /.png$/i]
+		for regexp in regexps
+			if regexp.test str
+				return str.replace regexp, ''
 
 Template.profile_currentUser_edit.onRendered ->
 	@$('.ui.dropdown').dropdown()

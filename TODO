@@ -3,7 +3,9 @@
  ☐ direct messages @high
  ☐ show all chat buddies in the menu
  ☐ use labels in menu to show incoming messages @high
+ ✔ change avatar id to using full name of the image file (include file extension) @critical @done (15-07-07 16:24)
  ☐ get more avatars
+ ☐ if there are too many items in the sidebar menu, hide some of them
 
  ☐ user whether online status
  ☐ mention certain person in channels

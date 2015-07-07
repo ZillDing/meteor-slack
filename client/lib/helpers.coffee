@@ -1,10 +1,4 @@
 ################################################################################
-# utils
-################################################################################
-String.prototype.capitalize = ->
-	@charAt(0).toUpperCase() + @substring 1
-
-################################################################################
 # global variables
 ################################################################################
 @__deviceIsHoverable = Meteor.Device.isTV() or Meteor.Device.isDesktop()
@@ -32,8 +26,8 @@ Template.registerHelper '_getJoinTime', (date) ->
 	moment(date).format 'YYYY, MMM'
 
 Template.registerHelper '_getUserProfileAvatar', (profile) ->
-	return 'default' if _.isEmpty profile?.avatar
-	return 'default' if not _.isString profile?.avatar
+	return 'default.jpg' if _.isEmpty profile?.avatar
+	return 'default.jpg' if not _.isString profile?.avatar
 	profile.avatar
 
 Template.registerHelper '_getUserProfileStatus', (profile) ->
