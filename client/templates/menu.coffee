@@ -98,6 +98,9 @@ searchUser = ($input) ->
 	prevTimeoutHandle = null
 
 Template.menu_addNewDirectChatItem.events
+	'click a.sidebar-menu-item': ->
+		isAddingANewDirectChat.set false
+
 	'click i.cancel': ->
 		isAddingANewDirectChat.set false
 
