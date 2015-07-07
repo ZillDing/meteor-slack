@@ -36,7 +36,19 @@ Template.profile_currentUser_edit.events
 
 Template.profile_currentUser_edit.helpers
 	AVAILABLE_AVATARS: ->
-		['default.jpg', 'christian.jpg', 'elliot.jpg', 'helen.jpg', 'jenny.jpg', 'joe.jpg', 'justen.jpg', 'laura.jpg', 'matt.jpg', 'steve.jpg', 'stevie.jpg']
+		[
+			'default.jpg',
+			'christian.jpg',
+			'daniel.jpg',
+			'elliot.jpg', 'elyse.png',
+			'helen.jpg',
+			'jenny.jpg', 'joe.jpg', 'justen.jpg',
+			'kristy.png',
+			'laura.jpg',
+			'matt.jpg', 'matthew.png', 'molly.png',
+			'steve.jpg', 'stevie.jpg',
+			'veronika.jpg'
+		]
 
 	getAvatarDisplayName: (str) ->
 		regexps = [/.jpg$/i, /.png$/i]

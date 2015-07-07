@@ -1,10 +1,8 @@
  ☐ adjust chat message UI (scroll properly) @critical
- ✔ sign in system configure: disable name case differentiation @critical @done (15-07-07 15:40)
+ ☐ configure router to restrict access to '/direct/:_username' to only signed in users
  ☐ direct messages @high
  ☐ show all chat buddies in the menu
  ☐ show all chat buddies in top title dropdown menu
- ✔ change avatar id to using full name of the image file (include file extension) @critical @done (15-07-07 16:24)
- ☐ get more avatars
  ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ use labels in menu to show incoming messages @high
  ☐ use dropdown description to display new incoming messages for title
@@ -29,6 +27,9 @@
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ sign in system configure: disable name case differentiation @critical @done (15-07-07 15:40)
+ ✔ change avatar id to using full name of the image file (include file extension) @critical @done (15-07-07 16:24)
+ ✔ get more avatars @done (15-07-07 17:01)
  ✔ allow see other people's public profile @today @done (15-07-04 09:37)
  ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
  ✔ figure out a way to differentiate various types of messages (channel vs direct) @high @done (15-07-05 20:20)
