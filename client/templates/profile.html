@@ -101,7 +101,10 @@
 			<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}" alt="profile image">
 		</div>
 		<div class="content">
-			<div class="header">{{username}}</div>
+			<div class="header">
+				<div class="ui {{statusLabelColor}} empty circular label" style="margin-right: 0.5em"></div>
+				{{username}}
+			</div>
 			<div class="meta">
 				<span class="date">Joined in {{_getJoinTime createdAt}}</span>
 			</div>

@@ -119,6 +119,11 @@ Template.profile_card.helpers
 	isHoverable: ->
 		__deviceIsHoverable
 
+	statusLabelColor: ->
+		if Template.currentData().status?.online
+		then 'green'
+		else 'grey'
+
 Template.profile_card.onRendered ->
 	if __deviceIsHoverable
 		@$('.card .image').dimmer
