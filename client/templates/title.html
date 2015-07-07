@@ -3,15 +3,22 @@
 		<div class="column">
 			<div class="ui dropdown">
 				<div class="text ui header">
-					<span style="opacity: 0.5">#</span>{{currentTarget}}
+					<span style="opacity: 0.5">{{prefixSymbol}}</span>
+					{{currentTarget}}
 				</div>
 				<i class="dropdown icon"></i>
 				<div class="menu">
-					<div class="header">All channels</div>
-					<div class="divider"></div>
+					<div class="header">
+						<i class="tags icon"></i>
+						All channels...
+					</div>
 					{{#each channels}}
 					<a href="/channel/{{name}}" class="item"><span>#</span> {{name}}</a>
 					{{/each}}
+					<div class="header">
+						<i class="tags icon"></i>
+						All direct messages...
+					</div>
 				</div>
 			</div>
 		</div>

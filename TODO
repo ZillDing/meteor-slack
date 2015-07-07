@@ -2,10 +2,12 @@
  ✔ sign in system configure: disable name case differentiation @critical @done (15-07-07 15:40)
  ☐ direct messages @high
  ☐ show all chat buddies in the menu
- ☐ use labels in menu to show incoming messages @high
+ ☐ show all chat buddies in top title dropdown menu
  ✔ change avatar id to using full name of the image file (include file extension) @critical @done (15-07-07 16:24)
  ☐ get more avatars
  ☐ if there are too many items in the sidebar menu, hide some of them
+ ☐ use labels in menu to show incoming messages @high
+ ☐ use dropdown description to display new incoming messages for title
 
  ☐ user whether online status
  ☐ mention certain person in channels
@@ -15,6 +17,7 @@
  ☐ file support, simple uploading
  ☐ add admin page to allow special operation (edit/delete channel)
 
+ ☐ replace the comments icon in the users list in the menu with online status @low
  ☐ add data modification restrictions (user info)
  ☐ comment on uploaded file @low
  ☐ support for searching messages @low
