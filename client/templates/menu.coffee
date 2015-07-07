@@ -79,9 +79,22 @@ Template.menu_createNewDirectChatItem.events
 ################################################################################
 # _addNewDirectChatItem
 ################################################################################
+prevTimeoutHandle = null
+searchUser = ($input) ->
+	text = $input.val()
+	console.log text
+	# TODO: set reactive var
+	prevTimeoutHandle = null
+
 Template.menu_addNewDirectChatItem.events
 	'click i.cancel': ->
 		isAddingANewDirectChat.set false
+
+	'keypress input': (event) ->
+		Meteor.clearTimeout prevTimeoutHandle if prevTimeoutHandle
+		prevTimeoutHandle = Meteor.setTimeout ->
+			searchUser $ event.currentTarget
+		, 500
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()
