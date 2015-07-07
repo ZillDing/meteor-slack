@@ -98,19 +98,19 @@
 	</div>
 	<div class="ui tiny inverted middle aligned divided list flex-stretch-item"
 		style="min-height: 10em; background-color: rgba(255, 255, 255, 0.2)">
+		{{#each users}}
 		{{> menu_addNewDirectChatItem_userItem}}
-		{{> menu_addNewDirectChatItem_userItem}}
-		{{> menu_addNewDirectChatItem_userItem}}
+		{{/each}}
 	</div>
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewDirectChatItem_userItem">
 	<a class="item sidebar-menu-item hoverable" style="margin: 0; border-radius: 0">
 		<div class="ui avatar image" style="padding-right: 0">
-			<img src="{{SMALL_AVATAR_DIR}}/default.jpg">
+			<img src="{{SMALL_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg">
 		</div>
 		<div class="content" style="padding-left: 1em">
-			<div class="header">Steve</div>
+			<div class="header">{{username.capitalize}}</div>
 		</div>
 	</a>
 </template>
