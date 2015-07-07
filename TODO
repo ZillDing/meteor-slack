@@ -2,7 +2,6 @@
  ✔ allow see other people's public profile @today @done (15-07-04 09:37)
  ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
  ✔ figure out a way to differentiate various types of messages (channel vs direct) @high @done (15-07-05 20:20)
- ☐ direct messages @high
  ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
  ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
  ✔ profile modification (avatar and status) @done (15-07-04 23:42)
@@ -12,13 +11,14 @@
  ✘ consider use device specific template @cancelled (15-07-04 14:47)
  ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
  ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
- ☐ add data modification restrictions (user info) @high
  ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
  ☐ sign in system configure: disable name case differentiation @critical
  ✔ use dropdown list for sign out actions etc @done (15-07-07 08:09)
- ☐ adjust setting dropup menu style (use inverted color theme)
+ ✔ adjust setting dropup menu style (use inverted color theme) @done (15-07-07 08:28)
  ✔ adjust menu user list style (bug in safari) @done (15-07-07 05:40)
  ✔ close sidebar when window resize @done (15-07-07 07:02)
+ ☐ direct messages @high
+ ☐ filter user while typing
 
  ☐ use labels in menu to show incoming messages
  ✘ add some form validation @cancelled (15-07-05 08:50)
@@ -32,6 +32,7 @@
  ☐ file support, simple uploading
  ☐ add admin page to allow special operation (edit/delete channel)
 
+ ☐ add data modification restrictions (user info)
  ☐ comment on uploaded file @low
  ☐ support for searching messages @low
  ☐ background update avatar for old messages @low
