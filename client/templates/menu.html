@@ -105,12 +105,15 @@
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewDirectChatItem_userItem">
-	<a class="item sidebar-menu-item hoverable" style="margin: 0; border-radius: 0">
+	<a href="/direct/{{username}}" class="item sidebar-menu-item hoverable"
+		style="margin: 0; border-radius: 0">
+		<i class="large right floated comments icon"
+			style="margin-top: 0.1em; margin-right: 0.5em"></i>
 		<div class="ui avatar image" style="padding-right: 0">
 			<img src="{{SMALL_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}.jpg">
 		</div>
 		<div class="content" style="padding-left: 1em">
-			<div class="header">{{username.capitalize}}</div>
+			<div class="header">{{username}}</div>
 		</div>
 	</a>
 </template>
