@@ -5,8 +5,10 @@
  ☐ use labels in menu to show incoming messages @high
  ☐ use dropdown description to display new incoming messages for title
  ☐ figure out a way to let not-signed-in uses see other users' public profile @critical
+ ✔ add notification for user go on/off line @done (15-07-07 22:47)
 
  ☐ mention certain person in channels
+ ☐ in sidebar menu, when searching for user, prioritize online ones
  ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
  ☐ add control in title
