@@ -8,6 +8,7 @@
  ✔ add notification for user go on/off line @done (15-07-07 22:47)
 
  ☐ mention certain person in channels
+ ☐ consider replace customized notification html with named template
  ☐ in sidebar menu, when searching for user, prioritize online ones
  ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
