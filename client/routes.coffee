@@ -3,9 +3,10 @@
 ################################################################################
 Router.configure
 	layoutTemplate: 'layout'
+	notFoundTemplate: 'notFound'
 
 Router.plugin 'ensureSignedIn',
-	only: ['direct', 'profile']
+	only: ['direct']
 
 
 ################################################################################
