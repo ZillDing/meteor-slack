@@ -8,6 +8,7 @@
  ☐ use dropdown description to display new incoming messages for title
 
  ☐ user whether online status
+ ☐ configure iron router to beautify the error message
  ☐ mention certain person in channels
  ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
