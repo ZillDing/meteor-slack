@@ -1,32 +1,11 @@
  ☐ adjust chat message UI (scroll properly) @critical
- ✔ allow see other people's public profile @today @done (15-07-04 09:37)
- ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
- ✔ figure out a way to differentiate various types of messages (channel vs direct) @high @done (15-07-05 20:20)
- ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
- ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
- ✔ profile modification (avatar and status) @done (15-07-04 23:42)
- ✔ add form validation for status @done (15-07-05 00:41)
- ✔ use form for adding channel @today @done (15-07-04 08:50)
- ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
- ✘ consider use device specific template @cancelled (15-07-04 14:47)
- ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
- ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
- ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
- ☐ sign in system configure: disable name case differentiation @critical
- ✔ use dropdown list for sign out actions etc @done (15-07-07 08:09)
- ✔ adjust setting dropup menu style (use inverted color theme) @done (15-07-07 08:28)
- ✔ adjust menu user list style (bug in safari) @done (15-07-07 05:40)
- ✔ close sidebar when window resize @done (15-07-07 07:02)
+ ✔ sign in system configure: disable name case differentiation @critical @done (15-07-07 15:40)
  ☐ direct messages @high
  ☐ show all chat buddies in the menu
- ✔ filter user while typing @done (15-07-07 14:28)
- ✔ fix the menu user list UI bug @done (15-07-07 13:36)
-
- ☐ use labels in menu to show incoming messages
- ✘ add some form validation @cancelled (15-07-05 08:50)
- ☐ user whether online status
+ ☐ use labels in menu to show incoming messages @high
  ☐ get more avatars
- ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
+
+ ☐ user whether online status
  ☐ mention certain person in channels
  ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
@@ -41,6 +20,31 @@
  ☐ third party services integration (dropbox) @low
  ☐ add some animation (profile editing)
 
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ allow see other people's public profile @today @done (15-07-04 09:37)
+ ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
+ ✔ figure out a way to differentiate various types of messages (channel vs direct) @high @done (15-07-05 20:20)
+ ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
+ ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
+ ✔ profile modification (avatar and status) @done (15-07-04 23:42)
+ ✔ add form validation for status @done (15-07-05 00:41)
+ ✔ use form for adding channel @today @done (15-07-04 08:50)
+ ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
+ ✘ consider use device specific template @cancelled (15-07-04 14:47)
+ ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
+ ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
+ ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
+ ✔ use dropdown list for sign out actions etc @done (15-07-07 08:09)
+ ✔ adjust setting dropup menu style (use inverted color theme) @done (15-07-07 08:28)
+ ✔ adjust menu user list style (bug in safari) @done (15-07-07 05:40)
+ ✔ close sidebar when window resize @done (15-07-07 07:02)
+ ✔ filter user while typing @done (15-07-07 14:28)
+ ✔ fix the menu user list UI bug @done (15-07-07 13:36)
+ ✘ add some form validation @cancelled (15-07-05 08:50)
+ ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
  ✔ fix title dropdown @critical @done (15-07-02 22:47)
  ✔ responsive design @critical @done (15-07-02 15:13)
  ✔ mobile device side bar @critical @done (15-07-02 21:44)

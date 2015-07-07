@@ -6,12 +6,16 @@ AccountsTemplates.removeField 'password'
 AccountsTemplates.addFields [
 	_id: 'username'
 	type: 'text'
-	displayName: 'username'
+	displayName:
+		signUp: 'Username (please use lower case letters)'
 	required: true
 	minLength: 3
+	trim: true
+	lowercase: true
 ,
 	_id: 'password'
 	type: 'password'
 	required: true
 	minLength: 3
+	trim: true
 ]
