@@ -4,11 +4,19 @@
 	display: flex
 	align-items: center
 
-.ui.grid>.column.flex-column-container
-	display: -webkit-flex
-	-webkit-flex-direction: column
-	display: flex
-	flex-direction: column
+.flex-container
+	display: -webkit-flex!important
+	display: flex!important
+
+	&.flex-column-container
+		-webkit-flex-direction: column!important
+		flex-direction: column!important
+
+	&.flex-row-container
+		-webkit-flex-direction: row!important
+		-webkit-align-items: center
+		flex-direction: row!important
+		align-items: center
 
 	.flex-stretch-item
 		-webkit-flex-grow: 1
