@@ -15,6 +15,7 @@
 			{{/if}}
 		</div>
 
+		{{#if currentUser}}
 		<div class="ui inverted divider" style="margin-top: 0.5em"></div>
 
 		<div class="ui inverted sub header" style="margin-top: 0">DIRECT MESSAGES</div>
@@ -30,7 +31,6 @@
 			</a>
 		</div>
 
-		{{#if currentUser}}
 		{{#if isAddingANewDirectChat}}
 		{{> menu_addNewDirectChatItem}}
 		{{else}}
