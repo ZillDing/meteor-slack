@@ -13,7 +13,7 @@ Template.status_signedIn.events
 			Router.go '/signin'
 
 Template.status_signedIn.helpers
-	userStatus: ->
+	profileStatus: ->
 		status = Meteor.user()?.profile.status
 		if (_.isString status) and status.length > MAX_STATUS_CHAR
 		then "#{status.substring 0, MAX_STATUS_CHAR-1}..."
