@@ -1,13 +1,13 @@
 <template name="notFound">
-	<div class="ui text container" style="margin-top: 1em">
-		<div class="ui massive icon message">
+	<div class="notfound-container">
+		<div class="ui center aligned blue tall stacked segment">
 			<i class="massive share alternate square icon"></i>
-			<div class="content">
-				<div class="header">
-					Ooooooooooops
+			<div class="ui huge header" style="font-size: 2.5em">
+				Ooooooooooooooops
+				<div class="sub header" style="font-size: 0.7em; line-height: 1.5em; margin-top: 0.5em">
+					looks like there's no route on the client or the server for url:<br>
+					<em>"{{currentWindowLocation}}"</em>
 				</div>
-				<p>looks like there's no route on the client or the server for url: <em>"{{currentWindowLocation}}"</em></p>
-				<p>Please try another route.</p>
 			</div>
 		</div>
 	</div>
