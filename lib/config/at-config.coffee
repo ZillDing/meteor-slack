@@ -19,3 +19,10 @@ AccountsTemplates.addFields [
 	minLength: 3
 	trim: true
 ]
+
+# Routing config
+AccountsTemplates.configureRoute 'signIn',
+	name: 'signin'
+	path: '/signin'
+	template: 'signin'
+	redirect: '/profile'

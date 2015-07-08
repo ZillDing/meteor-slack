@@ -40,8 +40,3 @@ Router.route '/profile', ->
 	@render 'profile'
 ,
 	name: 'profile'
-
-Router.route '/signin', ->
-	@render 'signin'
-,
-	name: 'signin'
