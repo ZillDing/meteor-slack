@@ -33,3 +33,4 @@ Meteor.publish 'users', ->
 			username: 1
 			createdAt: 1
 			profile: 1
+			status: 1

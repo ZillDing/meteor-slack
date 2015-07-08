@@ -1,5 +1,5 @@
 isAddingANewChannel = new ReactiveVar false
-isAddingANewDirectChat = new ReactiveVar true
+isAddingANewDirectChat = new ReactiveVar false
 
 Template.menu.helpers
 	channels: ->
@@ -125,3 +125,12 @@ Template.menu_addNewDirectChatItem.onCreated ->
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()
+
+################################################################################
+# _addNewDirectChatItem_userItem
+################################################################################
+Template.menu_addNewDirectChatItem_userItem.helpers
+	statusLabelColor: ->
+		if Template.currentData().status?.online
+		then 'green'
+		else 'grey'

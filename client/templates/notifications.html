@@ -7,10 +7,14 @@
 <template name="notifications_item">
 	<div class="ui floating {{messageClass}} message">
 		<i class="close icon"></i>
+		{{#if isCustomize}}
+		{{{html}}}
+		{{else}}
 		<i class="{{iconClass}} icon" style="margin-right: 0.4em"></i>
 		<div class="content">
 			<div class="header">{{header}}</div>
 			<p>{{message}}</p>
 		</div>
+		{{/if}}
 	</div>
 </template>

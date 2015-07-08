@@ -44,8 +44,8 @@ Template.registerHelper '_getUserProfileStatus', (profile) ->
 @_addNotification = (notification) ->
 	check notification,
 		type: Match.OneOf 'default', 'success', 'error', 'info', 'warning', 'customized'
-		header: String
-		message: String
+		header: Match.Optional String
+		message: Match.Optional String
 		html: Match.Optional String
 		dismissAfter: Match.Optional Match.Integer
 

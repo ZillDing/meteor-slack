@@ -1,22 +1,22 @@
  ☐ adjust chat message UI (scroll properly) @critical
- ☐ configure router to restrict access to '/direct/:_username' to only signed in users
  ☐ direct messages @high
  ☐ show all chat buddies in the menu
  ☐ show all chat buddies in top title dropdown menu
- ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ use labels in menu to show incoming messages @high
  ☐ use dropdown description to display new incoming messages for title
+ ☐ figure out a way to let not-signed-in uses see other users' public profile @critical
+ ✔ add notification for user go on/off line @done (15-07-07 22:47)
 
- ☐ user whether online status
- ☐ configure iron router to beautify the error message
  ☐ mention certain person in channels
+ ☐ consider replace customized notification html with named template
+ ☐ in sidebar menu, when searching for user, prioritize online ones
  ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
  ☐ add control in title
- ☐ file support, simple uploading
  ☐ add admin page to allow special operation (edit/delete channel)
+ ☐ if there are too many items in the sidebar menu, hide some of them
+ ☐ file support, simple uploading
 
- ☐ replace the comments icon in the users list in the menu with online status @low
  ☐ add data modification restrictions (user info)
  ☐ comment on uploaded file @low
  ☐ support for searching messages @low
@@ -28,6 +28,11 @@
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ configure router to restrict access to '/direct/:_username' to only signed in users @done (15-07-07 21:31)
+ ✔ user whether online status @done (15-07-07 21:24)
+ ✔ configure iron router to beautify the error message @done (15-07-07 22:12)
+ ✔ safari sign in form css bug (text alignment) @done (15-07-07 21:24)
+ ✔ replace the comments icon in the users list in the menu with online status @low @done (15-07-07 21:32)
  ✔ sign in system configure: disable name case differentiation @critical @done (15-07-07 15:40)
  ✔ change avatar id to using full name of the image file (include file extension) @critical @done (15-07-07 16:24)
  ✔ get more avatars @done (15-07-07 17:01)
