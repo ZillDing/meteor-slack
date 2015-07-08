@@ -15,10 +15,12 @@
 					{{#each channels}}
 					<a href="/channel/{{name}}" class="item"><span>#</span> {{name}}</a>
 					{{/each}}
+					{{#if currentUser}}
 					<div class="header">
 						<i class="tags icon"></i>
 						All direct messages...
 					</div>
+					{{/if}}
 				</div>
 			</div>
 		</div>

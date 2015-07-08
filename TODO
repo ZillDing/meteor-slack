@@ -10,7 +10,7 @@
  ☐ show all chat buddies in top title dropdown menu
  ☐ use labels in menu to show incoming messages @high
  ☐ use dropdown description to display new incoming messages for title
- ☐ figure out a way to let not-signed-in uses see other users' public profile @critical
+ ✔ figure out a way to let not-signed-in uses see other users' public profile @critical @done (15-07-08 21:46)
  ✔ add notification for user go on/off line @done (15-07-07 22:47)
 
  ☐ mention certain person in channels

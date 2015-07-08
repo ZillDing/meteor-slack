@@ -13,10 +13,7 @@ Router.plugin 'ensureSignedIn',
 # routes
 ################################################################################
 Router.route '/', ->
-	if Meteor.userId()
-		@redirect '/channel/general'
-	else
-		@redirect '/signin'
+	@redirect '/channel/general'
 
 Router.route '/channel/:_channel', ->
 	channel = @params._channel
