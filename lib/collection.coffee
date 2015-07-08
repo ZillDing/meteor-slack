@@ -1,3 +1,5 @@
+@Channels = new Mongo.Collection 'channels'
+
 @Messages = new Mongo.Collection 'messages'
 
-@Channels = new Mongo.Collection 'channels'
+@UserData = new Mongo.Collection 'userData'

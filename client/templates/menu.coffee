@@ -3,7 +3,12 @@ isAddingANewDirectChat = new ReactiveVar false
 
 Template.menu.helpers
 	channels: ->
-		Channels.find {}
+		if Meteor.userId()
+			UserData.findOne
+				owner: Meteor.userId()
+			.data.channel
+		else
+			Channels.find {}
 
 	isAddingANewChannel: ->
 		isAddingANewChannel.get()

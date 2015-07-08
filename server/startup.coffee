@@ -13,10 +13,29 @@ Accounts.onCreateUser (options, user) ->
 
 	channelArray = Channels.find().map (channel) ->
 		id: channel._id
+		name: channel.name
 		unread: 0
-	user.chatData =
-		channel: channelArray
-		direct: []
+	UserData.insert
+		owner: user._id
+		data:
+			channel: channelArray
+			direct: []
 
 	# return the user
 	user
+
+# watch for channels add
+initializing = true
+Channels.find().observeChanges
+	added: (id, channel) ->
+		if not initializing
+			UserData.update {},
+				$push:
+					'data.channel':
+						id: id
+						name: channel.name
+						unread: 0
+			,
+				multi: true
+
+initializing = false

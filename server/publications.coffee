@@ -33,17 +33,14 @@ Meteor.publish 'targetedMessages', (data) ->
 
 # public user infomation
 Meteor.publish 'users', ->
-	Meteor.users.find {},
-		fields:
-			username: 1
-			createdAt: 1
-			profile: 1
-			status: 1
-
-# personal chat data
-Meteor.publish 'chatData', ->
-	Meteor.users.find
-		_id: @userId
+	[
+		Meteor.users.find {},
+			fields:
+				username: 1
+				createdAt: 1
+				profile: 1
+				status: 1
 	,
-		fields:
-			chatData: 1
+		UserData.find
+			owner: @userId
+	]
