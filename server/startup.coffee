@@ -10,4 +10,13 @@ Accounts.onCreateUser (options, user) ->
 		avatar: 'default.jpg'
 		status: 'Yo! Sup!'
 	, options.profile
+
+	channelArray = Channels.find().map (channel) ->
+		id: channel._id
+		unread: 0
+	user.chatData =
+		channel: channelArray
+		direct: []
+
+	# return the user
 	user

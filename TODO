@@ -3,7 +3,7 @@
  ✔ user Accounts.onCreateUser to create default profile for user  @today @done (15-07-08 17:34)
  ✔ hence, simplify client side code of checking null profile fileds @today @done (15-07-08 17:53)
  ✔ server&client: create new 'chatData' collection to store user specific chat data @done (15-07-08 16:15)
- ☐ consider move the chatData to user collection as a field instead of a seperate collection
+ ✔ move the chatData to user collection as a field instead of a seperate collection @done (15-07-08 21:03)
  ☐ server: observe message change (add) to update 'chatData'
  ☐ client: user 'chatData' to render sidebar menu and title bar
  ☐ show all chat buddies in the menu

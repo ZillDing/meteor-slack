@@ -2,11 +2,6 @@
 Meteor.publish 'channels', ->
 	Channels.find()
 
-# personal chat data
-Meteor.publish 'chatData', ->
-	ChatData.find
-		owner: @userId
-
 # messages that is either:
 #   channel messages: messages from specific channel
 #   direct messages:  messages between two users
@@ -44,3 +39,11 @@ Meteor.publish 'users', ->
 			createdAt: 1
 			profile: 1
 			status: 1
+
+# personal chat data
+Meteor.publish 'chatData', ->
+	Meteor.users.find
+		_id: @userId
+	,
+		fields:
+			chatData: 1
