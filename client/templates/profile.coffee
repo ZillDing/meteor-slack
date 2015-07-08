@@ -40,12 +40,13 @@ Template.profile_currentUser_edit.helpers
 			'default.jpg',
 			'christian.jpg',
 			'daniel.jpg',
-			'elliot.jpg', 'elyse.png',
+			'elliot.jpg', 'elyse.png', 'eve.png',
 			'helen.jpg',
 			'jenny.jpg', 'joe.jpg', 'justen.jpg',
 			'kristy.png',
-			'laura.jpg',
-			'matt.jpg', 'matthew.png', 'molly.png',
+			'laura.jpg', 'lena.png',
+			'mark.png', 'matt.jpg', 'matthew.png', 'molly.png',
+			'rachel.png',
 			'steve.jpg', 'stevie.jpg',
 			'veronika.jpg'
 		]
