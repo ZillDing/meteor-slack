@@ -3,12 +3,20 @@ isAddingANewDirectChat = new ReactiveVar false
 
 Template.menu.helpers
 	channels: ->
-		if Meteor.userId()
+		if id = Meteor.userId()
+			console.log UserData.findOne
+				owner: id
 			UserData.findOne
-				owner: Meteor.userId()
-			.data.channel
+				owner: id
+			?.data.channel
 		else
 			Channels.find {}
+
+	directChats: ->
+		if id = Meteor.userId()
+			UserData.findOne
+				owner: id
+			?.data.direct
 
 	isAddingANewChannel: ->
 		isAddingANewChannel.get()
@@ -20,7 +28,7 @@ Template.menu.helpers
 # _channelItem
 ################################################################################
 Template.menu_channelItem.helpers
-	channelClass: (name) ->
+	getItemClass: (name) ->
 		return '' if not Session.get 'isChatting'
 		return '' if not Session.equals 'chatType', 'channel'
 
@@ -73,6 +81,19 @@ Template.menu_addNewChannelItem.onRendered ->
 		position: 'bottom left'
 	@$('input').focus()
 
+
+################################################################################
+# _directChatItem
+################################################################################
+Template.menu_directChatItem.helpers
+	getItemClass: (username) ->
+		return '' if not Session.get 'isChatting'
+		return '' if not Session.equals 'chatType', 'direct'
+
+		if Session.equals 'chatTarget', username
+			'active'
+		else
+			''
 
 ################################################################################
 # _createNewDirectChatItem
