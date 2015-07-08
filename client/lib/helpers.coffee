@@ -25,16 +25,6 @@ Template.registerHelper '__isChatting', ->
 Template.registerHelper '_getJoinTime', (date) ->
 	moment(date).format 'YYYY, MMM'
 
-Template.registerHelper '_getUserProfileAvatar', (profile) ->
-	return 'default.jpg' if _.isEmpty profile?.avatar
-	return 'default.jpg' if not _.isString profile?.avatar
-	profile.avatar
-
-Template.registerHelper '_getUserProfileStatus', (profile) ->
-	return 'online' if _.isEmpty profile?.status
-	return 'online' if not _.isString profile?.status
-	profile.status
-
 
 ################################################################################
 # notifications

@@ -6,3 +6,5 @@
 Meteor.subscribe 'channels'
 
 Meteor.subscribe 'users'
+
+Meteor.subscribe 'chatData'

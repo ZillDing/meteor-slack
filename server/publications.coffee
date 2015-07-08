@@ -1,6 +1,15 @@
+# all channels infomation
 Meteor.publish 'channels', ->
 	Channels.find()
 
+# personal chat data
+Meteor.publish 'chatData', ->
+	ChatData.find
+		owner: @userId
+
+# messages that is either:
+#   channel messages: messages from specific channel
+#   direct messages:  messages between two users
 Meteor.publish 'targetedMessages', (data) ->
 	check data,
 		type: Match.OneOf 'channel', 'direct'
@@ -27,6 +36,7 @@ Meteor.publish 'targetedMessages', (data) ->
 		else undefined
 	result
 
+# public user infomation
 Meteor.publish 'users', ->
 	Meteor.users.find {},
 		fields:

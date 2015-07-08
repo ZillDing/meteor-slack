@@ -3,3 +3,11 @@ Meteor.startup ->
 		Channels.insert
 			createdAt: new Date()
 			name: 'general'
+
+# add default profile when a new user signs up
+Accounts.onCreateUser (options, user) ->
+	user.profile = _.extend
+		avatar: 'default.jpg'
+		status: 'Yo! Sup!'
+	, options.profile
+	user

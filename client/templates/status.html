@@ -10,7 +10,7 @@
 	<div class="ui big inverted list flex-container flex-row-container">
 		<div class="item flex-stretch-item" style="padding: 0">
 			<div class="ui avatar image" style="padding: 0; vertical-align: middle">
-				<img src="{{SMALL_AVATAR_DIR}}/{{_getUserProfileAvatar currentUser.profile}}" alt="avatar">
+				<img src="{{SMALL_AVATAR_DIR}}/{{currentUser.profile.avatar}}" alt="avatar">
 			</div>
 
 			<div class="content">
@@ -19,8 +19,8 @@
 				</div>
 				<div class="description">
 					<span class="ui mini green empty circular label"></span>
-					<small data-content="{{_getUserProfileStatus currentUser.profile}}" data-variation="inverted">
-						{{_getUserProfileStatus userProfile}}
+					<small data-content="{{currentUser.profile.status}}" data-variation="inverted">
+						{{userStatus}}
 					</small>
 				</div>
 			</div>

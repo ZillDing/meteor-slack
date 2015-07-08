@@ -36,7 +36,7 @@
 		<div class="required field">
 			<label>Edit avatar</label>
 			<div class="ui fluid selection dropdown">
-				<input type="hidden" name="avatar" value="{{_getUserProfileAvatar profile}}">
+				<input type="hidden" name="avatar" value="{{profile.avatar}}">
 				<i class="dropdown icon"></i>
 				<div class="default text">Select Avatar</div>
 				<div class="menu">
@@ -54,7 +54,7 @@
 			<label>Edit status</label>
 			<div class="ui fluid input">
 				<textarea name="status" placeholder="Enter your status"
-					rows="3" value="{{_getUserProfileStatus profile}}"></textarea>
+					rows="3" value="{{profile.status}}"></textarea>
 			</div>
 		</div>
 
@@ -98,7 +98,7 @@
 					</div>
 				</div>
 			</div>
-			<img src="{{LARGE_AVATAR_DIR}}/{{_getUserProfileAvatar profile}}" alt="profile image">
+			<img src="{{LARGE_AVATAR_DIR}}/{{profile.avatar}}" alt="profile image">
 		</div>
 		<div class="content">
 			<div class="header">

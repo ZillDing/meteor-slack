@@ -13,12 +13,11 @@ Template.status_signedIn.events
 			Router.go '/signin'
 
 Template.status_signedIn.helpers
-	userProfile: ->
-		status = Meteor.user()?.profile?.status
+	userStatus: ->
+		status = Meteor.user()?.profile.status
 		if (_.isString status) and status.length > MAX_STATUS_CHAR
-			status: "#{status.substring 0, MAX_STATUS_CHAR-1}..."
-		else
-			status: status
+		then "#{status.substring 0, MAX_STATUS_CHAR-1}..."
+		else status
 
 Template.status_signedIn.onRendered ->
 	@$('.ui.dropdown').dropdown
