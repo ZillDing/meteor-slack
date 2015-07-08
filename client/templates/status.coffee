@@ -14,7 +14,7 @@ Template.status_signedIn.events
 
 Template.status_signedIn.helpers
 	profileStatus: ->
-		status = Meteor.user()?.profile.status
+		status = Meteor.user().profile.status
 		if (_.isString status) and status.length > MAX_STATUS_CHAR
 		then "#{status.substring 0, MAX_STATUS_CHAR-1}..."
 		else status
@@ -28,7 +28,7 @@ Template.status_signedIn.onRendered ->
 		@$('i.sign.out').popup()
 
 		@autorun =>
-			status = Meteor.user()?.profile?.status
+			status = Meteor.user().profile.status
 			if (_.isString status) and status.length > MAX_STATUS_CHAR
 				@$('div.description small').popup()
 			else

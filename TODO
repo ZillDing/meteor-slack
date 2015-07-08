@@ -1,17 +1,13 @@
  ☐ adjust chat message UI (scroll properly) @critical
  ☐ direct messages @high
- ✔ user Accounts.onCreateUser to create default profile for user  @today @done (15-07-08 17:34)
- ✔ hence, simplify client side code of checking null profile fileds @today @done (15-07-08 17:53)
- ✔ server&client: create new 'chatData' collection to store user specific chat data @done (15-07-08 16:15)
- ✔ move the chatData to user collection as a field instead of a seperate collection @done (15-07-08 21:03)
+ ☐ move global subscription to each template @high
+ ☐ do subscription ready check @high
  ☐ server: observe message change (add) to update 'chatData'
  ☐ client: user 'chatData' to render sidebar menu and title bar
  ☐ show all chat buddies in the menu
  ☐ show all chat buddies in top title dropdown menu
  ☐ use labels in menu to show incoming messages @high
  ☐ use dropdown description to display new incoming messages for title
- ✔ figure out a way to let not-signed-in uses see other users' public profile @critical @done (15-07-08 21:46)
- ✔ add notification for user go on/off line @done (15-07-07 22:47)
 
  ☐ mention certain person in channels
  ☐ consider replace customized notification html with named template
@@ -34,6 +30,12 @@
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ user Accounts.onCreateUser to create default profile for user  @today @done (15-07-08 17:34)
+ ✔ hence, simplify client side code of checking null profile fileds @today @done (15-07-08 17:53)
+ ✔ server&client: create new 'chatData' collection to store user specific chat data @done (15-07-08 16:15)
+ ✔ move the chatData to user collection as a field instead of a seperate collection @done (15-07-08 21:03)
+ ✔ figure out a way to let not-signed-in uses see other users' public profile @critical @done (15-07-08 21:46)
+ ✔ add notification for user go on/off line @done (15-07-07 22:47)
  ✔ configure router to restrict access to '/direct/:_username' to only signed in users @done (15-07-07 21:31)
  ✔ user whether online status @done (15-07-07 21:24)
  ✔ configure iron router to beautify the error message @done (15-07-07 22:12)

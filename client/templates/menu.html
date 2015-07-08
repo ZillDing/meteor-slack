@@ -2,9 +2,11 @@
 	<div class="column flex-container flex-column-container sidebar-menu" style="padding: 0 1rem">
 		<div class="ui inverted sub header" style="margin-top: 10px">CHANNELS</div>
 		<div class="ui inverted middle aligned list">
+			{{#if Template.subscriptionsReady}}
 			{{#each channels}}
 			{{> menu_channelItem}}
 			{{/each}}
+			{{/if}}
 
 			{{#if currentUser}}
 			{{#if isAddingANewChannel}}
@@ -20,9 +22,11 @@
 
 		<div class="ui inverted sub header" style="margin-top: 0">DIRECT MESSAGES</div>
 		<div class="ui inverted middle aligned list">
+			{{#if Template.subscriptionsReady}}
 			{{#each directChats}}
 			{{> menu_directChatItem}}
 			{{/each}}
+			{{/if}}
 		</div>
 
 		{{#if isAddingANewDirectChat}}
