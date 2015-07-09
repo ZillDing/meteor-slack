@@ -4,7 +4,9 @@
 		<div class="ui inverted middle aligned list">
 			{{#if Template.subscriptionsReady}}
 			{{#each channels}}
-			{{> menu_channelItem}}
+			<a href="/channel/{{name}}" class="item sidebar-menu-item hoverable {{_getItemClass 'channel' name}}">
+				<span>#</span>{{name}}
+			</a>
 			{{/each}}
 			{{/if}}
 
@@ -24,7 +26,9 @@
 		<div class="ui inverted middle aligned list">
 			{{#if Template.subscriptionsReady}}
 			{{#each directChats}}
-			{{> menu_directChatItem}}
+			<a href="/channel/{{username}}" class="item sidebar-menu-item hoverable {{_getItemClass 'direct' username}}">
+				<span>@</span>{{username}}
+			</a>
 			{{/each}}
 			{{/if}}
 		</div>
@@ -38,12 +42,6 @@
 	</div>
 </template>
 
-<!-- ####################################################################### -->
-<template name="menu_channelItem">
-	<a href="/channel/{{name}}" class="item sidebar-menu-item hoverable {{getItemClass name}}">
-		<span>#</span>{{name}}
-	</a>
-</template>
 <!-- ####################################################################### -->
 <template name="menu_createNewChannelItem">
 	<a class="item sidebar-menu-item hoverable">
@@ -74,12 +72,6 @@
 </template>
 
 <!-- ####################################################################### -->
-<template name="menu_directChatItem">
-	<a href="/channel/{{username}}" class="item sidebar-menu-item hoverable {{getItemClass username}}">
-		<span>@</span>{{username}}
-	</a>
-</template>
-<!-- ####################################################################### -->
 <template name="menu_createNewDirectChatItem">
 	<div class="ui inverted middle aligned list">
 		<a class="item sidebar-menu-item hoverable">
@@ -100,12 +92,14 @@
 			</form>
 		</div>
 	</div>
+	{{#if Template.subscriptionsReady}}
 	<div class="ui tiny inverted middle aligned divided list flex-stretch-item"
 		style="min-height: 10em; background-color: rgba(255, 255, 255, 0.2)">
 		{{#each users}}
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{/each}}
 	</div>
+	{{/if}}
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewDirectChatItem_userItem">

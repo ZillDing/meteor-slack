@@ -21,8 +21,10 @@ Template.messages.helpers
 						]
 					]
 
+
 Template.messages.onCreated ->
 	Session.set 'isChatting', true
+
 	@autorun =>
 		data = Template.currentData()
 		if (_.isObject data) and not _.isEmpty data
@@ -30,6 +32,10 @@ Template.messages.onCreated ->
 			Session.set
 				chatType: data.type
 				chatTarget: data.target
+
+			@subscribe 'channels' if data.type is 'channel'
+			@subscribe 'allUsers' if data.type is 'direct'
+
 
 Template.messages.onDestroyed ->
 	Session.set 'isChatting', false

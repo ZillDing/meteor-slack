@@ -31,16 +31,24 @@ Meteor.publish 'targetedMessages', (data) ->
 		else undefined
 	result
 
-# public user infomation
-Meteor.publish 'users', ->
+# user infomation
+Meteor.publish 'currentUser', ->
 	[
-		Meteor.users.find {},
+		Meteor.users.find
+			_id: @userId
+		,
 			fields:
-				username: 1
 				createdAt: 1
-				profile: 1
 				status: 1
 	,
 		UserData.find
 			owner: @userId
 	]
+
+Meteor.publish 'allUsers', ->
+	Meteor.users.find {},
+		fields:
+			username: 1
+			createdAt: 1
+			profile: 1
+			status: 1

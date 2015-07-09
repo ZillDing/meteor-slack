@@ -8,18 +8,27 @@
 				</div>
 				<i class="dropdown icon"></i>
 				<div class="menu">
+					{{#if Template.subscriptionsReady}}
 					<div class="header">
 						<i class="tags icon"></i>
 						All channels...
 					</div>
 					{{#each channels}}
-					<a href="/channel/{{name}}" class="item"><span>#</span> {{name}}</a>
+					<a href="/channel/{{name}}" class="item {{_getItemClass 'channel' name}}">
+						<span>#</span> {{name}}
+					</a>
 					{{/each}}
 					{{#if currentUser}}
 					<div class="header">
 						<i class="tags icon"></i>
 						All direct messages...
 					</div>
+					{{/if}}
+					{{#each directChats}}
+					<a href="/direct/{{username}}" class="item {{_getItemClass 'direct' username}}">
+						<span>@</span> {{username}}
+					</a>
+					{{/each}}
 					{{/if}}
 				</div>
 			</div>

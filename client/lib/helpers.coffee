@@ -21,6 +21,15 @@ Template.registerHelper 'SMALL_AVATAR_DIR', ->
 Template.registerHelper '__isChatting', ->
 	Session.get 'isChatting'
 
+Template.registerHelper '_getItemClass', (type, target) ->
+	return '' if not Session.get 'isChatting'
+	return '' if not Session.equals 'chatType', type
+
+	if Session.equals 'chatTarget', target
+		'active'
+	else
+		''
+
 # functions
 Template.registerHelper '_getJoinTime', (date) ->
 	moment(date).format 'YYYY, MMM'

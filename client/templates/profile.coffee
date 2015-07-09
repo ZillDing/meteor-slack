@@ -1,5 +1,8 @@
 isEdittingProfile = new ReactiveVar false
 
+Template.profile.onCreated ->
+	@subscribe 'allUsers'
+
 ################################################################################
 # _currentUser
 ################################################################################
@@ -98,13 +101,12 @@ Template.profile_users.helpers
 ################################################################################
 Template.profile_card.events
 	'click .action-btn': ->
-		# TODO
 		if Meteor.userId() is userId = Template.currentData()._id
 			# edit current user profile
 			isEdittingProfile.set true
 		else
 			# start private chat with this user
-			alert "start private chat with #{userId}"
+			Router.go "/direct/#{Template.currentData().username}"
 
 Template.profile_card.helpers
 	actionIcon: ->

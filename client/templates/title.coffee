@@ -1,9 +1,20 @@
 Template.title.helpers
 	channels: ->
-		Channels.find {}
+		if id = Meteor.userId()
+			UserData.findOne
+				owner: id
+			.data.channel
+		else
+			Channels.find {}
 
 	currentTarget: ->
 		Session.get 'chatTarget'
+
+	directChats: ->
+		if id = Meteor.userId()
+			UserData.findOne
+				owner: id
+			.data.direct
 
 	prefixSymbol: ->
 		switch Session.get 'chatType'
@@ -11,6 +22,12 @@ Template.title.helpers
 				'#'
 			when 'direct'
 				'@'
+
+Template.title.onCreated ->
+	if Meteor.userId()
+		@subscribe 'currentUser'
+	else
+		@subscribe 'channels'
 
 Template.title.onRendered ->
 	@$('.ui.dropdown').dropdown

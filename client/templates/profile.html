@@ -1,5 +1,6 @@
 <template name="profile">
 	<div class="ui purple segment" style="margin: 0">
+	{{#if Template.subscriptionsReady}}
 	{{#if currentUser}}
 	{{#with currentUser}}
 	{{> profile_currentUser}}
@@ -12,6 +13,7 @@
 	</h4>
 
 	{{> profile_users}}
+	{{/if}}
 	</div>
 </template>
 <!-- ####################################################################### -->

@@ -1,12 +1,13 @@
+ ☐ @high
  ☐ adjust chat message UI (scroll properly) @critical
- ☐ direct messages @high
- ☐ move global subscription to each template @high
- ☐ do subscription ready check @high
+ ☐ direct messages
+ ✔ move global subscription to each template @high @done (15-07-09 11:19)
+ ✔ do subscription ready check @high @done (15-07-09 11:19)
  ☐ server: observe message change (add) to update 'chatData'
  ☐ client: user 'chatData' to render sidebar menu and title bar
- ☐ show all chat buddies in the menu
- ☐ show all chat buddies in top title dropdown menu
- ☐ use labels in menu to show incoming messages @high
+ ✔ show all chat buddies in the menu @done (15-07-09 11:21)
+ ✔ show all chat buddies in top title dropdown menu @done (15-07-09 11:21)
+ ☐ use labels in menu to show incoming messages
  ☐ use dropdown description to display new incoming messages for title
 
  ☐ mention certain person in channels
@@ -19,11 +20,13 @@
  ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ file support, simple uploading
 
+ ☐ @low
  ☐ add data modification restrictions (user info)
- ☐ comment on uploaded file @low
- ☐ support for searching messages @low
- ☐ background update avatar for old messages @low
- ☐ third party services integration (dropbox) @low
+ ☐ enhance the status text display UI
+ ☐ comment on uploaded file
+ ☐ support for searching messages
+ ☐ background update avatar for old messages
+ ☐ third party services integration (dropbox)
  ☐ add some animation (profile editing)
 
 

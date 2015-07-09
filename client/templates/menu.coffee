@@ -14,7 +14,7 @@ Template.menu.helpers
 		if id = Meteor.userId()
 			UserData.findOne
 				owner: id
-			?.data.direct
+			.data.direct
 
 	isAddingANewChannel: ->
 		isAddingANewChannel.get()
@@ -24,22 +24,9 @@ Template.menu.helpers
 
 Template.menu.onCreated ->
 	if Meteor.userId()
-		@subscribe 'users'
+		@subscribe 'currentUser'
 	else
 		@subscribe 'channels'
-
-################################################################################
-# _channelItem
-################################################################################
-Template.menu_channelItem.helpers
-	getItemClass: (name) ->
-		return '' if not Session.get 'isChatting'
-		return '' if not Session.equals 'chatType', 'channel'
-
-		if Session.equals 'chatTarget', name
-			'active'
-		else
-			''
 
 ################################################################################
 # _createNewChannelItem
@@ -85,19 +72,6 @@ Template.menu_addNewChannelItem.onRendered ->
 		position: 'bottom left'
 	@$('input').focus()
 
-
-################################################################################
-# _directChatItem
-################################################################################
-Template.menu_directChatItem.helpers
-	getItemClass: (username) ->
-		return '' if not Session.get 'isChatting'
-		return '' if not Session.equals 'chatType', 'direct'
-
-		if Session.equals 'chatTarget', username
-			'active'
-		else
-			''
 
 ################################################################################
 # _createNewDirectChatItem
@@ -146,12 +120,13 @@ Template.menu_addNewDirectChatItem.helpers
 		filteredUsers.get()
 
 Template.menu_addNewDirectChatItem.onCreated ->
-	filteredUsers.set Meteor.users.find
-		_id:
-			$ne: Meteor.userId()
-	,
-		sort:
-			username: 1
+	if Meteor.subscribe('allUsers').ready()
+		filteredUsers.set Meteor.users.find
+			_id:
+				$ne: Meteor.userId()
+		,
+			sort:
+				username: 1
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()
