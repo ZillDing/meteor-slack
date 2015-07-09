@@ -7,20 +7,6 @@ Template.layout.onCreated ->
 	$(window).on 'resize', =>
 		@$('.ui.sidebar').sidebar 'hide' if @$('.ui.sidebar').sidebar 'is visible'
 
-	Meteor.users.find
-		'status.online': true
-	.observe
-		added: (user) ->
-			_addNotification
-				type: 'default'
-				header: "#{user.username}"
-				message: 'is online!'
-		removed: (user) ->
-			_addNotification
-				type: 'default'
-				header: "#{user.username}"
-				message: 'is offline...'
-
 Template.layout.onRendered ->
 	@$('.ui.sidebar').sidebar 'setting', 'transition', 'overlay'
 	# put the following class configuration here because meteor does not allow

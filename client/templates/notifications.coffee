@@ -2,6 +2,22 @@ Template.notifications.helpers
 	notifications: ->
 		Notifications.find()
 
+Template.notifications.onCreated ->
+	@subscribe 'allUsers', ->
+		Meteor.users.find
+			'status.online': true
+		.observe
+			added: (user) ->
+				_addNotification
+					type: 'default'
+					header: "#{user.username}"
+					message: 'is online!'
+			removed: (user) ->
+				_addNotification
+					type: 'default'
+					header: "#{user.username}"
+					message: 'is offline...'
+
 ################################################################################
 # _item
 ################################################################################
