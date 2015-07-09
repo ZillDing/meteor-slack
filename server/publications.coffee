@@ -17,7 +17,7 @@ Meteor.publish 'targetedMessages', (data) ->
 				type: 'channel'
 				target: channelId
 		when 'direct'
-			userId = Meteor.users.find(username: data.target)._id
+			userId = Meteor.users.findOne(username: data.target)._id
 			Messages.find
 				$or: [
 					type: 'direct'
