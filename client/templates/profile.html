@@ -77,11 +77,13 @@
 		{{/each}}
 	</div>
 	{{else}}
-	<div class="ui purple icon message">
-		<i class="frown icon"></i>
-		<div class="content">
-			<div class="header">Oooooops! No users...</div>
-			<p>{{noUserMessage}}</p>
+	<div class="ui text container" style="padding: 1rem">
+		<div class="ui icon message">
+			<i class="frown icon"></i>
+			<div class="content">
+				<div class="header">Oooooops! No users...</div>
+				<p>{{noUserMessage}}</p>
+			</div>
 		</div>
 	</div>
 	{{/if}}
