@@ -6,8 +6,13 @@
 			{{#if Template.subscriptionsReady}}
 			{{#each channels}}
 			<a href="/channel/{{name}}"
-				class="item sidebar-menu-item hoverable {{_getItemClass 'channel' name}}">
+				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'channel' name}}active{{/if}}">
 				<span>#</span>{{name}}
+				{{#if currentUser}}
+				{{#unless _isActiveItem 'channel' name}}
+				<div class="pink right floated ui label unread-label">{{unread}}</div>
+				{{/unless}}
+				{{/if}}
 			</a>
 			{{/each}}
 			{{/if}}
@@ -29,8 +34,13 @@
 			{{#if Template.subscriptionsReady}}
 			{{#each directChats}}
 			<a href="/direct/{{username}}"
-				class="item sidebar-menu-item hoverable {{_getItemClass 'direct' username}}">
+				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'direct' username}}active{{/if}}">
 				<span>@</span>{{username}}
+				{{#if currentUser}}
+				{{#unless _isActiveItem 'direct' username}}
+				<div class="pink right floated ui label unread-label">{{unread}}</div>
+				{{/unless}}
+				{{/if}}
 			</a>
 			{{/each}}
 			{{/if}}

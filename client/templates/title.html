@@ -14,7 +14,7 @@
 						All channels...
 					</div>
 					{{#each channels}}
-					<a href="/channel/{{name}}" class="item {{_getItemClass 'channel' name}}">
+					<a href="/channel/{{name}}" class="item {{#if _isActiveItem 'channel' name}}active{{/if}}">
 						<span>#</span> {{name}}
 					</a>
 					{{/each}}
@@ -25,7 +25,7 @@
 					</div>
 					{{/if}}
 					{{#each directChats}}
-					<a href="/direct/{{username}}" class="item {{_getItemClass 'direct' username}}">
+					<a href="/direct/{{username}}" class="item {{#if _isActiveItem 'direct' username}}active{{/if}}">
 						<span>@</span> {{username}}
 					</a>
 					{{/each}}

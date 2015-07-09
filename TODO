@@ -1,9 +1,6 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
- ✔ direct messages @done (15-07-09 16:18)
- ✔ server: observe message change (add) to update 'chatData' @done (15-07-09 16:17)
- ✔ client: user 'chatData' to render sidebar menu and title bar @done (15-07-09 16:17)
- ☐ use labels in menu to show incoming messages
+ ✔ use labels in menu to show incoming messages @done (15-07-09 16:50)
  ☐ use dropdown description to display new incoming messages for title
  ☐ consider add a chatdata field in user data to avoid using owner in chatdata @high
 
@@ -17,6 +14,7 @@ High priority:
  ☐ file support, simple uploading
  ☐ mention certain person in channels
  ☐ use template instance variables and methods
+ ☐ allow staring chat
 
 Low priority:
  ☐ add data modification restrictions (user info)
@@ -31,6 +29,9 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ direct messages @done (15-07-09 16:18) @project(High priority)
+ ✔ server: observe message change (add) to update 'chatData' @done (15-07-09 16:17) @project(High priority)
+ ✔ client: user 'chatData' to render sidebar menu and title bar @done (15-07-09 16:17) @project(High priority)
  ✔ move global subscription to each template @high @done (15-07-09 11:19)
  ✔ do subscription ready check @high @done (15-07-09 11:19)
  ✔ show all chat buddies in the menu @done (15-07-09 11:21)
