@@ -21,6 +21,7 @@ Template.registerHelper 'SMALL_AVATAR_DIR', ->
 Template.registerHelper '__isChatting', ->
 	Session.get 'isChatting'
 
+# functions
 Template.registerHelper '_getItemClass', (type, target) ->
 	return '' if not Session.get 'isChatting'
 	return '' if not Session.equals 'chatType', type
@@ -30,7 +31,6 @@ Template.registerHelper '_getItemClass', (type, target) ->
 	else
 		''
 
-# functions
 Template.registerHelper '_getJoinTime', (date) ->
 	moment(date).format 'YYYY, MMM'
 
@@ -49,6 +49,12 @@ Template.registerHelper '_getJoinTime', (date) ->
 		dismissAfter: Match.Optional Match.Integer
 
 	Notifications.insert notification
+
+@_addErrorNotification = (error) ->
+	_addNotification
+		type: 'error'
+		header: error.error
+		message: error.message
 
 @_removeAllNotifications = ->
 	Notifications.remove {}
