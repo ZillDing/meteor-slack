@@ -39,7 +39,7 @@ Meteor.methods
 		message.target = doc._id
 
 		Messages.insert _.extend
-			avatar: Meteor.user().profile?.avatar
+			avatar: Meteor.user().profile.avatar
 			createdAt: new Date()
 			owner: Meteor.userId()
 			username: Meteor.user().username
@@ -55,11 +55,11 @@ Meteor.methods
 		if not user
 			throw new Meteor.Error error, "Cannot find user with username: #{username}"
 
-		chatArray = UserData.findOne(user.data).direct
+		chatArray = UserData.findOne(Meteor.user().data).direct
 		item = _.find chatArray, (o) ->
-			o.username is username
+			o.name is username
 		if not item
-			UserData.update user.data ,
+			UserData.update Meteor.user().data ,
 				$push:
 					direct:
 						id: user._id
