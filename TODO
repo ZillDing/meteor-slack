@@ -16,6 +16,8 @@ High priority:
  ☐ allow staring chat
 
 Low priority:
+ ☐ allow quit/join channel
+ ☐ allow delete direct chat
  ☐ add data modification restrictions (user info)
  ☐ enhance the status text display UI
  ☐ comment on uploaded file

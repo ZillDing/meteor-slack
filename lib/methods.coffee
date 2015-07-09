@@ -45,6 +45,23 @@ Meteor.methods
 			username: Meteor.user().username
 		, message
 
+	clearUnread: (data) ->
+		error = 'clear-unread-error'
+
+		_checkLoggedIn error
+		check data,
+			type: String
+			target: String
+
+		selector = {}
+		selector['_id'] = Meteor.user().data
+		selector["#{data.type}.name"] = data.target
+		o = {}
+		o["#{data.type}.$.unread"] = 0
+		modifier =
+			$set: o
+		UserData.update selector, modifier
+
 	startDirectChat: (username) ->
 		error = 'start-direct-chat-error'
 
