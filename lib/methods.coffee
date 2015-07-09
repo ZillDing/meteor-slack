@@ -55,19 +55,15 @@ Meteor.methods
 		if not user
 			throw new Meteor.Error error, "Cannot find user with username: #{username}"
 
-		chatArray = UserData.findOne
-			owner: Meteor.userId()
-		.data.direct
+		chatArray = UserData.findOne(user.data).direct
 		item = _.find chatArray, (o) ->
 			o.username is username
 		if not item
-			UserData.update
-				owner: Meteor.userId()
-			,
+			UserData.update user.data ,
 				$push:
-					'data.direct':
+					direct:
 						id: user._id
-						username: username
+						name: username
 						unread: 0
 
 	updateUserProfile: (profile) ->

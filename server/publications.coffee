@@ -33,17 +33,19 @@ Meteor.publish 'targetedMessages', (data) ->
 
 # user infomation
 Meteor.publish 'currentUser', ->
-	[
-		Meteor.users.find
-			_id: @userId
+	if @userId
+		dataId = Meteor.users.findOne(@userId).data
+		[
+			Meteor.users.find
+				_id: @userId
+			,
+				fields:
+					createdAt: 1
+					data: 1
+					status: 1
 		,
-			fields:
-				createdAt: 1
-				status: 1
-	,
-		UserData.find
-			owner: @userId
-	]
+			UserData.find dataId
+		]
 
 Meteor.publish 'allUsers', ->
 	Meteor.users.find {},

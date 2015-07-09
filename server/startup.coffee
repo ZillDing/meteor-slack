@@ -10,17 +10,16 @@ Accounts.onCreateUser (options, user) ->
 		avatar: 'default.jpg'
 		status: 'Yo! Sup!'
 	, options.profile
-
+	# create the userData and store the id
+	# to user data
 	channelArray = Channels.find().map (channel) ->
 		id: channel._id
 		name: channel.name
 		unread: 0
-	UserData.insert
-		owner: user._id
-		data:
-			channel: channelArray
-			direct: []
-
+	dataId = UserData.insert
+		channel: channelArray
+		direct: []
+	user.data = dataId
 	# return the user
 	user
 
@@ -31,7 +30,7 @@ Channels.find().observeChanges
 		if not initializing
 			UserData.update {},
 				$push:
-					'data.channel':
+					channel:
 						id: id
 						name: channel.name
 						unread: 0
@@ -46,12 +45,12 @@ Messages.find().observeChanges
 					# update all users chat data
 					# increment the unread count of the channel by 1
 					UserData.update
-						'data.channel':
+						channel:
 							$elemMatch:
 								id: message.target
 					,
 						$inc:
-							'data.channel.$.unread': 1
+							'channel.$.unread': 1
 					,
 						multi: true
 				when 'direct'
@@ -59,40 +58,32 @@ Messages.find().observeChanges
 					senderId = message.owner
 					receiverId = message.target
 					# check the target direct chat list
-					userData = UserData.findOne
-						owner: receiverId
-						'data.direct':
-							$elemMatch:
-								id: senderId
-					if userData
+					dataId = Meteor.users.findOne(receiverId).data
+					chatArray = UserData.findOne(dataId).direct
+					chatItem = _.find chatArray, (o) ->
+						o.id is senderId
+					if chatItem
 						# the target has chat with sender
-						# calculate the new unread number
-						chatArray = userData.data.direct
-						chatItem = _.find chatArray, (o) ->
-							o.id is senderId
 						# remove the old item in the db
-						UserData.update
-							owner: receiverId
-						,
+						UserData.update dataId,
 							$pull:
-								'data.direct':
+								direct:
 									id: senderId
+						# calculate the new unread number
 						chatItem.unread++
-						UserData.update
-							owner: receiverId
-						,
+						# add new chat item to the end of array
+						UserData.update dataId,
 							$push:
-								'data.direct': chatItem
+								direct: chatItem
 
 					else
 						# the target does not have chat with sender
-						UserData.update
-							owner: receiverId
-						,
+						# add to the chat data
+						UserData.update dataId,
 							$push:
-								'data.direct':
+								direct:
 									id: senderId
-									username: message.username
+									name: message.username
 									unread: 1
 
 initializing = false

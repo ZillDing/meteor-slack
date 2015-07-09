@@ -3,18 +3,14 @@ isAddingANewDirectChat = new ReactiveVar false
 
 Template.menu.helpers
 	channels: ->
-		if id = Meteor.userId()
-			UserData.findOne
-				owner: id
-			.data.channel
+		if Meteor.user()?.data
+			UserData.findOne(Meteor.user().data).channel
 		else
 			Channels.find {}
 
 	directChats: ->
-		if id = Meteor.userId()
-			UserData.findOne
-				owner: id
-			.data.direct.reverse()
+		if Meteor.user()?.data
+			UserData.findOne(Meteor.user().data).direct.reverse()
 
 	isAddingANewChannel: ->
 		isAddingANewChannel.get()
@@ -23,10 +19,11 @@ Template.menu.helpers
 		isAddingANewDirectChat.get()
 
 Template.menu.onCreated ->
-	if Meteor.userId()
-		@subscribe 'currentUser'
-	else
-		@subscribe 'channels'
+	@autorun =>
+		if Meteor.userId()
+			@subscribe 'currentUser'
+		else
+			@subscribe 'channels'
 
 ################################################################################
 # _createNewChannelItem

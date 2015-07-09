@@ -1,3 +1,22 @@
+### user schema
+
+_id: String
+createdAt: Date
+data: String
+proflie:
+	avatar: String
+	status: String
+status:
+	idle: Boolean
+	lastLogin:
+		date: Date
+		ipAddr: String
+		userAgent: String
+	online: Boolean
+username: String
+
+###
+
 ### channel schema
 
 _id: String
@@ -25,17 +44,16 @@ username: String
 ### userData schema
 
 _id: String
-data:
-	channel: [
-		id: String
-		name: String
-		unread: Number
-	]
-	direct: [
-		id: String
-		username: String
-		unread: Number
-	]
+channel: [
+	id: String
+	name: String
+	unread: Number
+]
+direct: [
+	id: String
+	name: String
+	unread: Number
+]
 
 ###
 @UserData = new Mongo.Collection 'userData'

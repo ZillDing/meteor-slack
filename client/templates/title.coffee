@@ -1,9 +1,7 @@
 Template.title.helpers
 	channels: ->
-		if id = Meteor.userId()
-			UserData.findOne
-				owner: id
-			.data.channel
+		if Meteor.user()?.data
+			UserData.findOne(Meteor.user().data).channel
 		else
 			Channels.find {}
 
@@ -11,10 +9,8 @@ Template.title.helpers
 		Session.get 'chatTarget'
 
 	directChats: ->
-		if id = Meteor.userId()
-			UserData.findOne
-				owner: id
-			.data.direct.reverse()
+		if Meteor.user()?.data
+			UserData.findOne(Meteor.user().data).direct.reverse()
 
 	prefixSymbol: ->
 		switch Session.get 'chatType'

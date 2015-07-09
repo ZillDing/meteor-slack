@@ -33,10 +33,10 @@
 		<div class="ui inverted middle aligned list">
 			{{#if Template.subscriptionsReady}}
 			{{#each directChats}}
-			<a href="/direct/{{username}}"
-				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'direct' username}}active{{/if}}">
-				<span>@</span>{{username}}
-				{{#unless _isActiveItem 'direct' username}}
+			<a href="/direct/{{name}}"
+				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'direct' name}}active{{/if}}">
+				<span>@</span>{{name}}
+				{{#unless _isActiveItem 'direct' name}}
 				<div class="pink right floated ui label unread-label">{{unread}}</div>
 				{{/unless}}
 			</a>
