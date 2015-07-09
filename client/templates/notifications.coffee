@@ -8,11 +8,13 @@ Template.notifications.onCreated ->
 			'status.online': true
 		.observe
 			added: (user) ->
+				return if user._id is Meteor.userId()
 				_addNotification
 					type: 'default'
 					header: "#{user.username}"
 					message: 'is online!'
 			removed: (user) ->
+				return if user._id is Meteor.userId()
 				_addNotification
 					type: 'default'
 					header: "#{user.username}"
