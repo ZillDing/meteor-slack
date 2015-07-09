@@ -14,7 +14,7 @@ Template.title.helpers
 		if id = Meteor.userId()
 			UserData.findOne
 				owner: id
-			.data.direct
+			.data.direct.reverse()
 
 	prefixSymbol: ->
 		switch Session.get 'chatType'

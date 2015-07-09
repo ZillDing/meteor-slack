@@ -14,7 +14,7 @@ Template.menu.helpers
 		if id = Meteor.userId()
 			UserData.findOne
 				owner: id
-			.data.direct
+			.data.direct.reverse()
 
 	isAddingANewChannel: ->
 		isAddingANewChannel.get()
@@ -120,13 +120,15 @@ Template.menu_addNewDirectChatItem.helpers
 		filteredUsers.get()
 
 Template.menu_addNewDirectChatItem.onCreated ->
-	if Meteor.subscribe('allUsers').ready()
-		filteredUsers.set Meteor.users.find
-			_id:
-				$ne: Meteor.userId()
-		,
-			sort:
-				username: 1
+	@autorun =>
+		if @subscribe('allUsers').ready()
+			users = Meteor.users.find
+				_id:
+					$ne: Meteor.userId()
+			,
+				sort:
+					username: 1
+			filteredUsers.set users
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()

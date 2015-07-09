@@ -1,10 +1,12 @@
 <template name="menu">
-	<div class="column flex-container flex-column-container sidebar-menu" style="padding: 0 1rem">
+	<div class="column flex-container flex-column-container sidebar-menu"
+		style="padding: 0 1rem">
 		<div class="ui inverted sub header" style="margin-top: 10px">CHANNELS</div>
 		<div class="ui inverted middle aligned list">
 			{{#if Template.subscriptionsReady}}
 			{{#each channels}}
-			<a href="/channel/{{name}}" class="item sidebar-menu-item hoverable {{_getItemClass 'channel' name}}">
+			<a href="/channel/{{name}}"
+				class="item sidebar-menu-item hoverable {{_getItemClass 'channel' name}}">
 				<span>#</span>{{name}}
 			</a>
 			{{/each}}
@@ -26,7 +28,8 @@
 		<div class="ui inverted middle aligned list">
 			{{#if Template.subscriptionsReady}}
 			{{#each directChats}}
-			<a href="/channel/{{username}}" class="item sidebar-menu-item hoverable {{_getItemClass 'direct' username}}">
+			<a href="/channel/{{username}}"
+				class="item sidebar-menu-item hoverable {{_getItemClass 'direct' username}}">
 				<span>@</span>{{username}}
 			</a>
 			{{/each}}
