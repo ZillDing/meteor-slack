@@ -3,7 +3,7 @@ _checkLoggedIn = (error) ->
 		throw new Meteor.Error error, 'Not authorized. Please sign in first.'
 
 Meteor.methods
-	'addChannel': (channel) ->
+	addChannel: (channel) ->
 		error = 'add-channel-failed'
 
 		_checkLoggedIn error
@@ -17,7 +17,7 @@ Meteor.methods
 			name: channel
 			owner: Meteor.userId()
 
-	'addMessage': (message) ->
+	addMessage: (message) ->
 		error = 'add-message-failed'
 
 		_checkLoggedIn error
@@ -45,7 +45,32 @@ Meteor.methods
 			username: Meteor.user().username
 		, message
 
-	'updateUserProfile': (profile) ->
+	startDirectChat: (username) ->
+		error = 'start-direct-chat-error'
+
+		_checkLoggedIn error
+		check username, String
+		user = Meteor.users.findOne
+			username: username
+		if not user
+			throw new Meteor.Error error, "Cannot find user with username: #{username}"
+
+		chatArray = UserData.findOne
+			owner: Meteor.userId()
+		.data.direct
+		item = _.find chatArray, (o) ->
+			o.username is username
+		if not item
+			UserData.update
+				owner: Meteor.userId()
+			,
+				$push:
+					'data.direct':
+						id: user._id
+						username: username
+						unread: 0
+
+	updateUserProfile: (profile) ->
 		error = 'update-user-profile-failed'
 
 		_checkLoggedIn error
