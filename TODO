@@ -1,7 +1,7 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
  ✔ use labels in menu to show incoming messages @done (15-07-09 16:50)
- ☐ use dropdown description to display new incoming messages for title
+ ✔ use dropdown description to display new incoming messages for title @done (15-07-09 19:56)
  ☐ consider add a chatdata field in user data to avoid using owner in chatdata @high
 
  ☐ consider replace customized notification html with named template

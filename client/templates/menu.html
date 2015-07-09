@@ -36,11 +36,9 @@
 			<a href="/direct/{{username}}"
 				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'direct' username}}active{{/if}}">
 				<span>@</span>{{username}}
-				{{#if currentUser}}
 				{{#unless _isActiveItem 'direct' username}}
 				<div class="pink right floated ui label unread-label">{{unread}}</div>
 				{{/unless}}
-				{{/if}}
 			</a>
 			{{/each}}
 			{{/if}}
