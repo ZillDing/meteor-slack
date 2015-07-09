@@ -1,13 +1,15 @@
 Template.messages.helpers
 	messages: ->
-		switch Session.get 'chatType'
+		chatType = Session.get 'chatType'
+		chatTarget = Session.get 'chatTarget'
+		switch chatType
 			when 'channel'
-				targetId = Channels.findOne(name: Session.get 'chatTarget')._id
+				targetId = Channels.findOne(name: chatTarget)._id
 				Messages.find
 					type: 'channel'
 					target: targetId
 			when 'direct'
-				targetId = Meteor.users.findOne(username: Session.get 'chatTarget')._id
+				targetId = Meteor.users.findOne(username: chatTarget)._id
 				Messages.find
 					$and: [
 						type: 'direct'
@@ -33,8 +35,13 @@ Template.messages.onCreated ->
 				chatType: data.type
 				chatTarget: data.target
 
-			@subscribe 'channels' if data.type is 'channel'
-			@subscribe 'allUsers' if data.type is 'direct'
+			switch data.type
+				when 'channel'
+					@subscribe 'channels'
+				when 'direct'
+					@subscribe 'allUsers', ->
+						Meteor.call 'startDirectChat', data.target, (error, result) ->
+							_addErrorNotification error if error
 
 
 Template.messages.onDestroyed ->
