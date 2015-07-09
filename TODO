@@ -1,16 +1,12 @@
- ☐ @high
+High priority:
  ☐ adjust chat message UI (scroll properly) @critical
- ☐ direct messages
- ✔ move global subscription to each template @high @done (15-07-09 11:19)
- ✔ do subscription ready check @high @done (15-07-09 11:19)
- ☐ server: observe message change (add) to update 'chatData'
- ☐ client: user 'chatData' to render sidebar menu and title bar
- ✔ show all chat buddies in the menu @done (15-07-09 11:21)
- ✔ show all chat buddies in top title dropdown menu @done (15-07-09 11:21)
+ ✔ direct messages @done (15-07-09 16:18)
+ ✔ server: observe message change (add) to update 'chatData' @done (15-07-09 16:17)
+ ✔ client: user 'chatData' to render sidebar menu and title bar @done (15-07-09 16:17)
  ☐ use labels in menu to show incoming messages
  ☐ use dropdown description to display new incoming messages for title
+ ☐ consider add a chatdata field in user data to avoid using owner in chatdata @high
 
- ☐ mention certain person in channels
  ☐ consider replace customized notification html with named template
  ☐ in sidebar menu, when searching for user, prioritize online ones
  ☐ replace input with textarea to allow multi-line message
@@ -19,8 +15,10 @@
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ file support, simple uploading
+ ☐ mention certain person in channels
+ ☐ use template instance variables and methods
 
- ☐ @low
+Low priority:
  ☐ add data modification restrictions (user info)
  ☐ enhance the status text display UI
  ☐ comment on uploaded file
@@ -33,6 +31,10 @@
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ move global subscription to each template @high @done (15-07-09 11:19)
+ ✔ do subscription ready check @high @done (15-07-09 11:19)
+ ✔ show all chat buddies in the menu @done (15-07-09 11:21)
+ ✔ show all chat buddies in top title dropdown menu @done (15-07-09 11:21)
  ✔ user Accounts.onCreateUser to create default profile for user  @today @done (15-07-08 17:34)
  ✔ hence, simplify client side code of checking null profile fileds @today @done (15-07-08 17:53)
  ✔ server&client: create new 'chatData' collection to store user specific chat data @done (15-07-08 16:15)

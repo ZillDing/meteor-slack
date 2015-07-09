@@ -38,4 +38,61 @@ Channels.find().observeChanges
 			,
 				multi: true
 
+Messages.find().observeChanges
+	added: (id, message) ->
+		if not initializing
+			switch message.type
+				when 'channel'
+					# update all users chat data
+					# increment the unread count of the channel by 1
+					UserData.update
+						'data.channel':
+							$elemMatch:
+								id: message.target
+					,
+						$inc:
+							'data.channel.$.unread': 1
+					,
+						multi: true
+				when 'direct'
+					# update only the receiver data
+					senderId = message.owner
+					receiverId = message.target
+					# check the target direct chat list
+					userData = UserData.findOne
+						owner: receiverId
+						'data.direct':
+							$elemMatch:
+								id: senderId
+					if userData
+						# the target has chat with sender
+						# calculate the new unread number
+						chatArray = userData.data.direct
+						chatItem = _.find chatArray, (o) ->
+							o.id is senderId
+						# remove the old item in the db
+						UserData.update
+							owner: receiverId
+						,
+							$pull:
+								'data.direct':
+									id: senderId
+						chatItem.unread++
+						UserData.update
+							owner: receiverId
+						,
+							$push:
+								'data.direct': chatItem
+
+					else
+						# the target does not have chat with sender
+						UserData.update
+							owner: receiverId
+						,
+							$push:
+								'data.direct':
+									id: senderId
+									username: message.username
+									unread: 1
+
 initializing = false
