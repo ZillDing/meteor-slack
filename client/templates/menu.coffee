@@ -48,10 +48,7 @@ Template.menu_addNewChannelItem.events
 		if channel
 			Meteor.call 'addChannel', channel, (error, result) ->
 				if error
-					_addNotification
-						type: 'error'
-						header: error.error
-						message: error.message
+					_addErrorNotification error
 				else
 					isAddingANewChannel.set false
 
@@ -120,15 +117,14 @@ Template.menu_addNewDirectChatItem.helpers
 		filteredUsers.get()
 
 Template.menu_addNewDirectChatItem.onCreated ->
-	@autorun =>
-		if @subscribe('allUsers').ready()
-			users = Meteor.users.find
-				_id:
-					$ne: Meteor.userId()
-			,
-				sort:
-					username: 1
-			filteredUsers.set users
+	@subscribe 'allUsers', ->
+		users = Meteor.users.find
+			_id:
+				$ne: Meteor.userId()
+		,
+			sort:
+				username: 1
+		filteredUsers.set users
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()

@@ -12,10 +12,7 @@ Template.input.events
 				text: text
 			Meteor.call 'addMessage', message, (error, result) ->
 				if error
-					_addNotification
-						type: 'error'
-						header: error.error
-						message: error.message
+					_addErrorNotification error
 				else
 					# clear the form
 					$input.val ''
