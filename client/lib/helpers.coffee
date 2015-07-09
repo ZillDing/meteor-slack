@@ -33,6 +33,9 @@ Template.registerHelper '_isActiveItem', (type, target) ->
 Template.registerHelper '_getJoinTime', (date) ->
 	moment(date).format 'YYYY, MMM'
 
+Template.registerHelper '_shouldShowUnreadLabel', (unread) ->
+	_.isNumber(unread) and unread > 0
+
 
 ################################################################################
 # notifications

@@ -17,7 +17,9 @@
 					<a href="/channel/{{name}}" class="item {{#if _isActiveItem 'channel' name}}active{{/if}}">
 						{{#if currentUser}}
 						{{#unless _isActiveItem 'channel' name}}
+						{{#if _shouldShowUnreadLabel unread}}
 						<span class="description">{{unread}} new</span>
+						{{/if}}
 						{{/unless}}
 						{{/if}}
 						<span>#</span> {{name}}
@@ -32,7 +34,9 @@
 					{{#each directChats}}
 					<a href="/direct/{{name}}" class="item {{#if _isActiveItem 'direct' name}}active{{/if}}">
 						{{#unless _isActiveItem 'channel' name}}
+						{{#if _shouldShowUnreadLabel unread}}
 						<span class="description">{{unread}} new</span>
+						{{/if}}
 						{{/unless}}
 						<span>@</span> {{name}}
 					</a>

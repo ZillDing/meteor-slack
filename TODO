@@ -1,8 +1,7 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
- ✔ use labels in menu to show incoming messages @done (15-07-09 16:50)
- ✔ use dropdown description to display new incoming messages for title @done (15-07-09 19:56)
- ✔ add a chatdata field in user data to avoid using owner in chatdata @high @done (15-07-09 21:26)
+ ✔ don't show the unread label when it is 0 @done (15-07-09 21:45)
+ ☐ clear the unread if user visit the channel/direct message
 
  ☐ consider replace customized notification html with named template
  ☐ in sidebar menu, when searching for user, prioritize online ones
@@ -29,6 +28,9 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ use labels in menu to show incoming messages @done (15-07-09 16:50) @project(High priority)
+ ✔ use dropdown description to display new incoming messages for title @done (15-07-09 19:56) @project(High priority)
+ ✔ add a chatdata field in user data to avoid using owner in chatdata @high @done (15-07-09 21:26) @project(High priority)
  ✔ direct messages @done (15-07-09 16:18) @project(High priority)
  ✔ server: observe message change (add) to update 'chatData' @done (15-07-09 16:17) @project(High priority)
  ✔ client: user 'chatData' to render sidebar menu and title bar @done (15-07-09 16:17) @project(High priority)
