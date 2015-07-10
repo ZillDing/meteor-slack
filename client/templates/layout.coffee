@@ -2,6 +2,12 @@ Template.layout.events
 	'click .sidebar-trigger': ->
 		Template.instance().$('.ui.sidebar').sidebar 'toggle'
 
+Template.layout.helpers
+	notificationsStyleBottom: ->
+		if Meteor.userId() and Session.get 'isChatting'
+		then '4.5'
+		else '1'
+
 Template.layout.onCreated ->
 	# hide sidebar when window resizes
 	$(window).on 'resize', =>

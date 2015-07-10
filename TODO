@@ -4,7 +4,7 @@ High priority:
  ☐ mention certain person in channels (only show notification for mention)
  ☐ replace input with textarea to allow multi-line message @high
  ☐ allow close direct chat (remove from user data)
- ☐ fix notification layout @today
+ ✔ fix notification layout @today @done (15-07-10 19:23)
 
  ☐ allow quit/join channel
  ☐ show how many people are in the channel
