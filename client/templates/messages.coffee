@@ -26,23 +26,34 @@ Template.messages.helpers
 
 Template.messages.onCreated ->
 	Session.set 'isChatting', true
+	@prevData = null
+	@clearUnread = (data) ->
+		Meteor.call 'clearUnread', data, (error, result) ->
+			_addErrorNotification error if error
 
 	@autorun =>
-		data = Template.currentData()
-		if (_.isObject data) and not _.isEmpty data
-			@subscribe 'targetedMessages', data
-			Session.set
-				chatType: data.type
-				chatTarget: data.target
+		@clearUnread @prevData if Meteor.userId() and @prevData
 
-			switch data.type
-				when 'channel'
-					@subscribe 'channels'
-				when 'direct'
-					@subscribe 'allUsers', ->
-						Meteor.call 'startDirectChat', data.target, (error, result) ->
-							_addErrorNotification error if error
+		data = Template.currentData()
+		check data,
+			type: Match.OneOf 'channel', 'direct'
+			target: String
+		@prevData = data if Meteor.userId()
+
+		Session.set
+			chatType: data.type
+			chatTarget: data.target
+
+		@subscribe 'targetedMessages', data
+		switch data.type
+			when 'channel'
+				@subscribe 'channels'
+			when 'direct'
+				@subscribe 'allUsers', ->
+					Meteor.call 'startDirectChat', data.target, (error, result) ->
+						_addErrorNotification error if error
 
 
 Template.messages.onDestroyed ->
+	@clearUnread @prevData if Meteor.userId()
 	Session.set 'isChatting', false

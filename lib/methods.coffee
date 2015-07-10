@@ -50,7 +50,7 @@ Meteor.methods
 
 		_checkLoggedIn error
 		check data,
-			type: String
+			type: Match.OneOf 'channel', 'direct'
 			target: String
 
 		selector = {}

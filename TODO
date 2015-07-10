@@ -1,7 +1,5 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
- ✔ don't show the unread label when it is 0 @done (15-07-09 21:45)
- ☐ clear the unread if user visit the channel/direct message
 
  ☐ consider replace customized notification html with named template
  ☐ in sidebar menu, when searching for user, prioritize online ones
@@ -16,6 +14,7 @@ High priority:
  ☐ allow staring chat
 
 Low priority:
+ ☐ fix firefox status sign in underline ui bug
  ☐ allow quit/join channel
  ☐ allow delete direct chat
  ☐ add data modification restrictions (user info)
@@ -30,6 +29,8 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ don't show the unread label when it is 0 @done (15-07-09 21:45) @project(High priority)
+ ✔ clear the unread if user visit the channel/direct message @done (15-07-10 15:44) @project(High priority)
  ✔ use labels in menu to show incoming messages @done (15-07-09 16:50) @project(High priority)
  ✔ use dropdown description to display new incoming messages for title @done (15-07-09 19:56) @project(High priority)
  ✔ add a chatdata field in user data to avoid using owner in chatdata @high @done (15-07-09 21:26) @project(High priority)
