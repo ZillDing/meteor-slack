@@ -4,15 +4,13 @@ High priority:
  ☐ mention certain person in channels (only show notification for mention)
  ☐ replace input with textarea to allow multi-line message @high
  ☐ allow close direct chat (remove from user data)
- ✔ fix notification layout @today @done (15-07-10 19:23)
+ ☐ add control in title (flow right)
 
  ☐ allow quit/join channel
  ☐ show how many people are in the channel
  ☐ allow browse all channels
  ☐ allow starring chat (add favourite)
- ☐ in sidebar menu, when searching for user, prioritize online ones
  ☐ lazy load old messges
- ☐ add control in title (flow right)
  ☐ file support, simple uploading
  ☐ view files (allow download)
  ☐ consider replace customized notification html with named template
@@ -20,7 +18,6 @@ High priority:
 
 Low priority:
  ☐ add admin page to allow special operation (edit/delete channel)
- ☐ fix firefox status sign in underline ui bug
  ☐ display image in chat flow (img tag)
  ☐ comment on uploaded file
  ☐ support for searching messages
@@ -34,6 +31,9 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✘ in sidebar menu, when searching for user, prioritize online ones @cancelled (15-07-10 20:18) note: minimongo does not support sort on subkey like 'statue.online' @project(High priority)
+ ✔ fix firefox status sign in underline ui bug @done (15-07-10 19:47) @project(Low priority)
+ ✔ fix notification layout @today @done (15-07-10 19:23) @project(High priority)
  ✔ use template instance variables and methods @done (15-07-10 17:20) @project(High priority)
  ✔ add data modification restrictions (user info) @critical @done (15-07-10 16:46) @project(High priority)
  ✔ clear the unread if user visit the channel/direct message @done (15-07-10 15:44) @project(High priority)

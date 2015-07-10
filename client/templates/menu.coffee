@@ -85,43 +85,30 @@ Template.menu_addNewDirectChatItem.events
 		isAddingANewDirectChat.set false
 
 	'keyup input': (event, template) ->
-		value = template.prevSearchValue
-		handle = template.prevTimeoutHandle
-		if value isnt event.currentTarget.value.toLowerCase()
+		text = event.currentTarget.value.toLowerCase()
+		# only search when the input value changes
+		if text isnt template.prevSearchValue
+			handle = template.prevTimeoutHandle
 			Meteor.clearTimeout handle if handle
+			template.prevSearchValue = text
 			template.prevTimeoutHandle = Meteor.setTimeout ->
-				template.searchUser $ event.currentTarget
+				pattern = new RegExp text.split('').join('.*'), 'i'
+				template.searchPattern.set pattern
 			, 300
 
 Template.menu_addNewDirectChatItem.helpers
 	users: ->
-		Template.instance().filteredUsers.get()
-
-Template.menu_addNewDirectChatItem.onCreated ->
-	@subscribe 'allUsers', =>
-		users = Meteor.users.find
+		Meteor.users.find
 			_id:
 				$ne: Meteor.userId()
+			username: Template.instance().searchPattern.get()
 		,
 			sort:
 				username: 1
-		@filteredUsers = new ReactiveVar users
-		@prevSearchValue = '' # always lower case
-		@prevTimeoutHandle = null
-		@searchUser = ($input) =>
-			text = $input.val().toLowerCase()
-			# use fuzzy search
-			pattern = new RegExp text.split('').join('.*'), 'i'
 
-			@filteredUsers.set Meteor.users.find
-				_id:
-					$ne: Meteor.userId()
-				username: pattern
-			,
-				sort:
-					username: 1
-			@prevSearchValue = text
-			@prevTimeoutHandle = null
+Template.menu_addNewDirectChatItem.onCreated ->
+	@subscribe 'allUsers', =>
+		@searchPattern = new ReactiveVar /.*/i
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()
