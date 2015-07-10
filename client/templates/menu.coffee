@@ -77,24 +77,6 @@ Template.menu_createNewDirectChatItem.events
 ################################################################################
 # _addNewDirectChatItem
 ################################################################################
-filteredUsers = new ReactiveVar()
-prevSearchValue = '' # always lower case
-prevTimeoutHandle = null
-searchUser = ($input) ->
-	text = $input.val().toLowerCase()
-	# use fuzzy search
-	pattern = new RegExp text.split('').join('.*'), 'i'
-
-	filteredUsers.set Meteor.users.find
-		_id:
-			$ne: Meteor.userId()
-		username: pattern
-	,
-		sort:
-			username: 1
-	prevSearchValue = text
-	prevTimeoutHandle = null
-
 Template.menu_addNewDirectChatItem.events
 	'click a.sidebar-menu-item': ->
 		isAddingANewDirectChat.set false
@@ -102,26 +84,44 @@ Template.menu_addNewDirectChatItem.events
 	'click i.cancel': ->
 		isAddingANewDirectChat.set false
 
-	'keyup input': (event) ->
-		if prevSearchValue isnt event.currentTarget.value.toLowerCase()
-			Meteor.clearTimeout prevTimeoutHandle if prevTimeoutHandle
-			prevTimeoutHandle = Meteor.setTimeout ->
-				searchUser $ event.currentTarget
+	'keyup input': (event, template) ->
+		value = template.prevSearchValue
+		handle = template.prevTimeoutHandle
+		if value isnt event.currentTarget.value.toLowerCase()
+			Meteor.clearTimeout handle if handle
+			template.prevTimeoutHandle = Meteor.setTimeout ->
+				template.searchUser $ event.currentTarget
 			, 300
 
 Template.menu_addNewDirectChatItem.helpers
 	users: ->
-		filteredUsers.get()
+		Template.instance().filteredUsers.get()
 
 Template.menu_addNewDirectChatItem.onCreated ->
-	@subscribe 'allUsers', ->
+	@subscribe 'allUsers', =>
 		users = Meteor.users.find
 			_id:
 				$ne: Meteor.userId()
 		,
 			sort:
 				username: 1
-		filteredUsers.set users
+		@filteredUsers = new ReactiveVar users
+		@prevSearchValue = '' # always lower case
+		@prevTimeoutHandle = null
+		@searchUser = ($input) =>
+			text = $input.val().toLowerCase()
+			# use fuzzy search
+			pattern = new RegExp text.split('').join('.*'), 'i'
+
+			@filteredUsers.set Meteor.users.find
+				_id:
+					$ne: Meteor.userId()
+				username: pattern
+			,
+				sort:
+					username: 1
+			@prevSearchValue = text
+			@prevTimeoutHandle = null
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()

@@ -23,19 +23,12 @@ Template.notifications.onCreated ->
 ################################################################################
 # _item
 ################################################################################
-# default notification dismiss time
-NOTIFICATION_DISMISS_TIME = 3000
-
-dismissNotification = ($message, _id) ->
-	$message.transition 'fade up', ->
-		_removeNotification _id
-
 Template.notifications_item.events
-	'click i.close': (event) ->
+	'click i.close': (event, template) ->
 		_id = Template.currentData()._id
 		$message = $ event.currentTarget
 		.closest '.ui.message'
-		dismissNotification $message, _id
+		template.dismissNotification $message, _id
 
 Template.notifications_item.helpers
 	isCustomize: ->
@@ -60,6 +53,11 @@ Template.notifications_item.helpers
 			when 'error' then 'bug'
 			else ''
 
+Template.notifications_item.onCreated ->
+	@dismissNotification = ($message, _id) ->
+		$message.transition 'fade up', ->
+			_removeNotification _id
+
 Template.notifications_item.onRendered ->
 	return if (time = @data.dismissAfter) is 0
 
@@ -68,7 +66,7 @@ Template.notifications_item.onRendered ->
 	else NOTIFICATION_DISMISS_TIME
 
 	Meteor.setTimeout =>
-		dismissNotification @$('.message'), @data._id
+		@dismissNotification @$('.message'), @data._id
 	, time
 
 Template.notifications_item.onDestroyed ->

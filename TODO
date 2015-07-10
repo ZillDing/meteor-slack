@@ -1,5 +1,9 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
+ ☐ if there are too many items in the sidebar menu, hide some of them
+ ✔ use template instance variables and methods @done (15-07-10 17:20)
+ ☐ allow starring chat (add favourite)
+ ✔ add data modification restrictions (user info) @critical @done (15-07-10 16:46)
 
  ☐ consider replace customized notification html with named template
  ☐ in sidebar menu, when searching for user, prioritize online ones
@@ -7,17 +11,13 @@ High priority:
  ☐ lazy load old messges
  ☐ add control in title
  ☐ add admin page to allow special operation (edit/delete channel)
- ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ file support, simple uploading
  ☐ mention certain person in channels
- ☐ use template instance variables and methods
- ☐ allow staring chat
 
 Low priority:
  ☐ fix firefox status sign in underline ui bug
  ☐ allow quit/join channel
  ☐ allow delete direct chat
- ☐ add data modification restrictions (user info)
  ☐ enhance the status text display UI
  ☐ comment on uploaded file
  ☐ support for searching messages

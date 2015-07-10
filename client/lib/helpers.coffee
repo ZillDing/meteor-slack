@@ -35,32 +35,3 @@ Template.registerHelper '_getJoinTime', (date) ->
 
 Template.registerHelper '_shouldShowUnreadLabel', (unread) ->
 	_.isNumber(unread) and unread > 0
-
-
-################################################################################
-# notifications
-################################################################################
-@Notifications = new Mongo.Collection null
-
-@_addNotification = (notification) ->
-	check notification,
-		type: Match.OneOf 'default', 'success', 'error', 'info', 'warning', 'customized'
-		header: Match.Optional String
-		message: Match.Optional String
-		html: Match.Optional String
-		dismissAfter: Match.Optional Match.Integer
-
-	Notifications.insert notification
-
-@_addErrorNotification = (error) ->
-	_addNotification
-		type: 'error'
-		header: error.error
-		message: error.message
-
-@_removeAllNotifications = ->
-	Notifications.remove {}
-
-@_removeNotification = (_id) ->
-	check _id, String
-	Notifications.remove _id
