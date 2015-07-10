@@ -1,83 +1,90 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
  ☐ if there are too many items in the sidebar menu, hide some of them
- ✔ use template instance variables and methods @done (15-07-10 17:20)
- ☐ allow starring chat (add favourite)
- ✔ add data modification restrictions (user info) @critical @done (15-07-10 16:46)
+ ☐ mention certain person in channels (only show notification for mention)
+ ☐ replace input with textarea to allow multi-line message @high
+ ☐ allow close direct chat (remove from user data)
+ ☐ fix notification layout @today
 
- ☐ consider replace customized notification html with named template
+ ☐ allow quit/join channel
+ ☐ show how many people are in the channel
+ ☐ allow browse all channels
+ ☐ allow starring chat (add favourite)
  ☐ in sidebar menu, when searching for user, prioritize online ones
- ☐ replace input with textarea to allow multi-line message
  ☐ lazy load old messges
- ☐ add control in title
- ☐ add admin page to allow special operation (edit/delete channel)
+ ☐ add control in title (flow right)
  ☐ file support, simple uploading
- ☐ mention certain person in channels
+ ☐ view files (allow download)
+ ☐ consider replace customized notification html with named template
+ ☐ notification sound
 
 Low priority:
+ ☐ add admin page to allow special operation (edit/delete channel)
  ☐ fix firefox status sign in underline ui bug
- ☐ allow quit/join channel
- ☐ allow delete direct chat
- ☐ enhance the status text display UI
+ ☐ display image in chat flow (img tag)
  ☐ comment on uploaded file
  ☐ support for searching messages
  ☐ background update avatar for old messages
  ☐ third party services integration (dropbox)
  ☐ add some animation (profile editing)
-
-
+ ☐ easter egg
+  http://dmauro.github.io/Keypress/
+ ☐ private group chat
+ ☐ add about page for additional info (annoucement)
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
- ✔ don't show the unread label when it is 0 @done (15-07-09 21:45) @project(High priority)
+ ✔ use template instance variables and methods @done (15-07-10 17:20) @project(High priority)
+ ✔ add data modification restrictions (user info) @critical @done (15-07-10 16:46) @project(High priority)
  ✔ clear the unread if user visit the channel/direct message @done (15-07-10 15:44) @project(High priority)
- ✔ use labels in menu to show incoming messages @done (15-07-09 16:50) @project(High priority)
- ✔ use dropdown description to display new incoming messages for title @done (15-07-09 19:56) @project(High priority)
+ ✔ don't show the unread label when it is 0 @done (15-07-09 21:45) @project(High priority)
  ✔ add a chatdata field in user data to avoid using owner in chatdata @high @done (15-07-09 21:26) @project(High priority)
+ ✔ use dropdown description to display new incoming messages for title @done (15-07-09 19:56) @project(High priority)
+ ✔ use labels in menu to show incoming messages @done (15-07-09 16:50) @project(High priority)
  ✔ direct messages @done (15-07-09 16:18) @project(High priority)
  ✔ server: observe message change (add) to update 'chatData' @done (15-07-09 16:17) @project(High priority)
  ✔ client: user 'chatData' to render sidebar menu and title bar @done (15-07-09 16:17) @project(High priority)
+ ✔ show all chat buddies in top title dropdown menu @done (15-07-09 11:21)
+ ✔ show all chat buddies in the menu @done (15-07-09 11:21)
  ✔ move global subscription to each template @high @done (15-07-09 11:19)
  ✔ do subscription ready check @high @done (15-07-09 11:19)
- ✔ show all chat buddies in the menu @done (15-07-09 11:21)
- ✔ show all chat buddies in top title dropdown menu @done (15-07-09 11:21)
- ✔ user Accounts.onCreateUser to create default profile for user  @today @done (15-07-08 17:34)
- ✔ hence, simplify client side code of checking null profile fileds @today @done (15-07-08 17:53)
- ✔ server&client: create new 'chatData' collection to store user specific chat data @done (15-07-08 16:15)
- ✔ move the chatData to user collection as a field instead of a seperate collection @done (15-07-08 21:03)
  ✔ figure out a way to let not-signed-in uses see other users' public profile @critical @done (15-07-08 21:46)
+ ✔ move the chatData to user collection as a field instead of a seperate collection @done (15-07-08 21:03)
+ ✔ hence, simplify client side code of checking null profile fileds @today @done (15-07-08 17:53)
+ ✔ user Accounts.onCreateUser to create default profile for user  @today @done (15-07-08 17:34)
+ ✔ server&client: create new 'chatData' collection to store user specific chat data @done (15-07-08 16:15)
  ✔ add notification for user go on/off line @done (15-07-07 22:47)
+ ✔ configure iron router to beautify the error message @done (15-07-07 22:12)
+ ✔ replace the comments icon in the users list in the menu with online status @low @done (15-07-07 21:32)
  ✔ configure router to restrict access to '/direct/:_username' to only signed in users @done (15-07-07 21:31)
  ✔ user whether online status @done (15-07-07 21:24)
- ✔ configure iron router to beautify the error message @done (15-07-07 22:12)
  ✔ safari sign in form css bug (text alignment) @done (15-07-07 21:24)
- ✔ replace the comments icon in the users list in the menu with online status @low @done (15-07-07 21:32)
- ✔ sign in system configure: disable name case differentiation @critical @done (15-07-07 15:40)
- ✔ change avatar id to using full name of the image file (include file extension) @critical @done (15-07-07 16:24)
  ✔ get more avatars @done (15-07-07 17:01)
- ✔ allow see other people's public profile @today @done (15-07-04 09:37)
- ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
- ✔ figure out a way to differentiate various types of messages (channel vs direct) @high @done (15-07-05 20:20)
- ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
- ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
- ✔ profile modification (avatar and status) @done (15-07-04 23:42)
- ✔ add form validation for status @done (15-07-05 00:41)
- ✔ use form for adding channel @today @done (15-07-04 08:50)
- ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
- ✘ consider use device specific template @cancelled (15-07-04 14:47)
- ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
- ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
- ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
- ✔ use dropdown list for sign out actions etc @done (15-07-07 08:09)
- ✔ adjust setting dropup menu style (use inverted color theme) @done (15-07-07 08:28)
- ✔ adjust menu user list style (bug in safari) @done (15-07-07 05:40)
- ✔ close sidebar when window resize @done (15-07-07 07:02)
+ ✔ change avatar id to using full name of the image file (include file extension) @critical @done (15-07-07 16:24)
+ ✔ sign in system configure: disable name case differentiation @critical @done (15-07-07 15:40)
  ✔ filter user while typing @done (15-07-07 14:28)
  ✔ fix the menu user list UI bug @done (15-07-07 13:36)
+ ✔ adjust setting dropup menu style (use inverted color theme) @done (15-07-07 08:28)
+ ✔ use dropdown list for sign out actions etc @done (15-07-07 08:09)
+ ✔ close sidebar when window resize @done (15-07-07 07:02)
+ ✔ adjust menu user list style (bug in safari) @done (15-07-07 05:40)
+ ✔ adjust the menu item style (consider us css for items) @high @done (15-07-06 23:59)
+ ✔ figure out a way to differentiate various types of messages (channel vs direct) @high @done (15-07-05 20:20)
+ ✔ come up with a notification solution (floating box) @high @done (15-07-05 20:20)
+ ✔ adjust error message layout so can be reused for notification @done (15-07-05 16:38)
  ✘ add some form validation @cancelled (15-07-05 08:50)
+ ✔ add form validation for status @done (15-07-05 00:41)
+ ✔ profile modification (avatar and status) @done (15-07-04 23:42)
+ ✘ consider use device specific template @cancelled (15-07-04 14:47)
+ ✔ format join in date to a human readable form @high @done (15-07-04 13:06)
+ ✔ add prompt to confirm creating channel (since not allowd to modify or delete after creation) @high @today @done (15-07-04 11:43)
+ ✔ allow see other people's public profile @today @done (15-07-04 09:37)
+ ✔ add a global template helper to get avatar @today @done (15-07-04 09:37)
+ ✔ use form for adding channel @today @done (15-07-04 08:50)
+ ✘ consider use channel id rather than the name @high @cancelled (15-07-04 00:09)
  ✘ allow edit/delete channel @cancelled (15-07-03 22:34)
  ✔ fix title dropdown @critical @done (15-07-02 22:47)
- ✔ responsive design @critical @done (15-07-02 15:13)
  ✔ mobile device side bar @critical @done (15-07-02 21:44)
+ ✔ responsive design @critical @done (15-07-02 15:13)
  ✔ use semantic 'transition' for animation instead of jquery @today @done (15-07-02 13:33)
  ✔ re-layout (using semantic 'ui bound' rather than 'ui fixed') @today @done (15-07-02 13:26)
