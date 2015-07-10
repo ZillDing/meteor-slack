@@ -45,6 +45,7 @@
 				</div>
 			</div>
 
+			{{#if currentUser}}
 			<button class="right floated compact ui icon button" style="margin-left: 1rem">
 				<i class="list layout icon"></i>
 			</button>
@@ -55,9 +56,10 @@
 					<i class="search icon"></i>
 				</div>
 			</div>
-			<button class="right floated compact ui red basic icon button">
+			<button class="right floated compact ui red basic icon button remove-btn">
 				<i class="remove icon"></i>
 			</button>
+			{{/if}}
 		</div>
 	</div>
 </template>

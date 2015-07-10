@@ -4,6 +4,8 @@ High priority:
  ☐ replace input with textarea to allow multi-line message @high
  ☐ allow close direct chat (remove from user data)
  ✔ add control in title (flow right) @started @done (15-07-10 22:44)
+ ☐ fix the direct chat subscription bug @critical
+ ☐ consider use modal for channel creation etc to emphasis
 
  ☐ mention certain person in channels (only show notification for mention)
  ☐ allow quit/join channel

@@ -62,6 +62,23 @@ Meteor.methods
 			$set: o
 		UserData.update selector, modifier
 
+	# delete the owner's chat data
+	# either quit channel or
+	# delete a direct chat
+	removeChat: (data) ->
+		error = 'remove-chat-error'
+
+		_checkLoggedIn error
+		check data,
+			type: Match.OneOf 'channel', 'direct'
+			target: String
+
+		o = {}
+		o["#{data.type}"] =
+			name: data.target
+		UserData.update Meteor.user().data,
+			$pull: o
+
 	startDirectChat: (username) ->
 		error = 'start-direct-chat-error'
 
@@ -76,7 +93,7 @@ Meteor.methods
 		item = _.find chatArray, (o) ->
 			o.name is username
 		if not item
-			UserData.update Meteor.user().data ,
+			UserData.update Meteor.user().data,
 				$push:
 					direct:
 						id: user._id
