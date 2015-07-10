@@ -1,11 +1,11 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
  ☐ if there are too many items in the sidebar menu, hide some of them
- ☐ mention certain person in channels (only show notification for mention)
  ☐ replace input with textarea to allow multi-line message @high
  ☐ allow close direct chat (remove from user data)
- ☐ add control in title (flow right)
+ ✔ add control in title (flow right) @started @done (15-07-10 22:44)
 
+ ☐ mention certain person in channels (only show notification for mention)
  ☐ allow quit/join channel
  ☐ show how many people are in the channel
  ☐ allow browse all channels

@@ -2,7 +2,7 @@
 	<div class="ui grid">
 		<div class="column">
 			<div class="ui dropdown">
-				<div class="text ui header">
+				<div class="text ui large header">
 					<span style="opacity: 0.5">{{prefixSymbol}}</span>
 					{{currentTarget}}
 				</div>
@@ -44,6 +44,20 @@
 					{{/if}}
 				</div>
 			</div>
+
+			<button class="right floated compact ui icon button" style="margin-left: 1rem">
+				<i class="list layout icon"></i>
+			</button>
+			<div class="ui small search" style="float: right; margin-left: 1rem; min-width: 40%">
+				<div class="ui fluid icon input">
+					<input type="text" class="prompt" placeholder="Search..."
+						style="padding-top: 0.5em; padding-bottom: 0.5em">
+					<i class="search icon"></i>
+				</div>
+			</div>
+			<button class="right floated compact ui red basic icon button">
+				<i class="remove icon"></i>
+			</button>
 		</div>
 	</div>
 </template>
