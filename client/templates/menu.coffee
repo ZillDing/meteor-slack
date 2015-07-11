@@ -32,34 +32,25 @@ Template.menu_createNewChannelItem.events
 # _addNewChannelItem
 ################################################################################
 Template.menu_addNewChannelItem.events
-	'click .cancel-btn': ->
-		Template.instance().$('div.item').popup 'hide'
-
-	'click .confirm-btn': ->
-		Template.instance().$('div.item').popup 'hide'
-		channel = Template.instance().$('input').val()
-		if channel
-			Meteor.call 'createChannel', channel, (error, result) ->
-				if error
-					_addErrorNotification error
-				else
-					isAddingANewChannel.set false
-
 	'click i.cancel': ->
 		isAddingANewChannel.set false
 
 	'submit form.form': ->
-		if Template.instance().$('input').val()
-			Template.instance().$('div.item').popup 'show'
+		if name = Template.instance().$('input').val()
+			$ '.ui.modal.menu-modal'
+			.modal
+				closable: false
+				onApprove: ->
+					Meteor.call 'createChannel', name, (error, result) ->
+						if error
+							_addErrorNotification error
+						else
+							isAddingANewChannel.set false
+			.modal 'show'
 		# prevent default form submit
 		false
 
 Template.menu_addNewChannelItem.onRendered ->
-	@$('div.item').popup
-		# inline: true
-		popup: @$('.ui.popup')
-		on: 'manual'
-		position: 'bottom left'
 	@$('input').focus()
 
 

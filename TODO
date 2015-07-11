@@ -1,5 +1,6 @@
 High priority:
- ☐ use modal for channel creation etc to emphasis
+ ✔ use modal for channel creation etc to emphasis @done (15-07-11 23:07)
+ ☐ client side check whether channel alr exist
  ☐ adjust chat message UI (scroll properly) @critical
  ☐ show how many people are in the channel
 

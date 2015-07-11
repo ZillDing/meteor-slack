@@ -73,15 +73,6 @@
 			<small style="opacity: 0.8">* duplicate channel name is not allowed</small>
 		</form>
 	</div>
-	<div class="ui popup" style="margin-left: 1rem">
-		<div class="ui header">Are you sure?</div>
-		<p><strong>*</strong> channel name cannot be edited or deleted after creation.</p>
-		<div class="ui buttons">
-			<button class="ui button cancel-btn">Cancel</button>
-			<div class="or"></div>
-			<button class="ui positive button confirm-btn">Confirm</button>
-		</div>
-	</div>
 </template>
 
 <!-- ####################################################################### -->
@@ -124,4 +115,29 @@
 			<div class="header">{{username}}</div>
 		</div>
 	</a>
+</template>
+<!-- ####################################################################### -->
+<template name="menu_modal">
+	<div class="ui small basic modal menu-modal">
+		{{!-- header --}}
+		<div class="ui icon header">
+			<i class="external share icon"></i>
+			Are you sure?
+		</div>
+		{{!-- content --}}
+		<div class="content">
+			<p>Once created, you will not be able to edit the channel name or delete the channel.</p>
+		</div>
+		{{!-- actions --}}
+		<div class="actions">
+			<div class="ui red basic cancel inverted button">
+				<i class="remove icon"></i>
+				Cancel
+			</div>
+			<div class="ui green ok inverted button">
+				<i class="checkmark icon"></i>
+				Yes
+			</div>
+		</div>
+	</div>
 </template>
