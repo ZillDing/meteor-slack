@@ -18,9 +18,11 @@ Template.title.events
 Template.title.helpers
 	channels: ->
 		if Meteor.user()?.data()
-			Meteor.user().data().channel
+			Meteor.user().data().channel.reverse()
 		else
-			Channels.find {}
+			Channels.find {},
+				sort:
+					createdAt: -1
 
 	directChats: ->
 		if Meteor.user()?.data()

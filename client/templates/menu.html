@@ -1,7 +1,12 @@
 <template name="menu">
 	<div class="column flex-container flex-column-container sidebar-menu"
 		style="padding: 0 1rem">
-		<div class="ui inverted sub header" style="margin-top: 10px">CHANNELS</div>
+		<div class="sidebar-menu-header" style="margin-top: 10px">
+			CHANNELS
+			<a href="/config">
+				<i class="link configure icon"></i>
+			</a>
+		</div>
 		<div class="ui inverted middle aligned list">
 			{{#each channels}}
 			<a href="/channel/{{name}}"
@@ -29,7 +34,7 @@
 		{{#if currentUser}}
 		<div class="ui inverted divider" style="margin-top: 0.5em"></div>
 
-		<div class="ui inverted sub header" style="margin-top: 0">DIRECT MESSAGES</div>
+		<div class="sidebar-menu-header">DIRECT MESSAGES</div>
 		<div class="ui inverted middle aligned list">
 			{{#each directChats}}
 			<a href="/direct/{{name}}"

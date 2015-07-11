@@ -6,7 +6,7 @@ Router.configure
 	notFoundTemplate: 'notFound'
 
 Router.plugin 'ensureSignedIn',
-	only: ['direct']
+	only: ['config', 'direct']
 
 
 ################################################################################
@@ -19,8 +19,10 @@ getSubs = ->
 	result.push Meteor.subscribe 'currentUser' if Meteor.userId()
 	result
 
+
 Router.route '/', ->
 	@redirect '/signin'
+
 
 Router.route '/channel/:_channel',
 	waitOn: getSubs
@@ -30,6 +32,14 @@ Router.route '/channel/:_channel',
 			data:
 				type: 'channel'
 				target: channel
+
+
+Router.route '/config',
+	name: 'config'
+	waitOn: getSubs
+	action: ->
+		@render 'config'
+
 
 Router.route '/direct/:_username',
 	name: 'direct'
@@ -41,10 +51,12 @@ Router.route '/direct/:_username',
 				type: 'direct'
 				target: username
 
+
 Router.route '/profile',
 	waitOn: getSubs
 	action: ->
 		@render 'profile'
+
 
 Router.route '/signin',
 	waitOn: getSubs

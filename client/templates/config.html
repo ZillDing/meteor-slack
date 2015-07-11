@@ -1,0 +1,73 @@
+<template name="config">
+	<div class="ui grid">
+		<div class="row">
+			<div class="eight wide column">
+				<div class="ui header">
+					<i class="setting icon"></i>
+					<div class="content">Your channels</div>
+				</div>
+				<div class="ui animated celled list">
+					{{#each userChannels}}
+					{{> config_item_channel_user}}
+					{{else}}
+					{{#config_no_more}}You have no channel.{{/config_no_more}}
+					{{/each}}
+				</div>
+			</div>
+
+			<div class="eight wide column">
+				<div class="ui header">
+					<i class="browser icon"></i>
+					<div class="content">Available channels</div>
+				</div>
+				<div class="ui animated celled list">
+					{{#each additionalChannels}}
+					{{> config_item_channel_additional}}
+					{{else}}
+					{{#config_no_more}}There are no more channels.{{/config_no_more}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="config_no_more">
+	<div class="ui icon message">
+		<i class="folder open icon"></i>
+		<div class="content">
+			<div class="header">Empty...</div>
+			<p>{{> Template.contentBlock}}</p>
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="config_item_channel_user">
+	<div class="item flex-container flex-row-container">
+		<div class="content flex-stretch-item">
+			<p><span>#</span> {{name}}</p>
+		</div>
+
+		<div class="content">
+			<div class="negative ui compact icon button">
+				<i class="remove icon"></i>
+				<i class="arrow right icon"></i>
+			</div>
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="config_item_channel_additional">
+	<div class="item flex-container flex-row-container">
+		<div class="content flex-stretch-item">
+			<p><span>#</span> {{name}}</p>
+		</div>
+
+		<div class="content">
+			<div class="positive ui compact icon button">
+				<i class="arrow left icon"></i>
+				<i class="plus icon"></i>
+			</div>
+		</div>
+	</div>
+</template>

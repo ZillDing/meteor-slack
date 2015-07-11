@@ -4,9 +4,12 @@ isAddingANewDirectChat = new ReactiveVar false
 Template.menu.helpers
 	channels: ->
 		if Meteor.user()?.data()
-			Meteor.user().data().channel
+			Meteor.user().data().channel.reverse()
 		else
-			Channels.find {}
+			# put the new ones on top
+			Channels.find {},
+				sort:
+					createdAt: -1
 
 	directChats: ->
 		if Meteor.user()?.data()
@@ -36,7 +39,7 @@ Template.menu_addNewChannelItem.events
 		Template.instance().$('div.item').popup 'hide'
 		channel = Template.instance().$('input').val()
 		if channel
-			Meteor.call 'addChannel', channel, (error, result) ->
+			Meteor.call 'createChannel', channel, (error, result) ->
 				if error
 					_addErrorNotification error
 				else

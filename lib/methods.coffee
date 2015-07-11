@@ -3,19 +3,21 @@ _checkLoggedIn = (error) ->
 		throw new Meteor.Error error, 'Not authorized. Please sign in first.'
 
 Meteor.methods
-	addChannel: (channel) ->
+	# add a channel that current user is not in
+	addChannel: (channelId) ->
 		error = 'add-channel-failed'
 
 		_checkLoggedIn error
-		check channel, String
-		channel = channel.toLowerCase()
-		if Channels.find(name: channel).count() > 0
-			throw new Meteor.Error error, "Duplicate channel name: #{channel}"
+		check channelId, String
+		if not channel = Channels.findOne channelId
+			throw new Meteor.Error error, "Could not find such channel with id: #{channelId}"
 
-		Channels.insert
-			createdAt: new Date()
-			name: channel
-			owner: Meteor.userId()
+		UserData.update Meteor.user().dataId,
+			$push:
+				channel:
+					id: channelId
+					name: channel.name
+					unread: 0
 
 	addMessage: (message) ->
 		error = 'add-message-failed'
@@ -62,9 +64,27 @@ Meteor.methods
 			$set: o
 		UserData.update selector, modifier
 
+	# create a new channel in the system
+	# for every one
+	createChannel: (channel) ->
+		error = 'create-channel-failed'
+
+		_checkLoggedIn error
+		check channel, String
+		channel = channel.toLowerCase()
+		if Channels.find(name: channel).count() > 0
+			throw new Meteor.Error error, "Duplicate channel name: #{channel}"
+
+		Channels.insert
+			createdAt: new Date()
+			name: channel
+			owner: Meteor.userId()
+
 	# delete the owner's chat data
 	# either quit channel or
 	# delete a direct chat
+	# note: this will not delete the channel in the system
+	# or delete the direct chat messages
 	removeChat: (data) ->
 		error = 'remove-chat-error'
 

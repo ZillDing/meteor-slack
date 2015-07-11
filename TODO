@@ -1,11 +1,7 @@
 High priority:
- ✔ fix when quiting channel redirect bug @today @done (15-07-11 14:23)
- ✔ change the data key in user collection to dataId @started @done (15-07-11 13:11)
- ✔ fix the routing problem after user quit channel/delete private chat @critical @done (15-07-11 14:22)
  ☐ use modal for channel creation etc to emphasis
- ☐ allow browse all channels
- ☐ allow quit/join channel
  ☐ adjust chat message UI (scroll properly) @critical
+ ☐ allow delete direct chat in config
 
  ☐ show how many people are in the channel
  ☐ notification for new channel and new message
@@ -38,6 +34,11 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ allow browse all channels @started @done (15-07-11 17:07) @project(High priority)
+ ✔ allow quit/join channel @done (15-07-11 17:07) @project(High priority)
+ ✔ fix when quiting channel redirect bug @today @done (15-07-11 14:23) @project(High priority)
+ ✔ change the data key in user collection to dataId @started @done (15-07-11 13:11) @project(High priority)
+ ✔ fix the routing problem after user quit channel/delete private chat @critical @done (15-07-11 14:22) @project(High priority)
  ✔ fix the direct chat subscription bug @critical @done (15-07-11 11:53) @project(High priority)
  ✔ allow close direct chat (remove from user data) @done (15-07-11 11:53) @project(High priority)
  ✔ move all users and channels subscriptions to the beginninig and keep them open @today @done (15-07-11 11:46) @project(High priority)
