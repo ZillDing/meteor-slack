@@ -17,10 +17,6 @@ Template.registerHelper 'LARGE_AVATAR_DIR', ->
 Template.registerHelper 'SMALL_AVATAR_DIR', ->
 	'/images/avatar/small'
 
-# variables
-Template.registerHelper '__isChatting', ->
-	Session.get 'isChatting'
-
 # functions
 Template.registerHelper '_isActiveItem', (type, target) ->
 	return false if not Session.get 'isChatting'
