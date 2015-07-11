@@ -29,6 +29,26 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="ui horizontal divider header">
+			<i class="settings icon"></i>
+		</div>
+
+		<div class="row">
+			<div class="eight wide column">
+				<div class="ui header">
+					<i class="comments icon"></i>
+					<div class="content">Your conversations</div>
+				</div>
+				<div class="ui animated celled list">
+					{{#each directChats}}
+					{{> config_item_direct}}
+					{{else}}
+					{{#config_no_more}}There are no more direct chats.{{/config_no_more}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 <!-- ####################################################################### -->
@@ -45,7 +65,7 @@
 <template name="config_item_channel_user">
 	<div class="item flex-container flex-row-container">
 		<div class="content flex-stretch-item">
-			<p><span>#</span> {{name}}</p>
+			<p># <strong>{{name}}</strong></p>
 		</div>
 
 		<div class="content">
@@ -60,13 +80,27 @@
 <template name="config_item_channel_additional">
 	<div class="item flex-container flex-row-container">
 		<div class="content flex-stretch-item">
-			<p><span>#</span> {{name}}</p>
+		<p># <strong>{{name}}</strong></p>
 		</div>
 
 		<div class="content">
 			<div class="positive ui compact icon button">
 				<i class="arrow left icon"></i>
 				<i class="plus icon"></i>
+			</div>
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="config_item_direct">
+	<div class="item flex-container flex-row-container">
+		<div class="content flex-stretch-item">
+			<p>@ <strong>{{name}}</strong></p>
+		</div>
+
+		<div class="content">
+			<div class="negative ui compact icon button">
+				<i class="trash icon"></i>
 			</div>
 		</div>
 	</div>
