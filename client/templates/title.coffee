@@ -13,14 +13,14 @@ Template.title.events
 
 Template.title.helpers
 	channels: ->
-		if Meteor.user()?.dataId
-			UserData.findOne(Meteor.user().dataId).channel
+		if Meteor.user()?.data()
+			Meteor.user().data().channel
 		else
 			Channels.find {}
 
 	directChats: ->
-		if Meteor.user()?.dataId
-			UserData.findOne(Meteor.user().dataId).direct.reverse()
+		if Meteor.user()?.data()
+			Meteor.user().data().direct.reverse()
 
 	prefixSymbol: ->
 		switch Session.get 'chatType'

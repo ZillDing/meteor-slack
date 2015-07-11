@@ -57,3 +57,10 @@ direct: [
 
 ###
 @UserData = new Mongo.Collection 'userData'
+
+################################################################################
+# Apply helpers
+################################################################################
+Meteor.users.helpers
+	data: ->
+		UserData.findOne @_id

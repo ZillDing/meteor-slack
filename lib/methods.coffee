@@ -54,7 +54,7 @@ Meteor.methods
 			target: String
 
 		selector = {}
-		selector['_id'] = Meteor.user().data
+		selector['_id'] = Meteor.user().dataId
 		selector["#{data.type}.name"] = data.target
 		o = {}
 		o["#{data.type}.$.unread"] = 0
@@ -76,7 +76,7 @@ Meteor.methods
 		o = {}
 		o["#{data.type}"] =
 			name: data.target
-		UserData.update Meteor.user().data,
+		UserData.update Meteor.user().dataId,
 			$pull: o
 
 	startDirectChat: (username) ->
@@ -89,11 +89,11 @@ Meteor.methods
 		if not user
 			throw new Meteor.Error error, "Cannot find user with username: #{username}"
 
-		chatArray = UserData.findOne(Meteor.user().data).direct
+		chatArray = Meteor.user().data().direct
 		item = _.find chatArray, (o) ->
 			o.name is username
 		if not item
-			UserData.update Meteor.user().data,
+			UserData.update Meteor.user().dataId,
 				$push:
 					direct:
 						id: user._id
