@@ -4,7 +4,7 @@ Template.layout.events
 
 Template.layout.helpers
 	notificationsStyleBottom: ->
-		if Meteor.userId() and Session.get 'isChatting'
+		if Meteor.userId() and Session.get 'chatType'
 		then '4.5'
 		else '1'
 

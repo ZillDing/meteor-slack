@@ -19,7 +19,6 @@ Template.registerHelper 'SMALL_AVATAR_DIR', ->
 
 # functions
 Template.registerHelper '_isActiveItem', (type, target) ->
-	return false if not Session.get 'isChatting'
 	return false if not Session.equals 'chatType', type
 
 	if Session.equals 'chatTarget', target

@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="main-container">
-			{{#if $.Session.get 'isChatting'}}
+			{{#if $.Session.get 'chatType'}}
 			{{> title}}
 			{{/if}}
 
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 
-			{{#if $.Session.get 'isChatting'}}
+			{{#if $.Session.get 'chatType'}}
 			{{> input}}
 			{{/if}}
 		</div>

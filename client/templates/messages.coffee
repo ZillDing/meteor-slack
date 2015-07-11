@@ -25,7 +25,6 @@ Template.messages.helpers
 
 
 Template.messages.onCreated ->
-	Session.set 'isChatting', true
 	@prevData = null
 	@clearUnread = (data) ->
 		Meteor.call 'clearUnread', data, (error, result) ->
@@ -56,4 +55,6 @@ Template.messages.onCreated ->
 
 Template.messages.onDestroyed ->
 	@clearUnread @prevData if Meteor.userId()
-	Session.set 'isChatting', false
+	Session.set
+		chatType: null
+		chatTarget: null
