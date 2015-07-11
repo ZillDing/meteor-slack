@@ -5,18 +5,24 @@ High priority:
  ☐ allow close direct chat (remove from user data)
  ✔ add control in title (flow right) @started @done (15-07-10 22:44)
  ☐ fix the direct chat subscription bug @critical
+ ✔ move all users and channels subscriptions to the beginninig and keep them open @today @done (15-07-11 11:46)
  ☐ consider use modal for channel creation etc to emphasis
+ ☐ notification for new channel and new message
 
  ☐ mention certain person in channels (only show notification for mention)
+   https://atmospherejs.com/mizzao/autocomplete
  ☐ allow quit/join channel
  ☐ show how many people are in the channel
  ☐ allow browse all channels
  ☐ allow starring chat (add favourite)
- ☐ lazy load old messges
+ ☐ lazy load old messges (pagination and infinite scroll)
+   https://atmospherejs.com/alethes/pages
  ☐ file support, simple uploading
  ☐ view files (allow download)
  ☐ consider replace customized notification html with named template
  ☐ notification sound
+ ☐ simplify colleciton
+   https://atmospherejs.com/dburles/collection-helpers
 
 Low priority:
  ☐ add admin page to allow special operation (edit/delete channel)

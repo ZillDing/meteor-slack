@@ -29,26 +29,43 @@ Template.messages.onCreated ->
 	@clearUnread = (data) ->
 		Meteor.call 'clearUnread', data, (error, result) ->
 			_addErrorNotification error if error
-
-	@autorun =>
-		@clearUnread @prevData if Meteor.userId() and @prevData
-
-		data = Template.currentData()
-		check data,
-			type: Match.OneOf 'channel', 'direct'
-			target: String
-		@prevData = data if Meteor.userId()
-
-		Session.set
-			chatType: data.type
-			chatTarget: data.target
-
-		@subscribe 'targetedMessages', data
+	isValid = (data) ->
+		if not _.contains ['channel', 'direct'], data.type
+			_addErrorNotification
+				error: 'Error'
+				message: "Invalid chat type: #{data.type}"
+			return false
 		switch data.type
 			when 'channel'
-				@subscribe 'channels'
+				if not Channels.findOne(name: data.target)
+					_addErrorNotification
+						error: 'No such channel'
+						message: "Could not find channel with name: #{data.target}"
+					return false
 			when 'direct'
-				@subscribe 'allUsers', ->
+				if not Meteor.users.findOne(name: data.target)
+					_addErrorNotification
+						error: 'No such user'
+						message: "Could not find user with username: #{data.target}"
+					return false
+		true
+
+	@autorun =>
+		data = Template.currentData()
+		return if not isValid data
+		# @subscribe 'targetedMessages', data
+		@subscribe 'targetedMessages', data,
+			onStop: (error) ->
+				_addErrorNotification error if error
+			onReady: =>
+				Session.set
+					chatType: data.type
+					chatTarget: data.target
+
+				return if not Meteor.userId()
+				@clearUnread @prevData if @prevData
+				@prevData = data
+				if data.type is 'direct'
 					Meteor.call 'startDirectChat', data.target, (error, result) ->
 						_addErrorNotification error if error
 

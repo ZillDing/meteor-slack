@@ -18,13 +18,6 @@ Template.menu.helpers
 	isAddingANewDirectChat: ->
 		isAddingANewDirectChat.get()
 
-Template.menu.onCreated ->
-	@autorun =>
-		if Meteor.userId()
-			@subscribe 'currentUser'
-		else
-			@subscribe 'channels'
-
 ################################################################################
 # _createNewChannelItem
 ################################################################################
@@ -107,8 +100,7 @@ Template.menu_addNewDirectChatItem.helpers
 				username: 1
 
 Template.menu_addNewDirectChatItem.onCreated ->
-	@subscribe 'allUsers', =>
-		@searchPattern = new ReactiveVar /.*/i
+	@searchPattern = new ReactiveVar /.*/i
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()

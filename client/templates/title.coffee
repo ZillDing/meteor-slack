@@ -29,12 +29,6 @@ Template.title.helpers
 			when 'direct'
 				'@'
 
-Template.title.onCreated ->
-	if Meteor.userId()
-		@subscribe 'currentUser'
-	else
-		@subscribe 'channels'
-
 Template.title.onRendered ->
 	@$('.ui.dropdown').dropdown
 		action: 'hide'
@@ -42,10 +36,10 @@ Template.title.onRendered ->
 
 	if __deviceIsHoverable
 		@autorun =>
+			return if not Meteor.userId()
+
 			text = switch Session.get 'chatType'
 				when 'channel' then 'Quit this channel'
 				when 'direct' then 'Delete this chat'
-
-			if Meteor.userId()
-				@$('.ui.button.remove-btn').popup
-					content: text
+			@$('.ui.button.remove-btn').popup
+				content: text

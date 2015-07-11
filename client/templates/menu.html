@@ -3,7 +3,6 @@
 		style="padding: 0 1rem">
 		<div class="ui inverted sub header" style="margin-top: 10px">CHANNELS</div>
 		<div class="ui inverted middle aligned list">
-			{{#if Template.subscriptionsReady}}
 			{{#each channels}}
 			<a href="/channel/{{name}}"
 				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'channel' name}}active{{/if}}">
@@ -17,7 +16,6 @@
 				{{/if}}
 			</a>
 			{{/each}}
-			{{/if}}
 
 			{{#if currentUser}}
 			{{#if isAddingANewChannel}}
@@ -33,7 +31,6 @@
 
 		<div class="ui inverted sub header" style="margin-top: 0">DIRECT MESSAGES</div>
 		<div class="ui inverted middle aligned list">
-			{{#if Template.subscriptionsReady}}
 			{{#each directChats}}
 			<a href="/direct/{{name}}"
 				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'direct' name}}active{{/if}}">
@@ -45,7 +42,6 @@
 				{{/unless}}
 			</a>
 			{{/each}}
-			{{/if}}
 		</div>
 
 		{{#if isAddingANewDirectChat}}
@@ -107,14 +103,12 @@
 			</form>
 		</div>
 	</div>
-	{{#if Template.subscriptionsReady}}
 	<div class="ui tiny inverted middle aligned divided list flex-stretch-item"
 		style="min-height: 10em; background-color: rgba(255, 255, 255, 0.2)">
 		{{#each users}}
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{/each}}
 	</div>
-	{{/if}}
 </template>
 <!-- ####################################################################### -->
 <template name="menu_addNewDirectChatItem_userItem">

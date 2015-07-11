@@ -1,8 +1,5 @@
 isEdittingProfile = new ReactiveVar false
 
-Template.profile.onCreated ->
-	@subscribe 'allUsers'
-
 ################################################################################
 # _currentUser
 ################################################################################

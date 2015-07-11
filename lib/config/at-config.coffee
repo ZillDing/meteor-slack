@@ -22,7 +22,4 @@ AccountsTemplates.addFields [
 
 # Routing config
 AccountsTemplates.configureRoute 'signIn',
-	name: 'signin'
-	path: '/signin'
-	template: 'signin'
 	redirect: '/profile'

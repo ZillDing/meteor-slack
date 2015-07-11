@@ -12,28 +12,41 @@ Router.plugin 'ensureSignedIn',
 ################################################################################
 # routes
 ################################################################################
+getSubs = ->
+	result = []
+	result.push Meteor.subscribe 'allUsers'
+	result.push Meteor.subscribe 'channels'
+	result.push Meteor.subscribe 'currentUser' if Meteor.userId()
+	result
+
 Router.route '/', ->
 	@redirect '/channel/general'
 
-Router.route '/channel/:_channel', ->
-	channel = @params._channel
-	@render 'messages',
-		data:
-			type: 'channel'
-			target: channel
-,
-	name: 'channel'
+Router.route '/channel/:_channel',
+	waitOn: getSubs
+	action: ->
+		channel = @params._channel
+		@render 'messages',
+			data:
+				type: 'channel'
+				target: channel
 
-Router.route '/direct/:_username', ->
-	username = @params._username
-	@render 'messages',
-		data:
-			type: 'direct'
-			target: username
-,
+Router.route '/direct/:_username',
 	name: 'direct'
+	waitOn: getSubs
+	action: ->
+		username = @params._username
+		@render 'messages',
+			data:
+				type: 'direct'
+				target: username
 
-Router.route '/profile', ->
-	@render 'profile'
-,
-	name: 'profile'
+Router.route '/profile',
+	waitOn: getSubs
+	action: ->
+		@render 'profile'
+
+Router.route '/signin',
+	waitOn: getSubs
+	action: ->
+		@render 'signin'

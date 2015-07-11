@@ -3,22 +3,21 @@ Template.notifications.helpers
 		Notifications.find()
 
 Template.notifications.onCreated ->
-	@subscribe 'allUsers', ->
-		Meteor.users.find
-			'status.online': true
-		.observe
-			added: (user) ->
-				return if user._id is Meteor.userId()
-				_addNotification
-					type: 'default'
-					header: "#{user.username}"
-					message: 'is online!'
-			removed: (user) ->
-				return if user._id is Meteor.userId()
-				_addNotification
-					type: 'default'
-					header: "#{user.username}"
-					message: 'is offline...'
+	Meteor.users.find
+		'status.online': true
+	.observeChanges
+		added: (id, user) ->
+			return if id is Meteor.userId()
+			_addNotification
+				type: 'default'
+				header: "#{user.username}"
+				message: 'is online!'
+		removed: (id) ->
+			return if id is Meteor.userId()
+			_addNotification
+				type: 'default'
+				header: Meteor.users.findOne(id).username
+				message: 'is offline...'
 
 ################################################################################
 # _item

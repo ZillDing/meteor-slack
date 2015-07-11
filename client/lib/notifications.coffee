@@ -9,7 +9,7 @@
 @_addNotification = (notification) ->
 	check notification,
 		type: Match.OneOf 'default', 'success', 'error', 'info', 'warning', 'customized'
-		header: Match.Optional String
+		header: Match.OneOf (Match.Optional String), Match.Optional Number
 		message: Match.Optional String
 		html: Match.Optional String
 		dismissAfter: Match.Optional Match.Integer
