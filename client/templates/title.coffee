@@ -18,9 +18,6 @@ Template.title.helpers
 		else
 			Channels.find {}
 
-	currentTarget: ->
-		Session.get 'chatTarget'
-
 	directChats: ->
 		if Meteor.user()?.data
 			UserData.findOne(Meteor.user().data).direct.reverse()

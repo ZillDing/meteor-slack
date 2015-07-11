@@ -10,7 +10,7 @@
 				<span>#</span>{{name}}
 				{{#if currentUser}}
 				{{#unless _isActiveItem 'channel' name}}
-				{{#if _shouldShowUnreadLabel unread}}
+				{{#if $gt unread 0}}
 				<div class="pink right floated ui label unread-label">{{unread}}</div>
 				{{/if}}
 				{{/unless}}
@@ -39,7 +39,7 @@
 				class="item sidebar-menu-item hoverable {{#if _isActiveItem 'direct' name}}active{{/if}}">
 				<span>@</span>{{name}}
 				{{#unless _isActiveItem 'direct' name}}
-				{{#if _shouldShowUnreadLabel unread}}
+				{{#if $gt unread 0}}
 				<div class="pink right floated ui label unread-label">{{unread}}</div>
 				{{/if}}
 				{{/unless}}

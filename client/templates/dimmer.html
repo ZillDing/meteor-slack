@@ -1,18 +1,20 @@
 <template name="dimmer">
-	{{#unless status.connected}}
+	{{#unless $.Meteor.status.connected}}
+	{{#with $.Meteor.status}}
 	<div class="ui active page dimmer">
 		<div class="ui text loader">
 			<div class="ui inverted header">
 				Ooops, something is wrong with the connection. Please wait or come back later.
 				<div class="sub header" style="margin-top: 1em">
-					<p>Status: {{status.status}}</p>
-					<p>Retry count: {{status.retryCount}}</p>
-					{{#if status.reason}}
-					<p>Reason: {{status.reason}}</p>
+					<p>Status: {{this.status}}</p>
+					<p>Retry count: {{retryCount}}</p>
+					{{#if reason}}
+					<p>Reason: {{reason}}</p>
 					{{/if}}
 				</div>
 			</div>
 		</div>
 	</div>
+	{{/with}}
 	{{/unless}}
 </template>

@@ -20,7 +20,7 @@
 				<div class="description">
 					<span class="ui mini green empty circular label"></span>
 					<small data-content="{{currentUser.profile.status}}" data-variation="inverted">
-						{{profileStatus}}
+						{{cutString currentUser.profile.status 10}}
 					</small>
 				</div>
 			</div>

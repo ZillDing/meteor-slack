@@ -4,7 +4,7 @@
 			<div class="ui dropdown">
 				<div class="text ui large header">
 					<span style="opacity: 0.5">{{prefixSymbol}}</span>
-					{{currentTarget}}
+					{{$.Session.get 'chatTarget'}}
 				</div>
 				<i class="dropdown icon"></i>
 				<div class="menu">
@@ -17,7 +17,7 @@
 					<a href="/channel/{{name}}" class="item {{#if _isActiveItem 'channel' name}}active{{/if}}">
 						{{#if currentUser}}
 						{{#unless _isActiveItem 'channel' name}}
-						{{#if _shouldShowUnreadLabel unread}}
+						{{#if $gt unread 0}}
 						<span class="description">{{unread}} new</span>
 						{{/if}}
 						{{/unless}}
@@ -34,7 +34,7 @@
 					{{#each directChats}}
 					<a href="/direct/{{name}}" class="item {{#if _isActiveItem 'direct' name}}active{{/if}}">
 						{{#unless _isActiveItem 'channel' name}}
-						{{#if _shouldShowUnreadLabel unread}}
+						{{#if $gt unread 0}}
 						<span class="description">{{unread}} new</span>
 						{{/if}}
 						{{/unless}}
