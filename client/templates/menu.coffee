@@ -36,17 +36,25 @@ Template.menu_addNewChannelItem.events
 		isAddingANewChannel.set false
 
 	'submit form.form': ->
-		if name = Template.instance().$('input').val()
-			$ '.ui.modal.menu-modal'
-			.modal
-				closable: false
-				onApprove: ->
-					Meteor.call 'createChannel', name, (error, result) ->
-						if error
-							_addErrorNotification error
-						else
-							isAddingANewChannel.set false
-			.modal 'show'
+		return false if not name = Template.instance().$('input').val()
+		# validate the name
+		if Channels.findOne(name: name)
+			# this channel alr exists
+			_addErrorNotification
+				error: 'Add Channel Failed'
+				message: "Channel with this name already exists: #{name}"
+			return false
+
+		$ '.ui.modal.menu-modal'
+		.modal
+			closable: false
+			onApprove: ->
+				Meteor.call 'createChannel', name, (error, result) ->
+					if error
+						_addErrorNotification error
+					else
+						isAddingANewChannel.set false
+		.modal 'show'
 		# prevent default form submit
 		false
 

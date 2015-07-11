@@ -1,6 +1,4 @@
 High priority:
- ✔ use modal for channel creation etc to emphasis @done (15-07-11 23:07)
- ☐ client side check whether channel alr exist
  ☐ adjust chat message UI (scroll properly) @critical
  ☐ show how many people are in the channel
 
@@ -34,6 +32,8 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ use modal for channel creation etc to emphasis @done (15-07-11 23:07) @project(High priority)
+ ✔ client side check whether channel alr exist @done (15-07-11 23:17) @project(High priority)
  ✔ merge 'addChannel' and 'startDirectChat' methods @started @done (15-07-11 21:10) @project(High priority)
  ✔ allow delete direct chat in config @done (15-07-11 17:28) @project(High priority)
  ✔ allow quit/join channel @done (15-07-11 17:07) @project(High priority)

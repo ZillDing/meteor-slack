@@ -4,7 +4,7 @@
 @Notifications = new Mongo.Collection null
 
 # default notification dismiss time
-@NOTIFICATION_DISMISS_TIME = 3000
+@NOTIFICATION_DISMISS_TIME = 4000
 
 @_addNotification = (notification) ->
 	check notification,
