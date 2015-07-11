@@ -3,13 +3,17 @@ Template.title.events
 		$(event.currentTarget).popup 'hide'
 
 		data =
-			type: Session.get 'chatType'
-			target: Session.get 'chatTarget'
+			type: type = Session.get 'chatType'
+			target: target = Session.get 'chatTarget'
 		Meteor.call 'removeChat', data, (error, result) ->
 			if error
 				_addErrorNotification error
 			else
-				Router.go '/'
+				item = Meteor.user().data()["#{type}"][0]
+				if item
+					Router.go "/#{type}/#{item.name}"
+				else
+					Router.go '/'
 
 Template.title.helpers
 	channels: ->

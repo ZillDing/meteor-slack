@@ -1,7 +1,7 @@
 High priority:
- ☐ fix when quiting channel redirect bug @today
+ ✔ fix when quiting channel redirect bug @today @done (15-07-11 14:23)
  ✔ change the data key in user collection to dataId @started @done (15-07-11 13:11)
- ☐ fix the routing problem after user quit channel/delete private chat @critical
+ ✔ fix the routing problem after user quit channel/delete private chat @critical @done (15-07-11 14:22)
  ☐ use modal for channel creation etc to emphasis
  ☐ allow browse all channels
  ☐ allow quit/join channel
