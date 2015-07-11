@@ -1,7 +1,8 @@
 High priority:
- ☐ use modal for channel creation etc to emphasis
- ☐ adjust chat message UI (scroll properly) @critical
  ☐ allow delete direct chat in config
+ ☐ use modal for channel creation etc to emphasis
+ ☐ consider merge 'addChannel' and 'startDirectChat' methods
+ ☐ adjust chat message UI (scroll properly) @critical
 
  ☐ show how many people are in the channel
  ☐ notification for new channel and new message
