@@ -60,4 +60,31 @@
 			{{/if}}
 		</div>
 	</div>
+
+	{{> title_modal}}
+</template>
+<!-- ####################################################################### -->
+<template name="title_modal">
+	<div class="ui small basic modal title-modal">
+		{{!-- header --}}
+		<div class="ui icon header">
+			<i class="trash outline icon"></i>
+			Are you sure?
+		</div>
+		{{!-- content --}}
+		<div class="content">
+			<p>Once deleted, you would not be able to see from the sidebar. However, you can still add it back.</p>
+		</div>
+		{{!-- actions --}}
+		<div class="actions">
+			<div class="ui green basic cancel inverted button">
+				<i class="remove icon"></i>
+				Cancel
+			</div>
+			<div class="ui red ok inverted button">
+				<i class="trash icon"></i>
+				Yes
+			</div>
+		</div>
+	</div>
 </template>
