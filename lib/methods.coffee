@@ -3,21 +3,38 @@ _checkLoggedIn = (error) ->
 		throw new Meteor.Error error, 'Not authorized. Please sign in first.'
 
 Meteor.methods
-	# add a channel that current user is not in
-	addChannel: (channelId) ->
-		error = 'add-channel-failed'
+	# add a chat to user's data
+	# either a channel or a direct chat
+	# the added channel or user will show in the sidebar as well as title
+	addChat: (data) ->
+		error = 'add-chat-failed'
 
 		_checkLoggedIn error
-		check channelId, String
-		if not channel = Channels.findOne channelId
-			throw new Meteor.Error error, "Could not find such channel with id: #{channelId}"
+		check data,
+			type: Match.OneOf 'channel', 'direct'
+			target: String
+		targetId = null
+		switch data.type
+			when 'channel'
+				targetId = Channels.findOne(name: data.target)?._id
+			when 'direct'
+				targetId = Meteor.users.findOne(username: data.target)?._id
+		if not targetId
+			throw new Meteor.Error error, "Could not find target with name: #{data.target}"
 
-		UserData.update Meteor.user().dataId,
-			$push:
-				channel:
-					id: channelId
-					name: channel.name
-					unread: 0
+		array = Meteor.user().data()[data.type]
+		item = _.find array, (o) ->
+			o.name is data.target
+		o = {}
+		o[data.type] =
+			id: targetId
+			name: data.target
+			unread: 0
+		if not item
+			# if the chat target is not in current user data
+			# add to user data
+			UserData.update Meteor.user().dataId,
+				$push: o
 
 	addMessage: (message) ->
 		error = 'add-message-failed'
@@ -98,27 +115,6 @@ Meteor.methods
 			name: data.target
 		UserData.update Meteor.user().dataId,
 			$pull: o
-
-	startDirectChat: (username) ->
-		error = 'start-direct-chat-error'
-
-		_checkLoggedIn error
-		check username, String
-		user = Meteor.users.findOne
-			username: username
-		if not user
-			throw new Meteor.Error error, "Cannot find user with username: #{username}"
-
-		chatArray = Meteor.user().data().direct
-		item = _.find chatArray, (o) ->
-			o.name is username
-		if not item
-			UserData.update Meteor.user().dataId,
-				$push:
-					direct:
-						id: user._id
-						name: username
-						unread: 0
 
 	updateUserProfile: (profile) ->
 		error = 'update-user-profile-failed'

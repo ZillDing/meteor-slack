@@ -65,7 +65,7 @@ Template.messages.onCreated ->
 				@clearUnread @prevData if @prevData
 				@prevData = data
 				if data.type is 'direct'
-					Meteor.call 'startDirectChat', data.target, (error, result) ->
+					Meteor.call 'addChat', data, (error, result) ->
 						_addErrorNotification error if error
 
 

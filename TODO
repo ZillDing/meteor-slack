@@ -1,6 +1,6 @@
 High priority:
+ ✔ merge 'addChannel' and 'startDirectChat' methods @started @done (15-07-11 21:10)
  ☐ use modal for channel creation etc to emphasis
- ☐ consider merge 'addChannel' and 'startDirectChat' methods
  ☐ adjust chat message UI (scroll properly) @critical
 
  ☐ show how many people are in the channel

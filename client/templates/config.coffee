@@ -33,8 +33,11 @@ Template.config_item_channel_user.events
 Template.config_item_channel_additional.events
 	'click .ui.button': ->
 		# add to user data
-		id = Template.currentData()._id
-		Meteor.call 'addChannel', id, (error, result) ->
+		name = Template.currentData().name
+		Meteor.call 'addChat',
+			type: 'channel'
+			target: name
+		, (error, result) ->
 			_addErrorNotification error if error
 
 ################################################################################
