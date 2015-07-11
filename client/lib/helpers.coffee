@@ -18,9 +18,12 @@ Template.registerHelper 'SMALL_AVATAR_DIR', ->
 	'/images/avatar/small'
 
 # functions
-Template.registerHelper '_isActiveItem', (type, target) ->
-	return false if not Session.equals 'chatType', type
+# return '' if this is not the current active item
+# return 'active' if it is the current active item
+# note: this will work with template 'if' check
+Template.registerHelper '_isActive', (type, target) ->
+	return '' if not Session.equals 'chatType', type
 
 	if Session.equals 'chatTarget', target
-	then true
-	else false
+	then 'active'
+	else ''
