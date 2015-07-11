@@ -19,7 +19,7 @@ Accounts.onCreateUser (options, user) ->
 	dataId = UserData.insert
 		channel: channelArray
 		direct: []
-	user.data = dataId
+	user.dataId = dataId
 	# return the user
 	user
 
@@ -58,7 +58,7 @@ Messages.find().observeChanges
 					senderId = message.owner
 					receiverId = message.target
 					# check the target direct chat list
-					dataId = Meteor.users.findOne(receiverId).data
+					dataId = Meteor.users.findOne(receiverId).dataId
 					chatArray = UserData.findOne(dataId).direct
 					chatItem = _.find chatArray, (o) ->
 						o.id is senderId

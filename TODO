@@ -1,19 +1,18 @@
 High priority:
+ ☐ fix when quiting channel redirect bug @today
+ ✔ change the data key in user collection to dataId @started @done (15-07-11 13:11)
+ ☐ fix the routing problem after user quit channel/delete private chat @critical
+ ☐ use modal for channel creation etc to emphasis
+ ☐ allow browse all channels
+ ☐ allow quit/join channel
  ☐ adjust chat message UI (scroll properly) @critical
- ☐ if there are too many items in the sidebar menu, hide some of them
- ☐ replace input with textarea to allow multi-line message @high
- ☐ allow close direct chat (remove from user data)
- ✔ add control in title (flow right) @started @done (15-07-10 22:44)
- ☐ fix the direct chat subscription bug @critical
- ✔ move all users and channels subscriptions to the beginninig and keep them open @today @done (15-07-11 11:46)
- ☐ consider use modal for channel creation etc to emphasis
- ☐ notification for new channel and new message
 
+ ☐ show how many people are in the channel
+ ☐ notification for new channel and new message
+ ☐ replace input with textarea to allow multi-line message @high
+ ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ mention certain person in channels (only show notification for mention)
    https://atmospherejs.com/mizzao/autocomplete
- ☐ allow quit/join channel
- ☐ show how many people are in the channel
- ☐ allow browse all channels
  ☐ allow starring chat (add favourite)
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
@@ -39,6 +38,10 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ fix the direct chat subscription bug @critical @done (15-07-11 11:53) @project(High priority)
+ ✔ allow close direct chat (remove from user data) @done (15-07-11 11:53) @project(High priority)
+ ✔ move all users and channels subscriptions to the beginninig and keep them open @today @done (15-07-11 11:46) @project(High priority)
+ ✔ add control in title (flow right) @started @done (15-07-10 22:44) @project(High priority)
  ✘ in sidebar menu, when searching for user, prioritize online ones @cancelled (15-07-10 20:18) note: minimongo does not support sort on subkey like 'statue.online' @project(High priority)
  ✔ fix firefox status sign in underline ui bug @done (15-07-10 19:47) @project(Low priority)
  ✔ fix notification layout @today @done (15-07-10 19:23) @project(High priority)

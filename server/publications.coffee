@@ -40,7 +40,7 @@ Meteor.publish 'currentUser', ->
 				_id: @userId
 			,
 				fields:
-					data: 1
+					dataId: 1
 		,
 			UserData.find dataId
 		]

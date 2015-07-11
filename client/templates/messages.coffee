@@ -53,7 +53,6 @@ Template.messages.onCreated ->
 	@autorun =>
 		data = Template.currentData()
 		return if not isValid data
-		# @subscribe 'targetedMessages', data
 		@subscribe 'targetedMessages', data,
 			onStop: (error) ->
 				_addErrorNotification error if error

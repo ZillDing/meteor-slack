@@ -2,7 +2,7 @@
 
 _id: String
 createdAt: Date
-data: String
+dataId: String
 proflie:
 	avatar: String
 	status: String
