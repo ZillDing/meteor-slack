@@ -1,51 +1,53 @@
 <template name="config">
-	<div class="ui grid">
-		<div class="row">
-			<div class="eight wide column">
-				<div class="ui header">
-					<i class="setting icon"></i>
-					<div class="content">Your channels</div>
+	<div class="ui yellow segment">
+		<div class="ui grid">
+			<div class="row">
+				<div class="eight wide column">
+					<div class="ui header">
+						<i class="setting icon"></i>
+						<div class="content">Your channels</div>
+					</div>
+					<div class="ui animated celled list">
+						{{#each userChannels}}
+						{{> config_item_channel_user}}
+						{{else}}
+						{{#config_no_more}}You have no channel.{{/config_no_more}}
+						{{/each}}
+					</div>
 				</div>
-				<div class="ui animated celled list">
-					{{#each userChannels}}
-					{{> config_item_channel_user}}
-					{{else}}
-					{{#config_no_more}}You have no channel.{{/config_no_more}}
-					{{/each}}
+
+				<div class="eight wide column">
+					<div class="ui header">
+						<i class="browser icon"></i>
+						<div class="content">Available channels</div>
+					</div>
+					<div class="ui animated celled list">
+						{{#each additionalChannels}}
+						{{> config_item_channel_additional}}
+						{{else}}
+						{{#config_no_more}}There are no more channels.{{/config_no_more}}
+						{{/each}}
+					</div>
 				</div>
 			</div>
 
-			<div class="eight wide column">
-				<div class="ui header">
-					<i class="browser icon"></i>
-					<div class="content">Available channels</div>
-				</div>
-				<div class="ui animated celled list">
-					{{#each additionalChannels}}
-					{{> config_item_channel_additional}}
-					{{else}}
-					{{#config_no_more}}There are no more channels.{{/config_no_more}}
-					{{/each}}
-				</div>
+			<div class="ui horizontal divider header">
+				<i class="settings icon" style="font-size: 3em"></i>
 			</div>
-		</div>
 
-		<div class="ui horizontal divider header">
-			<i class="settings icon"></i>
-		</div>
-
-		<div class="row">
-			<div class="eight wide column">
-				<div class="ui header">
-					<i class="comments icon"></i>
-					<div class="content">Your conversations</div>
-				</div>
-				<div class="ui animated celled list">
-					{{#each directChats}}
-					{{> config_item_direct}}
-					{{else}}
-					{{#config_no_more}}There are no direct chats.{{/config_no_more}}
-					{{/each}}
+			<div class="row">
+				<div class="eight wide column">
+					<div class="ui header">
+						<i class="comments icon"></i>
+						<div class="content">Your conversations</div>
+					</div>
+					<div class="ui animated celled list">
+						{{#each directChats}}
+						{{> config_item_direct}}
+						{{else}}
+						{{#config_no_more}}There are no direct chats.{{/config_no_more}}
+						{{/each}}
+					</div>
 				</div>
 			</div>
 		</div>
