@@ -63,4 +63,4 @@ direct: [
 ################################################################################
 Meteor.users.helpers
 	data: ->
-		UserData.findOne @_id
+		UserData.findOne @dataId
