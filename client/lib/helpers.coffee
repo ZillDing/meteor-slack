@@ -24,6 +24,3 @@ Template.registerHelper '_isActiveItem', (type, target) ->
 	if Session.equals 'chatTarget', target
 	then true
 	else false
-
-Template.registerHelper '_getJoinTime', (date) ->
-	moment(date).format 'YYYY, MMM'

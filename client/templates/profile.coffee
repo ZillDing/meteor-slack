@@ -79,12 +79,6 @@ Template.profile_users.helpers
 				$ne: Meteor.userId()
 		.count() isnt 0
 
-	noUserMessage: ->
-		if Meteor.userId()
-			'Invite your friends!'
-		else
-			'Quickly join!'
-
 	users: ->
 		Meteor.users.find
 			_id:
@@ -112,6 +106,9 @@ Template.profile_card.helpers
 		if Template.currentData()._id is Meteor.userId()
 		then 'Edit'
 		else 'Chat'
+
+	getJoinTime: (date) ->
+		moment(date).format 'YYYY, MMM'
 
 	isHoverable: ->
 		__deviceIsHoverable

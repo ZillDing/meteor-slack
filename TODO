@@ -1,9 +1,8 @@
 High priority:
- ✔ merge 'addChannel' and 'startDirectChat' methods @started @done (15-07-11 21:10)
  ☐ use modal for channel creation etc to emphasis
  ☐ adjust chat message UI (scroll properly) @critical
-
  ☐ show how many people are in the channel
+
  ☐ notification for new channel and new message
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them
@@ -34,6 +33,7 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ merge 'addChannel' and 'startDirectChat' methods @started @done (15-07-11 21:10) @project(High priority)
  ✔ allow delete direct chat in config @done (15-07-11 17:28) @project(High priority)
  ✔ allow quit/join channel @done (15-07-11 17:07) @project(High priority)
  ✔ allow browse all channels @started @done (15-07-11 17:07) @project(High priority)
