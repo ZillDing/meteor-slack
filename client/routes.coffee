@@ -20,7 +20,7 @@ getSubs = ->
 	result
 
 Router.route '/', ->
-	@redirect '/channel/general'
+	@redirect '/signin'
 
 Router.route '/channel/:_channel',
 	waitOn: getSubs
@@ -49,4 +49,7 @@ Router.route '/profile',
 Router.route '/signin',
 	waitOn: getSubs
 	action: ->
-		@render 'signin'
+		if Meteor.userId()
+			@redirect '/profile'
+		else
+			@render 'signin'
