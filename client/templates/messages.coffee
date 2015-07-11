@@ -43,7 +43,7 @@ Template.messages.onCreated ->
 						message: "Could not find channel with name: #{data.target}"
 					return false
 			when 'direct'
-				if not Meteor.users.findOne(name: data.target)
+				if not Meteor.users.findOne(username: data.target)
 					_addErrorNotification
 						error: 'No such user'
 						message: "Could not find user with username: #{data.target}"
