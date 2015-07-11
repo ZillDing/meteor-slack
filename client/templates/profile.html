@@ -1,6 +1,5 @@
 <template name="profile">
 	<div class="ui purple segment" style="margin: 0">
-	{{#if currentUser}}
 	{{#with currentUser}}
 	{{> profile_currentUser}}
 	{{/with}}
@@ -11,7 +10,6 @@
 	</h4>
 
 	{{> profile_users}}
-	{{/if}}
 	</div>
 </template>
 <!-- ####################################################################### -->
@@ -81,7 +79,11 @@
 			<i class="frown icon"></i>
 			<div class="content">
 				<div class="header">Oooooops! No users...</div>
-				<p>{{noUserMessage}}</p>
+				{{#if currentUser}}
+				<p>Invite your friends!</p>
+				{{else}}
+				<p>Quickly join!</p>
+				{{/if}}
 			</div>
 		</div>
 	</div>
@@ -106,7 +108,7 @@
 				{{username}}
 			</div>
 			<div class="meta">
-				<span class="date">Joined in {{_getJoinTime createdAt}}</span>
+				<span class="date">Joined in {{getJoinTime createdAt}}</span>
 			</div>
 			<div class="description" style="overflow: auto">{{profile.status}}</div>
 		</div>
