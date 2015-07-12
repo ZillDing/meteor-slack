@@ -83,3 +83,16 @@ messagesHelpers =
 
 ChannelMessages.helpers messagesHelpers
 DirectMessages.helpers messagesHelpers
+
+UserData.helpers
+	channelData: ->
+		_.map @channel, (o) ->
+			id: o.id
+			name: Channels.findOne(o.id).name
+			unread: o.unread
+
+	directData: ->
+		_.map @direct, (o) ->
+			id: o.id
+			name: Meteor.users.findOne(o.id).username
+			unread: o.unread

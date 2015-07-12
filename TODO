@@ -1,6 +1,8 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
  ☐ show how many people are in the channel
+ ☐ fix direct chats cannot be deleted from chatting page bug @critical
+ ☐ after user quit channel update channel data @critical
  ☐ notification for new channel and new message
  ☐ notification sound
  ✘ add loading template @cancelled (15-07-12 15:26)
