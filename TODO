@@ -3,7 +3,7 @@ High priority:
  ☐ show how many people are in the channel
  ☐ notification for new channel and new message
  ☐ notification sound
- ☐ add loading template
+ ✘ add loading template @cancelled (15-07-12 15:26)
 
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them

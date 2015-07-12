@@ -1,6 +1,6 @@
 <template name="messages">
+	{{#if Template.subscriptionsReady}}
 	<div class="ui comments" style="max-width: none">
-		{{#if Template.subscriptionsReady}}
 		{{#each messages}}
 		<div class="comment">
 			<a class="avatar">
@@ -15,6 +15,10 @@
 			</div>
 		</div>
 		{{/each}}
-		{{/if}}
 	</div>
+	{{else}}
+	<div class="ui active inverted dimmer">
+		<div class="ui large text loader">Loading</div>
+	</div>
+	{{/if}}
 </template>
