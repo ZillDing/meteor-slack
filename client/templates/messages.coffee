@@ -15,10 +15,10 @@ Template.messages.helpers
 						type: 'direct'
 					,
 						$or: [
-							owner: Meteor.userId()
+							ownerId: Meteor.userId()
 							target: targetId
 						,
-							owner: targetId
+							ownerId: targetId
 							target: Meteor.userId()
 						]
 					]

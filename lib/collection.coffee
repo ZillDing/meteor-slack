@@ -22,7 +22,7 @@ username: String
 _id: String
 createdAt: Date
 name: String
-owner: String
+ownerId: String
 
 ###
 @Channels = new Mongo.Collection 'channels'
@@ -32,7 +32,7 @@ owner: String
 _id: String
 avatar: String
 createdAt: Date
-owner: String
+ownerId: String
 target: String
 text: String
 type: String
@@ -57,10 +57,7 @@ direct: [
 
 ###
 @UserData = new Mongo.Collection 'userData'
-
-################################################################################
-# Apply helpers
-################################################################################
+# helpers
 Meteor.users.helpers
 	data: ->
 		UserData.findOne @dataId

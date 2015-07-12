@@ -60,7 +60,7 @@ Meteor.methods
 		Messages.insert _.extend
 			avatar: Meteor.user().profile.avatar
 			createdAt: new Date()
-			owner: Meteor.userId()
+			ownerId: Meteor.userId()
 			username: Meteor.user().username
 		, message
 
@@ -95,7 +95,7 @@ Meteor.methods
 		Channels.insert
 			createdAt: new Date()
 			name: channel
-			owner: Meteor.userId()
+			ownerId: Meteor.userId()
 
 	# delete the owner's chat data
 	# either quit channel or

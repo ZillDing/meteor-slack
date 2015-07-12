@@ -1,8 +1,11 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
+ ☐ consider user collection helpers for messages
  ☐ show how many people are in the channel
-
  ☐ notification for new channel and new message
+ ☐ notification sound
+ ☐ add loading template
+
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ mention certain person in channels (only show notification for mention)
@@ -12,12 +15,11 @@ High priority:
    https://atmospherejs.com/alethes/pages
  ☐ file support, simple uploading
  ☐ view files (allow download)
- ☐ consider replace customized notification html with named template
- ☐ notification sound
- ☐ simplify colleciton
+ ✔ simplify colleciton @done (15-07-11 23:34)
    https://atmospherejs.com/dburles/collection-helpers
 
 Low priority:
+ ☐ consider replace customized notification html with named template
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ display image in chat flow (img tag)
  ☐ comment on uploaded file
