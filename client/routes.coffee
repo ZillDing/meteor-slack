@@ -3,7 +3,7 @@
 ################################################################################
 Router.configure
 	layoutTemplate: 'layout'
-	notFoundTemplate: 'notFound'
+	notFoundTemplate: 'notfound'
 
 Router.plugin 'ensureSignedIn',
 	only: ['config', 'direct']

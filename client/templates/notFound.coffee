@@ -1,3 +1,3 @@
-Template.notFound.helpers
+Template.notfound.helpers
 	currentWindowLocation: ->
 		window.location.href
