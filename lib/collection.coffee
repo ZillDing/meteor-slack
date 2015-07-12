@@ -29,22 +29,32 @@ ownerId: String
 @Channels = new Mongo.Collection 'channels'
 
 
-### message schema
+messagesHelpers =
+	owner: ->
+		Meteor.users.findOne @ownerId
+### channelMessages schema
 
 _id: String
 createdAt: Date
 ownerId: String
-target: String
+channelId: String
 text: String
-type: String
 
 ###
-@Messages = new Mongo.Collection 'messages'
-# helpers
-Messages.helpers
-	owner: ->
-		Meteor.users.findOne @ownerId
+@ChannelMessages = new Mongo.Collection 'channnelMessages'
+ChannelMessages.helpers messagesHelpers
 
+### channelMessages schema
+
+_id: String
+createdAt: Date
+ownerId: String
+targetId: String
+text: String
+
+###
+@DirectMessages = new Mongo.Collection 'directMessages'
+DirectMessages.helpers messagesHelpers
 
 ### userData schema
 

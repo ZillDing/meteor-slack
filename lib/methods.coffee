@@ -37,25 +37,31 @@ Meteor.methods
 	addMessage: (message) ->
 		error = 'add-message-failed'
 
+		# validation
 		_checkLoggedIn error
 		check message, Match.ObjectIncluding
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 			text: String
-
 		targetId = switch message.type
 			when 'channel' then Channels.findOne(name: message.target)?._id
 			when 'direct' then Meteor.users.findOne(username: message.target)?._id
 		if not targetId
 			throw new Meteor.Error error, "Cannot find target with name: #{message.target}."
-		# note: need to change the target to id instead of using name
-		# to store in db
-		message.target = targetId
 
-		Messages.insert _.extend
+		# add the new message into corresponding db collection
+		newMessage =
 			createdAt: new Date()
 			ownerId: Meteor.userId()
-		, message
+			text: message.text
+
+		if message.type is 'channel'
+			newMessage.channelId = targetId
+			ChannelMessages.insert newMessage
+
+		if message.type is 'direct'
+			newMessage.targetId = targetId
+			DirectMessages.insert newMessage
 
 	clearUnread: (data) ->
 		error = 'clear-unread-error'

@@ -1,6 +1,7 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
- ☐ user collection helpers for messages @started
+ ✔ user collection helpers for messages @started @done (15-07-12 13:39)
+ ✔ seprate message collection (between channel and direct messages) @high @started @done (15-07-12 15:09)
  ☐ show how many people are in the channel
  ☐ notification for new channel and new message
  ☐ notification sound

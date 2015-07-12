@@ -4,24 +4,9 @@ Template.messages.helpers
 		chatTarget = Session.get 'chatTarget'
 		switch chatType
 			when 'channel'
-				targetId = Channels.findOne(name: chatTarget)._id
-				Messages.find
-					type: 'channel'
-					target: targetId
+				ChannelMessages.find()
 			when 'direct'
-				targetId = Meteor.users.findOne(username: chatTarget)._id
-				Messages.find
-					$and: [
-						type: 'direct'
-					,
-						$or: [
-							ownerId: Meteor.userId()
-							target: targetId
-						,
-							ownerId: targetId
-							target: Meteor.userId()
-						]
-					]
+				DirectMessages.find()
 
 
 Template.messages.onCreated ->
@@ -53,20 +38,18 @@ Template.messages.onCreated ->
 	@autorun =>
 		data = Template.currentData()
 		return if not isValid data
-		@subscribe 'targetedMessages', data,
-			onStop: (error) ->
-				_addErrorNotification error if error
-			onReady: =>
-				Session.set
-					chatType: data.type
-					chatTarget: data.target
 
-				return if not Meteor.userId()
-				@clearUnread @prevData if @prevData
-				@prevData = data
-				if data.type is 'direct'
-					Meteor.call 'addChat', data, (error, result) ->
-						_addErrorNotification error if error
+		@subscribe "#{data.type}Messages", data.target
+		Session.set
+			chatType: data.type
+			chatTarget: data.target
+
+		return if not Meteor.userId()
+		@clearUnread @prevData if @prevData
+		@prevData = data
+		if data.type is 'direct'
+			Meteor.call 'addChat', data, (error, result) ->
+				_addErrorNotification error if error
 
 
 Template.messages.onDestroyed ->
