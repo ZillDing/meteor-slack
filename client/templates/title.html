@@ -3,7 +3,10 @@
 		<div class="column">
 			<div class="ui dropdown">
 				<div class="text ui large header">
-					<span style="opacity: 0.5">{{prefixSymbol}}</span>
+					<span style="opacity: 0.5">
+						{{#if $.Session.equals 'chatType' 'channel'}}#{{/if}}
+						{{#if $.Session.equals 'chatType' 'direct'}}@{{/if}}
+					</span>
 					{{$.Session.get 'chatTarget'}}
 				</div>
 				<i class="dropdown icon"></i>

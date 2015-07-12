@@ -17,13 +17,6 @@ Template.title.helpers
 		if Meteor.user()?.data()
 			Meteor.user().data().direct.reverse()
 
-	prefixSymbol: ->
-		switch Session.get 'chatType'
-			when 'channel'
-				'#'
-			when 'direct'
-				'@'
-
 Template.title.onRendered ->
 	@$('.ui.dropdown').dropdown
 		action: 'hide'
