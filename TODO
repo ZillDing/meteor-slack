@@ -1,7 +1,5 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
- ✔ user collection helpers for messages @started @done (15-07-12 13:39)
- ✔ seprate message collection (between channel and direct messages) @high @started @done (15-07-12 15:09)
  ☐ show how many people are in the channel
  ☐ notification for new channel and new message
  ☐ notification sound
@@ -16,8 +14,6 @@ High priority:
    https://atmospherejs.com/alethes/pages
  ☐ file support, simple uploading
  ☐ view files (allow download)
- ✔ simplify colleciton @done (15-07-11 23:34)
-   https://atmospherejs.com/dburles/collection-helpers
 
 Low priority:
  ☐ consider replace customized notification html with named template
@@ -35,6 +31,10 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ user collection helpers for messages @started @done (15-07-12 13:39) @project(High priority)
+ ✔ seprate message collection (between channel and direct messages) @high @started @done (15-07-12 15:09) @project(High priority)
+ ✔ simplify colleciton @done (15-07-11 23:34) @project(High priority)
+  https://atmospherejs.com/dburles/collection-helpers
  ✔ use modal for channel creation etc to emphasis @done (15-07-11 23:07) @project(High priority)
  ✔ client side check whether channel alr exist @done (15-07-11 23:17) @project(High priority)
  ✔ merge 'addChannel' and 'startDirectChat' methods @started @done (15-07-11 21:10) @project(High priority)
