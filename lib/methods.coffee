@@ -1,3 +1,4 @@
+# note: meteor coffeescript too old to support string interpolation in object key
 _checkLoggedIn = (error) ->
 	if not Meteor.userId()
 		throw new Meteor.Error error, 'Not authorized. Please sign in first.'
@@ -23,16 +24,24 @@ Meteor.methods
 		array = Meteor.user().data()[data.type]
 		item = _.find array, (o) ->
 			o.name is data.target
-		o = {}
-		o[data.type] =
-			id: targetId
-			name: data.target
-			unread: 0
 		if not item
 			# if the chat target is not in current user data
 			# add to user data
+			###
 			UserData.update Meteor.user().dataId,
-				$push: o
+				$push:
+					"#{data.type}":
+						id: targetId
+						name: data.target
+						unread: 0
+			###
+			item = {}
+			item[data.type] =
+				id: targetId
+				name: data.target
+				unread: 0
+			UserData.update Meteor.user().dataId,
+				$push: item
 
 	addMessage: (message) ->
 		error = 'add-message-failed'
@@ -71,14 +80,21 @@ Meteor.methods
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 
+		###
+		UserData.update
+			_id: Meteor.user().dataId
+			"#{data.type}.name": data.target
+		,
+			$set:
+				"#{data.type}.$.unread": 0
+		###
 		selector = {}
-		selector['_id'] = Meteor.user().dataId
+		selector._id = Meteor.user().dataId
 		selector["#{data.type}.name"] = data.target
 		o = {}
 		o["#{data.type}.$.unread"] = 0
-		modifier =
+		UserData.update selector,
 			$set: o
-		UserData.update selector, modifier
 
 	# create a new channel in the system
 	# for every one
@@ -109,8 +125,14 @@ Meteor.methods
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 
+		###
+		UserData.update Meteor.user().dataId,
+			$pull:
+				"#{data.type}":
+					name: data.target
+		###
 		o = {}
-		o["#{data.type}"] =
+		o[data.type] =
 			name: data.target
 		UserData.update Meteor.user().dataId,
 			$pull: o
