@@ -4,10 +4,10 @@
 		{{#each messages}}
 		<div class="comment">
 			<a class="avatar">
-				<img src="{{SMALL_AVATAR_DIR}}/{{avatar}}" alt="avatar">
+				<img src="{{SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
 			</a>
 			<div class="content">
-				<a class="author">{{username}}</a>
+				<a class="author">{{owner.username}}</a>
 				<div class="metadata">
 					<div class="date">{{createdAt}}</div>
 				</div>

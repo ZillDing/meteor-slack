@@ -17,6 +17,7 @@ username: String
 
 ###
 
+
 ### channel schema
 
 _id: String
@@ -27,19 +28,23 @@ ownerId: String
 ###
 @Channels = new Mongo.Collection 'channels'
 
+
 ### message schema
 
 _id: String
-avatar: String
 createdAt: Date
 ownerId: String
 target: String
 text: String
 type: String
-username: String
 
 ###
 @Messages = new Mongo.Collection 'messages'
+# helpers
+Messages.helpers
+	owner: ->
+		Meteor.users.findOne @ownerId
+
 
 ### userData schema
 

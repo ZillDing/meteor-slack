@@ -13,12 +13,10 @@ Meteor.methods
 		check data,
 			type: Match.OneOf 'channel', 'direct'
 			target: String
-		targetId = null
-		switch data.type
-			when 'channel'
-				targetId = Channels.findOne(name: data.target)?._id
-			when 'direct'
-				targetId = Meteor.users.findOne(username: data.target)?._id
+
+		targetId = switch data.type
+			when 'channel' then targetId = Channels.findOne(name: data.target)?._id
+			when 'direct' then targetId = Meteor.users.findOne(username: data.target)?._id
 		if not targetId
 			throw new Meteor.Error error, "Could not find target with name: #{data.target}"
 
@@ -45,23 +43,18 @@ Meteor.methods
 			target: String
 			text: String
 
-		doc = null
-		switch message.type
-			when 'channel'
-				if not doc = Channels.findOne(name: message.target)
-					throw new Meteor.Error error, "Cannot find channel: #{message.target}."
-			when 'direct'
-				if not doc = Meteor.users.findOne(username: message.target)
-					throw new Meteor.Error error, "Cannot find user: #{message.target}."
+		targetId = switch message.type
+			when 'channel' then Channels.findOne(name: message.target)?._id
+			when 'direct' then Meteor.users.findOne(username: message.target)?._id
+		if not targetId
+			throw new Meteor.Error error, "Cannot find target with name: #{message.target}."
 		# note: need to change the target to id instead of using name
 		# to store in db
-		message.target = doc._id
+		message.target = targetId
 
 		Messages.insert _.extend
-			avatar: Meteor.user().profile.avatar
 			createdAt: new Date()
 			ownerId: Meteor.userId()
-			username: Meteor.user().username
 		, message
 
 	clearUnread: (data) ->
