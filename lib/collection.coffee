@@ -24,14 +24,11 @@ _id: String
 createdAt: Date
 name: String
 ownerId: String
+usersId: [String]
 
 ###
 @Channels = new Mongo.Collection 'channels'
 
-
-messagesHelpers =
-	owner: ->
-		Meteor.users.findOne @ownerId
 ### channelMessages schema
 
 _id: String
@@ -42,7 +39,6 @@ text: String
 
 ###
 @ChannelMessages = new Mongo.Collection 'channnelMessages'
-ChannelMessages.helpers messagesHelpers
 
 ### channelMessages schema
 
@@ -54,7 +50,6 @@ text: String
 
 ###
 @DirectMessages = new Mongo.Collection 'directMessages'
-DirectMessages.helpers messagesHelpers
 
 ### userData schema
 
@@ -72,7 +67,19 @@ direct: [
 
 ###
 @UserData = new Mongo.Collection 'userData'
-# helpers
+
+
+################################################################################
+# Helpers
+################################################################################
 Meteor.users.helpers
 	data: ->
 		UserData.findOne @dataId
+
+
+messagesHelpers =
+	owner: ->
+		Meteor.users.findOne @ownerId
+
+ChannelMessages.helpers messagesHelpers
+DirectMessages.helpers messagesHelpers
