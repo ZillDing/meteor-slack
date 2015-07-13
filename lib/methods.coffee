@@ -1,7 +1,12 @@
 # note: meteor coffeescript too old to support string interpolation in object key
+
+# check whether the user logged in or not
+# throw an error if not
 _checkLoggedIn = (error) ->
 	if not Meteor.userId()
 		throw new Meteor.Error error, 'Not authorized. Please sign in first.'
+# get the target id based on data type and name (either a channel name or username)
+# the returned value is either an id of a channel or a user
 _getTargetId = (data, error) ->
 	targetId = switch data.type
 		when 'channel' then Channels.findOne(name: data.target)?._id
@@ -9,7 +14,9 @@ _getTargetId = (data, error) ->
 	if not targetId
 		throw new Meteor.Error error, "Could not find target type #{data.type} with name: #{data.target}"
 	targetId
-
+################################################################################
+# end of private methods
+################################################################################
 
 Meteor.methods
 	# add a chat to user's data
@@ -30,6 +37,11 @@ Meteor.methods
 			o.id is targetId
 		if not item
 			# if the chat target is not in current user data
+			# if chat type is channel, update channel data
+			if data.type is 'channel'
+				Channels.update targetId,
+					$push:
+						usersId: Meteor.userId()
 			# add to user data
 			###
 			UserData.update Meteor.user().dataId,
@@ -123,6 +135,13 @@ Meteor.methods
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 
+		targetId = _getTargetId data, error
+		# if the chat type is channel
+		# update channel data
+		if data.type is 'channel'
+			Channels.update targetId,
+				$pull:
+					usersId: Meteor.userId()
 		###
 		UserData.update Meteor.user().dataId,
 			$pull:
@@ -131,7 +150,7 @@ Meteor.methods
 		###
 		o = {}
 		o[data.type] =
-			id: _getTargetId data, error
+			id: targetId
 		UserData.update Meteor.user().dataId,
 			$pull: o
 
