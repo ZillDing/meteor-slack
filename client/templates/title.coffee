@@ -13,6 +13,10 @@ Template.title.helpers
 				sort:
 					createdAt: -1
 
+	currentChannelSize: ->
+		if Session.equals 'chatType', 'channel'
+			Channels.findOne(name: Session.get 'chatTarget')?.usersId.length
+
 	directChats: ->
 		if Meteor.user()?.data()
 			Meteor.user().data().directData().reverse()

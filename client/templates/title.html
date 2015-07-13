@@ -46,6 +46,14 @@
 				</div>
 			</div>
 
+			{{#if $.Session.equals 'chatType' 'channel'}}
+			<div class="ui violet pointing left label"
+				style="vertical-align: top; margin-left: 1em">
+				<i class="users icon"></i>
+				{{currentChannelSize}}
+			</div>
+			{{/if}}
+
 			{{#if currentUser}}
 			<button class="right floated compact ui icon button" style="margin-left: 1rem">
 				<i class="list layout icon"></i>
