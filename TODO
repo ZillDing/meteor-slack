@@ -1,7 +1,7 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
- ☐ show how many people are in the channel
- ☐ after user quit channel update channel data @critical
+ ☐ show how many people are in the channel @started
+ ✔ after user quit channel update channel data @critical @done (15-07-13 17:02)
  ☐ notification for new channel and new message
  ☐ notification sound
 

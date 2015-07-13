@@ -49,7 +49,7 @@ Template.title_modal.onRendered ->
 				if error
 					_addErrorNotification error
 				else
-					item = Meteor.user().data()["#{type}"][0]
+					item = _.last Meteor.user().data()["#{type}Data"]()
 					if item
 						Router.go "/#{type}/#{item.name}"
 					else
