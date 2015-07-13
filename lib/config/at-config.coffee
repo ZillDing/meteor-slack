@@ -19,3 +19,7 @@ AccountsTemplates.addFields [
 	minLength: 3
 	trim: true
 ]
+
+AccountsTemplates.configureRoute 'ensureSignedIn',
+	template: 'signin'
+	layoutTemplate: 'layout'

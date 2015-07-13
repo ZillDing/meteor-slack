@@ -5,6 +5,7 @@ High priority:
  ☐ after user quit channel update channel data @critical
  ☐ notification for new channel and new message
  ☐ notification sound
+ ✔ fix sign in routing bug @critical @done (15-07-13 14:58)
  ✘ add loading template @cancelled (15-07-12 15:26)
 
  ☐ replace input with textarea to allow multi-line message @high
