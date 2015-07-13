@@ -7,7 +7,6 @@ Meteor.users.before.insert (userId, user) ->
 	# to user data
 	channelArray = Channels.find().map (channel) ->
 		id: channel._id
-		name: channel.name
 		unread: 0
 	dataId = UserData.insert
 		channel: channelArray
@@ -47,7 +46,6 @@ Channels.after.insert (userId, channel) ->
 		$push:
 			channel:
 				id: @_id
-				name: channel.name
 				unread: 0
 	,
 		multi: true
@@ -98,5 +96,4 @@ DirectMessages.after.insert (userId, message) ->
 			$push:
 				direct:
 					id: senderId
-					name: Meteor.users.findOne(senderId).username
 					unread: 1

@@ -7,7 +7,7 @@ Template.title.events
 Template.title.helpers
 	channels: ->
 		if Meteor.user()?.data()
-			Meteor.user().data().channel.reverse()
+			Meteor.user().data().channelData().reverse()
 		else
 			Channels.find {},
 				sort:
@@ -15,7 +15,7 @@ Template.title.helpers
 
 	directChats: ->
 		if Meteor.user()?.data()
-			Meteor.user().data().direct.reverse()
+			Meteor.user().data().directData().reverse()
 
 Template.title.onRendered ->
 	@$('.ui.dropdown').dropdown

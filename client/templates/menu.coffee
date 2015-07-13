@@ -4,7 +4,7 @@ isAddingANewDirectChat = new ReactiveVar false
 Template.menu.helpers
 	channels: ->
 		if Meteor.user()?.data()
-			Meteor.user().data().channel.reverse()
+			Meteor.user().data().channelData().reverse()
 		else
 			# put the new ones on top
 			Channels.find {},
@@ -13,7 +13,7 @@ Template.menu.helpers
 
 	directChats: ->
 		if Meteor.user()?.data()
-			Meteor.user().data().direct.reverse()
+			Meteor.user().data().directData().reverse()
 
 	isAddingANewChannel: ->
 		isAddingANewChannel.get()

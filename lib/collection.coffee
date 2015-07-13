@@ -56,12 +56,10 @@ text: String
 _id: String
 channel: [
 	id: String
-	name: String
 	unread: Number
 ]
 direct: [
 	id: String
-	name: String
 	unread: Number
 ]
 

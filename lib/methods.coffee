@@ -2,28 +2,32 @@
 _checkLoggedIn = (error) ->
 	if not Meteor.userId()
 		throw new Meteor.Error error, 'Not authorized. Please sign in first.'
+_getTargetId = (data, error) ->
+	targetId = switch data.type
+		when 'channel' then Channels.findOne(name: data.target)?._id
+		when 'direct' then Meteor.users.findOne(username: data.target)?._id
+	if not targetId
+		throw new Meteor.Error error, "Could not find target type #{data.type} with name: #{data.target}"
+	targetId
+
 
 Meteor.methods
 	# add a chat to user's data
 	# either a channel or a direct chat
 	# the added channel or user will show in the sidebar as well as title
 	addChat: (data) ->
-		error = 'add-chat-failed'
+		error = 'Add chat failed'
 
 		_checkLoggedIn error
 		check data,
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 
-		targetId = switch data.type
-			when 'channel' then targetId = Channels.findOne(name: data.target)?._id
-			when 'direct' then targetId = Meteor.users.findOne(username: data.target)?._id
-		if not targetId
-			throw new Meteor.Error error, "Could not find target with name: #{data.target}"
+		targetId = _getTargetId data, error
 
 		array = Meteor.user().data()[data.type]
 		item = _.find array, (o) ->
-			o.name is data.target
+			o.id is targetId
 		if not item
 			# if the chat target is not in current user data
 			# add to user data
@@ -32,19 +36,17 @@ Meteor.methods
 				$push:
 					"#{data.type}":
 						id: targetId
-						name: data.target
 						unread: 0
 			###
 			item = {}
 			item[data.type] =
 				id: targetId
-				name: data.target
 				unread: 0
 			UserData.update Meteor.user().dataId,
 				$push: item
 
 	addMessage: (message) ->
-		error = 'add-message-failed'
+		error = 'Add message failed'
 
 		# validation
 		_checkLoggedIn error
@@ -52,11 +54,7 @@ Meteor.methods
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 			text: String
-		targetId = switch message.type
-			when 'channel' then Channels.findOne(name: message.target)?._id
-			when 'direct' then Meteor.users.findOne(username: message.target)?._id
-		if not targetId
-			throw new Meteor.Error error, "Cannot find target with name: #{message.target}."
+		targetId = _getTargetId message, error
 
 		# add the new message into corresponding db collection
 		newMessage =
@@ -73,7 +71,7 @@ Meteor.methods
 			DirectMessages.insert newMessage
 
 	clearUnread: (data) ->
-		error = 'clear-unread-error'
+		error = 'Clear unread error'
 
 		_checkLoggedIn error
 		check data,
@@ -83,14 +81,14 @@ Meteor.methods
 		###
 		UserData.update
 			_id: Meteor.user().dataId
-			"#{data.type}.name": data.target
+			"#{data.type}.id": _getTargetId data, error
 		,
 			$set:
 				"#{data.type}.$.unread": 0
 		###
 		selector = {}
 		selector._id = Meteor.user().dataId
-		selector["#{data.type}.name"] = data.target
+		selector["#{data.type}.id"] = _getTargetId data, error
 		o = {}
 		o["#{data.type}.$.unread"] = 0
 		UserData.update selector,
@@ -99,7 +97,7 @@ Meteor.methods
 	# create a new channel in the system
 	# for every one
 	createChannel: (channel) ->
-		error = 'create-channel-failed'
+		error = 'Create channel failed'
 
 		_checkLoggedIn error
 		check channel, String
@@ -118,7 +116,7 @@ Meteor.methods
 	# note: this will not delete the channel in the system
 	# or delete the direct chat messages
 	removeChat: (data) ->
-		error = 'remove-chat-error'
+		error = 'Remove chat error'
 
 		_checkLoggedIn error
 		check data,
@@ -133,7 +131,7 @@ Meteor.methods
 		###
 		o = {}
 		o[data.type] =
-			name: data.target
+			id: _getTargetId data, error
 		UserData.update Meteor.user().dataId,
 			$pull: o
 

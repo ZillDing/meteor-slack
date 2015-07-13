@@ -1,12 +1,9 @@
 High priority:
  ☐ adjust chat message UI (scroll properly) @critical
  ☐ show how many people are in the channel
- ✔ fix direct chats cannot be deleted from chatting page bug @critical @done (15-07-13 15:48)
  ☐ after user quit channel update channel data @critical
  ☐ notification for new channel and new message
  ☐ notification sound
- ✔ fix sign in routing bug @critical @done (15-07-13 14:58)
- ✘ add loading template @cancelled (15-07-12 15:26)
 
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them
@@ -34,12 +31,15 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
- ✔ user collection helpers for messages @started @done (15-07-12 13:39) @project(High priority)
+ ✔ fix direct chats cannot be deleted from chatting page bug @critical @done (15-07-13 15:48) @project(High priority)
+ ✔ fix sign in routing bug @critical @done (15-07-13 14:58) @project(High priority)
+ ✘ add loading template @cancelled (15-07-12 15:26) @project(High priority)
  ✔ seprate message collection (between channel and direct messages) @high @started @done (15-07-12 15:09) @project(High priority)
+ ✔ user collection helpers for messages @started @done (15-07-12 13:39) @project(High priority)
  ✔ simplify colleciton @done (15-07-11 23:34) @project(High priority)
   https://atmospherejs.com/dburles/collection-helpers
- ✔ use modal for channel creation etc to emphasis @done (15-07-11 23:07) @project(High priority)
  ✔ client side check whether channel alr exist @done (15-07-11 23:17) @project(High priority)
+ ✔ use modal for channel creation etc to emphasis @done (15-07-11 23:07) @project(High priority)
  ✔ merge 'addChannel' and 'startDirectChat' methods @started @done (15-07-11 21:10) @project(High priority)
  ✔ allow delete direct chat in config @done (15-07-11 17:28) @project(High priority)
  ✔ allow quit/join channel @done (15-07-11 17:07) @project(High priority)
