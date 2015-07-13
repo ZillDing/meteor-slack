@@ -8,10 +8,10 @@ Template.config.helpers
 					$nin: idList
 
 	directChats: ->
-		Meteor.user()?.data().direct
+		Meteor.user()?.data().directData()
 
 	userChannels: ->
-		Meteor.user()?.data().channel
+		Meteor.user()?.data().channelData()
 
 
 ################################################################################
