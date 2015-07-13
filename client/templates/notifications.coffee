@@ -54,8 +54,7 @@ Template.notifications_item.helpers
 
 Template.notifications_item.onCreated ->
 	@dismissNotification = ($message, _id) ->
-		$message.transition 'fade up', ->
-			_removeNotification _id
+		$message.transition 'fade up'
 
 Template.notifications_item.onRendered ->
 	return if (time = @data.dismissAfter) is 0
