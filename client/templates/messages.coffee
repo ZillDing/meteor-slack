@@ -48,12 +48,14 @@ Template.messages.onCreated ->
 		@clearUnread @prevData if @prevData
 		@prevData = data
 		if data.type is 'direct'
-			Meteor.call 'addChat', data, (error, result) ->
-				_addErrorNotification error if error
+			# note: need to run in non-reactive mode
+			Tracker.nonreactive ->
+				Meteor.call 'addChat', data, (error, result) ->
+					_addErrorNotification error if error
 
 
 Template.messages.onDestroyed ->
-	@clearUnread @prevData if Meteor.userId()
+	@clearUnread @prevData if Meteor.userId() and @prevData
 	Session.set
 		chatType: null
 		chatTarget: null
