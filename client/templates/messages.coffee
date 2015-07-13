@@ -59,3 +59,13 @@ Template.messages.onDestroyed ->
 	Session.set
 		chatType: null
 		chatTarget: null
+
+
+################################################################################
+# _message
+################################################################################
+Template.messages_message.onRendered ->
+	$scrollContent = @$('.comment').parent()
+	$scrollContainer = $scrollContent.parent()
+	top = $scrollContent.height() - @$('.comment').outerHeight()
+	$scrollContainer.scrollTop top

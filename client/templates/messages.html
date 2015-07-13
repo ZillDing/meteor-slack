@@ -2,18 +2,7 @@
 	{{#if Template.subscriptionsReady}}
 	<div class="ui comments" style="max-width: none">
 		{{#each messages}}
-		<div class="comment">
-			<a class="avatar">
-				<img src="{{SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
-			</a>
-			<div class="content">
-				<a class="author">{{owner.username}}</a>
-				<div class="metadata">
-					<div class="date">{{livestamp createdAt}}</div>
-				</div>
-				<div class="text">{{text}}</div>
-			</div>
-		</div>
+		{{> messages_message}}
 		{{/each}}
 	</div>
 	{{else}}
@@ -21,4 +10,19 @@
 		<div class="ui large text loader">Loading</div>
 	</div>
 	{{/if}}
+</template>
+<!-- ####################################################################### -->
+<template name="messages_message">
+	<div class="comment">
+		<a class="avatar">
+			<img src="{{SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
+		</a>
+		<div class="content">
+			<a href="/direct/{{owner.username}}" class="author">{{owner.username}}</a>
+			<div class="metadata">
+				<div class="date">{{livestamp createdAt}}</div>
+			</div>
+			<div class="text">{{text}}</div>
+		</div>
+	</div>
 </template>

@@ -1,5 +1,6 @@
 High priority:
- ☐ adjust chat message UI (scroll properly) @critical
+ ✔ adjust chat message UI (scroll properly) @critical @done (15-07-13 23:32)
+ ☐ animate scroll
  ☐ notification for new channel and new message
  ☐ notification sound
 
