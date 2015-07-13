@@ -107,9 +107,6 @@ Template.profile_card.helpers
 		then 'Edit'
 		else 'Chat'
 
-	getJoinTime: (date) ->
-		moment(date).format 'YYYY, MMM'
-
 	isHoverable: ->
 		__deviceIsHoverable
 
