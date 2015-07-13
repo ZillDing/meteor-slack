@@ -19,8 +19,13 @@ Template.input.events
 		# prevent default form submit
 		false
 
+	'click i.send.icon': (event, template) ->
+		template.$('form.form').submit()
+
 Template.input.onRendered ->
+	if __deviceIsHoverable
+		@$('i.send.icon').popup()
+
 	@autorun =>
 		# focus on the input whenever target changes
-		Session.get 'chatTarget'
-		@$('input').focus()
+		@$('input').focus() if Session.get 'chatTarget'

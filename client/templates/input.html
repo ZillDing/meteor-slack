@@ -1,12 +1,13 @@
 <template name="input">
 	{{#if currentUser}}
 	<form class="ui form">
-		<div class="ui left action right labeled input">
-			<button type="button" class="ui icon button">
-				<i class="add square icon"></i>
-			</button>
-			<input type="text" style="border-radius: 0; border-left-style: none; border-right-style: none">
-			<div class="ui tag label">Press enter to send</div>
+		<div class="ui left corner labeled icon input">
+			<input type="text" placeholder="Enter your message...">
+			<div class="ui left corner label">
+				<i class="asterisk icon"></i>
+			</div>
+			<i class="circular send link icon" data-content="Send"
+				data-variation="inverted" data-position="top right" data-offset="5"></i>
 		</div>
 	</form>
 	{{/if}}
