@@ -30,9 +30,6 @@ Template.notifications_item.events
 		template.dismissNotification $message, _id
 
 Template.notifications_item.helpers
-	isCustomize: ->
-		Template.currentData().type is 'customized'
-
 	messageClass: ->
 		switch Template.currentData().type
 			when 'default' then 'icon'
@@ -40,7 +37,6 @@ Template.notifications_item.helpers
 			when 'info' then 'info icon'
 			when 'success' then 'positive icon'
 			when 'error' then 'negative icon'
-			when 'customized' then ''
 			else ''
 
 	iconClass: ->
