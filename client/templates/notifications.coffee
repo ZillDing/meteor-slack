@@ -9,14 +9,17 @@ Template.notifications.onCreated ->
 		added: (id, user) ->
 			return if id is Meteor.userId()
 			_addNotification
-				type: 'default'
-				header: "#{user.username}"
+				type: 'customized'
+				templateName: 'notifications_item_1'
+				user: user
 				message: 'is online!'
+				dismissAfter: 0
 		removed: (id) ->
 			return if id is Meteor.userId()
 			_addNotification
-				type: 'default'
-				header: Meteor.users.findOne(id).username
+				type: 'customized'
+				templateName: 'notifications_item_1'
+				user: Meteor.users.findOne id
 				message: 'is offline...'
 
 ################################################################################

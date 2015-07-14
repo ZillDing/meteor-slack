@@ -7,11 +7,11 @@
 @NOTIFICATION_DISMISS_TIME = 4000
 
 @_addNotification = (notification) ->
-	check notification,
+	check notification, Match.ObjectIncluding
 		type: Match.OneOf 'default', 'success', 'error', 'info', 'warning', 'customized'
-		header: Match.OneOf (Match.Optional String), Match.Optional Number
+		header: Match.Optional Match.OneOf String, Number
 		message: Match.Optional String
-		html: Match.Optional String
+		templateName: Match.Optional String
 		dismissAfter: Match.Optional Match.Integer
 
 	Notifications.insert notification

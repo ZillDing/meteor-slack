@@ -8,7 +8,7 @@
 	<div class="ui floating {{messageClass}} message">
 		<i class="close icon"></i>
 		{{#if $eq type 'customized'}}
-		{{{html}}}
+		{{> Template.dynamic template=templateName}}
 		{{else}}
 		<i class="{{iconClass}} icon" style="margin-right: 0.4em"></i>
 		<div class="content">
@@ -16,5 +16,18 @@
 			<p>{{message}}</p>
 		</div>
 		{{/if}}
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="notifications_item_1">
+	<div class="ui big list" style="margin-top: 0">
+		<div class="item">
+			<img class="ui avatar image"
+				src="{{SMALL_AVATAR_DIR}}/{{user.profile.avatar}}" alt="avatar">
+			<div class="content">
+				<div class="header">{{user.username}}</div>
+				<div class="description">{{message}}</div>
+			</div>
+		</div>
 	</div>
 </template>
