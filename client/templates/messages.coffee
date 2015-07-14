@@ -57,12 +57,17 @@ Template.messages.onCreated ->
 Template.messages.onRendered ->
 	$scrollContent = @$ '.ui.comments'
 	$scrollContainer = $scrollContent.parent()
+
+	prevHeight = $scrollContent.height()
 	@$('.ui.comments').resize ->
+		return if prevHeight is $scrollContent.height()
+		# only scroll to bottom if the height changed
 		top = $scrollContent.height() - $scrollContent.children('.comment').last().outerHeight()
 		$scrollContainer.animate
 			scrollTop: top
 		, ->
 			$scrollContent.children('.comment').last().find('.avatar').transition 'jiggle'
+		prevHeight = $scrollContent.height()
 
 
 Template.messages.onDestroyed ->
