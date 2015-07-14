@@ -1,7 +1,4 @@
 High priority:
- ✔ adjust chat message UI (scroll properly) @critical @done (15-07-13 23:32)
- ✔ animate scroll @done (15-07-14 11:34)
- ☐ notification message cannot be destroyed by itself. Figure out a way to remove.
  ☐ notification for new channel and new message
  ☐ notification sound
 
@@ -16,6 +13,7 @@ High priority:
  ☐ view files (allow download)
 
 Low priority:
+ ☐ notification message cannot be destroyed by itself. Figure out a way to remove.
  ☐ consider replace customized notification html with named template
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ display image in chat flow (img tag)
@@ -31,6 +29,8 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ adjust chat message UI (scroll properly) @critical @done (15-07-13 23:32) @project(High priority)
+ ✔ animate scroll @done (15-07-14 11:34) @project(High priority)
  ✔ show how many people are in the channel @started @done (15-07-13 17:46) @project(High priority)
  ✔ after user quit channel update channel data @critical @done (15-07-13 17:02) @project(High priority)
  ✔ fix direct chats cannot be deleted from chatting page bug @critical @done (15-07-13 15:48) @project(High priority)

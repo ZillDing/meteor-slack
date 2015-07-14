@@ -35,6 +35,7 @@ Template.title.onRendered ->
 				when 'direct' then 'Delete this chat'
 			@$('.ui.button.remove-btn').popup
 				content: text
+				position: 'bottom center'
 
 ################################################################################
 # _modal

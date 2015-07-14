@@ -63,8 +63,9 @@ Template.notifications_item.onRendered ->
 	then time
 	else NOTIFICATION_DISMISS_TIME
 
+	$message = @$ '.message'
 	Meteor.setTimeout =>
-		@dismissNotification @$('.message'), @data._id
+		@dismissNotification $message, @data._id
 	, time
 
 Template.notifications_item.onDestroyed ->
