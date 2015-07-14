@@ -1,18 +1,19 @@
 <template name="messages">
-	{{#if Template.subscriptionsReady}}
 	<div class="ui comments" style="max-width: none">
 		{{#each messages}}
-		{{> messages_message}}
+		{{> messages_item}}
 		{{/each}}
 	</div>
-	{{else}}
+
+	{{!-- render a loader if subscription is not ready --}}
+	{{#unless Template.subscriptionsReady}}
 	<div class="ui active inverted dimmer">
 		<div class="ui large text loader">Loading</div>
 	</div>
-	{{/if}}
+	{{/unless}}
 </template>
 <!-- ####################################################################### -->
-<template name="messages_message">
+<template name="messages_item">
 	<div class="comment">
 		<a class="avatar">
 			<img src="{{SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">

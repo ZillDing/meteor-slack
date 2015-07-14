@@ -54,18 +54,17 @@ Template.messages.onCreated ->
 					_addErrorNotification error if error
 
 
+Template.messages.onRendered ->
+	$scrollContent = @$ '.ui.comments'
+	$scrollContainer = $scrollContent.parent()
+	@$('.ui.comments').resize ->
+		top = $scrollContent.height() - $scrollContent.children('.comment').last().outerHeight()
+		$scrollContainer.animate
+			scrollTop: top
+
+
 Template.messages.onDestroyed ->
 	@clearUnread @prevData if Meteor.userId() and @prevData
 	Session.set
 		chatType: null
 		chatTarget: null
-
-
-################################################################################
-# _message
-################################################################################
-Template.messages_message.onRendered ->
-	$scrollContent = @$('.comment').parent()
-	$scrollContainer = $scrollContent.parent()
-	top = $scrollContent.height() - @$('.comment').outerHeight()
-	$scrollContainer.scrollTop top
