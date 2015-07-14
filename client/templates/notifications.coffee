@@ -10,15 +10,14 @@ Template.notifications.onCreated ->
 			return if id is Meteor.userId()
 			_addNotification
 				type: 'customized'
-				templateName: 'notifications_item_1'
+				templateName: 'notifications_item_user'
 				user: user
 				message: 'is online!'
-				dismissAfter: 0
 		removed: (id) ->
 			return if id is Meteor.userId()
 			_addNotification
 				type: 'customized'
-				templateName: 'notifications_item_1'
+				templateName: 'notifications_item_user'
 				user: Meteor.users.findOne id
 				message: 'is offline...'
 
@@ -63,6 +62,7 @@ Template.notifications_item.onRendered ->
 	else NOTIFICATION_DISMISS_TIME
 
 	$message = @$ '.message'
+	$message.transition 'tada'
 	Meteor.setTimeout =>
 		@dismissNotification $message, @data._id
 	, time
