@@ -35,7 +35,7 @@
 					{{/if}}
 					{{#each directChats}}
 					<a href="/direct/{{name}}" class="item {{_isActive 'direct' name}}">
-						{{#unless _isActive 'channel' name}}
+						{{#unless _isActive 'direct' name}}
 						{{#if $gt unread 0}}
 						<span class="description">{{unread}} new</span>
 						{{/if}}
