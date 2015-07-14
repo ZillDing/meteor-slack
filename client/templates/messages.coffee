@@ -61,6 +61,8 @@ Template.messages.onRendered ->
 		top = $scrollContent.height() - $scrollContent.children('.comment').last().outerHeight()
 		$scrollContainer.animate
 			scrollTop: top
+		, ->
+			$scrollContent.children('.comment').last().find('.avatar').transition 'jiggle'
 
 
 Template.messages.onDestroyed ->

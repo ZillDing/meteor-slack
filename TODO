@@ -1,6 +1,6 @@
 High priority:
  ✔ adjust chat message UI (scroll properly) @critical @done (15-07-13 23:32)
- ☐ animate scroll
+ ✔ animate scroll @done (15-07-14 11:34)
  ☐ notification message cannot be destroyed by itself. Figure out a way to remove.
  ☐ notification for new channel and new message
  ☐ notification sound
