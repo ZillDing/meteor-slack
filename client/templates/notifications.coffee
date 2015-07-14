@@ -1,6 +1,7 @@
 Template.notifications.helpers
 	notifications: ->
-		Notifications.find()
+		Notifications.find {},
+			sort: createdAt: -1
 
 Template.notifications.onCreated ->
 	Meteor.users.find

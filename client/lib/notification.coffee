@@ -12,7 +12,10 @@
 		header: Match.Optional Match.OneOf String, Number
 		message: Match.Optional String
 		templateName: Match.Optional String
+		html: Match.Optional String
 		dismissAfter: Match.Optional Match.Integer
+
+	notification.createdAt = new Date()
 
 	Notifications.insert notification
 
