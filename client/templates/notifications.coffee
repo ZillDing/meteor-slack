@@ -4,6 +4,7 @@ Template.notifications.helpers
 			sort: createdAt: -1
 
 Template.notifications.onCreated ->
+
 	Meteor.users.find
 		'status.online': true
 	.observeChanges
@@ -14,6 +15,7 @@ Template.notifications.onCreated ->
 				templateName: 'notifications_item_user'
 				user: user
 				message: 'is online!'
+				dismissAfter: 0
 		removed: (id) ->
 			return if id is Meteor.userId()
 			_addNotification
@@ -21,6 +23,17 @@ Template.notifications.onCreated ->
 				templateName: 'notifications_item_user'
 				user: Meteor.users.findOne id
 				message: 'is offline...'
+				dismissAfter: 0
+
+	Channels.find().observeChanges
+		added: (id, channel) ->
+			return if channel.name is 'general'
+			_addNotification
+				type: 'customized'
+				templateName: 'notifications_item_user'
+				user: Channels.findOne(id).owner()
+				message: "created a new channel: #{channel.name}"
+				dismissAfter: 0
 
 ################################################################################
 # _item

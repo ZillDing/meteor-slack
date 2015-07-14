@@ -1,12 +1,13 @@
 High priority:
- ✔ replace customized notification html with named template @high @done (15-07-14 20:28)
+ ☐ adjust notifications @high
+   https://atmospherejs.com/juliancwirko/s-alert
  ☐ notification for new channel and new message
  ☐ notification sound
+ ☐ mention certain person in channels (only show notification for mention)
+   https://atmospherejs.com/mizzao/autocomplete
 
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them
- ☐ mention certain person in channels (only show notification for mention)
-   https://atmospherejs.com/mizzao/autocomplete
  ☐ allow starring chat (add favourite)
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
@@ -16,10 +17,10 @@ High priority:
 Low priority:
  ☐ notification message cannot be destroyed by itself. Figure out a way to remove.
  ☐ add admin page to allow special operation (edit/delete channel)
- ☐ display image in chat flow (img tag)
+ ✘ display image in chat flow (img tag) @cancelled (15-07-14 21:33)
  ☐ comment on uploaded file
  ☐ support for searching messages
- ☐ background update avatar for old messages
+ ✘ background update avatar for old messages @cancelled (15-07-14 21:32)
  ☐ third party services integration (dropbox)
  ☐ add some animation (profile editing)
  ☐ easter egg
@@ -29,8 +30,9 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
- ✔ adjust chat message UI (scroll properly) @critical @done (15-07-13 23:32) @project(High priority)
+ ✔ replace customized notification html with named template @high @done (15-07-14 20:28) @project(High priority)
  ✔ animate scroll @done (15-07-14 11:34) @project(High priority)
+ ✔ adjust chat message UI (scroll properly) @critical @done (15-07-13 23:32) @project(High priority)
  ✔ show how many people are in the channel @started @done (15-07-13 17:46) @project(High priority)
  ✔ after user quit channel update channel data @critical @done (15-07-13 17:02) @project(High priority)
  ✔ fix direct chats cannot be deleted from chatting page bug @critical @done (15-07-13 15:48) @project(High priority)

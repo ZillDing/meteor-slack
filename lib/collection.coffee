@@ -74,6 +74,10 @@ Meteor.users.helpers
 	data: ->
 		UserData.findOne @dataId
 
+Channels.helpers
+	owner: ->
+		Meteor.users.findOne @ownerId
+
 
 messagesHelpers =
 	owner: ->

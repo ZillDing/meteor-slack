@@ -6,11 +6,11 @@
 	</div>
 
 	<div class="ui padded grid pusher">
-		<!-- only shown on non-mobile devices -->
+		{{!-- only shown on non-mobile devices --}}
 		<div class="sidebar-container">
 			{{> layout_sidebar}}
 		</div>
-		<!-- only shown on mobile devices -->
+		{{!-- only shown on mobile devices --}}
 		<div class="ui inverted top fixed menu" style="padding: 0; background-color: #5D3863">
 			<a href="" class="item sidebar-trigger">
 				<i class="sidebar icon"></i> Menu
@@ -27,20 +27,20 @@
 
 			<div class="flex-stretch-item">
 				{{> yield}}
+			</div>
 
-				<div class="ui bound bottom sticky notifications-container"
-					style="bottom: {{notificationsStyleBottom}}rem">
-					{{> notifications}}
-				</div>
+			<div class="ui bound bottom sticky notifications-container"
+				style="bottom: {{notificationsStyleBottom}}rem">
+				{{> notifications}}
 			</div>
 
 			{{#if $.Session.get 'chatType'}}
 			{{> input}}
 			{{/if}}
 		</div>
-
-		{{> connection}}
 	</div>
+	{{!-- show connection status when there is something wrong --}}
+	{{> connection}}
 	{{!-- modal --}}
 	{{!-- this is for channel creation confirmation --}}
 	{{!-- cannot put into menu template becuase it will be created twice --}}
