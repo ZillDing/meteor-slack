@@ -1,11 +1,14 @@
 High priority:
- ☐ adjust notifications @high
+ ☐ adjust notifications (icon or image, mobile responsive) @high
    https://atmospherejs.com/juliancwirko/s-alert
- ☐ notification for new channel and new message
- ☐ notification sound
+ ☐ server side notification using collection hooks (activity feed)
+ ☐ notification message cannot be destroyed by itself. Figure out a way to remove. @critical
+ ☐ add right side bar (open and close)
  ☐ mention certain person in channels (only show notification for mention)
    https://atmospherejs.com/mizzao/autocomplete
 
+ ☐ notification for new channel and new message
+ ☐ notification sound
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ allow starring chat (add favourite)
@@ -15,7 +18,6 @@ High priority:
  ☐ view files (allow download)
 
 Low priority:
- ☐ notification message cannot be destroyed by itself. Figure out a way to remove.
  ☐ add admin page to allow special operation (edit/delete channel)
  ✘ display image in chat flow (img tag) @cancelled (15-07-14 21:33)
  ☐ comment on uploaded file
