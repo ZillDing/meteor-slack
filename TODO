@@ -1,8 +1,8 @@
 High priority:
- ☐ adjust notifications (icon or image, mobile responsive) @high
+ ✔ adjust notifications (icon or image, mobile responsive) @high @done (15-07-16 23:12)
    https://atmospherejs.com/juliancwirko/s-alert
  ☐ server side notification using collection hooks (activity feed)
- ☐ notification message cannot be destroyed by itself. Figure out a way to remove. @critical
+ ✔ notification message cannot be destroyed by itself. Figure out a way to remove. @critical @done (15-07-16 23:12)
  ☐ add right side bar (open and close)
  ☐ mention certain person in channels (only show notification for mention)
    https://atmospherejs.com/mizzao/autocomplete

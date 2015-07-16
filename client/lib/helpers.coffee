@@ -7,10 +7,11 @@
 ################################################################################
 # global functions
 ################################################################################
-@_sAlertError = (error) ->
+@_sAlertError = (error, configOverwrite) ->
 	sAlert.error
 		sAlertTitle: error.error
 		message: error.message
+	, configOverwrite
 
 
 ################################################################################

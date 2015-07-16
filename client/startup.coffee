@@ -3,11 +3,8 @@ Meteor.startup ->
 	sAlert.config
 		effect: 'scale'
 		position: 'bottom-right'
-		timeout: 0
 		html: true
-		onRouteClose: true
-		stack: true
-		offset: 0
+		offset: 50
 
 	Meteor.users.find
 		'status.online': true
