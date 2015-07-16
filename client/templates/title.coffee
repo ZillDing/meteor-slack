@@ -52,7 +52,7 @@ Template.title_modal.onRendered ->
 				target: target = Session.get 'chatTarget'
 			Meteor.call 'removeChat', data, (error, result) ->
 				if error
-					_addErrorNotification error
+					_sAlertError error
 				else
 					item = _.last Meteor.user().data()["#{type}Data"]()
 					if item

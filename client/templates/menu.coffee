@@ -40,8 +40,8 @@ Template.menu_addNewChannelItem.events
 		# validate the name
 		if Channels.findOne(name: name)
 			# this channel alr exists
-			_addErrorNotification
-				error: 'Add Channel Failed'
+			sAlert.error
+				sAlertTitle: 'Add channel failed!'
 				message: "Channel with this name already exists: #{name}"
 			return false
 
@@ -51,9 +51,10 @@ Template.menu_addNewChannelItem.events
 			onApprove: ->
 				Meteor.call 'createChannel', name, (error, result) ->
 					if error
-						_addErrorNotification error
+						_sAlertError error
 					else
 						isAddingANewChannel.set false
+						Router.go "/channel/#{name}"
 		.modal 'show'
 		# prevent default form submit
 		false

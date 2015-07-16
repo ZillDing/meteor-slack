@@ -13,23 +13,23 @@ Template.messages.onCreated ->
 	@prevData = null
 	@clearUnread = (data) ->
 		Meteor.call 'clearUnread', data, (error, result) ->
-			_addErrorNotification error if error
+			_sAlertError error if error
 	isValid = (data) ->
 		if not _.contains ['channel', 'direct'], data.type
-			_addErrorNotification
-				error: 'Error'
+			sAlert.error
+				sAlertTitle: 'Error'
 				message: "Invalid chat type: #{data.type}"
 			return false
 		switch data.type
 			when 'channel'
 				if not Channels.findOne(name: data.target)
-					_addErrorNotification
+					_sAlertError
 						error: 'No such channel'
 						message: "Could not find channel with name: #{data.target}"
 					return false
 			when 'direct'
 				if not Meteor.users.findOne(username: data.target)
-					_addErrorNotification
+					_sAlertError
 						error: 'No such user'
 						message: "Could not find user with username: #{data.target}"
 					return false
@@ -51,7 +51,7 @@ Template.messages.onCreated ->
 			# note: need to run in non-reactive mode
 			Tracker.nonreactive ->
 				Meteor.call 'addChat', data, (error, result) ->
-					_addErrorNotification error if error
+					_sAlertError error if error
 
 
 Template.messages.onRendered ->
