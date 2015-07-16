@@ -29,11 +29,6 @@
 				{{> yield}}
 			</div>
 
-			<div class="ui bound bottom sticky notifications-container"
-				style="bottom: {{notificationsStyleBottom}}rem">
-				{{> notifications}}
-			</div>
-
 			{{#if $.Session.get 'chatType'}}
 			{{> input}}
 			{{/if}}
@@ -45,6 +40,8 @@
 	{{!-- this is for channel creation confirmation --}}
 	{{!-- cannot put into menu template becuase it will be created twice --}}
 	{{> menu_modal}}
+	{{!-- notifications --}}
+	{{> sAlert template="sAlertCustom"}}
 </template>
 <!-- ####################################################################### -->
 <template name="layout_sidebar">
