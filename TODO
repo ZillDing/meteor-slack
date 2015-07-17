@@ -1,9 +1,6 @@
 High priority:
- ✔ adjust notifications (icon or image, mobile responsive) @high @done (15-07-16 23:12)
-   https://atmospherejs.com/juliancwirko/s-alert
+ ✔ add right side bar (open and close) @done (15-07-17 11:20)
  ☐ server side notification using collection hooks (activity feed)
- ✔ notification message cannot be destroyed by itself. Figure out a way to remove. @critical @done (15-07-16 23:12)
- ☐ add right side bar (open and close)
  ☐ mention certain person in channels (only show notification for mention)
    https://atmospherejs.com/mizzao/autocomplete
 
@@ -19,10 +16,8 @@ High priority:
 
 Low priority:
  ☐ add admin page to allow special operation (edit/delete channel)
- ✘ display image in chat flow (img tag) @cancelled (15-07-14 21:33)
  ☐ comment on uploaded file
  ☐ support for searching messages
- ✘ background update avatar for old messages @cancelled (15-07-14 21:32)
  ☐ third party services integration (dropbox)
  ☐ add some animation (profile editing)
  ☐ easter egg
@@ -32,6 +27,11 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ notification message cannot be destroyed by itself. Figure out a way to remove. @critical @done (15-07-16 23:12) @project(High priority)
+ ✔ adjust notifications (icon or image, mobile responsive) @high @done (15-07-16 23:12) @project(High priority)
+  https://atmospherejs.com/juliancwirko/s-alert
+ ✘ display image in chat flow (img tag) @cancelled (15-07-14 21:33) @project(Low priority)
+ ✘ background update avatar for old messages @cancelled (15-07-14 21:32) @project(Low priority)
  ✔ replace customized notification html with named template @high @done (15-07-14 20:28) @project(High priority)
  ✔ animate scroll @done (15-07-14 11:34) @project(High priority)
  ✔ adjust chat message UI (scroll properly) @critical @done (15-07-13 23:32) @project(High priority)

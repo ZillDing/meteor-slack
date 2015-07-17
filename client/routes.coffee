@@ -38,6 +38,7 @@ Router.route '/config',
 	name: 'config'
 	waitOn: getSubs
 	action: ->
+		Session.set 'showUtility', false
 		@render 'config'
 
 
@@ -55,6 +56,7 @@ Router.route '/direct/:_username',
 Router.route '/profile',
 	waitOn: getSubs
 	action: ->
+		Session.set 'showUtility', false
 		@render 'profile'
 
 

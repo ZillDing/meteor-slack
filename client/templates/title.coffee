@@ -4,6 +4,9 @@ Template.title.events
 		$(event.currentTarget).blur() # this is to fix the focusing bug
 		$('.ui.modal.title-modal').modal 'show'
 
+	'click .ui.button.utility-trigger': ->
+		Session.set 'showUtility', not Session.get 'showUtility'
+
 Template.title.helpers
 	channels: ->
 		if Meteor.user()?.data()

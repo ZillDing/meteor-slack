@@ -7,20 +7,13 @@
 
 	<div class="ui padded grid pusher">
 		{{!-- only shown on non-mobile devices --}}
-		<div class="sidebar-container">
+		<div id="sidebar-container">
 			{{> layout_sidebar}}
 		</div>
 		{{!-- only shown on mobile devices --}}
-		<div class="ui inverted top fixed menu" style="padding: 0; background-color: #5D3863">
-			<a href="" class="item sidebar-trigger">
-				<i class="sidebar icon"></i> Menu
-			</a>
-			<div class="header item">
-				<i class="home icon"></i> {{BRAND_NAME}}
-			</div>
-		</div>
+		{{> navbar}}
 
-		<div class="main-container">
+		<div id="main-container">
 			{{#if $.Session.get 'chatType'}}
 			{{> title}}
 			{{/if}}
@@ -33,6 +26,12 @@
 			{{> input}}
 			{{/if}}
 		</div>
+
+		{{#if $.Session.equals 'showUtility' true}}
+		<div id="utility-container">
+			{{> utility}}
+		</div>
+		{{/if}}
 	</div>
 	{{!-- show connection status when there is something wrong --}}
 	{{> connection}}
