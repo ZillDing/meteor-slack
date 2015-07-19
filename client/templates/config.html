@@ -1,6 +1,6 @@
 <template name="config">
 	<div class="ui yellow segment">
-		<div class="ui grid">
+		<div class="ui stackable grid">
 			<div class="eight wide column">
 				<div class="ui header">
 					<i class="setting icon"></i>
@@ -61,45 +61,27 @@
 </template>
 <!-- ####################################################################### -->
 <template name="config_item_channel_user">
-	<div class="item">
-		<div class="right floated content">
-			<div class="negative ui compact icon button">
-				<i class="remove icon"></i>
-				<i class="arrow right icon"></i>
-			</div>
-		</div>
-
-		<div class="content">
-			<p># <strong>{{name}}</strong></p>
-		</div>
-	</div>
+	{{> config_item name=name buttonClass="negative" iconClass="remove" symbol="#"}}
 </template>
 <!-- ####################################################################### -->
 <template name="config_item_channel_additional">
-	<div class="item flex-container flex-row-container">
-		<div class="content flex-stretch-item">
-		<p># <strong>{{name}}</strong></p>
-		</div>
-
-		<div class="content">
-			<div class="positive ui compact icon button">
-				<i class="arrow left icon"></i>
-				<i class="plus icon"></i>
-			</div>
-		</div>
-	</div>
+	{{> config_item name=name buttonClass="positive" iconClass="plus" symbol="#"}}
 </template>
 <!-- ####################################################################### -->
 <template name="config_item_direct">
+	{{> config_item name=name buttonClass="negative" iconClass="trash" symbol="@"}}
+</template>
+<!-- ####################################################################### -->
+<template name="config_item">
 	<div class="item">
 		<div class="right floated content">
-			<div class="negative ui compact icon button">
-				<i class="trash icon"></i>
+			<div class="{{buttonClass}} ui compact icon button">
+				<i class="{{iconClass}} icon"></i>
 			</div>
 		</div>
 
-		<div class="content">
-			<p>@ <strong>{{name}}</strong></p>
+		<div class="middle aligned content" style="line-height: 2.2em">
+			{{symbol}} <strong>{{name}}</strong>
 		</div>
 	</div>
 </template>
