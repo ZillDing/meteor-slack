@@ -13,13 +13,6 @@
 		message: error.message
 	, configOverwrite
 
-@_adjustLayout = ->
-	if Session.equals 'showUtility', true
-		$('#main-container').attr 'class', 'nine wide computer eight wide tablet only column flex-container flex-column-container'
-		$('#utility-container').attr 'class', 'four wide computer four wide tablet sixteen wide mobile column flex-container flex-column-container'
-	else
-		$('#main-container').attr 'class', 'thirteen wide computer twelve wide tablet sixteen wide mobile column flex-container flex-column-container'
-
 
 ################################################################################
 # Helpers for all templates

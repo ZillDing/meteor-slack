@@ -12,7 +12,6 @@ iron:router
 useraccounts:semantic-ui
 accounts-password
 reactive-var
-semantic:ui-css
 momentjs:moment
 mystor:device-detection
 mizzao:user-status
@@ -24,3 +23,5 @@ copleykj:livestamp
 sdecima:javascript-detect-element-resize
 juliancwirko:s-alert
 juliancwirko:s-alert-scale
+matb33:bootstrap-grid
+semantic:ui-css

@@ -1,3 +1,8 @@
+.row
+	margin-left: -1rem
+	margin-right: -1rem
+	padding: 1rem
+
 .flex-center-align
 	display: -webkit-flex
 	-webkit-align-items: center
@@ -5,17 +10,17 @@
 	align-items: center
 
 .flex-container
-	display: -webkit-flex!important
-	display: flex!important
+	display: -webkit-flex
+	display: flex
 
 	&.flex-column-container
-		-webkit-flex-direction: column!important
-		flex-direction: column!important
+		-webkit-flex-direction: column
+		flex-direction: column
 
 	&.flex-row-container
-		-webkit-flex-direction: row!important
+		-webkit-flex-direction: row
 		-webkit-align-items: center
-		flex-direction: row!important
+		flex-direction: row
 		align-items: center
 
 	.flex-stretch-item
@@ -94,12 +99,14 @@
 @media only screen and (min-width: 768px)
 	.ui.top.menu
 		display: none
+	#utility-container>.row
+		padding-left: 0
 
 @media only screen and (max-width: 767px)
 	#main-container .ui.button.utility-trigger
 		display: none
-	.ui.pusher>.wide.column.flex-container
-		padding-top: 4rem
+	.ui.pusher>.flex-container
+		padding-top: 3rem
 
 ////////////////////////////////////////////////////////////////////////////////
 // sAlert package override

@@ -1,35 +1,44 @@
 <template name="layout">
 	<div class="ui grid sidebar">
-		<div class="column flex-container flex-column-container">
+		<div class="col-xs-12 flex-container flex-column-container">
 			{{> layout_sidebar}}
 		</div>
 	</div>
 
 	<div class="ui padded grid pusher">
 		{{!-- only shown on non-mobile devices --}}
-		<div id="sidebar-container">
+		<div id="sidebar-container" class="col-lg-2 col-sm-3 hidden-xs flex-container flex-column-container">
 			{{> layout_sidebar}}
 		</div>
 		{{!-- only shown on mobile devices --}}
 		{{> navbar}}
 
-		<div id="main-container">
+		<div id="main-container" class="
+			{{#if $.Session.equals 'showUtility' true}}col-lg-2 col-sm-6 hidden-xs
+			{{else}}col-lg-10 col-sm-9 col-xs-12{{/if}}
+			flex-container flex-column-container">
 			{{#if $.Session.get 'chatType'}}
-			{{> title}}
+			<div class="row" style="padding-bottom: 0">
+				{{> title}}
+			</div>
 			{{/if}}
 
-			<div class="flex-stretch-item">
+			<div class="row flex-stretch-item">
 				{{> yield}}
 			</div>
 
 			{{#if $.Session.get 'chatType'}}
-			{{> input}}
+			<div class="row">
+				{{> input}}
+			</div>
 			{{/if}}
 		</div>
 
 		{{#if $.Session.equals 'showUtility' true}}
-		<div id="utility-container">
-			{{> utility}}
+		<div id="utility-container" class="col-lg-2 col-sm-3 col-xs-12 flex-container flex-column-container">
+			<div class="row">
+				{{> utility}}
+			</div>
 		</div>
 		{{/if}}
 	</div>
@@ -44,19 +53,15 @@
 </template>
 <!-- ####################################################################### -->
 <template name="layout_sidebar">
-	<div class="ui grid" style="background-color: #5D3863">
-		<div class="column">
-			{{> site}}
-		</div>
+	<div class="row" style="background-color: #5D3863">
+		{{> site}}
 	</div>
 
-	<div class="ui grid flex-stretch-item" style="background-color: #824F8A">
+	<div class="row flex-stretch-item" style="background-color: #824F8A">
 		{{> menu}}
 	</div>
 
-	<div class="ui grid" style="background-color: #5D3863">
-		<div class="column">
-			{{> status}}
-		</div>
+	<div class="row" style="background-color: #5D3863">
+		{{> status}}
 	</div>
 </template>

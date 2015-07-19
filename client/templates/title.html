@@ -1,76 +1,72 @@
 <template name="title">
-	<div class="ui grid">
-		<div class="column">
-			<div class="ui dropdown">
-				<div class="text ui large header">
-					<span style="opacity: 0.5">
-						{{#if $.Session.equals 'chatType' 'channel'}}#{{/if}}
-						{{#if $.Session.equals 'chatType' 'direct'}}@{{/if}}
-					</span>
-					{{$.Session.get 'chatTarget'}}
-				</div>
-				<i class="dropdown icon"></i>
-				<div class="menu">
-					<div class="header">
-						<i class="tags icon"></i>
-						All channels...
-					</div>
-					{{#each channels}}
-					<a href="/channel/{{name}}" class="item {{_isActive 'channel' name}}">
-						{{#if currentUser}}
-						{{#unless _isActive 'channel' name}}
-						{{#if $gt unread 0}}
-						<span class="description">{{unread}} new</span>
-						{{/if}}
-						{{/unless}}
-						{{/if}}
-						<span>#</span> {{name}}
-					</a>
-					{{/each}}
-					{{#if currentUser}}
-					<div class="header">
-						<i class="tags icon"></i>
-						All direct messages...
-					</div>
-					{{/if}}
-					{{#each directChats}}
-					<a href="/direct/{{name}}" class="item {{_isActive 'direct' name}}">
-						{{#unless _isActive 'direct' name}}
-						{{#if $gt unread 0}}
-						<span class="description">{{unread}} new</span>
-						{{/if}}
-						{{/unless}}
-						<span>@</span> {{name}}
-					</a>
-					{{/each}}
-				</div>
+	<div class="ui dropdown">
+		<div class="text ui large header">
+			<span style="opacity: 0.5">
+				{{#if $.Session.equals 'chatType' 'channel'}}#{{/if}}
+				{{#if $.Session.equals 'chatType' 'direct'}}@{{/if}}
+			</span>
+			{{$.Session.get 'chatTarget'}}
+		</div>
+		<i class="dropdown icon"></i>
+		<div class="menu">
+			<div class="header">
+				<i class="tags icon"></i>
+				All channels...
 			</div>
-
-			{{#if $.Session.equals 'chatType' 'channel'}}
-			<div class="ui violet pointing left label"
-				style="vertical-align: top; margin-left: 1em">
-				<i class="users icon"></i>
-				{{currentChannelSize}}
-			</div>
-			{{/if}}
-
+			{{#each channels}}
+			<a href="/channel/{{name}}" class="item {{_isActive 'channel' name}}">
+				{{#if currentUser}}
+				{{#unless _isActive 'channel' name}}
+				{{#if $gt unread 0}}
+				<span class="description">{{unread}} new</span>
+				{{/if}}
+				{{/unless}}
+				{{/if}}
+				<span>#</span> {{name}}
+			</a>
+			{{/each}}
 			{{#if currentUser}}
-			<button class="right floated compact ui icon button utility-trigger" style="margin-left: 1rem">
-				<i class="list layout icon"></i>
-			</button>
-			<div class="ui small search" style="float: right; margin-left: 1rem; min-width: 30%">
-				<div class="ui fluid icon input">
-					<input type="text" class="prompt" placeholder="Search..."
-						style="padding-top: 0.5em; padding-bottom: 0.5em">
-					<i class="search icon"></i>
-				</div>
+			<div class="header">
+				<i class="tags icon"></i>
+				All direct messages...
 			</div>
-			<button class="right floated compact ui red basic icon button remove-btn">
-				<i class="remove icon"></i>
-			</button>
 			{{/if}}
+			{{#each directChats}}
+			<a href="/direct/{{name}}" class="item {{_isActive 'direct' name}}">
+				{{#unless _isActive 'direct' name}}
+				{{#if $gt unread 0}}
+				<span class="description">{{unread}} new</span>
+				{{/if}}
+				{{/unless}}
+				<span>@</span> {{name}}
+			</a>
+			{{/each}}
 		</div>
 	</div>
+
+	{{#if $.Session.equals 'chatType' 'channel'}}
+	<div class="ui violet pointing left label"
+		style="vertical-align: top; margin-left: 1em">
+		<i class="users icon"></i>
+		{{currentChannelSize}}
+	</div>
+	{{/if}}
+
+	{{#if currentUser}}
+	<button class="right floated compact ui icon button utility-trigger" style="margin-left: 1rem">
+		<i class="list layout icon"></i>
+	</button>
+	<div class="ui small search" style="float: right; margin-left: 1rem; min-width: 30%">
+		<div class="ui fluid icon input">
+			<input type="text" class="prompt" placeholder="Search..."
+				style="padding-top: 0.5em; padding-bottom: 0.5em">
+			<i class="search icon"></i>
+		</div>
+	</div>
+	<button class="right floated compact ui red basic icon button remove-btn">
+		<i class="remove icon"></i>
+	</button>
+	{{/if}}
 
 	{{> title_modal}}
 </template>
