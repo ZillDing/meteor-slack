@@ -14,7 +14,7 @@
 		{{> navbar}}
 
 		<div id="main-container" class="
-			{{#if $.Session.equals 'showUtility' true}}col-lg-2 col-sm-6 hidden-xs
+			{{#if $.Session.equals 'showUtility' true}}col-lg-7 col-sm-6 hidden-xs
 			{{else}}col-lg-10 col-sm-9 col-xs-12{{/if}}
 			flex-container flex-column-container">
 			{{#if $.Session.get 'chatType'}}
@@ -35,7 +35,7 @@
 		</div>
 
 		{{#if $.Session.equals 'showUtility' true}}
-		<div id="utility-container" class="col-lg-2 col-sm-3 col-xs-12 flex-container flex-column-container">
+		<div id="utility-container" class="col-lg-3 col-sm-3 col-xs-12 flex-container flex-column-container">
 			<div class="row">
 				{{> utility}}
 			</div>
