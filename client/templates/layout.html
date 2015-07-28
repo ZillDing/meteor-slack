@@ -23,7 +23,8 @@
 			</div>
 			{{/if}}
 
-			<div class="row flex-stretch-item">
+			<div class="row flex-stretch-item"
+				style="{{#if $.Session.get 'chatType'}}margin-right: 0{{/if}}">
 				{{> yield}}
 			</div>
 
