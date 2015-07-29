@@ -67,6 +67,7 @@ Router.route '/profile',
 Router.route '/signin',
 	waitOn: getSubs
 	action: ->
+		Session.set 'showUtility', false
 		if Meteor.userId()
 			@redirect '/profile'
 		else
