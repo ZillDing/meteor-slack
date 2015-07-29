@@ -1,0 +1,44 @@
+<template name="activities">
+	<div class="ui feed">
+		{{#each activities}}
+		{{#if $eq type 'new-user'}}
+		{{> template_new_user}}
+		{{/if}}
+		{{#if $eq type 'new-channel'}}
+		{{> template_new_channel}}
+		{{/if}}
+		{{/each}}
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="template_new_user">
+	<div class="event">
+		<div class="label">
+			<img src="{{SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
+		</div>
+		<div class="content">
+			<div class="date">
+				{{livestamp createdAt}}
+			</div>
+			<div class="summary">
+				<a href="/direct/{{owner.username}}">{{owner.username}}</a> has joined the team!
+			</div>
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="template_new_channel">
+	<div class="event">
+		<div class="label">
+			<img src="{{SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
+		</div>
+		<div class="content">
+			<div class="date">
+				{{livestamp createdAt}}
+			</div>
+			<div class="summary">
+				<a href="/direct/{{owner.username}}">{{owner.username}}</a> has created a new channel: <a href="/channel/{{channel.name}}">{{channel.name}}</a>.
+			</div>
+		</div>
+	</div>
+</template>

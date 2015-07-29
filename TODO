@@ -1,5 +1,4 @@
 High priority:
- ✔ add right side bar (open and close) @done (15-07-17 11:20)
  ☐ server side notification using collection hooks (activity feed)
  ☐ mention certain person in channels (only show notification for mention)
    https://atmospherejs.com/mizzao/autocomplete
@@ -27,6 +26,7 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ add right side bar (open and close) @done (15-07-17 11:20) @project(High priority)
  ✔ notification message cannot be destroyed by itself. Figure out a way to remove. @critical @done (15-07-16 23:12) @project(High priority)
  ✔ adjust notifications (icon or image, mobile responsive) @high @done (15-07-16 23:12) @project(High priority)
   https://atmospherejs.com/juliancwirko/s-alert
