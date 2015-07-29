@@ -47,11 +47,10 @@ Template.messages.onCreated ->
 		return if not Meteor.userId()
 		@clearUnread @prevData if @prevData
 		@prevData = data
-		if data.type is 'direct'
-			# note: need to run in non-reactive mode
-			Tracker.nonreactive ->
-				Meteor.call 'addChat', data, (error, result) ->
-					_sAlertError error if error
+		# note: need to run in non-reactive mode
+		Tracker.nonreactive ->
+			Meteor.call 'addChat', data, (error, result) ->
+				_sAlertError error if error
 
 
 Template.messages.onRendered ->
