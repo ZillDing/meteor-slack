@@ -1,3 +1,6 @@
 Template.activities.helpers
 	activities: ->
-		Activities.find()
+		Activities.find {},
+			sort:
+				createdAt: -1
+			limit: 20
