@@ -1,13 +1,12 @@
 High priority:
- ☐ server side notification using collection hooks (activity feed)
  ☐ mention certain person in channels (only show notification for mention)
    https://atmospherejs.com/mizzao/autocomplete
-
  ☐ notification for new channel and new message
  ☐ notification sound
+ ☐ allow starring chat (add favourite)
+
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them
- ☐ allow starring chat (add favourite)
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
  ☐ file support, simple uploading
@@ -26,6 +25,7 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ server side notification using collection hooks (activity feed) @done (15-07-29 22:08) @project(High priority)
  ✔ add right side bar (open and close) @done (15-07-17 11:20) @project(High priority)
  ✔ notification message cannot be destroyed by itself. Figure out a way to remove. @critical @done (15-07-16 23:12) @project(High priority)
  ✔ adjust notifications (icon or image, mobile responsive) @high @done (15-07-16 23:12) @project(High priority)
