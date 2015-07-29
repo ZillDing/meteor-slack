@@ -66,6 +66,17 @@ direct: [
 ###
 @UserData = new Mongo.Collection 'userData'
 
+### activities schema
+
+_id: String
+channelId: String
+createdAt: Date
+ownerId: String
+type: String
+
+###
+@Activities = new Mongo.Collection 'activities'
+
 
 ################################################################################
 # Helpers
@@ -98,3 +109,9 @@ UserData.helpers
 			id: o.id
 			name: Meteor.users.findOne(o.id).username
 			unread: o.unread
+
+Activities.helpers
+	channel: ->
+		Channels.findOne @channelId
+	owner: ->
+		Meteor.users.findOne @ownerId

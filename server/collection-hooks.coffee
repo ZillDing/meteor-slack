@@ -30,6 +30,11 @@ Meteor.users.after.insert (userId, user) ->
 			usersId: user._id
 	,
 		multi: true
+	# add to activities
+	Activities.insert
+		createdAt: new Date()
+		ownerId: userId
+		type: 'new-user'
 
 
 ################################################################################
@@ -49,6 +54,12 @@ Channels.after.insert (userId, channel) ->
 				unread: 0
 	,
 		multi: true
+	# add to activities
+	Activities.insert
+		channelId: @_id
+		createdAt: new Date()
+		ownerId: userId
+		type: 'new-channel'
 
 
 ChannelMessages.after.insert (userId, message) ->

@@ -14,6 +14,7 @@ Router.plugin 'ensureSignedIn',
 ################################################################################
 getSubs = ->
 	result = []
+	result.push Meteor.subscribe 'activities'
 	result.push Meteor.subscribe 'allUsers'
 	result.push Meteor.subscribe 'channels'
 	result.push Meteor.subscribe 'currentUser' if Meteor.userId()

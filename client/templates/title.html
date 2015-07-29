@@ -30,7 +30,6 @@
 				<i class="tags icon"></i>
 				All direct messages...
 			</div>
-			{{/if}}
 			{{#each directChats}}
 			<a href="/direct/{{name}}" class="item {{_isActive 'direct' name}}">
 				{{#unless _isActive 'direct' name}}
@@ -41,6 +40,7 @@
 				<span>@</span> {{name}}
 			</a>
 			{{/each}}
+			{{/if}}
 		</div>
 	</div>
 

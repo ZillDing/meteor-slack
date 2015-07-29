@@ -39,3 +39,7 @@ Meteor.publish 'directMessages', (username) ->
 			ownerId: userId
 			targetId: @userId
 		]
+
+# activities
+Meteor.publish 'activities', ->
+	Activities.find()
