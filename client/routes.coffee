@@ -48,10 +48,13 @@ Router.route '/direct/:_username',
 	waitOn: getSubs
 	action: ->
 		username = @params._username
-		@render 'messages',
-			data:
-				type: 'direct'
-				target: username
+		if username is Meteor.user().username
+			@redirect '/profile'
+		else
+			@render 'messages',
+				data:
+					type: 'direct'
+					target: username
 
 
 Router.route '/profile',
