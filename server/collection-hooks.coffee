@@ -23,6 +23,8 @@ Accounts.onCreateUser (options, user) ->
 	# return the user
 	user
 
+# note: the following userId has no value.
+# to get the user id, use 'user._id'
 Meteor.users.after.insert (userId, user) ->
 	# add the user id to all channels' usersId
 	Channels.update {},
@@ -33,7 +35,7 @@ Meteor.users.after.insert (userId, user) ->
 	# add to activities
 	Activities.insert
 		createdAt: new Date()
-		ownerId: userId
+		ownerId: user._id
 		type: 'new-user'
 
 
