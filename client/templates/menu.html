@@ -2,6 +2,7 @@
 	<div class="flex-container flex-column-container sidebar-menu">
 		{{!-- favourite --}}
 		{{#if currentUser}}
+		{{#if $gt favouriteCount 0}}
 		<div class="sidebar-menu-header">FAVOURITE</div>
 		<div class="ui inverted middle aligned list">
 		{{#each channels}}
@@ -16,6 +17,7 @@
 		{{/each}}
 		</div>
 		<div class="ui inverted divider" style="margin-top: 0.5em"></div>
+		{{/if}}
 		{{/if}}
 		{{!-- channel messages --}}
 		<div class="sidebar-menu-header">CHANNELS</div>

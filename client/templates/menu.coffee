@@ -2,6 +2,17 @@ isAddingANewChannel = new ReactiveVar false
 isAddingANewDirectChat = new ReactiveVar false
 
 Template.menu.helpers
+	favouriteCount: ->
+		return if not Meteor.user()?.data()
+
+		channelCount = _.filter Meteor.user().data().channel, (o) ->
+			o.favourite
+		.length
+		directCount = _.filter Meteor.user().data().direct, (o) ->
+			o.favourite
+		.length
+		channelCount + directCount
+
 	channels: ->
 		if Meteor.user()?.data()
 			Meteor.user().data().channelData().reverse()
