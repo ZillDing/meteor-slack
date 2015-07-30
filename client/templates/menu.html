@@ -1,21 +1,29 @@
 <template name="menu">
 	<div class="flex-container flex-column-container sidebar-menu">
-		<div class="sidebar-menu-header">
-			CHANNELS
+		{{!-- favourite --}}
+		{{#if currentUser}}
+		<div class="sidebar-menu-header">FAVOURITE</div>
+		<div class="ui inverted middle aligned list">
+		{{#each channels}}
+		{{#if favourite}}
+			{{> menu_channel_item}}
+		{{/if}}
+		{{/each}}
+		{{#each directChats}}
+		{{#if favourite}}
+			{{> menu_direct_item}}
+		{{/if}}
+		{{/each}}
 		</div>
+		<div class="ui inverted divider" style="margin-top: 0.5em"></div>
+		{{/if}}
+		{{!-- channel messages --}}
+		<div class="sidebar-menu-header">CHANNELS</div>
 		<div class="ui inverted middle aligned list">
 			{{#each channels}}
-			<a href="/channel/{{name}}"
-				class="item sidebar-menu-item hoverable {{_isActive 'channel' name}}">
-				<span>#</span>{{name}}
-				{{#if currentUser}}
-				{{#unless _isActive 'channel' name}}
-				{{#if $gt unread 0}}
-				<div class="pink right floated ui label unread-label">{{unread}}</div>
-				{{/if}}
-				{{/unless}}
-				{{/if}}
-			</a>
+			{{#unless favourite}}
+				{{> menu_channel_item}}
+			{{/unless}}
 			{{/each}}
 
 			{{#if currentUser}}
@@ -29,19 +37,13 @@
 
 		{{#if currentUser}}
 		<div class="ui inverted divider" style="margin-top: 0.5em"></div>
-
+		{{!-- direct messages --}}
 		<div class="sidebar-menu-header">DIRECT MESSAGES</div>
 		<div class="ui inverted middle aligned list">
 			{{#each directChats}}
-			<a href="/direct/{{name}}"
-				class="item sidebar-menu-item hoverable {{_isActive 'direct' name}}">
-				<span>@</span>{{name}}
-				{{#unless _isActive 'direct' name}}
-				{{#if $gt unread 0}}
-				<div class="pink right floated ui label unread-label">{{unread}}</div>
-				{{/if}}
-				{{/unless}}
-			</a>
+			{{#unless favourite}}
+				{{> menu_direct_item}}
+			{{/unless}}
 			{{/each}}
 		</div>
 
@@ -54,6 +56,32 @@
 	</div>
 </template>
 
+<!-- ####################################################################### -->
+<template name="menu_channel_item">
+	<a href="/channel/{{name}}"
+		class="item sidebar-menu-item hoverable {{_isActive 'channel' name}}">
+		<span>#</span>{{name}}
+		{{#if currentUser}}
+		{{#unless _isActive 'channel' name}}
+		{{#if $gt unread 0}}
+		<div class="pink right floated ui label unread-label">{{unread}}</div>
+		{{/if}}
+		{{/unless}}
+		{{/if}}
+	</a>
+</template>
+<!-- ####################################################################### -->
+<template name="menu_direct_item">
+	<a href="/direct/{{name}}"
+		class="item sidebar-menu-item hoverable {{_isActive 'direct' name}}">
+		<span>@</span>{{name}}
+		{{#unless _isActive 'direct' name}}
+		{{#if $gt unread 0}}
+		<div class="pink right floated ui label unread-label">{{unread}}</div>
+		{{/if}}
+		{{/unless}}
+	</a>
+</template>
 <!-- ####################################################################### -->
 <template name="menu_createNewChannelItem">
 	<a class="item sidebar-menu-item hoverable">

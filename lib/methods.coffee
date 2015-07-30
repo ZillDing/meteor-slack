@@ -154,6 +154,33 @@ Meteor.methods
 		UserData.update Meteor.user().dataId,
 			$pull: o
 
+	toggleFavourite: (data) ->
+		error = 'Toggle favourite error'
+
+		_checkLoggedIn error
+		check data,
+			type: Match.OneOf 'channel', 'direct'
+			target: String
+		targetId = _getTargetId data, error
+
+		array = Meteor.user().data()[data.type]
+		item = _.find array, (o) ->
+			o.id is targetId
+		newFavourite = not item.favourite
+		###
+		UserData.update
+			_id: Meteor.user().dataId
+			"#{data.type}.id": targetId
+		,
+			$set:
+				"#{data.type}.$.favourite": newFavourite
+		###
+		selector = _id: Meteor.user().dataId
+		selector["#{data.type}.id"] = targetId
+		o = {}
+		o["#{data.type}.$.favourite"] = newFavourite
+		UserData.update selector, $set: o
+
 	updateUserProfile: (profile) ->
 		error = 'update-user-profile-failed'
 

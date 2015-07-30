@@ -1,5 +1,14 @@
 Template.title.events
-	'click .ui.button.remove-btn': (event, template) ->
+	'click .ui.button.favourite-btn': (event) ->
+		$(event.currentTarget).popup 'hide'
+		$(event.currentTarget).blur() # this is to fix the focusing bug
+		data =
+			type: Session.get 'chatType'
+			target: Session.get 'chatTarget'
+		Meteor.call 'toggleFavourite', data, (error, result) ->
+			_sAlertError error if error
+
+	'click .ui.button.remove-btn': (event) ->
 		$(event.currentTarget).popup 'hide'
 		$(event.currentTarget).blur() # this is to fix the focusing bug
 		$('.ui.modal.title-modal').modal 'show'
@@ -30,6 +39,10 @@ Template.title.onRendered ->
 		transition: 'drop'
 
 	if __deviceIsHoverable
+		@$('.ui.button.favourite-btn').popup
+			content: 'Toggle favourite'
+			position: 'bottom center'
+
 		@autorun =>
 			return if not Meteor.userId()
 

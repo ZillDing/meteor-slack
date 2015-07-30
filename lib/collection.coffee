@@ -57,10 +57,12 @@ _id: String
 channel: [
 	id: String
 	unread: Number
+	favourite: Boolean
 ]
 direct: [
 	id: String
 	unread: Number
+	favourite: Boolean
 ]
 
 ###
@@ -100,15 +102,15 @@ DirectMessages.helpers messagesHelpers
 UserData.helpers
 	channelData: ->
 		_.map @channel, (o) ->
-			id: o.id
-			name: Channels.findOne(o.id).name
-			unread: o.unread
+			_.extend
+				name: Channels.findOne(o.id).name
+			, o
 
 	directData: ->
 		_.map @direct, (o) ->
-			id: o.id
-			name: Meteor.users.findOne(o.id).username
-			unread: o.unread
+			_.extend
+				name: Meteor.users.findOne(o.id).username
+			, o
 
 Activities.helpers
 	channel: ->

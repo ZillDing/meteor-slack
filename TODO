@@ -3,7 +3,7 @@ High priority:
    https://atmospherejs.com/mizzao/autocomplete
  ☐ notification for new channel and new message
  ☐ notification sound
- ☐ allow starring chat (add favourite)
+ ✔ allow starring chat (add favourite) @done (15-07-30 16:25)
 
  ☐ replace input with textarea to allow multi-line message @high
  ☐ if there are too many items in the sidebar menu, hide some of them
