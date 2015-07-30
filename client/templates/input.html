@@ -1,12 +1,10 @@
 <template name="input">
 	{{#if currentUser}}
 	<form class="ui form">
-		<div class="ui left corner labeled icon input">
-			<input type="text" placeholder="Enter your message...">
-			<div class="ui left corner label">
-				<i class="asterisk icon"></i>
-			</div>
-			<i class="circular send link icon" data-content="Send"
+		<div class="ui icon input">
+			<textarea rows="1" placeholder="Enter your message..."
+				style="padding-right: 2.7em"></textarea>
+			<i class="inverted circular send link icon" data-content="Send"
 				data-variation="inverted" data-position="top right" data-offset="5"></i>
 		</div>
 	</form>
