@@ -59,16 +59,24 @@ Template.input.helpers
 
 Template.input.onRendered ->
 	# set up send button popup
-	if __deviceIsHoverable
-		@$('i.send.icon').popup()
+	@$('i.send.icon').popup() if __deviceIsHoverable
 
 	$textarea = @$ 'textarea'
 
 	if Meteor.Device.isDesktop()
 		# create key listener to listen to enter key
 		@keyListener = new window.keypress.Listener $textarea[0]
+		# press meta + enter to submit the form
 		@keyListener.simple_combo 'meta enter', =>
 			@$('form.form').submit()
+		# press esc to blur the input
+		@keyListener.simple_combo 'esc', ->
+			$textarea.blur()
+
+		# add key listener to focus on textarea
+		__keyListener.simple_combo 'shift i', ->
+			$textarea.focus()
+
 	# set up textarea
 	$textarea.autosize()
 	@autorun ->
@@ -77,4 +85,6 @@ Template.input.onRendered ->
 
 
 Template.input.onDestroyed ->
-	@keyListener.destroy()
+	if Meteor.Device.isDesktop()
+		@keyListener.destroy()
+		__keyListener.unregister_combo 'shift i'

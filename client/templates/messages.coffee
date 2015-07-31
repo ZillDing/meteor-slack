@@ -60,6 +60,7 @@ Template.messages.onCreated ->
 
 
 Template.messages.onRendered ->
+	# scroll to the bottom
 	$scrollContent = @$ '.ui.comments'
 	$scrollContainer = $scrollContent.parent()
 
@@ -74,9 +75,30 @@ Template.messages.onRendered ->
 			$scrollContent.children('.comment').last().find('.avatar').transition 'jiggle'
 		prevHeight = $scrollContent.height()
 
+	# add key listener
+	if Meteor.Device.isDesktop()
+		# toggle utility side bar
+		__keyListener.simple_combo 'shift u', ->
+			Session.set 'showUtility', not Session.get 'showUtility'
+		# toggle favourite chat
+		data =
+			type: Session.get 'chatType'
+			target: Session.get 'chatTarget'
+		__keyListener.simple_combo 'shift f', ->
+			Meteor.call 'toggleFavourite', data, (error, result) ->
+				_sAlertError error if error
+		# delete current chat
+		__keyListener.simple_combo 'shift d', ->
+			$('.ui.modal.title-modal').modal 'show'
+
 
 Template.messages.onDestroyed ->
 	@clearUnread @prevData if Meteor.userId() and @prevData
 	Session.set
 		chatType: null
 		chatTarget: null
+
+	if Meteor.Device.isDesktop()
+		__keyListener.unregister_combo 'shift u'
+		__keyListener.unregister_combo 'shift f'
+		__keyListener.unregister_combo 'shift d'
