@@ -1,5 +1,3 @@
-shiftKeyDown = false
-
 Template.input.events
 	'submit form.form': (event, template) ->
 		isValid = (text) ->
@@ -24,17 +22,6 @@ Template.input.events
 					$input.val('').trigger 'autosize.resize'
 		# prevent default form submit
 		false
-
-	'keydown textarea': (event, template) ->
-		if event.which is 16
-			shiftKeyDown = true
-
-	'keyup textarea': (event, template) ->
-		if event.which is 16
-			shiftKeyDown = false
-		if event.which is 13 and not shiftKeyDown
-			# submit the form
-			template.$('form.form').submit()
 
 	'click i.send.icon': (event, template) ->
 		template.$('form.form').submit()
@@ -65,10 +52,22 @@ Template.input.helpers
 
 
 Template.input.onRendered ->
+	# set up send button popup
 	if __deviceIsHoverable
 		@$('i.send.icon').popup()
 
-	@$('textarea').autosize()
-	@autorun =>
+	$textarea = @$ 'textarea'
+	# create key listener to listen to enter key
+	@keyListener = new window.keypress.Listener $textarea[0]
+	@keyListener.simple_combo 'meta enter', =>
+		@$('form.form').submit()
+
+	# set up textarea
+	$textarea.autosize()
+	@autorun ->
 		# focus on the input whenever target changes
-		@$('textarea').focus() if Session.get 'chatTarget'
+		$textarea.focus() if Session.get 'chatTarget'
+
+
+Template.input.onDestroyed ->
+	@keyListener.destroy()
