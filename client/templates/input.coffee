@@ -46,7 +46,7 @@ Template.input.helpers
 		# only initiate autocomplete in channel chat
 		if Session.equals 'chatType', 'channel'
 			# only allow mentioning users in current channel
-			array = Channels.findOne(name: Session.get 'chatTarget').usersId
+			array = Channels.findOne(name: Session.get 'chatTarget')?.usersId
 			# remove the current user
 			array = _.reject array, (id) ->
 				id is Meteor.userId()
