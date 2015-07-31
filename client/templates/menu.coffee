@@ -32,12 +32,14 @@ Template.menu.helpers
 	isAddingANewDirectChat: ->
 		isAddingANewDirectChat.get()
 
+
 ################################################################################
 # _createNewChannelItem
 ################################################################################
 Template.menu_createNewChannelItem.events
 	'click': ->
 		isAddingANewChannel.set true
+
 
 ################################################################################
 # _addNewChannelItem
@@ -81,6 +83,7 @@ Template.menu_createNewDirectChatItem.events
 	'click': ->
 		isAddingANewDirectChat.set true
 
+
 ################################################################################
 # _addNewDirectChatItem
 ################################################################################
@@ -118,12 +121,3 @@ Template.menu_addNewDirectChatItem.onCreated ->
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()
-
-################################################################################
-# _addNewDirectChatItem_userItem
-################################################################################
-Template.menu_addNewDirectChatItem_userItem.helpers
-	statusLabelColor: ->
-		if Template.currentData().status?.online
-		then 'green'
-		else 'grey'
