@@ -13,33 +13,32 @@
 		{{!-- only shown on mobile devices --}}
 		{{> navbar}}
 
-		<div id="main-container" class="
-			{{#if $.Session.equals 'showUtility' true}}col-lg-7 col-sm-6 hidden-xs
-			{{else}}col-lg-10 col-sm-9 col-xs-12{{/if}}
-			flex-container flex-column-container">
+		<div id="main-container" class="col-lg-10 col-sm-9 col-xs-12 flex-container flex-column-container"
+			style="padding-bottom: 1rem">
 			{{#if $.Session.get 'chatType'}}
-			<div class="row" style="padding-bottom: 0">
-				{{> title}}
-			</div>
+			{{> title}}
 			{{/if}}
 
-			<div class="row flex-stretch-item"
-				style="{{#if $.Session.get 'chatType'}}margin-right: 0{{/if}}">
-				{{> yield}}
+			<div class="flex-stretch-item flex-container">
+				{{!-- main area --}}
+				<div class="{{#if $.Session.get 'showUtility'}}col-sm-8 hidden-xs{{else}}col-xs-12{{/if}} flex-container flex-column-container" style="padding: 0">
+					<div class="flex-stretch-item">
+						{{> yield}}
+					</div>
+					{{#if $.Session.get 'chatType'}}
+					{{> input}}
+					{{/if}}
+				</div>
+				{{!-- utility side bar --}}
+				{{#if $.Session.get 'showUtility'}}
+				<div class="col-sm-4 col-xs-12 flex-container flex-column-container"
+					style="padding: 0">
+					{{> utility}}
+				</div>
+				{{/if}}
 			</div>
 
-			{{#if $.Session.get 'chatType'}}
-			<div class="row">
-				{{> input}}
-			</div>
-			{{/if}}
 		</div>
-
-		{{#if $.Session.equals 'showUtility' true}}
-		<div id="utility-container" class="col-lg-3 col-sm-3 col-xs-12 flex-container flex-column-container">
-			{{> utility}}
-		</div>
-		{{/if}}
 	</div>
 	{{!-- show connection status when there is something wrong --}}
 	{{> connection}}
