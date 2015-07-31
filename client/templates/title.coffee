@@ -16,6 +16,7 @@ Template.title.events
 	'click .ui.button.utility-trigger': ->
 		Session.set 'showUtility', not Session.get 'showUtility'
 
+
 Template.title.helpers
 	channels: ->
 		if Meteor.user()?.data()
@@ -32,6 +33,7 @@ Template.title.helpers
 	directChats: ->
 		if Meteor.user()?.data()
 			Meteor.user().data().directData().reverse()
+
 
 Template.title.onRendered ->
 	@$('.ui.dropdown').dropdown

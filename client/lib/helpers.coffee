@@ -1,6 +1,8 @@
 ################################################################################
 # global variables
 ################################################################################
+# determine whehter the device is hoverable
+# mainly used before initialize popup
 @__deviceIsHoverable = Meteor.Device.isTV() or Meteor.Device.isDesktop()
 
 

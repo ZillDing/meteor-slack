@@ -3,14 +3,18 @@ High priority:
    https://atmospherejs.com/mizzao/autocomplete
  ☐ notification for new channel and new message
  ☐ notification sound
+ ☐ add keyboard hooks
+ ✔ fix the input textarea enter key handling @critical @done (15-07-31 16:02)
 
  ☐ file support, simple uploading
+ ☐ add tips/helps
  ☐ view files (allow download)
  ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
 
 Low priority:
+ ☐ add help popup to show hotkeys
  ☐ add about page for additional info (annoucement)
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ comment on uploaded file
@@ -23,6 +27,8 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ fix firefox textarea does not allow rows to be 1 @critical @done (15-07-31 14:54) @project(High priority)
+ ✔ fix quiting channel @done (15-07-31 14:02) @project(High priority)
  ✔ replace input with textarea to allow multi-line message @high @done (15-07-30 20:52) @project(High priority)
  ✔ allow starring chat (add favourite) @done (15-07-30 16:25) @project(High priority)
  ✔ server side notification using collection hooks (activity feed) @done (15-07-29 22:08) @project(High priority)
