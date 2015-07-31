@@ -146,7 +146,7 @@ Meteor.methods
 		UserData.update Meteor.user().dataId,
 			$pull:
 				"#{data.type}":
-					name: data.target
+					id: targetId
 		###
 		o = {}
 		o[data.type] =

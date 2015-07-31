@@ -12,8 +12,14 @@ Template.messages.helpers
 Template.messages.onCreated ->
 	@prevData = null
 	@clearUnread = (data) ->
-		Meteor.call 'clearUnread', data, (error, result) ->
-			_sAlertError error if error
+		Tracker.nonreactive ->
+			Meteor.call 'clearUnread', data, (error, result) ->
+				_sAlertError error if error
+
+	channelNameArray = Channels.find().map (channel) ->
+		channel.name
+	usernameArray = Meteor.users.find().map (user) ->
+		user.username
 	isValid = (data) ->
 		if not _.contains ['channel', 'direct'], data.type
 			sAlert.error
@@ -22,13 +28,13 @@ Template.messages.onCreated ->
 			return false
 		switch data.type
 			when 'channel'
-				if not Channels.findOne(name: data.target)
+				if not _.contains channelNameArray, data.target
 					_sAlertError
 						error: 'No such channel'
 						message: "Could not find channel with name: #{data.target}"
 					return false
 			when 'direct'
-				if not Meteor.users.findOne(username: data.target)
+				if not _.contains usernameArray, data.target
 					_sAlertError
 						error: 'No such user'
 						message: "Could not find user with username: #{data.target}"
