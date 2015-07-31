@@ -11,7 +11,12 @@
 </template>
 <!-- ####################################################################### -->
 <template name="input_user">
-	<div>
-		{{username}}
+	<div class="item">
+		<div class="ui {{#if status.online}}green{{else}}grey{{/if}} empty circular label"
+			style="vertical-align: middle; margin-right: 0.5em"></div>
+		<div class="ui image label">
+			<img src="{{SMALL_AVATAR_DIR}}/{{profile.avatar}}" alt="avatar">
+			{{username}}
+		</div>
 	</div>
 </template>
