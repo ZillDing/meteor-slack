@@ -26,6 +26,12 @@ Template.input.events
 	'click i.send.icon': (event, template) ->
 		template.$('form.form').submit()
 
+	'focus textarea': (event) ->
+		__keyListener.stop_listening() if Meteor.Device.isDesktop()
+
+	'blur textarea': (event) ->
+		__keyListener.listen() if Meteor.Device.isDesktop()
+
 
 Template.input.helpers
 	settings: ->
@@ -57,11 +63,12 @@ Template.input.onRendered ->
 		@$('i.send.icon').popup()
 
 	$textarea = @$ 'textarea'
-	# create key listener to listen to enter key
-	@keyListener = new window.keypress.Listener $textarea[0]
-	@keyListener.simple_combo 'meta enter', =>
-		@$('form.form').submit()
 
+	if Meteor.Device.isDesktop()
+		# create key listener to listen to enter key
+		@keyListener = new window.keypress.Listener $textarea[0]
+		@keyListener.simple_combo 'meta enter', =>
+			@$('form.form').submit()
 	# set up textarea
 	$textarea.autosize()
 	@autorun ->
