@@ -2,11 +2,16 @@
 	{{#if currentUser}}
 	<form class="ui form">
 		<div class="ui icon input">
-			<textarea rows="1" placeholder="Enter your message..."
-				style="padding-right: 2.7em"></textarea>
+			{{> textareaAutocomplete settings=settings rows="1" placeholder="Enter your message..." style="padding-right: 2.7em"}}
 			<i class="inverted circular send link icon" data-content="Send"
 				data-variation="inverted" data-position="top right" data-offset="5"></i>
 		</div>
 	</form>
 	{{/if}}
+</template>
+<!-- ####################################################################### -->
+<template name="input_user">
+	<div>
+		{{username}}
+	</div>
 </template>
