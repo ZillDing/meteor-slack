@@ -15,4 +15,4 @@ Template.layout.onRendered ->
 
 Template.layout.onDestroyed ->
 	$(window).off 'resize'
-	__keyListener.destroy()
+	__keyListener.destroy() if Meteor.Device.isDesktop()
