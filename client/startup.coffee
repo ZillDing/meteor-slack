@@ -4,7 +4,7 @@ Meteor.startup ->
 		effect: 'scale'
 		position: 'bottom-right'
 		html: true
-		offset: 50
+		offset: 55
 
 	Meteor.users.find
 		'status.online': true
