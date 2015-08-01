@@ -65,17 +65,20 @@ Channels.after.insert (userId, channel) ->
 
 
 ChannelMessages.after.insert (userId, message) ->
-	# update all users chat data
+	# update only mentioned users' chat data
 	# increment the unread count of the channel by 1
-	UserData.update
-		channel:
-			$elemMatch:
-				id: message.channelId
-	,
-		$inc:
-			'channel.$.unread': 1
-	,
-		multi: true
+	_.each message.mention.user, (userId) ->
+		if _isValidUserMention userId, message.text
+			UserData.update
+				_id: Meteor.users.findOne(userId).dataId
+				channel:
+					$elemMatch:
+						id: message.channelId
+			,
+				$inc:
+					'channel.$.unread': 1
+			,
+				multi: true
 
 
 DirectMessages.after.insert (userId, message) ->
