@@ -6,5 +6,7 @@ if Meteor.Device.isDesktop()
 		Router.go '/profile'
 	keyListener.simple_combo 'shift c', ->
 		Router.go '/config'
+	keyListener.simple_combo 'shift h', ->
+		Router.go '/help'
 
 	@__keyListener = keyListener

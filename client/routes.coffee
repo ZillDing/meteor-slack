@@ -57,6 +57,13 @@ Router.route '/direct/:_username',
 					target: username
 
 
+Router.route '/help',
+	waitOn: getSubs
+	action: ->
+		Session.set 'showUtility', false
+		@render 'help'
+
+
 Router.route '/profile',
 	waitOn: getSubs
 	action: ->
