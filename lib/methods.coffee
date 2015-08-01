@@ -66,11 +66,15 @@ Meteor.methods
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 			text: String
+			mention:
+				channel: [String]
+				user: [String]
 		targetId = _getTargetId message, error
 
 		# add the new message into corresponding db collection
 		newMessage =
 			createdAt: new Date()
+			mention: message.mention
 			ownerId: Meteor.userId()
 			text: message.text
 

@@ -3,10 +3,18 @@ Template.input.events
 		isValid = (text) ->
 			# make sure the text is not empty
 			not _.isEmpty text.trim().replace '\n', ''
+		getValidMention = (text) ->
+			aC = _.filter template.mention.channel, (channelId) ->
+				_isValidChannelMention channelId, text
+			aU = _.filter template.mention.user, (userId) ->
+				_isValidUserMention userId, text
+			# return the mention object
+			channel: aC
+			user: aU
 
 		$input = template.$ 'textarea'
 
-		text = $input.val()
+		text = $input.val().trim()
 		type = Session.get 'chatType'
 		target = Session.get 'chatTarget'
 		if isValid(text) and type and target
@@ -14,17 +22,29 @@ Template.input.events
 				type: type
 				target: target
 				text: text
+				mention: getValidMention(text)
 			Meteor.call 'addMessage', message, (error, result) ->
 				if error
 					sAlertError error
 				else
 					# clear the form
 					$input.val('').trigger 'autosize.resize'
+					# clear mention
+					template.mention =
+						channel: []
+						user: []
 		# prevent default form submit
 		false
 
 	'click i.send.icon': (event, template) ->
 		template.$('form.form').submit()
+
+	'autocompleteselect textarea': (event, template, doc) ->
+		mention = template.mention
+		if doc.username
+			mention.user.push doc._id if not _.contains mention.user, doc._id
+		else
+			mention.channel.push doc._id if not _.contains mention.channel, doc._id
 
 	'focus textarea': (event) ->
 		__keyListener.stop_listening() if Meteor.Device.isDesktop()
@@ -68,6 +88,12 @@ Template.input.helpers
 		position: 'top'
 		limit: 5
 		rules: rules
+
+
+Template.input.onCreated ->
+	@mention =
+		channel: []
+		user: []
 
 
 Template.input.onRendered ->
