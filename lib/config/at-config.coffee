@@ -6,10 +6,12 @@ AccountsTemplates.removeField 'password'
 AccountsTemplates.addFields [
 	_id: 'username'
 	type: 'text'
+	required: true
 	displayName:
 		signUp: 'Username (please use lower case letters)'
-	required: true
 	minLength: 3
+	re: /^\w+$/
+	errStr: 'Invalid username. Alphanumeric character (including "_") only.'
 	trim: true
 	lowercase: true
 ,

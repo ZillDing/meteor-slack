@@ -117,8 +117,11 @@ Meteor.methods
 
 		_checkLoggedIn error
 		check channel, String
-		channel = channel.toLowerCase()
-		if Channels.find(name: channel).count() > 0
+		channel = channel.toLowerCase().trim()
+		if /\W/.test channel
+			throw new Meteor.Error error, "Invalid channel name: #{channel}. Alphanumeric character (including _) only."
+		# prevent channel duplication
+		if Channels.findOne(name: channel)
 			throw new Meteor.Error error, "Duplicate channel name: #{channel}"
 
 		Channels.insert

@@ -49,8 +49,13 @@ Template.menu_addNewChannelItem.events
 		isAddingANewChannel.set false
 
 	'submit form.form': ->
-		return false if not name = Template.instance().$('input').val()
+		return false if not name = Template.instance().$('input').val().trim()
 		# validate the name
+		if /\W/.test name
+			sAlert.error
+				sAlertTitle: 'Add channel failed!'
+				message: "Invalid channel name: #{name}. Alphanumeric character (including _) only."
+			return false
 		if Channels.findOne(name: name)
 			# this channel alr exists
 			sAlert.error
