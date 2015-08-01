@@ -3,10 +3,9 @@ High priority:
    https://atmospherejs.com/mizzao/autocomplete
  ☐ notification for new channel and new message
  ☐ notification sound
- ☐ add keyboard hooks
- ✔ fix the input textarea enter key handling @critical @done (15-07-31 16:02)
 
  ☐ file support, simple uploading
+ ☐ add keyboard shortcut to go to certain chat
  ☐ add tips/helps
  ☐ view files (allow download)
  ☐ if there are too many items in the sidebar menu, hide some of them
@@ -27,6 +26,10 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ add keyboard hooks @done (15-07-31 22:49) @project(High priority)
+ ✔ fix the input textarea enter key handling @critical @done (15-07-31 16:02) @project(High priority)
+ ✔ adjust utility side bar style (add margin) @high @done (15-08-01 13:52) @project(High priority)
+ ✔ adjust layout (consider modify iron router) @done (15-08-01 01:32) @project(High priority)
  ✔ fix firefox textarea does not allow rows to be 1 @critical @done (15-07-31 14:54) @project(High priority)
  ✔ fix quiting channel @done (15-07-31 14:02) @project(High priority)
  ✔ replace input with textarea to allow multi-line message @high @done (15-07-30 20:52) @project(High priority)
