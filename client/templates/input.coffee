@@ -36,7 +36,20 @@ Template.input.events
 Template.input.helpers
 	settings: ->
 		rules = []
-		# only initiate autocomplete in channel chat
+		# allow mention channel in any chat
+		# only allow mention channels that current user is in
+		channelIdArray = _.map Meteor.user()?.data()?.channel, (o) ->
+			o.id
+		rules.push
+			token: '#'
+			collection: Channels
+			field: 'name'
+			filter:
+				_id:
+					$in: channelIdArray
+			template: Template.input_channel
+
+		# allow mention user in channel chat
 		if Session.equals 'chatType', 'channel'
 			# only allow mentioning users in current channel
 			array = Channels.findOne(name: Session.get 'chatTarget')?.usersId
