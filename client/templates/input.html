@@ -1,5 +1,4 @@
 <template name="input">
-	{{#if currentUser}}
 	<form class="ui form">
 		<div class="ui icon input">
 			{{> textareaAutocomplete settings=settings rows="1" placeholder="Enter your message..."
@@ -8,7 +7,6 @@
 				data-variation="inverted" data-position="top right" data-offset="5"></i>
 		</div>
 	</form>
-	{{/if}}
 </template>
 <!-- ####################################################################### -->
 <template name="input_user">
