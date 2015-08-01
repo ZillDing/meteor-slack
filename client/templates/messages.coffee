@@ -102,3 +102,27 @@ Template.messages.onDestroyed ->
 		__keyListener.unregister_combo 'shift u'
 		__keyListener.unregister_combo 'shift f'
 		__keyListener.unregister_combo 'shift d'
+
+
+################################################################################
+# _item
+################################################################################
+Template.messages_item.helpers
+	message_html: ->
+		message = Template.currentData()
+		result = message.text
+		# replace mentioned user
+		result = result.replace /@(\w+)(\s|$)/g, (match, p1, p2) ->
+			if _.contains message.mention?.user, Meteor.users.findOne(username: p1)?._id
+				# this is a valid username
+				"<a href=\"/direct/#{p1}\">@#{p1}</a>#{p2}"
+			else
+				match
+		# replace mentioned channel
+		result = result.replace /#(\w+)(\s|$)/g, (match, p1, p2) ->
+			if _.contains message.mention?.channel, Channels.findOne(name: p1)?._id
+				# this is a valid username
+				"<a href=\"/channel/#{p1}\">##{p1}</a>#{p2}"
+			else
+				match
+		result
