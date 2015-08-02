@@ -113,21 +113,11 @@ Some keys __only__ work when the input box is __focus__.
 		<div class="ui green segment">
 			<h3>About the developer</h3>
 			<hr>
-			<a href="https://www.google.com/+ZeyuDing" class="ui google plus button">
-				<i class="google plus icon"></i> +ZeyuDing
+			{{#each socialData}}
+			<a href="{{url}}" target="_blank" class="ui {{class}} button" style="margin-bottom: 0.5em">
+				<i class="{{class}} icon"></i> {{label}}
 			</a>
-			<a href="https://twitter.com/ZillDing" class="ui twitter button">
-				<i class="twitter icon"></i> @ZillDing
-			</a>
-			<a href="https://www.facebook.com/zeyu.ding.1" class="ui facebook button">
-				<i class="facebook icon"></i> Zeyu Ding
-			</a>
-			<a href="https://github.com/ZillDing" class="ui button">
-				<i class="github icon"></i> ZillDing
-			</a>
-			<a href="https://www.linkedin.com/in/zeyuding" class="ui linkedin button">
-				<i class="linkedin icon"></i> Zeyu Ding
-			</a>
+			{{/each}}
 		</div>
 	</div>
 </template>

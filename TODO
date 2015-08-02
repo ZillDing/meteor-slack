@@ -1,7 +1,6 @@
 High priority:
  ☐ notification for new channel and new message
  ☐ notification sound
- ☐ adjust social buttons layout in help page
  ☐ add keyboard short cut for hotkeys cheat sheet
 
  ☐ file support, simple uploading
@@ -25,6 +24,7 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ adjust social buttons layout in help page @done (15-08-02 13:05) @project(High priority)
  ✔ add tips/helps (about) can use markdown @done (15-08-02 12:00) @project(High priority)
  ✔ validate user account name and channel name @critical @done (15-08-01 20:14) @project(High priority)
  ✔ render mentioned user/channel differently (use link) @high @done (15-08-01 20:13) @project(High priority)
