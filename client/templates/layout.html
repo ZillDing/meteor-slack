@@ -47,11 +47,13 @@
 	{{!-- show connection status when there is something wrong --}}
 	{{> connection}}
 	{{!-- modal --}}
+	{{#if currentUser}}
 	{{!-- this is for channel creation confirmation --}}
 	{{!-- cannot put into menu template becuase it will be created twice --}}
 	{{> menu_modal}}
 	{{!-- hotkeys help modal --}}
 	{{> help_modal}}
+	{{/if}}
 	{{!-- notifications --}}
 	{{> sAlert template="sAlertCustom"}}
 </template>
