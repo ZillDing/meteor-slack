@@ -29,8 +29,9 @@ Template.help.helpers
 # _modal
 ################################################################################
 Template.help_modal.onRendered ->
-	@$('.modal.help-modal').modal
-		onShow: ->
-			__keyListener.stop_listening()
-		onHidden: ->
-			__keyListener.listen()
+	if Meteor.Device.isDesktop()
+		@$('.modal.help-modal').modal
+			onShow: ->
+				__keyListener.stop_listening()
+			onHidden: ->
+				__keyListener.listen()
