@@ -1,4 +1,5 @@
 High priority:
+ ☐ fix modal close icon cannot render properly in safari bug @critical
  ☐ add keyboard shortcut to go to certain chat @high
  ☐ notification for new channel and new message
  ☐ notification sound
