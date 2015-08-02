@@ -135,3 +135,11 @@
 	position: static
 	float: right
 	color: rgb(150, 150, 150)
+
+////////////////////////////////////////////////////////////////////////////////
+// fix semantic ui scrolling modal bug
+body
+	height: 100%!important
+	.ui.dimmer.modals.visible.active
+		overflow-x: hidden
+		overflow-y: auto
