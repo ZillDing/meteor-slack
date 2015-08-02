@@ -50,65 +50,7 @@ Some keys __only__ work when the input box is __blur__.
 
 Some keys __only__ work when the input box is __focus__.
 {{/markdown}}
-			<h4>When input box is blur</h4>
-			<table class="ui unstackable celled table">
-				<thead>
-					<tr>
-						<th>Key Mapping</th>
-						<th>Function</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>shift + p</td>
-						<td>Go to profile page</td>
-					</tr>
-					<tr>
-						<td>shift + c</td>
-						<td>Go to configure chats page</td>
-					</tr>
-					<tr>
-						<td>shift + h</td>
-						<td>Go to help page</td>
-					</tr>
-					<tr>
-						<td>shift + f</td>
-						<td>Favourite current chat (only in chat)</td>
-					</tr>
-					<tr>
-						<td>shift + u</td>
-						<td>Toggle utility side bar (only in chat)</td>
-					</tr>
-					<tr>
-						<td>shift + d</td>
-						<td>Delete current chat (only in chat)</td>
-					</tr>
-					<tr>
-						<td>shift + i</td>
-						<td>Focus on input textarea (only in chat)</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<h4>When input box is focus</h4>
-			<table class="ui unstackable celled table">
-				<thead>
-					<tr>
-						<th>Key Mapping</th>
-						<th>Function</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>esc</td>
-						<td>Make input textarea blur</td>
-					</tr>
-					<tr>
-						<td>meta + enter</td>
-						<td>Send message</td>
-					</tr>
-				</tbody>
-			</table>
+			{{> help_hotkeys}}
 		</div>
 		<div class="ui green segment">
 			<h3>About the developer</h3>
@@ -118,6 +60,82 @@ Some keys __only__ work when the input box is __focus__.
 				<i class="{{class}} icon"></i> {{label}}
 			</a>
 			{{/each}}
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="help_hotkeys">
+	<h4>When input box is blur</h4>
+	<table class="ui unstackable celled table">
+		<thead>
+			<tr>
+				<th>Key Mapping</th>
+				<th>Function</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>?</td>
+				<td>Open hotkeys cheat sheet modal (esc to close)</td>
+			</tr>
+			<tr>
+				<td>shift + p</td>
+				<td>Go to profile page</td>
+			</tr>
+			<tr>
+				<td>shift + c</td>
+				<td>Go to configure chats page</td>
+			</tr>
+			<tr>
+				<td>shift + h</td>
+				<td>Go to help page</td>
+			</tr>
+			<tr>
+				<td>shift + f</td>
+				<td>Favourite current chat (only in chat)</td>
+			</tr>
+			<tr>
+				<td>shift + u</td>
+				<td>Toggle utility side bar (only in chat)</td>
+			</tr>
+			<tr>
+				<td>shift + d</td>
+				<td>Delete current chat (only in chat)</td>
+			</tr>
+			<tr>
+				<td>shift + i</td>
+				<td>Focus on input textarea (only in chat)</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h4>When input box is focus</h4>
+	<table class="ui unstackable celled table">
+		<thead>
+			<tr>
+				<th>Key Mapping</th>
+				<th>Function</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>esc</td>
+				<td>Make input textarea blur</td>
+			</tr>
+			<tr>
+				<td>meta + enter</td>
+				<td>Send message</td>
+			</tr>
+		</tbody>
+	</table>
+</template>
+<!-- ####################################################################### -->
+<template name="help_modal">
+	<div class="ui modal help-modal">
+		<i class="close icon"></i>
+		<div class="header">Hotkeys Help</div>
+		<div class="content">
+			{{> help_hotkeys}}
 		</div>
 	</div>
 </template>

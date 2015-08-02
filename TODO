@@ -1,7 +1,7 @@
 High priority:
  ☐ notification for new channel and new message
  ☐ notification sound
- ☐ add keyboard short cut for hotkeys cheat sheet
+ ✔ add keyboard short cut for hotkeys cheat sheet @done (15-08-02 13:53)
 
  ☐ file support, simple uploading
  ☐ add keyboard shortcut to go to certain chat
@@ -11,7 +11,6 @@ High priority:
    https://atmospherejs.com/alethes/pages
 
 Low priority:
- ☐ add help popup to show hotkeys
  ☐ add about page for additional info (annoucement)
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ comment on uploaded file

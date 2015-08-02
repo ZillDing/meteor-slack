@@ -24,3 +24,13 @@ Template.help.helpers
 			label: 'Zeyu Ding'
 		]
 
+
+################################################################################
+# _modal
+################################################################################
+Template.help_modal.onRendered ->
+	@$('.modal.help-modal').modal
+		onShow: ->
+			__keyListener.stop_listening()
+		onHidden: ->
+			__keyListener.listen()
