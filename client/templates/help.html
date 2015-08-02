@@ -3,17 +3,131 @@
 		<div class="ui segment">
 {{#markdown}}
 ### About
+***
+This is a clone of __[slack](https://slack.com/)__ with partial functionalities which is meant to make team communication easier.
+
+This app is completely written using __[Meteor](https://www.meteor.com/)__ JavaScript app platform.
+{{/markdown}}
+		</div>
+		<div class="ui blue segment">
+{{#markdown}}
+### How to use
+***
+If you haven't signed up yet, you can only see channel chats and those users who have signed up. You cannot send any messages.
+
+Once you have signed up by creating an account, you successfully join the team.
+
+#### After sign up
+You can change your profile __avatar__ and __status__ in the _[profile](/profile)_ page.
+
+You can create a channel with a unique name (_alphanumeric_ character including _underscore_ only).
+
+You can initiate a private chat with any user currently in the team.
+
+You can quit a channel or delete a private chat. However, the chat messages will still be in the system. You can configure your chat data in the _[config](/config)_ page.
+
+You can favourite any chat session which will appear in a seperate section in the menu sidebar.
+
+#### Sending messages
+You can send two types of messages:
+
+* __channel__ message: which can be seen by all users in this channel
+* __direct__ message: which can only be seen by the sender and receiver
+
+The input box is a _textarea_ which supports __multi-line__ message. Simply press `enter` to insert a new line feed in the message.
+
 {{/markdown}}
 		</div>
 		<div class="ui orange segment">
 {{#markdown}}
 ### Hotkeys
+***
+The app support some keyboard shortcuts to simplify page navigation.
+
+Some keys __only__ work in the chatting page, marked by _(only in chat)_.
+
+Some keys __only__ work when the input box is __blur__.
+
+Some keys __only__ work when the input box is __focus__.
 {{/markdown}}
+			<h4>When input box is blur</h4>
+			<table class="ui unstackable celled table">
+				<thead>
+					<tr>
+						<th>Key Mapping</th>
+						<th>Function</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>shift + p</td>
+						<td>Go to profile page</td>
+					</tr>
+					<tr>
+						<td>shift + c</td>
+						<td>Go to configure chats page</td>
+					</tr>
+					<tr>
+						<td>shift + h</td>
+						<td>Go to help page</td>
+					</tr>
+					<tr>
+						<td>shift + f</td>
+						<td>Favourite current chat (only in chat)</td>
+					</tr>
+					<tr>
+						<td>shift + u</td>
+						<td>Toggle utility side bar (only in chat)</td>
+					</tr>
+					<tr>
+						<td>shift + d</td>
+						<td>Delete current chat (only in chat)</td>
+					</tr>
+					<tr>
+						<td>shift + i</td>
+						<td>Focus on input textarea (only in chat)</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h4>When input box is focus</h4>
+			<table class="ui unstackable celled table">
+				<thead>
+					<tr>
+						<th>Key Mapping</th>
+						<th>Function</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>esc</td>
+						<td>Make input textarea blur</td>
+					</tr>
+					<tr>
+						<td>meta + enter</td>
+						<td>Send message</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="ui green segment">
-{{#markdown}}
-### About the Developer
-{{/markdown}}
+			<h3>About the developer</h3>
+			<hr>
+			<a href="https://www.google.com/+ZeyuDing" class="ui google plus button">
+				<i class="google plus icon"></i> +ZeyuDing
+			</a>
+			<a href="https://twitter.com/ZillDing" class="ui twitter button">
+				<i class="twitter icon"></i> @ZillDing
+			</a>
+			<a href="https://www.facebook.com/zeyu.ding.1" class="ui facebook button">
+				<i class="facebook icon"></i> Zeyu Ding
+			</a>
+			<a href="https://github.com/ZillDing" class="ui button">
+				<i class="github icon"></i> ZillDing
+			</a>
+			<a href="https://www.linkedin.com/in/zeyuding" class="ui linkedin button">
+				<i class="linkedin icon"></i> Zeyu Ding
+			</a>
 		</div>
 	</div>
 </template>
