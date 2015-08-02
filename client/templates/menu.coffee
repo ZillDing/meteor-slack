@@ -48,6 +48,16 @@ Template.menu_addNewChannelItem.events
 	'click i.cancel': ->
 		isAddingANewChannel.set false
 
+	'click i.checkmark': (event, template) ->
+		template.$('form.form').submit()
+
+	'keyup input': (event, template) ->
+		text = $(event.currentTarget).val()
+		if text
+			template.$('i.checkmark').show()
+		else
+			template.$('i.checkmark').hide()
+
 	'submit form.form': ->
 		return false if not name = Template.instance().$('input').val().trim()
 		# validate the name
@@ -102,6 +112,9 @@ Template.menu_addNewDirectChatItem.events
 				pattern = new RegExp text.split('').join('.*'), 'i'
 				template.searchPattern.set pattern
 			, 300
+
+	'submit form.form': ->
+		false
 
 Template.menu_addNewDirectChatItem.helpers
 	users: ->
