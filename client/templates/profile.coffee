@@ -19,11 +19,11 @@ Template.profile_currentUser_edit.events
 	'click .cancel-btn': ->
 		isEdittingProfile.set false
 
-	'submit form.form': ->
-		$form = Template.instance().$ 'form.form'
+	'submit form.form': (event, template) ->
+		$form = template.$ 'form.form'
 		$form.form 'validate form'
 		if $form.form 'is valid'
-			profile = Template.instance().$('form.form').form 'get values'
+			profile = $form.form 'get values'
 			Meteor.call 'updateUserProfile', profile, (error, result) ->
 				if error
 					_sAlertError error

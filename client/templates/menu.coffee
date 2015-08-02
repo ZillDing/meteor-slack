@@ -58,8 +58,8 @@ Template.menu_addNewChannelItem.events
 		else
 			template.$('i.checkmark').hide()
 
-	'submit form.form': ->
-		return false if not name = Template.instance().$('input').val().trim()
+	'submit form.form': (event, template) ->
+		return false if not name = template.$('input').val().trim()
 		# validate the name
 		if /\W/.test name
 			sAlert.error
