@@ -52,7 +52,9 @@
 	{{!-- cannot put into menu template becuase it will be created twice --}}
 	{{> menu_modal}}
 	{{!-- cheat sheet modal --}}
+	{{#if isDesktop}}
 	{{> cheatsheet}}
+	{{/if}}
 	{{/if}}
 	{{!-- notifications --}}
 	{{> sAlert template="sAlertCustom"}}

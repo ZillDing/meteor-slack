@@ -1,6 +1,7 @@
 High priority:
  ✔ fix modal close icon cannot render properly in safari bug @critical @done (15-08-02 16:49)
  ☐ add keyboard shortcut to go to certain chat @high
+ ☐ how to submit form (create channel) on mobile device @critical
  ☐ notification for new channel and new message
  ☐ notification sound
 
