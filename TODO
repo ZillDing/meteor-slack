@@ -1,17 +1,15 @@
 High priority:
+ ☐ add keyboard shortcut to go to certain chat @high
  ☐ notification for new channel and new message
  ☐ notification sound
- ✔ add keyboard short cut for hotkeys cheat sheet @done (15-08-02 13:53)
 
  ☐ file support, simple uploading
- ☐ add keyboard shortcut to go to certain chat
  ☐ view files (allow download)
- ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
 
 Low priority:
- ☐ add about page for additional info (annoucement)
+ ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ comment on uploaded file
  ☐ support for searching messages
@@ -23,6 +21,9 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ fix menu modal layout bug @critical @done (15-08-02 15:14) @project(High priority)
+ ✘ add about page for additional info (annoucement) @cancelled (15-08-02 13:58) @project(Low priority)
+ ✔ add keyboard short cut for hotkeys cheat sheet @done (15-08-02 13:53) @project(High priority)
  ✔ adjust social buttons layout in help page @done (15-08-02 13:05) @project(High priority)
  ✔ add tips/helps (about) can use markdown @done (15-08-02 12:00) @project(High priority)
  ✔ validate user account name and channel name @critical @done (15-08-01 20:14) @project(High priority)
