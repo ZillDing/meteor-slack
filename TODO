@@ -1,7 +1,5 @@
 High priority:
- ✔ fix modal close icon cannot render properly in safari bug @critical @done (15-08-02 16:49)
  ☐ add keyboard shortcut to go to certain chat @high
- ☐ how to submit form (create channel) on mobile device @critical
  ☐ notification for new channel and new message
  ☐ notification sound
 
@@ -23,6 +21,8 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ how to submit form (create channel) on mobile device @critical @done (15-08-02 19:16) @project(High priority)
+ ✔ fix modal close icon cannot render properly in safari bug @critical @done (15-08-02 16:49) @project(High priority)
  ✔ fix menu modal layout bug @critical @done (15-08-02 15:14) @project(High priority)
  ✘ add about page for additional info (annoucement) @cancelled (15-08-02 13:58) @project(Low priority)
  ✔ add keyboard short cut for hotkeys cheat sheet @done (15-08-02 13:53) @project(High priority)
