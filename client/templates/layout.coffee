@@ -1,3 +1,11 @@
+Template.layout.events
+	'focus input, focus textarea': (event) ->
+		__keyListener.stop_listening() if Meteor.Device.isDesktop()
+
+	'blur input, blur textarea': (event) ->
+		__keyListener.listen() if Meteor.Device.isDesktop()
+
+
 Template.layout.onRendered ->
 	# hide sidebar when window resizes
 	$(window).on 'resize', =>
@@ -12,6 +20,7 @@ Template.layout.onRendered ->
 				__keyListener.listen()
 			else
 				__keyListener.stop_listening()
+
 
 Template.layout.onDestroyed ->
 	$(window).off 'resize'

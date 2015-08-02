@@ -46,12 +46,6 @@ Template.input.events
 		else
 			mention.channel.push doc._id if not _.contains mention.channel, doc._id
 
-	'focus textarea': (event) ->
-		__keyListener.stop_listening() if Meteor.Device.isDesktop()
-
-	'blur textarea': (event) ->
-		__keyListener.listen() if Meteor.Device.isDesktop()
-
 
 Template.input.helpers
 	settings: ->
