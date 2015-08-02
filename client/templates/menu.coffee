@@ -64,15 +64,7 @@ Template.menu_addNewChannelItem.events
 			return false
 
 		$ '.ui.modal.menu-modal'
-		.modal
-			closable: false
-			onApprove: ->
-				Meteor.call 'createChannel', name, (error, result) ->
-					if error
-						_sAlertError error
-					else
-						isAddingANewChannel.set false
-						Router.go "/channel/#{name}"
+		.data 'newChannelName', name
 		.modal 'show'
 		# prevent default form submit
 		false
@@ -126,3 +118,19 @@ Template.menu_addNewDirectChatItem.onCreated ->
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()
+
+
+################################################################################
+# _modal
+################################################################################
+Template.menu_modal.onRendered ->
+	@$('.modal.menu-modal').modal
+		closable: false
+		onApprove: ->
+			name = $(@).data 'newChannelName'
+			Meteor.call 'createChannel', name, (error, result) ->
+				if error
+					_sAlertError error
+				else
+					isAddingANewChannel.set false
+					Router.go "/channel/#{name}"

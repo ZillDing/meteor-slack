@@ -61,7 +61,6 @@ Template.title.onRendered ->
 Template.title_modal.onRendered ->
 	@$('.ui.modal').modal
 		closable: false
-		detachable: false
 		onApprove: ->
 			# hide modal first in order to let the notification work
 			$(@).modal 'hide'
