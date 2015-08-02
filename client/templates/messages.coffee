@@ -16,30 +16,31 @@ Template.messages.onCreated ->
 			Meteor.call 'clearUnread', data, (error, result) ->
 				_sAlertError error if error
 
-	channelNameArray = Channels.find().map (channel) ->
-		channel.name
-	usernameArray = Meteor.users.find().map (user) ->
-		user.username
 	isValid = (data) ->
-		if not _.contains ['channel', 'direct'], data.type
-			sAlert.error
-				sAlertTitle: 'Error'
-				message: "Invalid chat type: #{data.type}"
-			return false
-		switch data.type
-			when 'channel'
-				if not _.contains channelNameArray, data.target
-					_sAlertError
-						error: 'No such channel'
-						message: "Could not find channel with name: #{data.target}"
-					return false
-			when 'direct'
-				if not _.contains usernameArray, data.target
-					_sAlertError
-						error: 'No such user'
-						message: "Could not find user with username: #{data.target}"
-					return false
-		true
+		Tracker.nonreactive ->
+			if not _.contains ['channel', 'direct'], data.type
+				sAlert.error
+					sAlertTitle: 'Error'
+					message: "Invalid chat type: #{data.type}"
+				return false
+			switch data.type
+				when 'channel'
+					a = Channels.find().map (channel) ->
+						channel.name
+					if not _.contains a, data.target
+						_sAlertError
+							error: 'No such channel'
+							message: "Could not find channel with name: #{data.target}"
+						return false
+				when 'direct'
+					a = Meteor.users.find().map (user) ->
+						user.username
+					if not _.contains a, data.target
+						_sAlertError
+							error: 'No such user'
+							message: "Could not find user with username: #{data.target}"
+						return false
+			true
 
 	@autorun =>
 		data = Template.currentData()
