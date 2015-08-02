@@ -117,3 +117,19 @@ Activities.helpers
 		Channels.findOne @channelId
 	owner: ->
 		Meteor.users.findOne @ownerId
+
+
+################################################################################
+# EasySearch
+################################################################################
+EasySearch.createSearchIndex 'users',
+	field: 'username'
+	collection: Meteor.users
+	query: (searchString, opts) ->
+		# default query
+		query = EasySearch.getSearcher(@use).defaultQuery @, searchString
+		# filter current user
+		query.$and = [_id: $ne: Meteor.userId()]
+		query
+	sort: ->
+		username: 1

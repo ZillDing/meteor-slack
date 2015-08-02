@@ -1,5 +1,5 @@
 <template name="menu">
-	<div class="flex-container flex-column-container sidebar-menu">
+	<div class="sidebar-menu">
 		{{!-- favourite --}}
 		{{#if currentUser}}
 		{{#if $gt favouriteCount 0}}
@@ -120,17 +120,33 @@
 			<form class="ui form">
 				<div class="ui transparent inverted icon input">
 					<span>@</span>
-					<input type="text" placeholder="Choose a buddy...">
+					{{> esInput index="users" placeholder="Choose a buddy..."}}
 					<i class="cancel link icon"></i>
 				</div>
 			</form>
 		</div>
 	</div>
-	<div class="ui tiny inverted middle aligned divided list flex-stretch-item"
-		style="min-height: 10em; background-color: rgba(255, 255, 255, 0.2)">
+	<div class="ui tiny inverted middle aligned divided list"
+		style="background-color: rgba(255, 255, 255, 0.2); position: relative">
+		{{!-- show all users when search input is empty --}}
+		{{#ifEsInputIsEmpty index="users"}}
 		{{#each users}}
 		{{> menu_addNewDirectChatItem_userItem}}
 		{{/each}}
+		{{/ifEsInputIsEmpty}}
+		{{!-- render search results --}}
+		{{#esEach index="users"}}
+		{{> menu_addNewDirectChatItem_userItem}}
+		{{/esEach}}
+		{{#ifEsHasNoResults index="users"}}
+		<div class="item sidebar-menu-item" style="padding-left: 2rem">No results found!</div>
+		{{/ifEsHasNoResults}}
+		{{!-- show a loader when searching --}}
+		{{#ifEsIsSearching index="users"}}
+		<div class="ui active dimmer">
+			<div class="ui loader"></div>
+		</div>
+		{{/ifEsIsSearching}}
 	</div>
 </template>
 <!-- ####################################################################### -->

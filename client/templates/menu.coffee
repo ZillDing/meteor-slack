@@ -101,18 +101,6 @@ Template.menu_addNewDirectChatItem.events
 	'click i.cancel': ->
 		isAddingANewDirectChat.set false
 
-	'keyup input': (event, template) ->
-		text = event.currentTarget.value.toLowerCase()
-		# only search when the input value changes
-		if text isnt template.prevSearchValue
-			handle = template.prevTimeoutHandle
-			Meteor.clearTimeout handle if handle
-			template.prevSearchValue = text
-			template.prevTimeoutHandle = Meteor.setTimeout ->
-				pattern = new RegExp text.split('').join('.*'), 'i'
-				template.searchPattern.set pattern
-			, 300
-
 	'submit form.form': ->
 		false
 
@@ -121,13 +109,9 @@ Template.menu_addNewDirectChatItem.helpers
 		Meteor.users.find
 			_id:
 				$ne: Meteor.userId()
-			username: Template.instance().searchPattern.get()
 		,
 			sort:
 				username: 1
-
-Template.menu_addNewDirectChatItem.onCreated ->
-	@searchPattern = new ReactiveVar /.*/i
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()
