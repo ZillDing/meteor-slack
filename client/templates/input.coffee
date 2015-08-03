@@ -97,15 +97,6 @@ Template.input.onRendered ->
 	$textarea = @$ 'textarea'
 
 	if Meteor.Device.isDesktop()
-		# create key listener to listen to enter key
-		@keyListener = new window.keypress.Listener $textarea[0]
-		# press meta + enter to submit the form
-		@keyListener.simple_combo 'meta enter', =>
-			@$('form.form').submit()
-		# press esc to blur the input
-		@keyListener.simple_combo 'esc', ->
-			$textarea.blur()
-
 		# add key listener to focus on textarea
 		__keyListener.simple_combo 'shift i', ->
 			$textarea.focus()
@@ -119,5 +110,4 @@ Template.input.onRendered ->
 
 Template.input.onDestroyed ->
 	if Meteor.Device.isDesktop()
-		@keyListener.destroy()
 		__keyListener.unregister_combo 'shift i'

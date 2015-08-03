@@ -11,4 +11,16 @@ if Meteor.Device.isDesktop()
 	keyListener.simple_combo '?', ->
 		$('.ui.modal.cheatsheet-modal').modal 'show'
 
+
+	# global key events listener for input/textarea
+	inputKeyListener = new window.keypress.Listener document
+
+	inputKeyListener.simple_combo 'esc', ->
+		$(':focus').blur()
+	inputKeyListener.simple_combo 'meta enter', ->
+		$(':focus').closest('form').submit()
+
+
+	# export global variables
 	@__keyListener = keyListener
+	@__inputKeyListener = inputKeyListener

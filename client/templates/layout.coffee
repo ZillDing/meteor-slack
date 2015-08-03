@@ -1,9 +1,13 @@
 Template.layout.events
 	'focus input, focus textarea': (event) ->
-		__keyListener.stop_listening() if Meteor.Device.isDesktop()
+		if Meteor.Device.isDesktop()
+			__keyListener.stop_listening()
+			__inputKeyListener.listen()
 
 	'blur input, blur textarea': (event) ->
-		__keyListener.listen() if Meteor.Device.isDesktop()
+		if Meteor.Device.isDesktop()
+			__inputKeyListener.stop_listening()
+			__keyListener.listen()
 
 
 Template.layout.onRendered ->
