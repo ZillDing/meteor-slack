@@ -82,10 +82,10 @@ Template.messages.onRendered ->
 		__keyListener.simple_combo 'shift u', ->
 			Session.set 'showUtility', not Session.get 'showUtility'
 		# toggle favourite chat
-		data =
-			type: Session.get 'chatType'
-			target: Session.get 'chatTarget'
 		__keyListener.simple_combo 'shift f', ->
+			data =
+				type: Session.get 'chatType'
+				target: Session.get 'chatTarget'
 			Meteor.call 'toggleFavourite', data, (error, result) ->
 				_sAlertError error if error
 		# delete current chat
