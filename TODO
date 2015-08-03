@@ -1,5 +1,5 @@
 High priority:
- ✔ fix the utitlity side bar overflow bug @done (15-08-03 20:06)
+ ☐ consider use a collection (self destructive) for notification (to work with observeChanges) @critical
  ☐ notification for new channel and new message
  ☐ notification sound
 
@@ -21,6 +21,7 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ fix the utitlity side bar overflow bug @done (15-08-03 20:06) @project(High priority)
  ✔ add keyboard shortcut to go to certain chat @high @done (15-08-03 16:00) @project(High priority)
  ✔ adjust search result style (add active on first search item) @done (15-08-03 16:00) @project(High priority)
  ✔ how to submit form (create channel) on mobile device @critical @done (15-08-02 19:16) @project(High priority)
