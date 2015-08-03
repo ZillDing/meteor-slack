@@ -35,7 +35,8 @@
 				{{!-- utility side bar --}}
 				{{#if $.Session.get 'showUtility'}}
 				<div class="col-sm-4 col-xs-12" style="padding: 0">
-					<div class="ui purple basic segment" style="padding-bottom: 0">
+					<div class="ui purple basic segment flex-container flex-column-container"
+						style="padding-bottom: 0; position: absolute; height: 100%; width: 100%">
 						{{> utility}}
 					</div>
 				</div>
