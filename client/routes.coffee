@@ -2,7 +2,6 @@
 # config
 ################################################################################
 Router.configure
-	layoutTemplate: 'layout'
 	notFoundTemplate: 'notfound'
 
 Router.plugin 'ensureSignedIn',
@@ -26,6 +25,7 @@ Router.route '/', ->
 
 
 Router.route '/channel/:_channel',
+	layoutTemplate: 'layout'
 	waitOn: getSubs
 	action: ->
 		channel = @params._channel
@@ -36,6 +36,7 @@ Router.route '/channel/:_channel',
 
 
 Router.route '/config',
+	layoutTemplate: 'layout'
 	name: 'config'
 	waitOn: getSubs
 	action: ->
@@ -44,6 +45,7 @@ Router.route '/config',
 
 
 Router.route '/direct/:_username',
+	layoutTemplate: 'layout'
 	name: 'direct'
 	waitOn: getSubs
 	action: ->
@@ -58,6 +60,7 @@ Router.route '/direct/:_username',
 
 
 Router.route '/help',
+	layoutTemplate: 'layout'
 	waitOn: getSubs
 	action: ->
 		Session.set 'showUtility', false
@@ -65,6 +68,7 @@ Router.route '/help',
 
 
 Router.route '/profile',
+	layoutTemplate: 'layout'
 	waitOn: getSubs
 	action: ->
 		Session.set 'showUtility', false
@@ -72,6 +76,7 @@ Router.route '/profile',
 
 
 Router.route '/signin',
+	layoutTemplate: 'layout'
 	waitOn: getSubs
 	action: ->
 		Session.set 'showUtility', false
