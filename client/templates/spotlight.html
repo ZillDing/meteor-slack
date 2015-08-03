@@ -6,8 +6,21 @@
 					<input class="prompt" type="text" placeholder="Search chats...">
 					<i class="search icon"></i>
 				</div>
-				<div class="results"></div>
+				<div class="results ui huge middle aligned divided list"></div>
 			</div>
 		</div>
 	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="spotlight_search_results">
+	{{#each $mapped results}}
+	<div class="result item {{#if $first}}active{{/if}}" style="padding: 0.5em 1em">
+		<div class="right floated content">
+			<div class="description">{{description}}</div>
+		</div>
+		<div class="content">
+			<div class="header">{{title}}</div>
+		</div>
+	</div>
+	{{/each}}
 </template>
