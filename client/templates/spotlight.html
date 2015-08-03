@@ -18,6 +18,12 @@
 		<div class="right floated content">
 			<div class="description">{{description}}</div>
 		</div>
+		{{#if $eq description 'channel'}}
+		<i class="users icon"></i>
+		{{/if}}
+		{{#if $eq description 'direct'}}
+		<i class="user icon"></i>
+		{{/if}}
 		<div class="content">
 			<div class="header">{{title}}</div>
 		</div>
