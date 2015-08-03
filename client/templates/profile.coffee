@@ -56,6 +56,7 @@ Template.profile_currentUser_edit.helpers
 
 Template.profile_currentUser_edit.onRendered ->
 	@$('.ui.dropdown').dropdown()
+	@$('textarea').autosize()
 	# add form validation
 	@$('form.form').form
 		fields:
