@@ -8,6 +8,8 @@ if Meteor.Device.isDesktop()
 		Router.go '/config'
 	keyListener.simple_combo 'shift h', ->
 		Router.go '/help'
+	keyListener.simple_combo 'shift g', ->
+		$('.ui.modal.spotlight-modal').modal 'show'
 	keyListener.simple_combo '?', ->
 		$('.ui.modal.cheatsheet-modal').modal 'show'
 
