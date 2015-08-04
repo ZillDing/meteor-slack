@@ -92,7 +92,10 @@ Template.menu_addNewDirectChatItem.events
 	'click i.cancel': ->
 		Session.set '__M_S_isAddingNewDirectChat', false
 
-	'submit form.form': ->
+	'submit form.form': (event, template) ->
+		if url = template.$('.ui.list.user-list>a.item').first().attr 'href'
+			Router.go url
+			Session.set '__M_S_isAddingNewDirectChat', false
 		false
 
 Template.menu_addNewDirectChatItem.helpers
