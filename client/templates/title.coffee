@@ -40,7 +40,7 @@ Template.title.onRendered ->
 		action: 'hide'
 		transition: 'drop'
 
-	if __M_S.deviceIsHoverable
+	if __M_S.b_deviceIsHoverable
 		@$('.ui.button.favourite-btn').popup
 			content: 'Toggle favourite'
 			position: 'bottom center'

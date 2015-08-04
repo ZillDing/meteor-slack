@@ -1,13 +1,13 @@
 Template.layout.events
 	'focus input, focus textarea': (event) ->
 		if Meteor.Device.isDesktop()
-			__keyListener.stop_listening()
-			__inputKeyListener.listen()
+			__M_S.o_keyListener.stop_listening()
+			__M_S.o_inputKeyListener.listen()
 
 	'blur input, blur textarea': (event) ->
 		if Meteor.Device.isDesktop()
-			__inputKeyListener.stop_listening()
-			__keyListener.listen()
+			__M_S.o_inputKeyListener.stop_listening()
+			__M_S.o_keyListener.listen()
 
 
 Template.layout.onRendered ->
@@ -21,11 +21,10 @@ Template.layout.onRendered ->
 	if Meteor.Device.isDesktop()
 		@autorun ->
 			if Meteor.userId()
-				__keyListener.listen()
+				__M_S.o_keyListener.listen()
 			else
-				__keyListener.stop_listening()
+				__M_S.o_keyListener.stop_listening()
 
 
 Template.layout.onDestroyed ->
 	$(window).off 'resize'
-	__keyListener.destroy() if Meteor.Device.isDesktop()

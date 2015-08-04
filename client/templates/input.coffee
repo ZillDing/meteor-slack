@@ -92,14 +92,13 @@ Template.input.onCreated ->
 
 Template.input.onRendered ->
 	# set up send button popup
-	@$('i.send.icon').popup() if __M_S.deviceIsHoverable
+	@$('i.send.icon').popup() if __M_S.b_deviceIsHoverable
 
 	$textarea = @$ 'textarea'
 
-	if Meteor.Device.isDesktop()
-		# add key listener to focus on textarea
-		__keyListener.simple_combo 'shift i', ->
-			$textarea.focus()
+	# add key listener to focus on textarea
+	__M_S.o_keyListener?.simple_combo 'shift i', ->
+		$textarea.focus()
 
 	# set up textarea
 	$textarea.autosize()
@@ -109,5 +108,4 @@ Template.input.onRendered ->
 
 
 Template.input.onDestroyed ->
-	if Meteor.Device.isDesktop()
-		__keyListener.unregister_combo 'shift i'
+	__M_S.o_keyListener?.unregister_combo 'shift i'

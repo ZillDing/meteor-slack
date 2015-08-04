@@ -12,7 +12,7 @@ Template.status_signedIn.onRendered ->
 		action: 'hide'
 		direction: 'upward'
 
-	if __M_S.deviceIsHoverable
+	if __M_S.b_deviceIsHoverable
 		@$('i.sign.out').popup()
 
 		@autorun =>

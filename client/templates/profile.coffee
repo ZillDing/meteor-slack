@@ -109,7 +109,7 @@ Template.profile_card.helpers
 		else 'Chat'
 
 	isHoverable: ->
-		__M_S.deviceIsHoverable
+		__M_S.b_deviceIsHoverable
 
 	statusLabelColor: ->
 		if Template.currentData().status?.online
@@ -117,6 +117,6 @@ Template.profile_card.helpers
 		else 'grey'
 
 Template.profile_card.onRendered ->
-	if __M_S.deviceIsHoverable
+	if __M_S.b_deviceIsHoverable
 		@$('.card .image').dimmer
 			on: 'hover'

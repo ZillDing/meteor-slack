@@ -1,6 +1,6 @@
 Template.cheatsheet.onRendered ->
 	@$('.ui.modal').modal
 		onShow: ->
-			__keyListener.stop_listening()
+			__M_S.o_keyListener.stop_listening()
 		onHidden: ->
-			__keyListener.listen()
+			__M_S.o_keyListener.listen()

@@ -22,7 +22,7 @@ Template.spotlight.onRendered ->
 		duration: 0
 		onShow: ->
 			$search.find('input').val ''
-			__keyListener.stop_listening()
+			__M_S.o_keyListener.stop_listening()
 		onVisible: ->
 			$search.search
 				maxResults: 3
@@ -38,4 +38,4 @@ Template.spotlight.onRendered ->
 				$search.find('input').focus()
 			, 0
 		onHidden: ->
-			__keyListener.listen()
+			__M_S.o_keyListener.listen()

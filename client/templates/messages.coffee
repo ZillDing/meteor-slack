@@ -79,17 +79,17 @@ Template.messages.onRendered ->
 	# add key listener
 	if Meteor.Device.isDesktop()
 		# toggle utility side bar
-		__keyListener.simple_combo 'shift u', ->
+		__M_S.o_keyListener.simple_combo 'shift u', ->
 			Session.set 'showUtility', not Session.get 'showUtility'
 		# toggle favourite chat
-		__keyListener.simple_combo 'shift f', ->
+		__M_S.o_keyListener.simple_combo 'shift f', ->
 			data =
 				type: Session.get 'chatType'
 				target: Session.get 'chatTarget'
 			Meteor.call 'toggleFavourite', data, (error, result) ->
 				__M_S.f_sAlertError error if error
 		# delete current chat
-		__keyListener.simple_combo 'shift d', ->
+		__M_S.o_keyListener.simple_combo 'shift d', ->
 			$('.ui.modal.title-modal').modal 'show'
 
 
@@ -100,9 +100,9 @@ Template.messages.onDestroyed ->
 		chatTarget: null
 
 	if Meteor.Device.isDesktop()
-		__keyListener.unregister_combo 'shift u'
-		__keyListener.unregister_combo 'shift f'
-		__keyListener.unregister_combo 'shift d'
+		__M_S.o_keyListener.unregister_combo 'shift u'
+		__M_S.o_keyListener.unregister_combo 'shift f'
+		__M_S.o_keyListener.unregister_combo 'shift d'
 
 
 ################################################################################
