@@ -113,7 +113,7 @@
 .ui.message.s-alert-box
 	position: fixed
 	width: inherit
-	margin: 0 0 0 1rem
+	margin: 0
 	-webkit-transition: top .4s, bottom .4s
 	transition: top .4s, bottom .4s
 	@media only screen and (min-width: 768px)
@@ -125,9 +125,8 @@
 	&.s-alert-bottom-right
 		bottom: 1rem
 		right: 1rem
-	i.icon
-		-webkit-flex-shrink: 0
-		flex-shrink: 0
+	>.content
+		margin-right: 1em
 
 ////////////////////////////////////////////////////////////////////////////////
 // fix semantic ui scrolling modal bug
