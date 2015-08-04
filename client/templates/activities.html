@@ -18,7 +18,7 @@
 		</div>
 		<div class="content">
 			<div class="date">
-				{{livestamp createdAt}}
+				{{livestamp owner.createdAt}}
 			</div>
 			<div class="summary">
 				<a href="/direct/{{owner.username}}">{{owner.username}}</a> has joined the team!
@@ -34,7 +34,7 @@
 		</div>
 		<div class="content">
 			<div class="date">
-				{{livestamp createdAt}}
+				{{livestamp channel.createdAt}}
 			</div>
 			<div class="summary">
 				<a href="/direct/{{owner.username}}">{{owner.username}}</a> has created a new channel: <a href="/channel/{{channel.name}}">{{channel.name}}</a>.

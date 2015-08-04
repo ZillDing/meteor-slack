@@ -72,12 +72,22 @@ direct: [
 
 _id: String
 channelId: String
-createdAt: Date
 ownerId: String
-type: String
+type: String('new-user', 'new-channel')
 
 ###
 @Activities = new Mongo.Collection 'activities'
+
+### notifications schema
+
+_id: String
+channelId: String
+ownerId: String
+targetId: String
+type: String('new-user', 'new-channel', 'direct-message', 'channel-mention')
+
+###
+@Notifications = new Mongo.Collection 'notifications'
 
 
 ################################################################################
@@ -117,6 +127,14 @@ Activities.helpers
 		Channels.findOne @channelId
 	owner: ->
 		Meteor.users.findOne @ownerId
+
+Notifications.helpers
+	channel: ->
+		Channels.findOne @channelId
+	owner: ->
+		Meteor.users.findOne @ownerId
+	target: ->
+		Meteor.users.findOne @targetId
 
 
 ################################################################################

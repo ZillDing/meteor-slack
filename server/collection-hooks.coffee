@@ -32,9 +32,9 @@ Meteor.users.after.insert (userId, user) ->
 			usersId: user._id
 	,
 		multi: true
-	# add to activities
-	Activities.insert
-		createdAt: new Date()
+
+	# add to notifications
+	Notifications.insert
 		ownerId: user._id
 		type: 'new-user'
 
@@ -42,6 +42,7 @@ Meteor.users.after.insert (userId, user) ->
 ################################################################################
 # for other collections
 ################################################################################
+# Channels
 Channels.before.insert (userId, channel) ->
 	# add current all users id
 	channel.usersId = Meteor.users.find().map (user) ->
@@ -52,18 +53,19 @@ Channels.after.insert (userId, channel) ->
 	UserData.update {},
 		$push:
 			channel:
-				id: @_id
+				id: channel._id
 				unread: 0
 	,
 		multi: true
-	# add to activities
-	Activities.insert
-		channelId: @_id
-		createdAt: new Date()
+
+	# add to notifications
+	Notifications.insert
+		channelId: channel._id
 		ownerId: userId
 		type: 'new-channel'
 
 
+# ChannelMessages
 ChannelMessages.after.insert (userId, message) ->
 	# update only mentioned users' chat data
 	# increment the unread count of the channel by 1
@@ -80,7 +82,15 @@ ChannelMessages.after.insert (userId, message) ->
 			,
 				multi: true
 
+			# add to notifications
+			Notifications.insert
+				channelId: message.channelId
+				ownerId: message.ownerId
+				targetId: userId
+				type: 'channel-mention'
 
+
+# DirectMessages
 DirectMessages.after.insert (userId, message) ->
 	# update only the receiver data
 	senderId = message.ownerId
@@ -113,3 +123,36 @@ DirectMessages.after.insert (userId, message) ->
 				direct:
 					id: senderId
 					unread: 1
+
+	# add to notifications
+	Notifications.insert
+		ownerId: senderId
+		targetId: receiverId
+		type: 'direct-message'
+
+
+# Notifications
+Notifications.before.insert (userId, notification) ->
+	o = @transform()
+	notification.channelName = o.channel().name if notification.channelId
+	notification.ownerName = o.owner().username if notification.ownerId
+	notification.targetName = o.target().username if notification.targetId
+
+Notifications.after.insert (userId, notification) ->
+	# selectively create activity
+	switch notification.type
+		when 'new-user'
+			Activities.insert
+				ownerId: notification.ownerId
+				type: 'new-user'
+		when 'new-channel'
+			Activities.insert
+				channelId: notification.channelId
+				ownerId: notification.ownerId
+				type: 'new-channel'
+
+	# self destructive
+	# remove this notification after 3 seconds
+	Meteor.setTimeout ->
+		Notifications.remove notification._id
+	, 3000

@@ -43,3 +43,15 @@ Meteor.publish 'directMessages', (username) ->
 # activities
 Meteor.publish 'activities', ->
 	Activities.find()
+
+# notifications
+Meteor.publish 'notifications', ->
+	Notifications.find
+		ownerId:
+			$ne: @userId
+		$or: [
+			targetId:
+				$exists: false
+		,
+			targetId: @userId
+		]
