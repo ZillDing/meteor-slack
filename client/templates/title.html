@@ -15,9 +15,9 @@
 					All channels...
 				</div>
 				{{#each channels}}
-				<a href="/channel/{{name}}" class="item {{_isActive 'channel' name}}">
+				<a href="/channel/{{name}}" class="item {{__M_S.isActive 'channel' name}}">
 					{{#if currentUser}}
-					{{#unless _isActive 'channel' name}}
+					{{#unless __M_S.isActive 'channel' name}}
 					{{#if $gt unread 0}}
 					<span class="description">{{unread}} new</span>
 					{{/if}}
@@ -32,8 +32,8 @@
 					All direct messages...
 				</div>
 				{{#each directChats}}
-				<a href="/direct/{{name}}" class="item {{_isActive 'direct' name}}">
-					{{#unless _isActive 'direct' name}}
+				<a href="/direct/{{name}}" class="item {{__M_S.isActive 'direct' name}}">
+					{{#unless __M_S.isActive 'direct' name}}
 					{{#if $gt unread 0}}
 					<span class="description">{{unread}} new</span>
 					{{/if}}

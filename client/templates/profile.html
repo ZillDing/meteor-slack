@@ -40,7 +40,7 @@
 				<div class="menu">
 					{{#each AVAILABLE_AVATARS}}
 					<div class="item" data-value="{{this}}">
-						<img class="ui mini avatar image" src="{{SMALL_AVATAR_DIR}}/{{this}}" alt="avatar">
+						<img class="ui mini avatar image" src="{{__M_S.SMALL_AVATAR_DIR}}/{{this}}" alt="avatar">
 						{{getAvatarDisplayName this}}
 					</div>
 					{{/each}}
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 			</div>
-			<img src="{{LARGE_AVATAR_DIR}}/{{profile.avatar}}" alt="profile image">
+			<img src="{{__M_S.LARGE_AVATAR_DIR}}/{{profile.avatar}}" alt="profile image">
 		</div>
 		<div class="content">
 			<div class="header">

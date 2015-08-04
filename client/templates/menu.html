@@ -61,10 +61,10 @@
 <!-- ####################################################################### -->
 <template name="menu_channel_item">
 	<a href="/channel/{{name}}"
-		class="item sidebar-menu-item hoverable {{_isActive 'channel' name}}">
+		class="item sidebar-menu-item hoverable {{__M_S.isActive 'channel' name}}">
 		<span>#</span>{{name}}
 		{{#if currentUser}}
-		{{#unless _isActive 'channel' name}}
+		{{#unless __M_S.isActive 'channel' name}}
 		{{#if $gt unread 0}}
 		<div class="pink right floated ui label unread-label">{{unread}}</div>
 		{{/if}}
@@ -75,9 +75,9 @@
 <!-- ####################################################################### -->
 <template name="menu_direct_item">
 	<a href="/direct/{{name}}"
-		class="item sidebar-menu-item hoverable {{_isActive 'direct' name}}">
+		class="item sidebar-menu-item hoverable {{__M_S.isActive 'direct' name}}">
 		<span>@</span>{{name}}
-		{{#unless _isActive 'direct' name}}
+		{{#unless __M_S.isActive 'direct' name}}
 		{{#if $gt unread 0}}
 		<div class="pink right floated ui label unread-label">{{unread}}</div>
 		{{/if}}
@@ -150,7 +150,7 @@
 		<div class="right floated ui {{#if status.online}}green{{else}}grey{{/if}} empty circular label"
 			style="margin: 0.5em 1em"></div>
 		<div class="ui avatar image" style="padding-right: 0">
-			<img src="{{SMALL_AVATAR_DIR}}/{{profile.avatar}}">
+			<img src="{{__M_S.SMALL_AVATAR_DIR}}/{{profile.avatar}}">
 		</div>
 		<div class="content" style="padding-left: 1em">
 			<div class="header">{{username}}</div>
