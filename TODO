@@ -1,15 +1,13 @@
 High priority:
- ☐ notification sound
  ☐ consider increase channel message unread count even without mention
- ☐ clean up global/local variable/function naming convention @critical
- ☐ namespace session variables @critical
- ☐ shift reactivevar to session variables @high
+ ☐ fix the user go on/offline notification
+ ☐ browser notification
 
+ ☐ notification sound
  ☐ file support, simple uploading
  ☐ view files (allow download)
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
- ☐ fix the user go on/offline notification
 
 Low priority:
  ☐ if there are too many items in the sidebar menu, hide some of them
@@ -21,14 +19,19 @@ Low priority:
  ☐ easter egg
   http://dmauro.github.io/Keypress/
  ☐ private group chat
+ ☐ quit creating channel/direct chat
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
- ✔ consider use a collection (self destructive) for notification (to work with observeChanges) @critical @done (15-08-04 14:07) @project(High priority)
+ ✔ keyboard submit when creating direct chat @done (15-08-04 21:33) @project(High priority)
+ ✔ shift reactivevar to session variables @high @done (15-08-04 21:08) @project(High priority)
+ ✔ namespace session variables @critical @done (15-08-04 20:36) @project(High priority)
+ ✔ clean up global/local variable/function naming convention @critical @done (15-08-04 20:27) @project(High priority)
  ✔ notification for new channel and new message @done (15-08-04 14:07) @project(High priority)
+ ✔ consider use a collection (self destructive) for notification (to work with observeChanges) @critical @done (15-08-04 14:07) @project(High priority)
  ✔ fix the utitlity side bar overflow bug @done (15-08-03 20:06) @project(High priority)
- ✔ add keyboard shortcut to go to certain chat @high @done (15-08-03 16:00) @project(High priority)
  ✔ adjust search result style (add active on first search item) @done (15-08-03 16:00) @project(High priority)
+ ✔ add keyboard shortcut to go to certain chat @high @done (15-08-03 16:00) @project(High priority)
  ✔ how to submit form (create channel) on mobile device @critical @done (15-08-02 19:16) @project(High priority)
  ✔ fix modal close icon cannot render properly in safari bug @critical @done (15-08-02 16:49) @project(High priority)
  ✔ fix menu modal layout bug @critical @done (15-08-02 15:14) @project(High priority)
