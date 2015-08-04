@@ -1,7 +1,7 @@
 High priority:
  ☐ consider increase channel message unread count even without mention
- ☐ fix the user go on/offline notification
  ☐ browser notification
+ ☐ clean up code (prefix private var, function with '_') @high
 
  ☐ notification sound
  ☐ file support, simple uploading
@@ -10,6 +10,7 @@ High priority:
    https://atmospherejs.com/alethes/pages
 
 Low priority:
+ ☐ reset user password
  ☐ if there are too many items in the sidebar menu, hide some of them
  ☐ add admin page to allow special operation (edit/delete channel)
  ☐ comment on uploaded file
@@ -23,6 +24,7 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ fix the user go on/offline notification @done (15-08-04 22:32) @project(High priority)
  ✔ keyboard submit when creating direct chat @done (15-08-04 21:33) @project(High priority)
  ✔ shift reactivevar to session variables @high @done (15-08-04 21:08) @project(High priority)
  ✔ namespace session variables @critical @done (15-08-04 20:36) @project(High priority)
