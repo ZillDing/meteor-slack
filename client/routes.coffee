@@ -41,7 +41,7 @@ Router.route '/config',
 	name: 'config'
 	waitOn: getSubs
 	action: ->
-		Session.set 'showUtility', false
+		Session.set '__M_S_showUtility', false
 		@render 'config'
 
 
@@ -64,7 +64,7 @@ Router.route '/help',
 	layoutTemplate: 'layout'
 	waitOn: getSubs
 	action: ->
-		Session.set 'showUtility', false
+		Session.set '__M_S_showUtility', false
 		@render 'help'
 
 
@@ -72,7 +72,7 @@ Router.route '/profile',
 	layoutTemplate: 'layout'
 	waitOn: getSubs
 	action: ->
-		Session.set 'showUtility', false
+		Session.set '__M_S_showUtility', false
 		@render 'profile'
 
 
@@ -80,7 +80,7 @@ Router.route '/signin',
 	layoutTemplate: 'layout'
 	waitOn: getSubs
 	action: ->
-		Session.set 'showUtility', false
+		Session.set '__M_S_showUtility', false
 		if Meteor.userId()
 			@redirect '/profile'
 		else

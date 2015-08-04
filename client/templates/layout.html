@@ -15,25 +15,25 @@
 
 		<div id="main-container" class="col-lg-10 col-sm-9 col-xs-12 flex-container flex-column-container"
 			style="padding-bottom: 1rem">
-			{{#if $.Session.get 'chatType'}}
+			{{#if $.Session.get '__M_S_chatType'}}
 			{{> title}}
 			{{/if}}
 
 			<div class="flex-stretch-item flex-container">
 				{{!-- main area --}}
-				<div class="{{#if $.Session.get 'showUtility'}}col-sm-8 hidden-xs{{else}}col-xs-12{{/if}} flex-container flex-column-container" style="padding: 0">
+				<div class="{{#if $.Session.get '__M_S_showUtility'}}col-sm-8 hidden-xs{{else}}col-xs-12{{/if}} flex-container flex-column-container" style="padding: 0">
 					<div class="flex-stretch-item"
-						style="{{#if $.Session.get 'showUtility'}}border-right: thick inset{{/if}}">
+						style="{{#if $.Session.get '__M_S_showUtility'}}border-right: thick inset{{/if}}">
 						{{> yield}}
 					</div>
-					{{#if currentUser}}{{#if $.Session.get 'chatType'}}
+					{{#if currentUser}}{{#if $.Session.get '__M_S_chatType'}}
 					<div style="margin-top: 1rem">
 						{{> input}}
 					</div>
 					{{/if}}{{/if}}
 				</div>
 				{{!-- utility side bar --}}
-				{{#if $.Session.get 'showUtility'}}
+				{{#if $.Session.get '__M_S_showUtility'}}
 				<div class="col-sm-4 col-xs-12" style="padding: 0">
 					<div class="ui purple basic segment flex-container flex-column-container"
 						style="padding-bottom: 0; position: absolute; height: 100%; width: 100%">

@@ -15,8 +15,8 @@ Template.input.events
 		$input = template.$ 'textarea'
 
 		text = $input.val().trim()
-		type = Session.get 'chatType'
-		target = Session.get 'chatTarget'
+		type = Session.get '__M_S_chatType'
+		target = Session.get '__M_S_chatTarget'
 		if isValid(text) and type and target
 			message =
 				type: type
@@ -64,9 +64,9 @@ Template.input.helpers
 			template: Template.input_channel
 
 		# allow mention user in channel chat
-		if Session.equals 'chatType', 'channel'
+		if Session.equals '__M_S_chatType', 'channel'
 			# only allow mentioning users in current channel
-			array = Channels.findOne(name: Session.get 'chatTarget')?.usersId
+			array = Channels.findOne(name: Session.get '__M_S_chatTarget')?.usersId
 			# remove the current user
 			array = _.reject array, (id) ->
 				id is Meteor.userId()
@@ -104,7 +104,7 @@ Template.input.onRendered ->
 	$textarea.autosize()
 	@autorun ->
 		# focus on the input whenever target changes
-		$textarea.focus() if Session.get 'chatTarget'
+		$textarea.focus() if Session.get '__M_S_chatTarget'
 
 
 Template.input.onDestroyed ->

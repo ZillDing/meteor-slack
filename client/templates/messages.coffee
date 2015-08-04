@@ -1,8 +1,6 @@
 Template.messages.helpers
 	messages: ->
-		chatType = Session.get 'chatType'
-		chatTarget = Session.get 'chatTarget'
-		switch chatType
+		switch Session.get '__M_S_chatType'
 			when 'channel'
 				ChannelMessages.find()
 			when 'direct'
@@ -48,8 +46,8 @@ Template.messages.onCreated ->
 
 		@subscribe "#{data.type}Messages", data.target
 		Session.set
-			chatType: data.type
-			chatTarget: data.target
+			__M_S_chatType: data.type
+			__M_S_chatTarget: data.target
 
 		return if not Meteor.userId()
 		@clearUnread @prevData if @prevData
@@ -80,12 +78,12 @@ Template.messages.onRendered ->
 	if Meteor.Device.isDesktop()
 		# toggle utility side bar
 		__M_S.o_keyListener.simple_combo 'shift u', ->
-			Session.set 'showUtility', not Session.get 'showUtility'
+			Session.set '__M_S_showUtility', not Session.get '__M_S_showUtility'
 		# toggle favourite chat
 		__M_S.o_keyListener.simple_combo 'shift f', ->
 			data =
-				type: Session.get 'chatType'
-				target: Session.get 'chatTarget'
+				type: Session.get '__M_S_chatType'
+				target: Session.get '__M_S_chatTarget'
 			Meteor.call 'toggleFavourite', data, (error, result) ->
 				__M_S.f_sAlertError error if error
 		# delete current chat
@@ -96,8 +94,8 @@ Template.messages.onRendered ->
 Template.messages.onDestroyed ->
 	@clearUnread @prevData if Meteor.userId() and @prevData
 	Session.set
-		chatType: null
-		chatTarget: null
+		__M_S_chatType: null
+		__M_S_chatTarget: null
 
 	if Meteor.Device.isDesktop()
 		__M_S.o_keyListener.unregister_combo 'shift u'

@@ -3,8 +3,8 @@ Template.title.events
 		$(event.currentTarget).popup 'hide'
 		$(event.currentTarget).blur() # this is to fix the focusing bug
 		data =
-			type: Session.get 'chatType'
-			target: Session.get 'chatTarget'
+			type: Session.get '__M_S_chatType'
+			target: Session.get '__M_S_chatTarget'
 		Meteor.call 'toggleFavourite', data, (error, result) ->
 			__M_S.f_sAlertError error if error
 
@@ -14,7 +14,7 @@ Template.title.events
 		$('.ui.modal.title-modal').modal 'show'
 
 	'click .ui.button.utility-trigger': ->
-		Session.set 'showUtility', not Session.get 'showUtility'
+		Session.set '__M_S_showUtility', not Session.get '__M_S_showUtility'
 
 
 Template.title.helpers
@@ -27,8 +27,8 @@ Template.title.helpers
 					createdAt: -1
 
 	currentChannelSize: ->
-		if Session.equals 'chatType', 'channel'
-			Channels.findOne(name: Session.get 'chatTarget')?.usersId.length
+		if Session.equals '__M_S_chatType', 'channel'
+			Channels.findOne(name: Session.get '__M_S_chatTarget')?.usersId.length
 
 	directChats: ->
 		if Meteor.user()?.data()
@@ -48,7 +48,7 @@ Template.title.onRendered ->
 		@autorun =>
 			return if not Meteor.userId()
 
-			text = switch Session.get 'chatType'
+			text = switch Session.get '__M_S_chatType'
 				when 'channel' then 'Quit this channel'
 				when 'direct' then 'Delete this chat'
 			@$('.ui.button.remove-btn').popup
@@ -66,8 +66,8 @@ Template.title_modal.onRendered ->
 			$(@).modal 'hide'
 			# remove chat
 			data =
-				type: type = Session.get 'chatType'
-				target: target = Session.get 'chatTarget'
+				type: type = Session.get '__M_S_chatType'
+				target: target = Session.get '__M_S_chatTarget'
 			Meteor.call 'removeChat', data, (error, result) ->
 				if error
 					__M_S.f_sAlertError error

@@ -12,7 +12,7 @@ Template.registerHelper '__M_S', ->
 	# return 'active' if it is the current active item
 	# note: this will work with template 'if' check
 	isActive: (type, target) ->
-		return '' if not Session.equals 'chatType', type
-		if Session.equals 'chatTarget', target
+		return '' if not Session.equals '__M_S_chatType', type
+		if Session.equals '__M_S_chatTarget', target
 		then 'active'
 		else ''

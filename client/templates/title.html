@@ -3,10 +3,10 @@
 		<div class="ui dropdown">
 			<div class="text ui large header">
 				<span style="opacity: 0.5">
-					{{#if $.Session.equals 'chatType' 'channel'}}#{{/if}}
-					{{#if $.Session.equals 'chatType' 'direct'}}@{{/if}}
+					{{#if $.Session.equals '__M_S_chatType' 'channel'}}#{{/if}}
+					{{#if $.Session.equals '__M_S_chatType' 'direct'}}@{{/if}}
 				</span>
-				{{$.Session.get 'chatTarget'}}
+				{{$.Session.get '__M_S_chatTarget'}}
 			</div>
 			<i class="dropdown icon"></i>
 			<div class="menu">
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 
-		{{#if $.Session.equals 'chatType' 'channel'}}
+		{{#if $.Session.equals '__M_S_chatType' 'channel'}}
 		<div class="ui violet pointing left label"
 			style="vertical-align: top; margin-left: 1em">
 			<i class="users icon"></i>

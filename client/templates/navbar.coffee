@@ -3,4 +3,4 @@ Template.navbar.events
 		$('.ui.sidebar').sidebar 'toggle'
 
 	'click .utility-trigger': ->
-		Session.set 'showUtility', not Session.get 'showUtility'
+		Session.set '__M_S_showUtility', not Session.get '__M_S_showUtility'
