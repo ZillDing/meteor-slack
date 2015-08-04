@@ -11,7 +11,6 @@ msavin:mongol
 iron:router
 useraccounts:semantic-ui
 accounts-password
-reactive-var
 momentjs:moment
 mystor:device-detection
 mizzao:user-status
