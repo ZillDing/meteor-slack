@@ -84,7 +84,9 @@ _id: String
 channelId: String
 ownerId: String
 targetId: String
-type: String('new-user', 'new-channel', 'direct-message', 'channel-mention')
+type: String
+	'new-user' | 'new-channel' | 'direct-message' | 'channel-mention' |
+	'user-status'
 
 ###
 @Notifications = new Mongo.Collection 'notifications'

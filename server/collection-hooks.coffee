@@ -38,6 +38,12 @@ Meteor.users.after.insert (userId, user) ->
 		ownerId: user._id
 		type: 'new-user'
 
+Meteor.users.after.update (userId, user, fieldNames, modifier, options) ->
+	if @previous.status?.online isnt user.status?.online
+		Notifications.insert
+			ownerId: user._id
+			type: 'user-status'
+
 
 ################################################################################
 # for other collections
@@ -134,8 +140,10 @@ DirectMessages.after.insert (userId, message) ->
 # Notifications
 Notifications.before.insert (userId, notification) ->
 	o = @transform()
+	notification.ownerName = o.owner().username
+	notification.ownerStatus = o.owner().status if notification.type is 'user-status'
+
 	notification.channelName = o.channel().name if notification.channelId
-	notification.ownerName = o.owner().username if notification.ownerId
 	notification.targetName = o.target().username if notification.targetId
 
 Notifications.after.insert (userId, notification) ->

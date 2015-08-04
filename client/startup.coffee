@@ -9,20 +9,6 @@ Meteor.startup ->
 	getLink = (type, name) ->
 		"<a href=\"/#{type}/#{name}\">#{name}</a>"
 
-	Meteor.users.find
-		'status.online': true
-	.observeChanges
-		added: (id, user) ->
-			return if id is Meteor.userId()
-			sAlert.info
-				sAlertTitle: getLink 'direct', user.username
-				message: 'is <em>online</em>!'
-		removed: (id) ->
-			return if id is Meteor.userId()
-			sAlert.info
-				sAlertTitle: Meteor.users.findOne(id).username
-				message: 'is <em>offline</em>...'
-
 	Notifications.find().observeChanges
 		added: (id, notification) ->
 			switch notification.type
@@ -42,3 +28,10 @@ Meteor.startup ->
 					sAlert.info
 						sAlertTitle: notification.ownerName
 						message: "mentioned you in channel: #{getLink 'channel', notification.channelName}."
+				when 'user-status'
+					message = if notification.ownerStatus?.online
+					then 'is <em>online</em>!'
+					else 'is <em>offline</em>...'
+					sAlert.info
+						sAlertTitle: notification.ownerName
+						message: message
