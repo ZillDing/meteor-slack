@@ -92,7 +92,7 @@ Template.input.onCreated ->
 
 Template.input.onRendered ->
 	# set up send button popup
-	@$('i.send.icon').popup() if __deviceIsHoverable
+	@$('i.send.icon').popup() if __M_S.deviceIsHoverable
 
 	$textarea = @$ 'textarea'
 

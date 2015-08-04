@@ -26,7 +26,7 @@ Template.profile_currentUser_edit.events
 			profile = $form.form 'get values'
 			Meteor.call 'updateUserProfile', profile, (error, result) ->
 				if error
-					_sAlertError error
+					__M_S.f_sAlertError error
 				else
 					isEdittingProfile.set false
 		false
@@ -109,7 +109,7 @@ Template.profile_card.helpers
 		else 'Chat'
 
 	isHoverable: ->
-		__deviceIsHoverable
+		__M_S.deviceIsHoverable
 
 	statusLabelColor: ->
 		if Template.currentData().status?.online
@@ -117,6 +117,6 @@ Template.profile_card.helpers
 		else 'grey'
 
 Template.profile_card.onRendered ->
-	if __deviceIsHoverable
+	if __M_S.deviceIsHoverable
 		@$('.card .image').dimmer
 			on: 'hover'

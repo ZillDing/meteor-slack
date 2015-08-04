@@ -14,7 +14,7 @@ Template.messages.onCreated ->
 	@clearUnread = (data) ->
 		Tracker.nonreactive ->
 			Meteor.call 'clearUnread', data, (error, result) ->
-				_sAlertError error if error
+				__M_S.f_sAlertError error if error
 
 	isValid = (data) ->
 		Tracker.nonreactive ->
@@ -28,7 +28,7 @@ Template.messages.onCreated ->
 					a = Channels.find().map (channel) ->
 						channel.name
 					if not _.contains a, data.target
-						_sAlertError
+						__M_S.f_sAlertError
 							error: 'No such channel'
 							message: "Could not find channel with name: #{data.target}"
 						return false
@@ -36,7 +36,7 @@ Template.messages.onCreated ->
 					a = Meteor.users.find().map (user) ->
 						user.username
 					if not _.contains a, data.target
-						_sAlertError
+						__M_S.f_sAlertError
 							error: 'No such user'
 							message: "Could not find user with username: #{data.target}"
 						return false
@@ -57,7 +57,7 @@ Template.messages.onCreated ->
 		# note: need to run in non-reactive mode
 		Tracker.nonreactive ->
 			Meteor.call 'addChat', data, (error, result) ->
-				_sAlertError error if error
+				__M_S.f_sAlertError error if error
 
 
 Template.messages.onRendered ->
@@ -87,7 +87,7 @@ Template.messages.onRendered ->
 				type: Session.get 'chatType'
 				target: Session.get 'chatTarget'
 			Meteor.call 'toggleFavourite', data, (error, result) ->
-				_sAlertError error if error
+				__M_S.f_sAlertError error if error
 		# delete current chat
 		__keyListener.simple_combo 'shift d', ->
 			$('.ui.modal.title-modal').modal 'show'

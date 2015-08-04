@@ -1,19 +1,25 @@
 ################################################################################
-# global variables
+# global helper object
+# namespace by '__M_S' (stands for 'M'eteor 'S'lack)
 ################################################################################
-# determine whehter the device is hoverable
-# mainly used before initialize popup
-@__deviceIsHoverable = Meteor.Device.isTV() or Meteor.Device.isDesktop()
+@__M_S =
+	###
+	variables
+	###
+	# determine whehter the device is hoverable
+	# mainly used before initialize popup
+	deviceIsHoverable: Meteor.Device.isTV() or Meteor.Device.isDesktop()
 
+	###
+	functions
+	prefix by 'f_'
+	###
+	f_sAlertError: (error, configOverwrite) ->
+		sAlert.error
+			sAlertTitle: error.error
+			message: error.message
+		, configOverwrite
 
-################################################################################
-# global functions
-################################################################################
-@_sAlertError = (error, configOverwrite) ->
-	sAlert.error
-		sAlertTitle: error.error
-		message: error.message
-	, configOverwrite
 
 
 ################################################################################

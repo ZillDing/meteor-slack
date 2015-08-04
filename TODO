@@ -1,12 +1,15 @@
 High priority:
- ☐ consider use a collection (self destructive) for notification (to work with observeChanges) @critical
- ☐ notification for new channel and new message
  ☐ notification sound
+ ☐ consider increase channel message unread count even without mention
+ ☐ clean up global/local variable/function naming convention @critical
+ ☐ namespace session variables @critical
+ ☐ shift reactivevar to session variables @high
 
  ☐ file support, simple uploading
  ☐ view files (allow download)
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
+ ☐ fix the user go on/offline notification
 
 Low priority:
  ☐ if there are too many items in the sidebar menu, hide some of them
@@ -21,6 +24,8 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ consider use a collection (self destructive) for notification (to work with observeChanges) @critical @done (15-08-04 14:07) @project(High priority)
+ ✔ notification for new channel and new message @done (15-08-04 14:07) @project(High priority)
  ✔ fix the utitlity side bar overflow bug @done (15-08-03 20:06) @project(High priority)
  ✔ add keyboard shortcut to go to certain chat @high @done (15-08-03 16:00) @project(High priority)
  ✔ adjust search result style (add active on first search item) @done (15-08-03 16:00) @project(High priority)

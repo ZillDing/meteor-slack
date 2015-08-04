@@ -6,7 +6,7 @@ Template.title.events
 			type: Session.get 'chatType'
 			target: Session.get 'chatTarget'
 		Meteor.call 'toggleFavourite', data, (error, result) ->
-			_sAlertError error if error
+			__M_S.f_sAlertError error if error
 
 	'click .ui.button.remove-btn': (event) ->
 		$(event.currentTarget).popup 'hide'
@@ -40,7 +40,7 @@ Template.title.onRendered ->
 		action: 'hide'
 		transition: 'drop'
 
-	if __deviceIsHoverable
+	if __M_S.deviceIsHoverable
 		@$('.ui.button.favourite-btn').popup
 			content: 'Toggle favourite'
 			position: 'bottom center'
@@ -70,7 +70,7 @@ Template.title_modal.onRendered ->
 				target: target = Session.get 'chatTarget'
 			Meteor.call 'removeChat', data, (error, result) ->
 				if error
-					_sAlertError error
+					__M_S.f_sAlertError error
 				else
 					item = _.last Meteor.user().data()["#{type}Data"]()
 					if item

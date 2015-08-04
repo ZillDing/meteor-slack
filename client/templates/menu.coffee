@@ -127,7 +127,7 @@ Template.menu_modal.onRendered ->
 			name = $(@).data 'newChannelName'
 			Meteor.call 'createChannel', name, (error, result) ->
 				if error
-					_sAlertError error
+					__M_S.f_sAlertError error
 				else
 					isAddingANewChannel.set false
 					Router.go "/channel/#{name}"
