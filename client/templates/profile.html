@@ -18,7 +18,7 @@
 		<div class="column">
 			{{> profile_card}}
 		</div>
-		{{#if isEdittingProfile}}
+		{{#if $.Session.get '__M_S_isEdittingProfile'}}
 		<div class="column">
 			<div class="ui raised segment">
 			{{> profile_currentUser_edit}}

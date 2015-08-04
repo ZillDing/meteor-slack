@@ -29,7 +29,7 @@
 			{{/each}}
 
 			{{#if currentUser}}
-			{{#if isAddingANewChannel}}
+			{{#if $.Session.get '__M_S_isAddingNewChannel'}}
 			{{> menu_addNewChannelItem}}
 			{{else}}
 			{{> menu_createNewChannelItem}}
@@ -49,7 +49,7 @@
 			{{/each}}
 		</div>
 
-		{{#if isAddingANewDirectChat}}
+		{{#if $.Session.get '__M_S_isAddingNewDirectChat'}}
 		{{> menu_addNewDirectChatItem}}
 		{{else}}
 		{{> menu_createNewDirectChatItem}}

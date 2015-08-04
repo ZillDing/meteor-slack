@@ -1,23 +1,21 @@
-isEdittingProfile = new ReactiveVar false
-
 ################################################################################
 # _currentUser
 ################################################################################
-Template.profile_currentUser.helpers
-	isEdittingProfile: ->
-		isEdittingProfile.get()
-
 Template.profile_currentUser.onRendered ->
 	if Meteor.Device.isDesktop()
 		@$('.card .image').dimmer
 			on: 'hover'
+
+Template.profile_currentUser.onDestroyed ->
+	Session.set '__M_S_isEdittingProfile', false
+
 
 ################################################################################
 # _currentUser_edit
 ################################################################################
 Template.profile_currentUser_edit.events
 	'click .cancel-btn': ->
-		isEdittingProfile.set false
+		Session.set '__M_S_isEdittingProfile', false
 
 	'submit form.form': (event, template) ->
 		$form = template.$ 'form.form'
@@ -28,7 +26,7 @@ Template.profile_currentUser_edit.events
 				if error
 					__M_S.f_sAlertError error
 				else
-					isEdittingProfile.set false
+					Session.set '__M_S_isEdittingProfile', false
 		false
 
 Template.profile_currentUser_edit.helpers
@@ -70,6 +68,7 @@ Template.profile_currentUser_edit.onRendered ->
 					prompt: 'Status cannot be longer than 100 characters (including spaces)'
 				]
 
+
 ################################################################################
 # _users
 ################################################################################
@@ -85,6 +84,7 @@ Template.profile_users.helpers
 			_id:
 				$ne: Meteor.userId()
 
+
 ################################################################################
 # _card
 ################################################################################
@@ -92,7 +92,7 @@ Template.profile_card.events
 	'click .action-btn': ->
 		if Meteor.userId() is userId = Template.currentData()._id
 			# edit current user profile
-			isEdittingProfile.set true
+			Session.set '__M_S_isEdittingProfile', true
 		else
 			# start private chat with this user
 			Router.go "/direct/#{Template.currentData().username}"

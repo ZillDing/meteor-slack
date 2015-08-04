@@ -1,6 +1,3 @@
-isAddingANewChannel = new ReactiveVar false
-isAddingANewDirectChat = new ReactiveVar false
-
 Template.menu.helpers
 	favouriteCount: ->
 		return if not Meteor.user()?.data()
@@ -26,19 +23,13 @@ Template.menu.helpers
 		if Meteor.user()?.data()
 			Meteor.user().data().directData().reverse()
 
-	isAddingANewChannel: ->
-		isAddingANewChannel.get()
-
-	isAddingANewDirectChat: ->
-		isAddingANewDirectChat.get()
-
 
 ################################################################################
 # _createNewChannelItem
 ################################################################################
 Template.menu_createNewChannelItem.events
 	'click': ->
-		isAddingANewChannel.set true
+		Session.set '__M_S_isAddingNewChannel', true
 
 
 ################################################################################
@@ -46,7 +37,7 @@ Template.menu_createNewChannelItem.events
 ################################################################################
 Template.menu_addNewChannelItem.events
 	'click i.cancel': ->
-		isAddingANewChannel.set false
+		Session.set '__M_S_isAddingNewChannel', false
 
 	'click i.checkmark': (event, template) ->
 		template.$('form.form').submit()
@@ -88,7 +79,7 @@ Template.menu_addNewChannelItem.onRendered ->
 ################################################################################
 Template.menu_createNewDirectChatItem.events
 	'click': ->
-		isAddingANewDirectChat.set true
+		Session.set '__M_S_isAddingNewDirectChat', true
 
 
 ################################################################################
@@ -96,10 +87,10 @@ Template.menu_createNewDirectChatItem.events
 ################################################################################
 Template.menu_addNewDirectChatItem.events
 	'click a.sidebar-menu-item': ->
-		isAddingANewDirectChat.set false
+		Session.set '__M_S_isAddingNewDirectChat', false
 
 	'click i.cancel': ->
-		isAddingANewDirectChat.set false
+		Session.set '__M_S_isAddingNewDirectChat', false
 
 	'submit form.form': ->
 		false
@@ -129,5 +120,5 @@ Template.menu_modal.onRendered ->
 				if error
 					__M_S.f_sAlertError error
 				else
-					isAddingANewChannel.set false
+					Session.set '__M_S_isAddingNewChannel', false
 					Router.go "/channel/#{name}"
