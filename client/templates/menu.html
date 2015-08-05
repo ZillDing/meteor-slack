@@ -7,12 +7,12 @@
 		<div class="ui inverted middle aligned list">
 		{{#each channels}}
 		{{#if favourite}}
-			{{> menu_channel_item}}
+			{{> menu_item type='channel' data=this}}
 		{{/if}}
 		{{/each}}
 		{{#each directChats}}
 		{{#if favourite}}
-			{{> menu_direct_item}}
+			{{> menu_item type='direct' data=this}}
 		{{/if}}
 		{{/each}}
 		</div>
@@ -24,7 +24,7 @@
 		<div class="ui inverted middle aligned list">
 			{{#each channels}}
 			{{#unless favourite}}
-				{{> menu_channel_item}}
+				{{> menu_item type='channel' data=this}}
 			{{/unless}}
 			{{/each}}
 
@@ -44,7 +44,7 @@
 		<div class="ui inverted middle aligned list">
 			{{#each directChats}}
 			{{#unless favourite}}
-				{{> menu_direct_item}}
+				{{> menu_item type='direct' data=this}}
 			{{/unless}}
 			{{/each}}
 		</div>
@@ -59,27 +59,18 @@
 </template>
 
 <!-- ####################################################################### -->
-<template name="menu_channel_item">
-	<a href="/channel/{{name}}"
-		class="item sidebar-menu-item hoverable {{__M_S.isActive 'channel' name}}">
-		<span>#</span>{{name}}
-		{{#if currentUser}}
-		{{#unless __M_S.isActive 'channel' name}}
-		{{#if $gt unread 0}}
-		<div class="pink right floated ui label unread-label">{{unread}}</div>
-		{{/if}}
-		{{/unless}}
-		{{/if}}
-	</a>
-</template>
-<!-- ####################################################################### -->
-<template name="menu_direct_item">
-	<a href="/direct/{{name}}"
-		class="item sidebar-menu-item hoverable {{__M_S.isActive 'direct' name}}">
-		<span>@</span>{{name}}
-		{{#unless __M_S.isActive 'direct' name}}
-		{{#if $gt unread 0}}
-		<div class="pink right floated ui label unread-label">{{unread}}</div>
+<template name="menu_item">
+	<a href="/{{type}}/{{data.name}}"
+		class="item sidebar-menu-item hoverable {{__M_S.isActive type data.name}}">
+		<span>
+			{{#if $eq type 'channel'}}#{{/if}}
+			{{#if $eq type 'direct'}}@{{/if}}
+		</span>
+		{{data.name}}
+		{{!-- unread count label --}}
+		{{#unless __M_S.isActive type data.name}}
+		{{#if $gt data.unread 0}}
+		<div class="pink right floated ui label unread-label">{{data.unread}}</div>
 		{{/if}}
 		{{/unless}}
 	</a>
