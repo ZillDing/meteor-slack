@@ -56,13 +56,14 @@ text: String
 _id: String
 channel: [
 	id: String
-	unread: Number
 	favourite: Boolean
+	highlight: Boolean
+	unread: Number
 ]
 direct: [
 	id: String
-	unread: Number
 	favourite: Boolean
+	unread: Number
 ]
 
 ###

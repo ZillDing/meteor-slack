@@ -94,6 +94,16 @@ ChannelMessages.after.insert (userId, message) ->
 	# only notify mentioned users
 	_.each message.mention.user, (userId) ->
 		if __M_S.f_isValidUserMention userId, message.text
+			# update user data
+			UserData.update
+				_id: Meteor.users.findOne(userId).dataId
+				channel:
+					$elemMatch:
+						id: message.channelId
+			,
+				$set:
+					'channel.$.highlight': true
+
 			# add to notifications
 			Notifications.insert
 				channelId: message.channelId

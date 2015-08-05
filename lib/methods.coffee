@@ -85,6 +85,8 @@ Meteor.methods
 			newMessage.targetId = targetId
 			DirectMessages.insert newMessage
 
+	# clear unread count of a specific chat
+	# this will also clear the 'highlight' field if this is a channel chat
 	clearUnread: (data) ->
 		error = 'Clear unread error'
 
@@ -106,6 +108,7 @@ Meteor.methods
 		selector["#{data.type}.id"] = _getTargetId data, error
 		o = {}
 		o["#{data.type}.$.unread"] = 0
+		o["#{data.type}.$.highlight"] = false if data.type is 'channel'
 		UserData.update selector,
 			$set: o
 
