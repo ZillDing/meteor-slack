@@ -29,9 +29,12 @@ Meteor.startup ->
 						sAlertTitle: notification.ownerName
 						message: "mentioned you in channel: #{_getLink 'channel', notification.channelName}."
 				when 'user-status'
-					message = if notification.ownerStatus?.online
-					then 'is <em>online</em>!'
-					else 'is <em>offline</em>...'
+					if notification.ownerStatus?.online
+						title = _getLink 'direct', notification.ownerName
+						message = 'is <em>online</em>!'
+					else
+						title = notification.ownerName
+						message = 'is <em>offline</em>...'
 					sAlert.info
-						sAlertTitle: notification.ownerName
+						sAlertTitle: title
 						message: message
