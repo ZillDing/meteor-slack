@@ -1,3 +1,6 @@
+// note: put vender specific prefixed rules in front
+// group by css rules
+
 .row
 	margin-left: -1rem
 	margin-right: -1rem
@@ -5,36 +8,45 @@
 
 .flex-center-align
 	display: -webkit-flex
-	-webkit-align-items: center
+	display: -ms-flexbox
 	display: flex
-	align-items: center
+	-webkit-align-items: center
+	-ms-flex-align     : center
+	align-items        : center
 
 .flex-container
 	display: -webkit-flex
+	display: -ms-flexbox
 	display: flex
 
 	&.flex-column-container
 		-webkit-flex-direction: column
-		flex-direction: column
+		-ms-flex-direction    : column
+		flex-direction        : column
 
 	&.flex-row-container
 		-webkit-flex-direction: row
+		-ms-flex-direction    : row
+		flex-direction        : row
 		-webkit-align-items: center
-		flex-direction: row
-		align-items: center
+		-ms-flex-align     : center
+		align-items        : center
 
 	.flex-stretch-item
 		-webkit-flex-grow: 1
+		-ms-flex-positive: 1
+		flex-grow        : 1
 		-webkit-flex-basis: 0% // note: safari bug: seems not working with 0 or 0px
-		flex-grow: 1
-		flex-basis: 0
+		-ms-flex-negative : 0
+		flex-basis        : 0
 		overflow-x: hidden
 		overflow-y: auto
 
 .sidebar-menu
 	>div
 		-webkit-flex-shrink: 0
-		flex-shrink: 0
+		-ms-flex-negative  : 0
+		flex-shrink        : 0
 
 	>.sidebar-menu-header
 		color: rgba(255, 255, 255, 0.3)
@@ -59,15 +71,17 @@
 				em
 					border-bottom: 1px dotted
 					font-size: 1rem
+
 			span
 				margin-right: .2rem
 				opacity: 0.4
+
 			form.form .ui.transparent.inverted.input
 				border-bottom: 1px dotted
 				border-color: rgba(255, 255, 255, 0.5)
-
 				input
 					color: inherit
+
 			.ui.label.unread-label
 				padding: .2em .7em .25em
 				margin-right: .2rem
@@ -86,11 +100,14 @@
 
 .notfound-container
 	display: -webkit-flex
-	-webkit-align-items: center
-	-webkit-justify-content: center
+	display: -ms-flexbox
 	display: flex
-	align-items: center
-	justify-content: center
+	-webkit-align-items: center
+	-ms-flex-align     : center
+	align-items        : center
+	-webkit-justify-content: center
+	-ms-flex-pack          : center
+	justify-content        : center
 	position: absolute
 	top: 0
 	bottom: 0
@@ -115,7 +132,6 @@
 	position: fixed
 	width: inherit
 	margin: 0
-	-webkit-transition: top .4s, bottom .4s
 	transition: top .4s, bottom .4s
 	@media only screen and (min-width: 768px)
 		max-width: 50%
