@@ -14,10 +14,10 @@
 	-webkit-flex-direction: $direction
 	-ms-flex-direction    : $direction
 	flex-direction        : $direction
-=flex($value)
-	-webkit-flex: $value
-	-ms-flex    : $value
-	flex        : $value
+=flex-stretch-item
+	-webkit-flex: 1 1 0%
+	-ms-flex    : 1 1 0
+	flex        : 1 1 0
 =justify-content-center
 	-webkit-justify-content: center
 	-ms-flex-pack          : center
@@ -45,7 +45,7 @@
 		+align-items-center
 
 	.flex-stretch-item
-		+flex(1 1 0)
+		+flex-stretch-item
 		overflow-x: hidden
 		overflow-y: auto
 
