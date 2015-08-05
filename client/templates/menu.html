@@ -64,9 +64,11 @@
 		class="item sidebar-menu-item hoverable {{__M_S.isActive 'channel' name}}">
 		<span>#</span>{{name}}
 		{{#if currentUser}}
+		{{#unless __M_S.isActive 'channel' name}}
 		{{#if $gt unread 0}}
 		<div class="pink right floated ui label unread-label">{{unread}}</div>
 		{{/if}}
+		{{/unless}}
 		{{/if}}
 	</a>
 </template>
@@ -75,9 +77,11 @@
 	<a href="/direct/{{name}}"
 		class="item sidebar-menu-item hoverable {{__M_S.isActive 'direct' name}}">
 		<span>@</span>{{name}}
+		{{#unless __M_S.isActive 'direct' name}}
 		{{#if $gt unread 0}}
 		<div class="pink right floated ui label unread-label">{{unread}}</div>
 		{{/if}}
+		{{/unless}}
 	</a>
 </template>
 <!-- ####################################################################### -->
