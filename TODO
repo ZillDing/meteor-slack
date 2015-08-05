@@ -2,6 +2,7 @@ High priority:
  ✔ increase channel message unread count even without mention @done (15-08-05 19:29)
  ☐ highlight important chats with unread messages
  ☐ browser notification
+ ☐ there is a slight shift of unread label @high
 
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
