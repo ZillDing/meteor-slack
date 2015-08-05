@@ -1,13 +1,13 @@
 High priority:
- ☐ consider increase channel message unread count even without mention
+ ✔ increase channel message unread count even without mention @done (15-08-05 19:29)
  ☐ highlight important chats with unread messages
  ☐ browser notification
 
+ ☐ lazy load old messges (pagination and infinite scroll)
+   https://atmospherejs.com/alethes/pages
  ☐ notification sound
  ☐ file support, simple uploading
  ☐ view files (allow download)
- ☐ lazy load old messges (pagination and infinite scroll)
-   https://atmospherejs.com/alethes/pages
 
 Low priority:
  ☐ reset user password
