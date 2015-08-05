@@ -1,18 +1,16 @@
 Template.menu.helpers
 	favouriteCount: ->
-		return if not Meteor.user()?.data()
-
-		channelCount = _.filter Meteor.user().data().channel, (o) ->
+		channelCount = _.filter Meteor.user()?.data()?.channel, (o) ->
 			o.favourite
 		.length
-		directCount = _.filter Meteor.user().data().direct, (o) ->
+		directCount = _.filter Meteor.user()?.data()?.direct, (o) ->
 			o.favourite
 		.length
 		channelCount + directCount
 
 	channels: ->
-		if Meteor.user()?.data()
-			Meteor.user().data().channelData().reverse()
+		if user = Meteor.user()
+			user.data()?.channelData().reverse()
 		else
 			# put the new ones on top
 			Channels.find {},
@@ -20,8 +18,7 @@ Template.menu.helpers
 					createdAt: -1
 
 	directChats: ->
-		if Meteor.user()?.data()
-			Meteor.user().data().directData().reverse()
+		Meteor.user()?.data()?.directData().reverse()
 
 
 ################################################################################

@@ -1,7 +1,7 @@
 High priority:
  ☐ consider increase channel message unread count even without mention
+ ☐ highlight important chats with unread messages
  ☐ browser notification
- ☐ clean up code (prefix private var, function with '_') @high
 
  ☐ notification sound
  ☐ file support, simple uploading
@@ -24,6 +24,9 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ enhance activity display @done (15-08-05 16:18) @project(High priority)
+ ✔ fix activities sort bug @critical @done (15-08-05 15:02) @project(High priority)
+ ✔ clean up code (prefix private var, function with '_') @high @done (15-08-05 14:47) @project(High priority)
  ✔ fix the user go on/offline notification @done (15-08-04 22:32) @project(High priority)
  ✔ keyboard submit when creating direct chat @done (15-08-04 21:33) @project(High priority)
  ✔ shift reactivevar to session variables @high @done (15-08-04 21:08) @project(High priority)
