@@ -76,7 +76,7 @@ ChannelMessages.after.insert (userId, message) ->
 	# update only mentioned users' chat data
 	# increment the unread count of the channel by 1
 	_.each message.mention.user, (userId) ->
-		if _isValidUserMention userId, message.text
+		if __M_S.f_isValidUserMention userId, message.text
 			UserData.update
 				_id: Meteor.users.findOne(userId).dataId
 				channel:

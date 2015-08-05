@@ -1,7 +1,7 @@
 Template.spotlight.onRendered ->
 	$search = @$ '.ui.search'
 	# get search content from the current user data
-	getSearchContent = ->
+	_getSearchContent = ->
 		result = []
 		userData = Meteor.user().data()
 		for o in userData.channelData()
@@ -26,7 +26,7 @@ Template.spotlight.onRendered ->
 		onVisible: ->
 			$search.search
 				maxResults: 3
-				source: getSearchContent()
+				source: _getSearchContent()
 				searchFields: ['title']
 				onSelect: (result, response) ->
 					$search.closest('.ui.modal').modal 'hide'

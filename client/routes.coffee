@@ -11,7 +11,7 @@ Router.plugin 'ensureSignedIn',
 ################################################################################
 # routes
 ################################################################################
-getSubs = ->
+_getSubs = ->
 	result = []
 	result.push Meteor.subscribe 'activities'
 	result.push Meteor.subscribe 'allUsers'
@@ -27,7 +27,7 @@ Router.route '/', ->
 
 Router.route '/channel/:_channel',
 	layoutTemplate: 'layout'
-	waitOn: getSubs
+	waitOn: _getSubs
 	action: ->
 		channel = @params._channel
 		@render 'messages',
@@ -39,7 +39,7 @@ Router.route '/channel/:_channel',
 Router.route '/config',
 	layoutTemplate: 'layout'
 	name: 'config'
-	waitOn: getSubs
+	waitOn: _getSubs
 	action: ->
 		Session.set '__M_S_showUtility', false
 		@render 'config'
@@ -48,7 +48,7 @@ Router.route '/config',
 Router.route '/direct/:_username',
 	layoutTemplate: 'layout'
 	name: 'direct'
-	waitOn: getSubs
+	waitOn: _getSubs
 	action: ->
 		username = @params._username
 		if username is Meteor.user().username
@@ -62,7 +62,7 @@ Router.route '/direct/:_username',
 
 Router.route '/help',
 	layoutTemplate: 'layout'
-	waitOn: getSubs
+	waitOn: _getSubs
 	action: ->
 		Session.set '__M_S_showUtility', false
 		@render 'help'
@@ -70,7 +70,7 @@ Router.route '/help',
 
 Router.route '/profile',
 	layoutTemplate: 'layout'
-	waitOn: getSubs
+	waitOn: _getSubs
 	action: ->
 		Session.set '__M_S_showUtility', false
 		@render 'profile'
@@ -78,7 +78,7 @@ Router.route '/profile',
 
 Router.route '/signin',
 	layoutTemplate: 'layout'
-	waitOn: getSubs
+	waitOn: _getSubs
 	action: ->
 		Session.set '__M_S_showUtility', false
 		if Meteor.userId()

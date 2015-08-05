@@ -8,13 +8,13 @@ Template.messages.helpers
 
 
 Template.messages.onCreated ->
-	@prevData = null
-	@clearUnread = (data) ->
+	@_prevData = null
+	@_clearUnread = (data) ->
 		Tracker.nonreactive ->
 			Meteor.call 'clearUnread', data, (error, result) ->
 				__M_S.f_sAlertError error if error
 
-	isValid = (data) ->
+	_isValid = (data) ->
 		Tracker.nonreactive ->
 			if not _.contains ['channel', 'direct'], data.type
 				sAlert.error
@@ -42,7 +42,7 @@ Template.messages.onCreated ->
 
 	@autorun =>
 		data = Template.currentData()
-		return if not isValid data
+		return if not _isValid data
 
 		@subscribe "#{data.type}Messages", data.target
 		Session.set
@@ -50,8 +50,8 @@ Template.messages.onCreated ->
 			__M_S_chatTarget: data.target
 
 		return if not Meteor.userId()
-		@clearUnread @prevData if @prevData
-		@prevData = data
+		@_clearUnread @_prevData if @_prevData
+		@_prevData = data
 		# note: need to run in non-reactive mode
 		Tracker.nonreactive ->
 			Meteor.call 'addChat', data, (error, result) ->
@@ -92,7 +92,7 @@ Template.messages.onRendered ->
 
 
 Template.messages.onDestroyed ->
-	@clearUnread @prevData if Meteor.userId() and @prevData
+	@_clearUnread @_prevData if Meteor.userId() and @_prevData
 	Session.set
 		__M_S_chatType: null
 		__M_S_chatTarget: null

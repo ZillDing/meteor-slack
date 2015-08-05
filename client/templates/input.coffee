@@ -1,13 +1,13 @@
 Template.input.events
 	'submit form.form': (event, template) ->
-		isValid = (text) ->
+		_isValid = (text) ->
 			# make sure the text is not empty
 			not _.isEmpty text.trim().replace '\n', ''
-		getValidMention = (text) ->
+		_getValidMention = (text) ->
 			aC = _.filter template.mention.channel, (channelId) ->
-				_isValidChannelMention channelId, text
+				__M_S.f_isValidChannelMention channelId, text
 			aU = _.filter template.mention.user, (userId) ->
-				_isValidUserMention userId, text
+				__M_S.f_isValidUserMention userId, text
 			# return the mention object
 			channel: aC
 			user: aU
@@ -17,12 +17,12 @@ Template.input.events
 		text = $input.val().trim()
 		type = Session.get '__M_S_chatType'
 		target = Session.get '__M_S_chatTarget'
-		if isValid(text) and type and target
+		if _isValid(text) and type and target
 			message =
 				type: type
 				target: target
 				text: text
-				mention: getValidMention(text)
+				mention: _getValidMention(text)
 			Meteor.call 'addMessage', message, (error, result) ->
 				if error
 					sAlertError error
