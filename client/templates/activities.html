@@ -7,47 +7,53 @@
 		{{#if $eq type 'new-channel'}}
 		{{> activities_new_channel}}
 		{{/if}}
+		{{#if $eq type 'user-mention'}}
+		{{> activities_user_mention}}
+		{{/if}}
 		{{/each}}
-	</div>
-</template>
-<!-- ####################################################################### -->
-<template name="activities_new_user">
-	<div class="event">
-		<div class="label">
-			<img src="{{__M_S.SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
-		</div>
-		<div class="content">
-			<div class="date">
-				{{livestamp owner.createdAt}}
-			</div>
-			<div class="summary">
-				{{> activities_get_username owner}} joined the team!
-			</div>
-		</div>
-	</div>
-</template>
-<!-- ####################################################################### -->
-<template name="activities_new_channel">
-	<div class="event">
-		<div class="label">
-			<img src="{{__M_S.SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
-		</div>
-		<div class="content">
-			<div class="date">
-				{{livestamp channel.createdAt}}
-			</div>
-			<div class="summary">
-				{{> activities_get_username owner}} created a new channel:
-				<a href="/channel/{{channel.name}}">{{channel.name}}</a>.
-			</div>
-		</div>
 	</div>
 </template>
 <!-- ####################################################################### -->
 <template name="activities_get_username">
 	{{#if $eq _id $.Meteor.userId}}
-	You
+	you
 	{{else}}
 	<a href="/direct/{{username}}">{{username}}</a>
 	{{/if}}
+</template>
+<!-- ####################################################################### -->
+<template name="activities_item">
+	<div class="event">
+		<div class="label">
+			<img src="{{__M_S.SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
+		</div>
+		<div class="content">
+			<div class="date">
+				{{livestamp createdAt}}
+			</div>
+			<div class="summary">
+				{{> Template.contentBlock}}
+			</div>
+		</div>
+	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="activities_new_user">
+	{{#activities_item}}
+		{{> activities_get_username owner}} joined the team!
+	{{/activities_item}}
+</template>
+<!-- ####################################################################### -->
+<template name="activities_new_channel">
+	{{#activities_item}}
+		{{> activities_get_username owner}} created a new channel:
+		<a href="/channel/{{channel.name}}">{{channel.name}}</a>.
+	{{/activities_item}}
+</template>
+<!-- ####################################################################### -->
+<template name="activities_user_mention">
+	{{#activities_item}}
+		{{> activities_get_username owner}} mentioned {{> activities_get_username target}} in channel:
+		<a href="/channel/{{channel.name}}">{{channel.name}}</a>.
+	{{/activities_item}}
 </template>

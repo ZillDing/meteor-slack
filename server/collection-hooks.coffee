@@ -158,7 +158,8 @@ Notifications.before.insert (userId, notification) ->
 Notifications.after.insert (userId, notification) ->
 	o = _.pick notification, 'channelId', 'ownerId', 'targetId', 'type'
 	# selectively create activity
-	Activities.insert o if _.contains ['new-user', 'new-channel'], notification.type
+	if _.contains ['new-user', 'new-channel', 'user-mention'], notification.type
+		Activities.insert o
 
 	# self destructive
 	# remove this notification after 3 seconds

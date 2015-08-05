@@ -72,8 +72,11 @@ direct: [
 
 _id: String
 channelId: String
+createdAt: Date
 ownerId: String
-type: String('new-user', 'new-channel')
+targetId: String
+type: String
+	'new-user' | 'new-channel' | 'user-mention'
 
 ###
 @Activities = new Mongo.Collection 'activities'
@@ -124,19 +127,16 @@ UserData.helpers
 				name: Meteor.users.findOne(o.id).username
 			, o
 
-Activities.helpers
-	channel: ->
-		Channels.findOne @channelId
-	owner: ->
-		Meteor.users.findOne @ownerId
-
-Notifications.helpers
+_notificationHelpers =
 	channel: ->
 		Channels.findOne @channelId
 	owner: ->
 		Meteor.users.findOne @ownerId
 	target: ->
 		Meteor.users.findOne @targetId
+
+Activities.helpers _notificationHelpers
+Notifications.helpers _notificationHelpers
 
 
 ################################################################################
