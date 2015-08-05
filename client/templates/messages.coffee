@@ -10,7 +10,7 @@ Template.messages.helpers
 Template.messages.onCreated ->
 	@_prevData = null
 	@_clearUnread = (data) ->
-		return if not data
+		return if not Meteor.userId() or not data
 		Tracker.nonreactive ->
 			Meteor.call 'clearUnread', data, (error, result) ->
 				__M_S.f_sAlertError error if error
