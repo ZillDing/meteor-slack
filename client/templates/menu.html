@@ -71,6 +71,11 @@
 		{{/if}}
 		{{/unless}}
 
+		{{#unless __M_S.isActive type data.name}}
+		{{#if data.highlight}}
+		<i class="inbox icon"></i>
+		{{/if}}
+		{{/unless}}
 		<div class="content">
 			<span>
 				{{#if $eq type 'channel'}}#{{/if}}
