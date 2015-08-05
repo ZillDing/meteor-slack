@@ -73,7 +73,6 @@ Meteor.methods
 
 		# add the new message into corresponding db collection
 		newMessage =
-			createdAt: new Date()
 			mention: message.mention
 			ownerId: Meteor.userId()
 			text: message.text
@@ -125,7 +124,6 @@ Meteor.methods
 			throw new Meteor.Error error, "Duplicate channel name: #{channel}"
 
 		Channels.insert
-			createdAt: new Date()
 			name: channel
 			ownerId: Meteor.userId()
 

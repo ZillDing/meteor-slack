@@ -50,6 +50,7 @@ Meteor.users.after.update (userId, user, fieldNames, modifier, options) ->
 ################################################################################
 # Channels
 Channels.before.insert (userId, channel) ->
+	channel.createdAt = new Date()
 	# add current all users id
 	channel.usersId = Meteor.users.find().map (user) ->
 		user._id
@@ -72,6 +73,9 @@ Channels.after.insert (userId, channel) ->
 
 
 # ChannelMessages
+ChannelMessages.before.insert (userId, message) ->
+	message.createdAt = new Date()
+
 ChannelMessages.after.insert (userId, message) ->
 	# update only mentioned users' chat data
 	# increment the unread count of the channel by 1
@@ -97,6 +101,9 @@ ChannelMessages.after.insert (userId, message) ->
 
 
 # DirectMessages
+DirectMessages.before.insert (userId, message) ->
+	message.createdAt = new Date()
+
 DirectMessages.after.insert (userId, message) ->
 	# update only the receiver data
 	senderId = message.ownerId
@@ -168,4 +175,4 @@ Notifications.after.insert (userId, notification) ->
 
 # Activities
 Activities.before.insert (userId, activity) ->
-	activity.createdAt = Date.now()
+	activity.createdAt = new Date()
