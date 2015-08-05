@@ -62,17 +62,22 @@
 <template name="menu_item">
 	<a href="/{{type}}/{{data.name}}"
 		class="item sidebar-menu-item hoverable {{__M_S.isActive type data.name}}">
-		<span>
-			{{#if $eq type 'channel'}}#{{/if}}
-			{{#if $eq type 'direct'}}@{{/if}}
-		</span>
-		{{data.name}}
 		{{!-- unread count label --}}
 		{{#unless __M_S.isActive type data.name}}
 		{{#if $gt data.unread 0}}
-		<div class="pink right floated ui label unread-label">{{data.unread}}</div>
+		<div class="right floated content">
+			<div class="ui pink label unread-label">{{data.unread}}</div>
+		</div>
 		{{/if}}
 		{{/unless}}
+
+		<div class="content">
+			<span>
+				{{#if $eq type 'channel'}}#{{/if}}
+				{{#if $eq type 'direct'}}@{{/if}}
+			</span>
+			{{data.name}}
+		</div>
 	</a>
 </template>
 <!-- ####################################################################### -->
