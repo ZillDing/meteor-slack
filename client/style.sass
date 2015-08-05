@@ -1,53 +1,55 @@
 // note: put vender specific prefixed rules in front
 // group by css rules
 
+// mixins
+=display-flex
+	display: -webkit-flex
+	display: -ms-flexbox
+	display: flex
+=align-items-center
+	-webkit-align-items: center
+	-ms-flex-align     : center
+	align-items        : center
+=flex-direction($direction)
+	-webkit-flex-direction: $direction
+	-ms-flex-direction    : $direction
+	flex-direction        : $direction
+=flex($value)
+	-webkit-flex: $value
+	-ms-flex    : $value
+	flex        : $value
+=justify-content-center
+	-webkit-justify-content: center
+	-ms-flex-pack          : center
+	justify-content        : center
+
+
+////////////////////////////////////////////////////////////////////////////////
 .row
 	margin-left: -1rem
 	margin-right: -1rem
 	padding: 1rem
 
 .flex-center-align
-	display: -webkit-flex
-	display: -ms-flexbox
-	display: flex
-	-webkit-align-items: center
-	-ms-flex-align     : center
-	align-items        : center
+	+display-flex
+	+align-items-center
 
 .flex-container
-	display: -webkit-flex
-	display: -ms-flexbox
-	display: flex
+	+display-flex
 
 	&.flex-column-container
-		-webkit-flex-direction: column
-		-ms-flex-direction    : column
-		flex-direction        : column
+		+flex-direction(column)
 
 	&.flex-row-container
-		-webkit-flex-direction: row
-		-ms-flex-direction    : row
-		flex-direction        : row
-		-webkit-align-items: center
-		-ms-flex-align     : center
-		align-items        : center
+		+flex-direction(row)
+		+align-items-center
 
 	.flex-stretch-item
-		-webkit-flex-grow: 1
-		-ms-flex-positive: 1
-		flex-grow        : 1
-		-webkit-flex-basis: 0% // note: safari bug: seems not working with 0 or 0px
-		-ms-flex-negative : 0
-		flex-basis        : 0
+		+flex(1 1 0)
 		overflow-x: hidden
 		overflow-y: auto
 
 .sidebar-menu
-	>div
-		-webkit-flex-shrink: 0
-		-ms-flex-negative  : 0
-		flex-shrink        : 0
-
 	>.sidebar-menu-header
 		color: rgba(255, 255, 255, 0.3)
 
@@ -99,15 +101,9 @@
 		background-color: teal
 
 .notfound-container
-	display: -webkit-flex
-	display: -ms-flexbox
-	display: flex
-	-webkit-align-items: center
-	-ms-flex-align     : center
-	align-items        : center
-	-webkit-justify-content: center
-	-ms-flex-pack          : center
-	justify-content        : center
+	+display-flex
+	+align-items-center
+	+justify-content-center
 	position: absolute
 	top: 0
 	bottom: 0
