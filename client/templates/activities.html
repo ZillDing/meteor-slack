@@ -2,16 +2,16 @@
 	<div class="ui feed">
 		{{#each activities}}
 		{{#if $eq type 'new-user'}}
-		{{> template_new_user}}
+		{{> activities_new_user}}
 		{{/if}}
 		{{#if $eq type 'new-channel'}}
-		{{> template_new_channel}}
+		{{> activities_new_channel}}
 		{{/if}}
 		{{/each}}
 	</div>
 </template>
 <!-- ####################################################################### -->
-<template name="template_new_user">
+<template name="activities_new_user">
 	<div class="event">
 		<div class="label">
 			<img src="{{__M_S.SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
@@ -21,13 +21,13 @@
 				{{livestamp owner.createdAt}}
 			</div>
 			<div class="summary">
-				<a href="/direct/{{owner.username}}">{{owner.username}}</a> has joined the team!
+				{{> activities_get_username owner}} joined the team!
 			</div>
 		</div>
 	</div>
 </template>
 <!-- ####################################################################### -->
-<template name="template_new_channel">
+<template name="activities_new_channel">
 	<div class="event">
 		<div class="label">
 			<img src="{{__M_S.SMALL_AVATAR_DIR}}/{{owner.profile.avatar}}" alt="avatar">
@@ -37,8 +37,17 @@
 				{{livestamp channel.createdAt}}
 			</div>
 			<div class="summary">
-				<a href="/direct/{{owner.username}}">{{owner.username}}</a> has created a new channel: <a href="/channel/{{channel.name}}">{{channel.name}}</a>.
+				{{> activities_get_username owner}} created a new channel:
+				<a href="/channel/{{channel.name}}">{{channel.name}}</a>.
 			</div>
 		</div>
 	</div>
+</template>
+<!-- ####################################################################### -->
+<template name="activities_get_username">
+	{{#if $eq _id $.Meteor.userId}}
+	You
+	{{else}}
+	<a href="/direct/{{username}}">{{username}}</a>
+	{{/if}}
 </template>
