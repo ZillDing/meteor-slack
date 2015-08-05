@@ -7,9 +7,7 @@
 
 	{{!-- render a loader if subscription is not ready --}}
 	{{#unless Template.subscriptionsReady}}
-	<div class="ui active inverted dimmer">
-		<div class="ui large text loader">Loading</div>
-	</div>
+	{{> loading}}
 	{{/unless}}
 </template>
 <!-- ####################################################################### -->

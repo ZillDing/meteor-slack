@@ -2,6 +2,7 @@
 # config
 ################################################################################
 Router.configure
+	loadingTemplate: 'loading'
 	notFoundTemplate: 'notfound'
 
 Router.plugin 'ensureSignedIn',
