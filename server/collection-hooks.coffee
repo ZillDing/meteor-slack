@@ -97,7 +97,7 @@ ChannelMessages.after.insert (userId, message) ->
 				channelId: message.channelId
 				ownerId: message.ownerId
 				targetId: userId
-				type: 'channel-mention'
+				type: 'user-mention'
 
 
 # DirectMessages
@@ -154,17 +154,9 @@ Notifications.before.insert (userId, notification) ->
 	notification.targetName = o.target().username if notification.targetId
 
 Notifications.after.insert (userId, notification) ->
+	o = _.pick notification, 'channelId', 'ownerId', 'targetId', 'type'
 	# selectively create activity
-	switch notification.type
-		when 'new-user'
-			Activities.insert
-				ownerId: notification.ownerId
-				type: 'new-user'
-		when 'new-channel'
-			Activities.insert
-				channelId: notification.channelId
-				ownerId: notification.ownerId
-				type: 'new-channel'
+	Activities.insert o if _.contains ['new-user', 'new-channel'], notification.type
 
 	# self destructive
 	# remove this notification after 3 seconds

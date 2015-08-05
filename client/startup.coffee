@@ -24,7 +24,7 @@ Meteor.startup ->
 					sAlert.info
 						sAlertTitle: _getLink 'direct', notification.ownerName
 						message: 'sent you a message.'
-				when 'channel-mention'
+				when 'user-mention'
 					sAlert.info
 						sAlertTitle: notification.ownerName
 						message: "mentioned you in channel: #{_getLink 'channel', notification.channelName}."

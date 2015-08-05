@@ -85,7 +85,7 @@ channelId: String
 ownerId: String
 targetId: String
 type: String
-	'new-user' | 'new-channel' | 'direct-message' | 'channel-mention' |
+	'new-user' | 'new-channel' | 'direct-message' | 'user-mention' |
 	'user-status'
 
 ###
@@ -104,12 +104,12 @@ Channels.helpers
 		Meteor.users.findOne @ownerId
 
 
-messagesHelpers =
+_messagesHelpers =
 	owner: ->
 		Meteor.users.findOne @ownerId
 
-ChannelMessages.helpers messagesHelpers
-DirectMessages.helpers messagesHelpers
+ChannelMessages.helpers _messagesHelpers
+DirectMessages.helpers _messagesHelpers
 
 UserData.helpers
 	channelData: ->
