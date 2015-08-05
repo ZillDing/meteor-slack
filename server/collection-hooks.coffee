@@ -77,21 +77,23 @@ ChannelMessages.before.insert (userId, message) ->
 	message.createdAt = new Date()
 
 ChannelMessages.after.insert (userId, message) ->
-	# update only mentioned users' chat data
+	# update all other uses' chat data (not including sender)
 	# increment the unread count of the channel by 1
+	UserData.update
+		_id:
+			$ne: Meteor.users.findOne(message.ownerId).dataId
+		channel:
+			$elemMatch:
+				id: message.channelId
+	,
+		$inc:
+			'channel.$.unread': 1
+	,
+		multi: true
+
+	# only notify mentioned users
 	_.each message.mention.user, (userId) ->
 		if __M_S.f_isValidUserMention userId, message.text
-			UserData.update
-				_id: Meteor.users.findOne(userId).dataId
-				channel:
-					$elemMatch:
-						id: message.channelId
-			,
-				$inc:
-					'channel.$.unread': 1
-			,
-				multi: true
-
 			# add to notifications
 			Notifications.insert
 				channelId: message.channelId
