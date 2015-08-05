@@ -164,3 +164,8 @@ Notifications.after.insert (userId, notification) ->
 	Meteor.setTimeout ->
 		Notifications.remove notification._id
 	, 3000
+
+
+# Activities
+Activities.before.insert (userId, activity) ->
+	activity.createdAt = Date.now()
