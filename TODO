@@ -1,11 +1,8 @@
 High priority:
- ✔ increase channel message unread count even without mention @done (15-08-05 19:29)
- ☐ highlight important chats with unread messages
  ☐ browser notification
- ☐ there is a slight shift of unread label @high
-
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
+
  ☐ notification sound
  ☐ file support, simple uploading
  ☐ view files (allow download)
@@ -25,6 +22,9 @@ Low priority:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ increase channel message unread count even without mention @done (15-08-05 19:29) @project(High priority)
+ ✔ highlight important chats with unread messages @done (15-08-07 08:11) @project(High priority)
+ ✔ there is a slight shift of unread label @high @done (15-08-07 08:12) @project(High priority)
  ✔ enhance activity display @done (15-08-05 16:18) @project(High priority)
  ✔ fix activities sort bug @critical @done (15-08-05 15:02) @project(High priority)
  ✔ clean up code (prefix private var, function with '_') @high @done (15-08-05 14:47) @project(High priority)
