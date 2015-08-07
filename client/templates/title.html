@@ -55,7 +55,11 @@
 
 		{{#if currentUser}}
 		<button class="right floated compact ui icon button utility-trigger" style="margin-left: 1rem">
-			<i class="list layout icon"></i>
+			{{#if $.Session.get '__M_S_showUtility'}}
+			<i class="toggle right icon"></i>
+			{{else}}
+			<i class="ellipsis horizontal icon"></i>
+			{{/if}}
 		</button>
 		<div class="ui small search" style="float: right; margin-left: 1rem; min-width: 30%">
 			<div class="ui fluid icon input">

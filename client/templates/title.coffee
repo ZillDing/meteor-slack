@@ -45,6 +45,10 @@ Template.title.onRendered ->
 			content: 'Toggle favourite'
 			position: 'bottom center'
 
+		@$('.ui.button.utility-trigger').popup
+			content: 'Toggle utility'
+			position: 'bottom right'
+
 		@autorun =>
 			return if not Meteor.userId()
 
