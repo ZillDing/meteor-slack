@@ -1,7 +1,9 @@
 Template.title.events
-	'click .ui.button.favourite-btn': (event) ->
+	'click .ui.button': (event) ->
 		$(event.currentTarget).popup 'hide'
 		$(event.currentTarget).blur() # this is to fix the focusing bug
+
+	'click .ui.button.favourite-btn': (event) ->
 		data =
 			type: Session.get '__M_S_chatType'
 			target: Session.get '__M_S_chatTarget'
@@ -9,8 +11,6 @@ Template.title.events
 			__M_S.f_sAlertError error if error
 
 	'click .ui.button.remove-btn': (event) ->
-		$(event.currentTarget).popup 'hide'
-		$(event.currentTarget).blur() # this is to fix the focusing bug
 		$('.ui.modal.title-modal').modal 'show'
 
 	'click .ui.button.utility-trigger': ->

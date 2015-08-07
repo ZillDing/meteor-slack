@@ -62,20 +62,19 @@
 <template name="menu_item">
 	<a href="/{{type}}/{{data.name}}"
 		class="item sidebar-menu-item hoverable {{__M_S.isActive type data.name}}">
-		{{!-- unread count label --}}
 		{{#unless __M_S.isActive type data.name}}
+		{{!-- unread count label --}}
 		{{#if $gt data.unread 0}}
 		<div class="right floated content">
 			<div class="ui pink label unread-label">{{data.unread}}</div>
 		</div>
 		{{/if}}
-		{{/unless}}
-
-		{{#unless __M_S.isActive type data.name}}
+		{{!-- highlight icon --}}
 		{{#if data.highlight}}
 		<i class="alarm icon"></i>
 		{{/if}}
 		{{/unless}}
+
 		<div class="content">
 			<span>
 				{{#if $eq type 'channel'}}#{{/if}}

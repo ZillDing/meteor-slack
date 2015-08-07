@@ -13,11 +13,11 @@ Template.status_signedIn.onRendered ->
 		direction: 'upward'
 
 	if __M_S.b_deviceIsHoverable
-		@$('i.sign.out').popup()
-
 		@autorun =>
 			status = Meteor.user().profile.status
-			if (_.isString status) and status.length > @MAX_STATUS_CHAR
-				@$('div.description small').popup()
+			if (_.isString status) and status.length > 10
+				@$('div.description small').popup
+					content: status
+					variation: 'inverted'
 			else
 				@$('div.description small').popup 'destroy'

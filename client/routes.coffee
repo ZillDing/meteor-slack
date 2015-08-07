@@ -5,6 +5,12 @@ Router.configure
 	loadingTemplate: 'loading'
 	notFoundTemplate: 'notfound'
 
+	# router hooks
+	onBeforeAction: ->
+		$('.popup-trigger').popup 'hide'
+		@next()
+
+
 Router.plugin 'ensureSignedIn',
 	only: ['config', 'direct']
 

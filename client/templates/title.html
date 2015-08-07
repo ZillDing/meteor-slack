@@ -15,16 +15,7 @@
 					All channels...
 				</div>
 				{{#each channels}}
-				<a href="/channel/{{name}}" class="item {{__M_S.isActive 'channel' name}}">
-					{{#if currentUser}}
-					{{#unless __M_S.isActive 'channel' name}}
-					{{#if $gt unread 0}}
-					<span class="description">{{unread}} new</span>
-					{{/if}}
-					{{/unless}}
-					{{/if}}
-					<span>#</span> {{name}}
-				</a>
+					{{> title_dropdown_item type='channel' data=this}}
 				{{/each}}
 				{{#if currentUser}}
 				<div class="header">
@@ -32,14 +23,7 @@
 					All direct messages...
 				</div>
 				{{#each directChats}}
-				<a href="/direct/{{name}}" class="item {{__M_S.isActive 'direct' name}}">
-					{{#unless __M_S.isActive 'direct' name}}
-					{{#if $gt unread 0}}
-					<span class="description">{{unread}} new</span>
-					{{/if}}
-					{{/unless}}
-					<span>@</span> {{name}}
-				</a>
+					{{> title_dropdown_item type='direct' data=this}}
 				{{/each}}
 				{{/if}}
 			</div>
@@ -54,7 +38,7 @@
 		{{/if}}
 
 		{{#if currentUser}}
-		<button class="right floated compact ui icon button utility-trigger" style="margin-left: 1rem">
+		<button class="right floated compact ui icon button utility-trigger popup-trigger" style="margin-left: 1rem">
 			{{#if $.Session.get '__M_S_showUtility'}}
 			<i class="toggle right icon"></i>
 			{{else}}
@@ -68,16 +52,32 @@
 				<i class="search icon"></i>
 			</div>
 		</div>
-		<button class="right floated compact ui red basic icon button remove-btn">
+		<button class="right floated compact ui red basic icon button remove-btn popup-trigger">
 			<i class="remove icon"></i>
 		</button>
-		<button class="right floated compact ui pink basic icon button favourite-btn">
+		<button class="right floated compact ui pink basic icon button favourite-btn popup-trigger">
 			<i class="star icon"></i>
 		</button>
 		{{/if}}
 	</div>
 
 	{{> title_modal}}
+</template>
+
+<!-- ####################################################################### -->
+<template name="title_dropdown_item">
+	<a href="/{{type}}/{{data.name}}" class="item {{__M_S.isActive type data.name}}">
+		{{#unless __M_S.isActive type data.name}}
+		{{#if $gt data.unread 0}}
+		<span class="description">{{data.unread}} new</span>
+		{{/if}}
+		{{/unless}}
+		<span>
+			{{#if $eq type 'channel'}}#{{/if}}
+			{{#if $eq type 'direct'}}@{{/if}}
+		</span>
+		{{data.name}}
+	</a>
 </template>
 <!-- ####################################################################### -->
 <template name="title_modal">
