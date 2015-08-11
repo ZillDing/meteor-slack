@@ -17,7 +17,7 @@ Template.messages.onCreated ->
 
 	_isValid = (data) ->
 		Tracker.nonreactive ->
-			if not _.contains ['channel', 'direct'], data.type
+			if data.type not in ['channel', 'direct']
 				sAlert.error
 					sAlertTitle: 'Error'
 					message: "Invalid chat type: #{data.type}"
