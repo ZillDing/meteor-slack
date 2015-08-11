@@ -8,6 +8,16 @@ Meteor.startup ->
 
 	_getLink = (type, name) ->
 		"<a href=\"/#{type}/#{name}\">#{name}</a>"
+	_notify = (title) ->
+		return if not Notification
+		return if Notification.permission is 'denied'
+
+		if Notification.permission is 'granted'
+			new Notification title
+		else
+			Notification.requestPermission (permission) ->
+				if permission is 'granted'
+					new Notification title
 
 	Notifications.find().observeChanges
 		added: (id, notification) ->
@@ -24,10 +34,12 @@ Meteor.startup ->
 					sAlert.info
 						sAlertTitle: _getLink 'direct', notification.ownerName
 						message: 'sent you a message.'
+					_notify "New message from #{notification.ownerName}"
 				when 'user-mention'
 					sAlert.info
 						sAlertTitle: notification.ownerName
 						message: "mentioned you in channel: #{_getLink 'channel', notification.channelName}."
+					_notify "New mention by #{notification.ownerName}"
 				when 'user-status'
 					if notification.ownerStatus?.online
 						title = _getLink 'direct', notification.ownerName
@@ -38,3 +50,7 @@ Meteor.startup ->
 					sAlert.info
 						sAlertTitle: title
 						message: message
+
+	# request desktop notification permission
+	if Notification and Notification.permission not in ['granted', 'denied']
+		Notification.requestPermission()
