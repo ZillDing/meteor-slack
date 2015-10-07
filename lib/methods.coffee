@@ -43,19 +43,11 @@ Meteor.methods
 					$push:
 						usersId: Meteor.userId()
 			# add to user data
-			###
 			UserData.update Meteor.user().dataId,
 				$push:
 					"#{data.type}":
 						id: targetId
 						unread: 0
-			###
-			item = {}
-			item[data.type] =
-				id: targetId
-				unread: 0
-			UserData.update Meteor.user().dataId,
-				$push: item
 
 	addMessage: (message) ->
 		error = 'Add message failed'
@@ -95,21 +87,13 @@ Meteor.methods
 			type: Match.OneOf 'channel', 'direct'
 			target: String
 
-		###
+		o = {}
+		o["#{data.type}.$.unread"] = 0
+		o["#{data.type}.$.highlight"] = false if data.type is 'channel'
 		UserData.update
 			_id: Meteor.user().dataId
 			"#{data.type}.id": _getTargetId data, error
 		,
-			$set:
-				"#{data.type}.$.unread": 0
-		###
-		selector = {}
-		selector._id = Meteor.user().dataId
-		selector["#{data.type}.id"] = _getTargetId data, error
-		o = {}
-		o["#{data.type}.$.unread"] = 0
-		o["#{data.type}.$.highlight"] = false if data.type is 'channel'
-		UserData.update selector,
 			$set: o
 
 	# create a new channel in the system
@@ -150,17 +134,11 @@ Meteor.methods
 			Channels.update targetId,
 				$pull:
 					usersId: Meteor.userId()
-		###
+
 		UserData.update Meteor.user().dataId,
 			$pull:
 				"#{data.type}":
 					id: targetId
-		###
-		o = {}
-		o[data.type] =
-			id: targetId
-		UserData.update Meteor.user().dataId,
-			$pull: o
 
 	toggleFavourite: (data) ->
 		error = 'Toggle favourite error'
@@ -175,19 +153,13 @@ Meteor.methods
 		item = _.find array, (o) ->
 			o.id is targetId
 		newFavourite = not item.favourite
-		###
+
 		UserData.update
 			_id: Meteor.user().dataId
 			"#{data.type}.id": targetId
 		,
 			$set:
 				"#{data.type}.$.favourite": newFavourite
-		###
-		selector = _id: Meteor.user().dataId
-		selector["#{data.type}.id"] = targetId
-		o = {}
-		o["#{data.type}.$.favourite"] = newFavourite
-		UserData.update selector, $set: o
 
 	updateUserProfile: (profile) ->
 		error = 'update-user-profile-failed'
