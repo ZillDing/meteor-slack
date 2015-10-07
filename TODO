@@ -1,9 +1,10 @@
 High priority:
+ ☐ notification sound
+ ☐ simple search in chat
  ☐ browser notification
+
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
-
- ☐ notification sound
  ☐ file support, simple uploading
  ☐ view files (allow download)
 

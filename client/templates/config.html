@@ -6,7 +6,7 @@
 					<i class="setting icon"></i>
 					<div class="content">Your channels</div>
 				</div>
-				<div class="ui animated celled list">
+				<div class="ui animated divided list">
 					{{#each userChannels}}
 					{{> config_item_channel_user}}
 					{{else}}
@@ -20,7 +20,7 @@
 					<i class="browser icon"></i>
 					<div class="content">Available channels</div>
 				</div>
-				<div class="ui animated celled list">
+				<div class="ui animated divided list">
 					{{#each additionalChannels}}
 					{{> config_item_channel_additional}}
 					{{else}}
@@ -38,7 +38,7 @@
 					<i class="comments icon"></i>
 					<div class="content">Your conversations</div>
 				</div>
-				<div class="ui animated celled list">
+				<div class="ui animated divided list">
 					{{#each directChats}}
 					{{> config_item_direct}}
 					{{else}}
@@ -74,14 +74,10 @@
 <!-- ####################################################################### -->
 <template name="config_item">
 	<div class="item">
-		<div class="right floated content">
-			<div class="{{buttonClass}} ui compact icon button">
-				<i class="{{iconClass}} icon"></i>
-			</div>
+		<div class="{{buttonClass}} ui compact icon button" style="margin-right: 1rem">
+			<i class="{{iconClass}} icon"></i>
 		</div>
 
-		<div class="middle aligned content" style="line-height: 2.2em">
-			{{symbol}} <strong>{{name}}</strong>
-		</div>
+		{{symbol}} <strong>{{name}}</strong>
 	</div>
 </template>

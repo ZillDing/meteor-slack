@@ -38,11 +38,11 @@
 		{{/if}}
 
 		{{#if currentUser}}
-		<button class="right floated compact ui icon button utility-trigger popup-trigger" style="margin-left: 1rem">
+		<button class="right floated compact ui basic grey icon button utility-trigger popup-trigger" style="margin-left: 1rem">
 			{{#if $.Session.get '__M_S_showUtility'}}
-			<i class="toggle right icon" style="margin: 0"></i>
+			<i class="toggle on icon"></i>
 			{{else}}
-			<i class="ellipsis horizontal icon"></i>
+			<i class="toggle off icon"></i>
 			{{/if}}
 		</button>
 		<div class="ui small search" style="float: right; margin-left: 1rem; min-width: 30%">
