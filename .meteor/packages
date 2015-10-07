@@ -6,14 +6,12 @@
 
 coffeescript
 fourseven:scss
-msavin:mongol
 iron:router
 useraccounts:semantic-ui
 accounts-password
 momentjs:moment
 mystor:device-detection
 mizzao:user-status
-msavin:jetsetter
 raix:handlebar-helpers
 dburles:collection-helpers
 matb33:collection-hooks
@@ -43,3 +41,4 @@ check
 juliancwirko:s-alert
 juliancwirko:s-alert-scale
 useraccounts:iron-routing
+meteortoys:allthings
