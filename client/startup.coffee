@@ -3,8 +3,9 @@ Meteor.startup ->
 	sAlert.config
 		effect: 'scale'
 		html: true
-		offset: 55
-		position: 'bottom-right'
+		stack:
+			spacing: 10
+		offset: 10
 
 	_getLink = (type, name) ->
 		"<a href=\"/#{type}/#{name}\">#{name}</a>"
