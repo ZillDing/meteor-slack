@@ -19,6 +19,8 @@ Meteor.startup ->
 				if permission is 'granted'
 					new Notification title
 
+	alertSound = new buzz.sound '/sounds/alert.mp3'
+
 	Notifications.find().observeChanges
 		added: (id, notification) ->
 			switch notification.type
@@ -35,11 +37,13 @@ Meteor.startup ->
 						sAlertTitle: _getLink 'direct', notification.ownerName
 						message: 'sent you a message.'
 					_notify "New message from #{notification.ownerName}"
+					alertSound.play()
 				when 'user-mention'
 					sAlert.info
 						sAlertTitle: notification.ownerName
 						message: "mentioned you in channel: #{_getLink 'channel', notification.channelName}."
 					_notify "New mention by #{notification.ownerName}"
+					alertSound.play()
 				when 'user-status'
 					if notification.ownerStatus?.online
 						title = _getLink 'direct', notification.ownerName

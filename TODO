@@ -1,9 +1,10 @@
 High priority:
- ☐ notification sound
+ ✔ notification sound @done (15-10-07 16:30)
    https://atmospherejs.com/brentjanderson/buzz
  ☐ use autoprefixer for css code
    https://atmospherejs.com/flemay/less-autoprefixer
- ☐ browser notification
+ ✔ browser notification @done (15-10-07 15:55)
+ ☐ do not notify when user in the current chat and focusing
  ☐ change user password
 
  ☐ simple search in chat
