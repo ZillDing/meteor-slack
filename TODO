@@ -1,8 +1,12 @@
 High priority:
  ☐ notification sound
- ☐ simple search in chat
+   https://atmospherejs.com/brentjanderson/buzz
+ ☐ use autoprefixer for css code
+   https://atmospherejs.com/flemay/less-autoprefixer
  ☐ browser notification
+ ☐ change user password
 
+ ☐ simple search in chat
  ☐ lazy load old messges (pagination and infinite scroll)
    https://atmospherejs.com/alethes/pages
  ☐ file support, simple uploading
@@ -16,8 +20,6 @@ Low priority:
  ☐ support for searching messages
  ☐ third party services integration (dropbox)
  ☐ add some animation (profile editing)
- ☐ easter egg
-  http://dmauro.github.io/Keypress/
  ☐ private group chat
  ☐ quit creating channel/direct chat
 
