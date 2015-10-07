@@ -53,7 +53,7 @@ Template.title.onRendered ->
 			return if not Meteor.userId()
 
 			text = switch Session.get '__M_S_chatType'
-				when 'channel' then 'Quit this channel'
+				when 'channel' then 'Quit channel'
 				when 'direct' then 'Delete this chat'
 			@$('.ui.button.remove-btn').popup
 				content: text
