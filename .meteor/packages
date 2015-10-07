@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 coffeescript
 fourseven:scss
 msavin:mongol
@@ -20,8 +19,6 @@ dburles:collection-helpers
 matb33:collection-hooks
 copleykj:livestamp
 sdecima:javascript-detect-element-resize
-juliancwirko:s-alert
-juliancwirko:s-alert-scale
 matb33:bootstrap-grid
 semantic:ui-css
 copleykj:jquery-autosize
@@ -29,3 +26,20 @@ mizzao:autocomplete
 keypress:keypress
 markdown
 matteodem:easy-search
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+juliancwirko:s-alert
+juliancwirko:s-alert-scale
+useraccounts:iron-routing
