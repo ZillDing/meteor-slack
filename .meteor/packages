@@ -23,8 +23,6 @@ copleykj:jquery-autosize
 mizzao:autocomplete
 keypress:keypress
 markdown
-matteodem:easy-search
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -41,5 +39,8 @@ check
 juliancwirko:s-alert
 juliancwirko:s-alert-scale
 useraccounts:iron-routing
-meteortoys:allthings
 brentjanderson:buzz
+standard-minifier-css
+standard-minifier-js
+easy:search
+msavin:mongol
