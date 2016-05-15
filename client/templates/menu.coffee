@@ -96,13 +96,8 @@ Template.menu_addNewDirectChatItem.events
 		false
 
 Template.menu_addNewDirectChatItem.helpers
-	users: ->
-		Meteor.users.find
-			_id:
-				$ne: Meteor.userId()
-		,
-			sort:
-				username: 1
+	usersIndex: ->
+		UsersIndex
 
 Template.menu_addNewDirectChatItem.onRendered ->
 	@$('input').focus()

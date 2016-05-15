@@ -143,14 +143,11 @@ Notifications.helpers _notificationHelpers
 ################################################################################
 # EasySearch
 ################################################################################
-EasySearch.createSearchIndex 'users',
-	field: 'username'
+@UsersIndex = new EasySearch.Index
 	collection: Meteor.users
-	query: (searchString, opts) ->
-		# default query
-		query = EasySearch.getSearcher(@use).defaultQuery @, searchString
-		# filter current user
-		query.$and = [_id: $ne: Meteor.userId()]
-		query
-	sort: ->
-		username: 1
+	fields: ['username']
+	engine: new EasySearch.Minimongo
+		selector: (searchObject, options, aggregation) ->
+			selector = this.defaultConfiguration().selector searchObject, options, aggregation
+			selector.$and = [_id: $ne: Meteor.userId()]
+			selector
